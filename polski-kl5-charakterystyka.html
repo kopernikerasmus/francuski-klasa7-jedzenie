@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pisanie charakterystyki – klasa 5</title>
+<style>
+:root{
+  --bg:#f4f7fb;--card:#fff;--ink:#1f2937;--muted:#667085;
+  --accent:#3156a3;--accent2:#eaf0fb;--ok:#1f7a4c;--bad:#b42318;
+  --warn:#8a5a00;--violet:#6b46a2
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#28467f,#5f7fc1);color:#fff;padding:26px 20px}
+header h1{margin:0 0 6px;font-size:clamp(1.8rem,4vw,2.7rem)}
+header p{margin:0;max-width:900px}
+.wrap{max-width:1100px;margin:auto;padding:18px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+button.alt{background:#e7ebf2;color:#24324a}
+button.active{background:#203d78}
+.card{background:var(--card);padding:18px;margin:14px 0;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+h2{color:#233f79;margin-top:0}
+.sec{display:none}.sec.active{display:block}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #c9d2e3;padding:8px;vertical-align:top}
+th{background:#eef3fb;text-align:left}
+.tip{background:#fff8db;border-left:5px solid #d9a400}
+.support{background:#edf8f1;border-left:5px solid #2a8a57}
+.challenge{background:#f5efff;border-left:5px solid var(--violet)}
+.quiz{border:1px solid #d6deeb;padding:12px;border-radius:10px;margin:10px 0}
+textarea,input[type=text],select{width:100%;padding:10px;border:1px solid #b7c0d0;border-radius:8px;font:inherit}
+textarea{min-height:95px;resize:vertical}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+.pill{display:inline-block;background:var(--accent2);padding:5px 9px;margin:3px;border-radius:999px}
+.timer{font-size:1.6rem;font-weight:700}
+.drag li{background:#eef3fb;border:1px solid #c5d2ea;padding:10px;margin:7px 0;border-radius:8px;cursor:grab}
+@media print{nav,button{display:none!important}.sec{display:block!important}.card{box-shadow:none;border:1px solid #bbb}body{background:#fff}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pisanie charakterystyki</h1>
+  <p>Język polski, klasa 5 — interaktywna lekcja 45-minutowa łącząca cele, działania i ocenę.</p>
+</header>
+
+<div class="wrap">
+<nav>
+  <button class="tab active" data-id="plan">Plan lekcji</button>
+  <button class="tab" data-id="struktura">Struktura</button>
+  <button class="tab" data-id="slownictwo">Słownictwo</button>
+  <button class="tab" data-id="pisanie">Pisanie etapami</button>
+  <button class="tab" data-id="quiz">Quiz</button>
+  <button class="tab" data-id="ocena">Ocena</button>
+</nav>
+
+<section id="plan" class="sec active">
+<div class="card">
+  <h2>Cel i kryteria sukcesu</h2>
+  <p><b>Cel lekcji:</b> uczeń tworzy charakterystykę postaci, opisuje jej wygląd, cechy i zachowanie oraz uzasadnia cechy przykładami.</p>
+  <label><input type="checkbox"> Przedstawiam postać.</label><br>
+  <label><input type="checkbox"> Opisuję wygląd.</label><br>
+  <label><input type="checkbox"> Nazywam cechy charakteru.</label><br>
+  <label><input type="checkbox"> Uzasadniam cechy przykładami.</label><br>
+  <label><input type="checkbox"> Kończę własną oceną postaci.</label>
+</div>
+
+<div class="card">
+  <h2>Harmonogram 45 minut</h2>
+  <table>
+    <tr><th>Czas</th><th>Etap</th><th>Działania uczniów</th><th>Podpowiedź nauczyciela</th><th>Ocena</th></tr>
+    <tr><td>0–5 min</td><td>Rozgrzewka</td><td>Wymieniają słowa opisujące osobę.</td><td>„Jakimi słowami możemy opisać czyjś wygląd, a jakimi charakter?”</td><td>Odpowiedzi ustne</td></tr>
+    <tr><td>5–12 min</td><td>Model struktury</td><td>Porządkują części charakterystyki.</td><td>„Najpierw przedstawiamy postać, potem ją opisujemy i oceniamy.”</td><td>Ćwiczenie interaktywne</td></tr>
+    <tr><td>12–18 min</td><td>Słownictwo</td><td>Dobierają cechy do zachowań.</td><td>„Nie wystarczy napisać: miły. Trzeba pokazać, po czym to poznajemy.”</td><td>Szybkie sprawdzenie</td></tr>
+    <tr><td>18–35 min</td><td>Pisanie etapami</td><td>Tworzą charakterystykę krok po kroku.</td><td>„Kończymy jeden fragment i dopiero przechodzimy dalej.”</td><td>Obserwacja pracy</td></tr>
+    <tr><td>35–42 min</td><td>Ocena koleżeńska</td><td>Sprawdzają pracę według kryteriów.</td><td>„Najpierw wskaż mocną stronę, potem jedną rzecz do poprawy.”</td><td>Lista kontrolna</td></tr>
+    <tr><td>42–45 min</td><td>Podsumowanie</td><td>Wypełniają samoocenę i exit ticket.</td><td>„Który element charakterystyki potrafisz już napisać samodzielnie?”</td><td>Samoocena</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Minutnik</h2>
+  <div id="timer" class="timer">05:00</div>
+  <button onclick="startT()">Start</button>
+  <button class="alt" onclick="pauseT()">Pauza</button>
+  <button class="alt" onclick="resetT(5)">5 min</button>
+  <button class="alt" onclick="resetT(7)">7 min</button>
+  <button class="alt" onclick="resetT(17)">17 min</button>
+</div>
+
+<div class="card tip">
+  <b>Dla nauczyciela zastępującego:</b> prowadź lekcję zakładka po zakładce. Wszystkie polecenia i zdania do odczytania są już przygotowane. Nie są potrzebne dodatkowe materiały.
+</div>
+</section>
+
+<section id="struktura" class="sec">
+<div class="card">
+  <h2>Budowa charakterystyki</h2>
+  <p>Przeciągnij elementy, aby ustawić właściwą kolejność.</p>
+  <ul id="drag" class="drag">
+    <li draggable="true" data-k="cechy">Cechy charakteru z przykładami</li>
+    <li draggable="true" data-k="ocena">Własna ocena postaci</li>
+    <li draggable="true" data-k="przedstawienie">Przedstawienie postaci</li>
+    <li draggable="true" data-k="wyglad">Opis wyglądu</li>
+  </ul>
+  <button onclick="checkOrder()">Sprawdź kolejność</button>
+  <p id="orderF"></p>
+</div>
+
+<div class="grid">
+  <div class="card"><h3>1. Przedstawienie</h3><p>Kim jest postać? Skąd ją znamy?</p></div>
+  <div class="card"><h3>2. Wygląd</h3><p>Jak wygląda? Jak się ubiera?</p></div>
+  <div class="card"><h3>3. Cechy i zachowanie</h3><p>Jaka jest? Co zrobiła, że tak ją oceniamy?</p></div>
+  <div class="card"><h3>4. Ocena</h3><p>Co o niej sądzę? Czy ją lubię lub podziwiam?</p></div>
+</div>
+</section>
+
+<section id="slownictwo" class="sec">
+<div class="card">
+  <h2>Bank słownictwa</h2>
+  <p><b>Wygląd:</b></p>
+  <span class="pill">wysoki</span><span class="pill">niski</span><span class="pill">szczupły</span>
+  <span class="pill">kręcone włosy</span><span class="pill">ciemne oczy</span><span class="pill">schludny strój</span>
+  <p><b>Cechy charakteru:</b></p>
+  <span class="pill">odważny</span><span class="pill">życzliwy</span><span class="pill">pomysłowy</span>
+  <span class="pill">uczciwy</span><span class="pill">uparty</span><span class="pill">nieodpowiedzialny</span>
+  <p><b>Zwroty uzasadniające:</b></p>
+  <span class="pill">świadczy o tym...</span><span class="pill">potwierdza to sytuacja...</span>
+  <span class="pill">można to zauważyć, gdy...</span><span class="pill">dlatego uważam, że...</span>
+</div>
+
+<div class="card">
+  <h2>Dopasuj cechę do zachowania</h2>
+  <div class="quiz">
+    <p>Postać pomaga słabszemu koledze, mimo że sama może mieć kłopoty.</p>
+    <select id="s1">
+      <option value="">— wybierz —</option>
+      <option value="a">życzliwa</option>
+      <option value="b">leniwa</option>
+      <option value="c">zarozumiała</option>
+    </select>
+  </div>
+  <div class="quiz">
+    <p>Postać nie poddaje się mimo wielu niepowodzeń.</p>
+    <select id="s2">
+      <option value="">— wybierz —</option>
+      <option value="a">niecierpliwa</option>
+      <option value="b">wytrwała</option>
+      <option value="c">obojętna</option>
+    </select>
+  </div>
+  <button onclick="checkS()">Sprawdź</button>
+  <p id="sf"></p>
+</div>
+</section>
+
+<section id="pisanie" class="sec">
+<div class="card">
+  <h2>Temat pracy</h2>
+  <p><b>Napisz charakterystykę wybranej postaci literackiej.</b></p>
+</div>
+
+<div class="card support">
+  <h3>Zdania początkowe dla uczniów potrzebujących wsparcia</h3>
+  <ul>
+    <li>Postacią, którą chcę scharakteryzować, jest...</li>
+    <li>Poznaliśmy ją w utworze...</li>
+    <li>Bohater/bohaterka ma...</li>
+    <li>Jedną z jego/jej najważniejszych cech jest...</li>
+    <li>Świadczy o tym sytuacja, w której...</li>
+    <li>Moim zdaniem ta postać...</li>
+  </ul>
+</div>
+
+<div class="card"><h3>Krok 1. Przedstaw postać</h3><textarea id="p1" placeholder="Kim jest? Z jakiego utworu pochodzi?"></textarea></div>
+<div class="card"><h3>Krok 2. Opisz wygląd</h3><textarea id="p2" placeholder="Napisz 2–3 zdania o wyglądzie i ubiorze."></textarea></div>
+<div class="card"><h3>Krok 3. Cecha pierwsza</h3><textarea id="p3" placeholder="Nazwij cechę i uzasadnij ją przykładem."></textarea></div>
+<div class="card"><h3>Krok 4. Cecha druga</h3><textarea id="p4" placeholder="Nazwij drugą cechę i uzasadnij ją przykładem."></textarea></div>
+<div class="card"><h3>Krok 5. Własna ocena</h3><textarea id="p5" placeholder="Napisz, co sądzisz o tej postaci i dlaczego."></textarea></div>
+
+<div class="card challenge">
+  <b>Dla uczniów pracujących szybciej:</b> dodaj trzecią cechę albo pokaż, że postać zmieniła się w czasie wydarzeń.
+</div>
+
+<div class="card">
+  <button onclick="build()">Połącz części</button>
+  <button class="alt" onclick="save()">Zapisz</button>
+  <button class="alt" onclick="load()">Wczytaj</button>
+  <h3>Gotowy szkic charakterystyki</h3>
+  <textarea id="full" style="min-height:230px"></textarea>
+</div>
+</section>
+
+<section id="quiz" class="sec">
+<div class="card">
+  <h2>Quiz podsumowujący</h2>
+  <div class="quiz"><p>1. Co powinno znaleźć się na początku charakterystyki?</p>
+    <label><input type="radio" name="q1" value="a"> Przedstawienie postaci</label><br>
+    <label><input type="radio" name="q1" value="b"> Tylko własna ocena</label>
+  </div>
+  <div class="quiz"><p>2. Jak najlepiej uzasadnić cechę bohatera?</p>
+    <label><input type="radio" name="q2" value="a"> Podać wydarzenie lub zachowanie</label><br>
+    <label><input type="radio" name="q2" value="b"> Powtórzyć tę samą cechę</label>
+  </div>
+  <div class="quiz"><p>3. Które zdanie zawiera cechę z uzasadnieniem?</p>
+    <label><input type="radio" name="q3" value="a"> Bohater był odważny, ponieważ stanął w obronie kolegi.</label><br>
+    <label><input type="radio" name="q3" value="b"> Bohater był odważny i odważny.</label>
+  </div>
+  <div class="quiz"><p>4. Co powinno znaleźć się w zakończeniu?</p>
+    <label><input type="radio" name="q4" value="a"> Własna ocena postaci</label><br>
+    <label><input type="radio" name="q4" value="b"> Nowy opis wyglądu</label>
+  </div>
+  <button onclick="checkQ()">Sprawdź wynik</button>
+  <p id="qf"></p>
+</div>
+</section>
+
+<section id="ocena" class="sec">
+<div class="card">
+  <h2>Ocena koleżeńska</h2>
+  <label><input type="checkbox"> Postać została przedstawiona.</label><br>
+  <label><input type="checkbox"> Opisano wygląd.</label><br>
+  <label><input type="checkbox"> Podano co najmniej dwie cechy.</label><br>
+  <label><input type="checkbox"> Każdą cechę uzasadniono przykładem.</label><br>
+  <label><input type="checkbox"> Tekst kończy się własną oceną.</label>
+  <p><b>Mocna strona:</b></p><input type="text" placeholder="Napisz jedną konkretną pochwałę.">
+  <p><b>Jedna rzecz do poprawy:</b></p><input type="text" placeholder="Napisz jedną konkretną wskazówkę.">
+</div>
+
+<div class="card">
+  <h2>Samoocena</h2>
+  <label><input type="radio" name="self"> Potrzebuję jeszcze pomocy.</label><br>
+  <label><input type="radio" name="self"> Potrafię napisać charakterystykę z podpowiedziami.</label><br>
+  <label><input type="radio" name="self"> Potrafię napisać charakterystykę samodzielnie.</label>
+  <p><b>Exit ticket:</b></p>
+  <input type="text" placeholder="Dzisiaj nauczyłem/am się, że...">
+</div>
+
+<div class="card">
+  <h2>Wskazówka dla nauczyciela</h2>
+  <p>Oceniaj przede wszystkim kompletność struktury, trafność słownictwa, konkretne przykłady uzasadniające cechy oraz spójność wypowiedzi.</p>
+  <button class="alt" onclick="window.print()">Drukuj / zapisz jako PDF</button>
+</div>
+</section>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');document.getElementById(b.dataset.id).classList.add('active')
+});
+
+let sec=300,id=null;
+function showT(){timer.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function startT(){if(id)return;id=setInterval(()=>{if(sec>0){sec--;showT()}else{pauseT();alert('Czas minął.')}},1000)}
+function pauseT(){clearInterval(id);id=null}
+function resetT(m){pauseT();sec=m*60;showT()}
+
+let dragged=null;
+document.querySelectorAll('#drag li').forEach(li=>{
+  li.ondragstart=()=>dragged=li;
+  li.ondragover=e=>e.preventDefault();
+  li.ondrop=e=>{
+    e.preventDefault();
+    if(dragged!==li){
+      let p=li.parentNode,a=[...p.children];
+      a.indexOf(dragged)<a.indexOf(li)?p.insertBefore(dragged,li.nextSibling):p.insertBefore(dragged,li)
+    }
+  }
+});
+function checkOrder(){
+  let ok=[...document.querySelectorAll('#drag li')].map(x=>x.dataset.k).join(',')==='przedstawienie,wyglad,cechy,ocena';
+  orderF.textContent=ok?'Dobrze. Kolejność jest poprawna.':'Spróbuj ponownie: przedstawienie, wygląd, cechy, ocena.';
+  orderF.className=ok?'ok':'bad'
+}
+
+function checkS(){
+  let s=(s1.value==='a')+(s2.value==='b');
+  sf.textContent='Wynik: '+s+'/2';
+  sf.className=s===2?'ok':'bad'
+}
+
+function build(){
+  full.value=['p1','p2','p3','p4','p5'].map(i=>document.getElementById(i).value.trim()).filter(Boolean).join('\n\n')
+}
+function save(){
+  ['p1','p2','p3','p4','p5','full'].forEach(i=>localStorage.setItem('char_'+i,document.getElementById(i).value));
+  alert('Zapisano w tej przeglądarce.')
+}
+function load(){
+  ['p1','p2','p3','p4','p5','full'].forEach(i=>{
+    let v=localStorage.getItem('char_'+i);
+    if(v!==null)document.getElementById(i).value=v
+  })
+}
+function val(n){let x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+function checkQ(){
+  let a={q1:'a',q2:'a',q3:'a',q4:'a'},s=0;
+  Object.keys(a).forEach(k=>{if(val(k)===a[k])s++});
+  qf.textContent='Wynik: '+s+'/4. '+(s===4?'Rozumiesz strukturę charakterystyki.':'Wróć do zakładek „Struktura” i „Słownictwo”.');
+  qf.className=s>=3?'ok':'bad'
+}
+showT();
+</script>
+</body>
+</html>

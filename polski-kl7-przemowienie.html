@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pisanie przemówienia – klasa 7</title>
+<style>
+:root{
+  --bg:#f4f7fb; --card:#ffffff; --ink:#1f2937; --muted:#5f6b7a;
+  --accent:#3156a3; --accent2:#e7eefc; --ok:#1f7a4c; --bad:#b42318; --warn:#8a5a00;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#294b91,#5877bd);color:#fff;padding:24px}
+header h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.6rem)}
+header p{margin:0;max-width:900px}
+.container{max-width:1100px;margin:auto;padding:18px}
+.card{background:var(--card);border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+h2{color:#233f79;margin-top:0}
+h3{margin-bottom:8px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#fff;cursor:pointer;font-weight:700}
+button.secondary{background:#e9edf5;color:#24324a}
+button.good{background:var(--ok)}
+button.warn{background:#8a5a00}
+button:focus,input:focus,textarea:focus,select:focus{outline:3px solid #9bb7ff;outline-offset:2px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+nav button.active{background:#173a7a}
+.section{display:none}.section.active{display:block}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #c9d2e3;padding:9px;vertical-align:top}
+th{background:#eef3fb;text-align:left}
+.tip{background:#fff8db;border-left:5px solid #d9a400;padding:12px;border-radius:8px}
+.support{background:#edf8f1;border-left:5px solid #2a8a57;padding:12px;border-radius:8px}
+.challenge{background:#f5efff;border-left:5px solid #6c46a2;padding:12px;border-radius:8px}
+textarea,input[type=text]{width:100%;padding:10px;border:1px solid #b7c0d0;border-radius:8px;font:inherit}
+textarea{min-height:100px;resize:vertical}
+.progress{height:12px;background:#e5eaf2;border-radius:99px;overflow:hidden}
+.progress > div{height:100%;background:var(--accent);width:0}
+.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--accent2);margin:3px;font-size:.92rem}
+.quiz-item{padding:12px;border:1px solid #d7deea;border-radius:10px;margin:10px 0}
+.feedback{font-weight:700;margin-top:8px}
+.ok{color:var(--ok)} .bad{color:var(--bad)}
+.drag-list{list-style:none;padding:0}
+.drag-list li{background:#eef3fb;border:1px solid #c5d2ea;padding:10px;margin:7px 0;border-radius:8px;cursor:grab}
+.small{font-size:.92rem;color:var(--muted)}
+.timer{font-size:1.5rem;font-weight:700}
+footer{text-align:center;color:#667085;padding:24px}
+@media print{
+  nav,button,.timer-controls{display:none!important}
+  .section{display:block!important}
+  body{background:#fff}
+  .card{box-shadow:none;border:1px solid #bbb}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pisanie przemówienia</h1>
+  <p>Język polski, klasa 7 — interaktywna lekcja 60-minutowa łącząca cele, ćwiczenia i ocenę.</p>
+</header>
+
+<div class="container">
+  <nav aria-label="Nawigacja lekcji">
+    <button class="tab active" data-target="plan">Plan lekcji</button>
+    <button class="tab" data-target="struktura">Struktura</button>
+    <button class="tab" data-target="slownictwo">Słownictwo</button>
+    <button class="tab" data-target="pisanie">Pisanie etapami</button>
+    <button class="tab" data-target="quiz">Quiz</button>
+    <button class="tab" data-target="ocena">Ocena</button>
+  </nav>
+
+  <section id="plan" class="section active">
+    <div class="card">
+      <h2>Cel i kryteria sukcesu</h2>
+      <div class="grid">
+        <div>
+          <h3>Cel lekcji</h3>
+          <p>Uczeń tworzy przemówienie o wyraźnej strukturze i świadomie dobiera słownictwo perswazyjne.</p>
+        </div>
+        <div>
+          <h3>Po lekcji potrafię</h3>
+          <label><input type="checkbox"> zastosować zwrot do odbiorców;</label><br>
+          <label><input type="checkbox"> sformułować tezę;</label><br>
+          <label><input type="checkbox"> podać co najmniej dwa argumenty;</label><br>
+          <label><input type="checkbox"> zakończyć tekst apelem.</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Harmonogram 60 minut</h2>
+      <table>
+        <tr><th>Czas</th><th>Etap</th><th>Działanie uczniów</th><th>Zdanie nauczyciela</th></tr>
+        <tr><td>0–5 min</td><td>Otwarcie</td><td>Odpowiadają, czym jest przemówienie.</td><td>„Po czym poznajemy, że ktoś chce nas do czegoś przekonać?”</td></tr>
+        <tr><td>5–15 min</td><td>Model struktury</td><td>Porządkują części przemówienia.</td><td>„Każda część tekstu ma inne zadanie.”</td></tr>
+        <tr><td>15–25 min</td><td>Słownictwo</td><td>Rozpoznają zwroty perswazyjne.</td><td>„Jak przekonać odbiorcę, zachowując szacunek?”</td></tr>
+        <tr><td>25–45 min</td><td>Pisanie etapami</td><td>Tworzą przemówienie krok po kroku.</td><td>„Nie piszemy wszystkiego naraz. Kończymy jeden etap i przechodzimy dalej.”</td></tr>
+        <tr><td>45–55 min</td><td>Ocena koleżeńska</td><td>Sprawdzają pracę według kryteriów.</td><td>„Najpierw wskaż mocną stronę, potem jedną rzecz do poprawy.”</td></tr>
+        <tr><td>55–60 min</td><td>Podsumowanie</td><td>Wypełniają samoocenę.</td><td>„Który element przemówienia potrafisz już zastosować samodzielnie?”</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Minutnik lekcyjny</h2>
+      <div class="timer" id="timer">05:00</div>
+      <div class="timer-controls">
+        <button onclick="startTimer()">Start</button>
+        <button class="secondary" onclick="pauseTimer()">Pauza</button>
+        <button class="secondary" onclick="resetTimer(5)">5 min</button>
+        <button class="secondary" onclick="resetTimer(10)">10 min</button>
+        <button class="secondary" onclick="resetTimer(20)">20 min</button>
+      </div>
+    </div>
+
+    <div class="card tip">
+      <strong>Dla nauczyciela zastępującego:</strong> nie trzeba wcześniej znać tematu. Wystarczy prowadzić uczniów zakładka po zakładce i odczytywać gotowe komunikaty.
+    </div>
+  </section>
+
+  <section id="struktura" class="section">
+    <div class="card">
+      <h2>Budowa przemówienia</h2>
+      <p>Przeciągnij elementy, aby ustawić prawidłową kolejność.</p>
+      <ul id="dragList" class="drag-list">
+        <li draggable="true" data-key="argumenty">Argumenty</li>
+        <li draggable="true" data-key="zwrot">Zwrot do odbiorców</li>
+        <li draggable="true" data-key="zakonczenie">Zakończenie i apel</li>
+        <li draggable="true" data-key="wstep">Wstęp i teza</li>
+      </ul>
+      <button onclick="checkOrder()">Sprawdź kolejność</button>
+      <p id="orderFeedback" class="feedback"></p>
+    </div>
+
+    <div class="grid">
+      <div class="card"><h3>1. Zwrot do odbiorców</h3><p>np. „Drodzy Uczniowie”, „Szanowni Państwo”.</p></div>
+      <div class="card"><h3>2. Wstęp i teza</h3><p>Wyjaśnij temat i przedstaw swoje stanowisko.</p></div>
+      <div class="card"><h3>3. Argumenty</h3><p>Podaj powody, przykłady i wyjaśnienia.</p></div>
+      <div class="card"><h3>4. Zakończenie</h3><p>Podsumuj i sformułuj apel.</p></div>
+    </div>
+  </section>
+
+  <section id="slownictwo" class="section">
+    <div class="card">
+      <h2>Bank słownictwa perswazyjnego</h2>
+      <p>
+        <span class="pill">uważam, że</span>
+        <span class="pill">warto zauważyć</span>
+        <span class="pill">po pierwsze</span>
+        <span class="pill">kolejnym argumentem jest</span>
+        <span class="pill">wyobraźcie sobie</span>
+        <span class="pill">czy możemy pozostać obojętni?</span>
+        <span class="pill">dlatego apeluję</span>
+        <span class="pill">zwracam się do Was z prośbą</span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Wybierz właściwy zwrot</h2>
+      <div class="quiz-item">
+        <p><strong>Które zdanie najlepiej przedstawia tezę?</strong></p>
+        <select id="vocab1">
+          <option value="">— wybierz —</option>
+          <option value="a">Drodzy Koledzy i Koleżanki!</option>
+          <option value="b">Uważam, że każdy uczeń powinien przeczytać przynajmniej jedną książkę miesięcznie.</option>
+          <option value="c">Dziękuję za uwagę.</option>
+        </select>
+      </div>
+      <div class="quiz-item">
+        <p><strong>Które zdanie jest apelem?</strong></p>
+        <select id="vocab2">
+          <option value="">— wybierz —</option>
+          <option value="a">Na początek przedstawię pierwszy argument.</option>
+          <option value="b">Czytanie rozwija wyobraźnię.</option>
+          <option value="c">Zachęcam Was, abyście już dziś sięgnęli po wybraną książkę.</option>
+        </select>
+      </div>
+      <button onclick="checkVocab()">Sprawdź</button>
+      <p id="vocabFeedback" class="feedback"></p>
+    </div>
+  </section>
+
+  <section id="pisanie" class="section">
+    <div class="card">
+      <h2>Temat pracy</h2>
+      <p><strong>Napisz przemówienie, w którym przekonasz koleżanki i kolegów, że warto dbać o kulturę języka.</strong></p>
+      <div class="support">
+        <strong>Zdania początkowe:</strong>
+        <ul>
+          <li>Drodzy Koledzy i Koleżanki...</li>
+          <li>Chciałbym przekonać Was, że...</li>
+          <li>Moim pierwszym argumentem jest...</li>
+          <li>Kolejnym powodem jest...</li>
+          <li>Na zakończenie apeluję do Was, aby...</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Krok 1. Zwrot do odbiorców</h2>
+      <textarea id="step1" placeholder="Np. Drodzy Koledzy i Koleżanki..."></textarea>
+    </div>
+    <div class="card">
+      <h2>Krok 2. Wstęp i teza</h2>
+      <textarea id="step2" placeholder="Wyjaśnij, o czym będziesz mówić i przedstaw swoje stanowisko."></textarea>
+    </div>
+    <div class="card">
+      <h2>Krok 3. Argument pierwszy</h2>
+      <textarea id="step3" placeholder="Podaj argument i krótko go wyjaśnij."></textarea>
+    </div>
+    <div class="card">
+      <h2>Krok 4. Argument drugi</h2>
+      <textarea id="step4" placeholder="Podaj drugi argument i przykład."></textarea>
+    </div>
+    <div class="card">
+      <h2>Krok 5. Zakończenie i apel</h2>
+      <textarea id="step5" placeholder="Podsumuj i zaapeluj do odbiorców."></textarea>
+    </div>
+
+    <div class="card challenge">
+      <strong>Dla uczniów pracujących szybciej:</strong> dodaj pytanie retoryczne, powtórzenie lub krótkie wykrzyknienie.
+    </div>
+
+    <div class="card">
+      <button onclick="buildSpeech()">Połącz moje części</button>
+      <button class="secondary" onclick="saveWork()">Zapisz w przeglądarce</button>
+      <button class="secondary" onclick="loadWork()">Wczytaj zapis</button>
+      <h3>Gotowy szkic przemówienia</h3>
+      <textarea id="fullSpeech" style="min-height:220px"></textarea>
+    </div>
+  </section>
+
+  <section id="quiz" class="section">
+    <div class="card">
+      <h2>Quiz podsumowujący</h2>
+      <div class="quiz-item">
+        <p>1. Co powinno pojawić się na początku przemówienia?</p>
+        <label><input type="radio" name="q1" value="a"> opis miejsca</label><br>
+        <label><input type="radio" name="q1" value="b"> zwrot do odbiorców</label><br>
+        <label><input type="radio" name="q1" value="c"> cytat bibliograficzny</label>
+      </div>
+      <div class="quiz-item">
+        <p>2. Czym jest teza?</p>
+        <label><input type="radio" name="q2" value="a"> stanowiskiem autora</label><br>
+        <label><input type="radio" name="q2" value="b"> tytułem</label><br>
+        <label><input type="radio" name="q2" value="c"> opisem wyglądu</label>
+      </div>
+      <div class="quiz-item">
+        <p>3. Które wyrażenie wprowadza argument?</p>
+        <label><input type="radio" name="q3" value="a"> Dziękuję za uwagę.</label><br>
+        <label><input type="radio" name="q3" value="b"> Po pierwsze...</label><br>
+        <label><input type="radio" name="q3" value="c"> Szanowni Państwo...</label>
+      </div>
+      <div class="quiz-item">
+        <p>4. Co powinno znaleźć się w zakończeniu?</p>
+        <label><input type="radio" name="q4" value="a"> nowy argument</label><br>
+        <label><input type="radio" name="q4" value="b"> apel lub podsumowanie</label><br>
+        <label><input type="radio" name="q4" value="c"> opis bohatera</label>
+      </div>
+      <button onclick="checkQuiz()">Sprawdź wynik</button>
+      <p id="quizFeedback" class="feedback"></p>
+      <div class="progress"><div id="quizBar"></div></div>
+    </div>
+  </section>
+
+  <section id="ocena" class="section">
+    <div class="card">
+      <h2>Ocena koleżeńska</h2>
+      <label><input type="checkbox"> Jest zwrot do odbiorców.</label><br>
+      <label><input type="checkbox"> Teza jest jasna.</label><br>
+      <label><input type="checkbox"> Są co najmniej dwa argumenty.</label><br>
+      <label><input type="checkbox"> Użyto zwrotów perswazyjnych.</label><br>
+      <label><input type="checkbox"> Zakończenie zawiera apel.</label>
+      <p><strong>Mocna strona tekstu:</strong></p>
+      <input type="text" placeholder="Napisz jedną konkretną pochwałę.">
+      <p><strong>Jedna rzecz do poprawy:</strong></p>
+      <input type="text" placeholder="Napisz jedną konkretną wskazówkę.">
+    </div>
+
+    <div class="card">
+      <h2>Samoocena</h2>
+      <p>Wybierz stwierdzenie najlepiej opisujące Twoją pracę:</p>
+      <label><input type="radio" name="self"> Potrzebuję jeszcze pomocy.</label><br>
+      <label><input type="radio" name="self"> Potrafię napisać przemówienie z podpowiedziami.</label><br>
+      <label><input type="radio" name="self"> Potrafię napisać przemówienie samodzielnie.</label>
+    </div>
+
+    <div class="card">
+      <h2>Informacja dla nauczyciela</h2>
+      <p><strong>Ocena formatywna:</strong> wykorzystaj quiz, listę kontrolną i gotowy szkic ucznia. Nie oceniaj tylko końcowego tekstu — zwróć uwagę, czy uczeń przeszedł przez wszystkie etapy.</p>
+      <button class="secondary" onclick="window.print()">Drukuj / zapisz jako PDF</button>
+    </div>
+  </section>
+</div>
+
+<footer>Materiał działa offline w zwykłej przeglądarce. Odpowiedzi ucznia pozostają na urządzeniu.</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.target).classList.add('active');
+}));
+
+let seconds=300, timerId=null;
+function renderTimer(){
+  const m=String(Math.floor(seconds/60)).padStart(2,'0');
+  const s=String(seconds%60).padStart(2,'0');
+  document.getElementById('timer').textContent=m+':'+s;
+}
+function startTimer(){
+  if(timerId) return;
+  timerId=setInterval(()=>{
+    if(seconds>0){seconds--;renderTimer();}
+    else{pauseTimer();alert('Czas minął.');}
+  },1000);
+}
+function pauseTimer(){clearInterval(timerId);timerId=null;}
+function resetTimer(min){pauseTimer();seconds=min*60;renderTimer();}
+
+let dragged=null;
+document.querySelectorAll('#dragList li').forEach(li=>{
+  li.addEventListener('dragstart',()=>dragged=li);
+  li.addEventListener('dragover',e=>e.preventDefault());
+  li.addEventListener('drop',e=>{
+    e.preventDefault();
+    if(dragged!==li){
+      const list=li.parentNode;
+      const items=[...list.children];
+      if(items.indexOf(dragged)<items.indexOf(li)) list.insertBefore(dragged,li.nextSibling);
+      else list.insertBefore(dragged,li);
+    }
+  });
+});
+function checkOrder(){
+  const order=[...document.querySelectorAll('#dragList li')].map(x=>x.dataset.key).join(',');
+  const ok=order==='zwrot,wstep,argumenty,zakonczenie';
+  const el=document.getElementById('orderFeedback');
+  el.textContent=ok?'Dobrze. To prawidłowa kolejność.':'Jeszcze nie. Zacznij od zwrotu do odbiorców, a zakończ apelem.';
+  el.className='feedback '+(ok?'ok':'bad');
+}
+
+function checkVocab(){
+  const ok1=document.getElementById('vocab1').value==='b';
+  const ok2=document.getElementById('vocab2').value==='c';
+  const el=document.getElementById('vocabFeedback');
+  const score=(ok1?1:0)+(ok2?1:0);
+  el.textContent='Wynik: '+score+'/2. '+(score===2?'Obie odpowiedzi są poprawne.':'Sprawdź, czy rozróżniasz tezę i apel.');
+  el.className='feedback '+(score===2?'ok':'bad');
+}
+
+function buildSpeech(){
+  const ids=['step1','step2','step3','step4','step5'];
+  document.getElementById('fullSpeech').value=ids.map(id=>document.getElementById(id).value.trim()).filter(Boolean).join('\\n\\n');
+}
+function saveWork(){
+  ['step1','step2','step3','step4','step5','fullSpeech'].forEach(id=>localStorage.setItem(id,document.getElementById(id).value));
+  alert('Praca została zapisana w tej przeglądarce.');
+}
+function loadWork(){
+  ['step1','step2','step3','step4','step5','fullSpeech'].forEach(id=>{
+    const v=localStorage.getItem(id); if(v!==null) document.getElementById(id).value=v;
+  });
+}
+function val(name){
+  const x=document.querySelector('input[name="'+name+'"]:checked');
+  return x?x.value:'';
+}
+function checkQuiz(){
+  const ans={q1:'b',q2:'a',q3:'b',q4:'b'};
+  let score=0;
+  Object.keys(ans).forEach(q=>{if(val(q)===ans[q]) score++;});
+  const el=document.getElementById('quizFeedback');
+  el.textContent='Wynik: '+score+'/4. '+(score===4?'Bardzo dobrze — rozumiesz strukturę przemówienia.':'Wróć do zakładek „Struktura” i „Słownictwo”.');
+  el.className='feedback '+(score>=3?'ok':'bad');
+  document.getElementById('quizBar').style.width=(score/4*100)+'%';
+}
+renderTimer();
+</script>
+</body>
+</html>

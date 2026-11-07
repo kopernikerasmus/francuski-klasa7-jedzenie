@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pisanie rozprawki – klasa 7</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f7fb;color:#1f2937;line-height:1.5}
+header{background:#3156a3;color:white;padding:24px}.wrap{max-width:1050px;margin:auto;padding:18px}
+.card{background:white;padding:18px;margin:14px 0;border-radius:14px;box-shadow:0 4px 14px #0001}
+nav{display:flex;gap:8px;flex-wrap:wrap}button{padding:10px 14px;border:0;border-radius:9px;background:#3156a3;color:white;font-weight:700;cursor:pointer}
+button.alt{background:#e7ebf2;color:#24324a}.tab.active{background:#203d78}.sec{display:none}.sec.active{display:block}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #c9d2e3;padding:8px;vertical-align:top}th{background:#eef3fb}
+textarea,input[type=text],select{width:100%;padding:10px;border:1px solid #b7c0d0;border-radius:8px;font:inherit;box-sizing:border-box}
+textarea{min-height:95px}.support{background:#edf8f1;border-left:5px solid #2a8a57}.tip{background:#fff8db;border-left:5px solid #d9a400}
+.challenge{background:#f5efff;border-left:5px solid #6b46a2}.pill{display:inline-block;background:#eaf0fb;padding:5px 9px;margin:3px;border-radius:999px}
+.quiz{border:1px solid #d6deeb;padding:12px;border-radius:10px;margin:10px 0}.ok{color:#1f7a4c;font-weight:700}.bad{color:#b42318;font-weight:700}
+.drag li{background:#eef3fb;border:1px solid #c5d2ea;padding:10px;margin:7px 0;border-radius:8px;cursor:grab}.timer{font-size:1.6rem;font-weight:700}
+@media print{nav,button{display:none!important}.sec{display:block!important}.card{box-shadow:none;border:1px solid #bbb}body{background:white}}
+</style>
+</head>
+<body>
+<header><h1>Pisanie rozprawki</h1><p>Język polski, klasa 7 — interaktywna lekcja 45-minutowa.</p></header>
+<div class="wrap">
+<nav>
+<button class="tab active" data-id="plan">Plan</button><button class="tab" data-id="str">Struktura</button>
+<button class="tab" data-id="slow">Słownictwo</button><button class="tab" data-id="pisz">Pisanie</button>
+<button class="tab" data-id="quiz">Quiz</button><button class="tab" data-id="ocena">Ocena</button>
+</nav>
+
+<section id="plan" class="sec active">
+<div class="card"><h2>Cel i kryteria sukcesu</h2>
+<p><b>Cel:</b> uczeń tworzy rozprawkę o jasnej strukturze, formułuje tezę, dobiera argumenty i stosuje słownictwo porządkujące wypowiedź.</p>
+<label><input type="checkbox"> Formułuję tezę.</label><br>
+<label><input type="checkbox"> Podaję co najmniej dwa argumenty.</label><br>
+<label><input type="checkbox"> Popieram argumenty przykładami.</label><br>
+<label><input type="checkbox"> Piszę zakończenie zgodne z tezą.</label></div>
+<div class="card"><h2>Harmonogram 45 minut</h2>
+<table><tr><th>Czas</th><th>Etap</th><th>Działanie</th><th>Zdanie nauczyciela</th><th>Ocena</th></tr>
+<tr><td>0–5</td><td>Wprowadzenie</td><td>Rozróżnianie opinii i argumentu.</td><td>„Opinia mówi, co myślisz. Argument wyjaśnia, dlaczego.”</td><td>Odpowiedzi ustne</td></tr>
+<tr><td>5–12</td><td>Model</td><td>Porządkowanie części rozprawki.</td><td>„Najpierw stanowisko, potem dowody, na końcu wniosek.”</td><td>Ćwiczenie interaktywne</td></tr>
+<tr><td>12–18</td><td>Słownictwo</td><td>Dobór zwrotów do części tekstu.</td><td>„Zwroty porządkują tok rozumowania.”</td><td>Szybkie sprawdzenie</td></tr>
+<tr><td>18–35</td><td>Pisanie</td><td>Teza, argumenty, przykłady, wniosek.</td><td>„Kończymy jeden krok i przechodzimy dalej.”</td><td>Obserwacja pracy</td></tr>
+<tr><td>35–42</td><td>Ocena koleżeńska</td><td>Sprawdzenie tekstu z listą kontrolną.</td><td>„Najpierw mocna strona, potem jedna wskazówka.”</td><td>Lista kontrolna</td></tr>
+<tr><td>42–45</td><td>Podsumowanie</td><td>Samoocena i exit ticket.</td><td>„Co potrafisz już zrobić samodzielnie?”</td><td>Samoocena</td></tr></table></div>
+<div class="card"><h2>Minutnik</h2><div id="timer" class="timer">05:00</div>
+<button onclick="startT()">Start</button><button class="alt" onclick="pauseT()">Pauza</button>
+<button class="alt" onclick="resetT(5)">5 min</button><button class="alt" onclick="resetT(7)">7 min</button><button class="alt" onclick="resetT(17)">17 min</button></div>
+<div class="card tip"><b>Dla nauczyciela zastępującego:</b> przechodź kolejno przez zakładki i odczytuj gotowe polecenia. Nie są potrzebne dodatkowe materiały.</div>
+</section>
+
+<section id="str" class="sec">
+<div class="card"><h2>Budowa rozprawki</h2><p>Przeciągnij elementy do właściwej kolejności.</p>
+<ul id="drag" class="drag"><li draggable="true" data-k="arg">Argumenty z przykładami</li><li draggable="true" data-k="kon">Zakończenie i wniosek</li><li draggable="true" data-k="tez">Wstęp i teza</li></ul>
+<button onclick="checkOrder()">Sprawdź</button><p id="orderF"></p></div>
+<div class="card tip">„Argument bez przykładu jest niepełny. Przykład pokazuje, że potrafisz uzasadnić swoje zdanie.”</div>
+</section>
+
+<section id="slow" class="sec">
+<div class="card"><h2>Bank zwrotów</h2>
+<span class="pill">uważam, że</span><span class="pill">moim zdaniem</span><span class="pill">po pierwsze</span>
+<span class="pill">kolejnym argumentem jest</span><span class="pill">potwierdza to przykład</span>
+<span class="pill">warto zauważyć</span><span class="pill">podsumowując</span><span class="pill">można więc stwierdzić</span></div>
+<div class="card"><h2>Dobierz zwrot</h2>
+<div class="quiz"><p>Zwrot wprowadzający argument:</p><select id="v1"><option value="">— wybierz —</option><option value="a">Podsumowując...</option><option value="b">Po pierwsze...</option></select></div>
+<div class="quiz"><p>Zwrot rozpoczynający zakończenie:</p><select id="v2"><option value="">— wybierz —</option><option value="a">Kolejnym argumentem jest...</option><option value="b">Podsumowując...</option></select></div>
+<button onclick="checkV()">Sprawdź</button><p id="vf"></p></div>
+</section>
+
+<section id="pisz" class="sec">
+<div class="card"><h2>Temat: Czy warto czytać książki?</h2></div>
+<div class="card support"><b>Zdania początkowe:</b><ul>
+<li>Uważam, że warto czytać książki, ponieważ...</li><li>Moim pierwszym argumentem jest...</li>
+<li>Potwierdza to przykład...</li><li>Kolejnym argumentem jest...</li><li>Podsumowując, można stwierdzić, że...</li></ul></div>
+<div class="card"><h3>1. Teza</h3><textarea id="s1" placeholder="Jedno zdanie ze stanowiskiem."></textarea></div>
+<div class="card"><h3>2. Argument pierwszy</h3><textarea id="s2"></textarea></div>
+<div class="card"><h3>3. Przykład do argumentu pierwszego</h3><textarea id="s3"></textarea></div>
+<div class="card"><h3>4. Argument drugi</h3><textarea id="s4"></textarea></div>
+<div class="card"><h3>5. Przykład do argumentu drugiego</h3><textarea id="s5"></textarea></div>
+<div class="card"><h3>6. Zakończenie</h3><textarea id="s6"></textarea></div>
+<div class="card challenge"><b>Dla uczniów pracujących szybciej:</b> dodaj kontrargument i wyjaśnij, dlaczego mimo niego podtrzymujesz swoje stanowisko.</div>
+<div class="card"><button onclick="build()">Połącz części</button> <button class="alt" onclick="save()">Zapisz</button> <button class="alt" onclick="load()">Wczytaj</button>
+<h3>Gotowy szkic</h3><textarea id="full" style="min-height:220px"></textarea></div>
+</section>
+
+<section id="quiz" class="sec"><div class="card"><h2>Quiz</h2>
+<div class="quiz"><p>1. Teza to:</p><label><input type="radio" name="q1" value="a"> stanowisko autora</label><br><label><input type="radio" name="q1" value="b"> przykład</label></div>
+<div class="quiz"><p>2. Argument powinien zawierać:</p><label><input type="radio" name="q2" value="a"> tylko opinię</label><br><label><input type="radio" name="q2" value="b"> uzasadnienie i przykład</label></div>
+<div class="quiz"><p>3. Zwrot wprowadzający argument:</p><label><input type="radio" name="q3" value="a"> Po pierwsze...</label><br><label><input type="radio" name="q3" value="b"> Dziękuję za uwagę.</label></div>
+<div class="quiz"><p>4. W zakończeniu należy:</p><label><input type="radio" name="q4" value="a"> podsumować i wrócić do tezy</label><br><label><input type="radio" name="q4" value="b"> wprowadzić nowy temat</label></div>
+<button onclick="checkQ()">Sprawdź wynik</button><p id="qf"></p></div></section>
+
+<section id="ocena" class="sec">
+<div class="card"><h2>Ocena koleżeńska</h2>
+<label><input type="checkbox"> Teza jest jasna.</label><br><label><input type="checkbox"> Są dwa argumenty.</label><br>
+<label><input type="checkbox"> Każdy argument ma przykład.</label><br><label><input type="checkbox"> Użyto zwrotów porządkujących.</label><br>
+<label><input type="checkbox"> Zakończenie jest zgodne z tezą.</label>
+<p><b>Mocna strona:</b></p><input type="text"><p><b>Jedna rzecz do poprawy:</b></p><input type="text"></div>
+<div class="card"><h2>Samoocena</h2>
+<label><input type="radio" name="self"> Potrzebuję pomocy.</label><br><label><input type="radio" name="self"> Potrafię napisać rozprawkę z podpowiedziami.</label><br>
+<label><input type="radio" name="self"> Potrafię napisać rozprawkę samodzielnie.</label><p><b>Exit ticket:</b></p><input type="text" placeholder="Dzisiaj nauczyłem/am się, że..."></div>
+<div class="card"><button class="alt" onclick="window.print()">Drukuj / zapisz jako PDF</button></div></section>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.id).classList.add('active')});
+let sec=300,id=null;function showT(){timer.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function startT(){if(id)return;id=setInterval(()=>{if(sec>0){sec--;showT()}else{pauseT();alert('Czas minął.')}},1000)}function pauseT(){clearInterval(id);id=null}function resetT(m){pauseT();sec=m*60;showT()}
+let dragged=null;document.querySelectorAll('#drag li').forEach(li=>{li.ondragstart=()=>dragged=li;li.ondragover=e=>e.preventDefault();li.ondrop=e=>{e.preventDefault();if(dragged!==li){let p=li.parentNode,a=[...p.children];a.indexOf(dragged)<a.indexOf(li)?p.insertBefore(dragged,li.nextSibling):p.insertBefore(dragged,li)}}});
+function checkOrder(){let ok=[...document.querySelectorAll('#drag li')].map(x=>x.dataset.k).join(',')==='tez,arg,kon';orderF.textContent=ok?'Dobrze.':'Spróbuj: teza, argumenty, zakończenie.';orderF.className=ok?'ok':'bad'}
+function checkV(){let s=(v1.value==='b')+(v2.value==='b');vf.textContent='Wynik: '+s+'/2';vf.className=s===2?'ok':'bad'}
+function build(){full.value=['s1','s2','s3','s4','s5','s6'].map(i=>document.getElementById(i).value.trim()).filter(Boolean).join('\n\n')}
+function save(){['s1','s2','s3','s4','s5','s6','full'].forEach(i=>localStorage.setItem('r_'+i,document.getElementById(i).value));alert('Zapisano w tej przeglądarce.')}
+function load(){['s1','s2','s3','s4','s5','s6','full'].forEach(i=>{let v=localStorage.getItem('r_'+i);if(v!==null)document.getElementById(i).value=v})}
+function val(n){let x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+function checkQ(){let a={q1:'a',q2:'b',q3:'a',q4:'a'},s=0;Object.keys(a).forEach(k=>{if(val(k)===a[k])s++});qf.textContent='Wynik: '+s+'/4';qf.className=s>=3?'ok':'bad'}showT();
+</script>
+</body></html>

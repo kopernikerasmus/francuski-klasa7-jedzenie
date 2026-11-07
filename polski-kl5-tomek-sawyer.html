@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Przygody Tomka Sawyera – klasa 5</title>
+<style>
+:root{
+  --bg:#f4f7fb;--card:#fff;--ink:#1f2937;--muted:#667085;
+  --accent:#3156a3;--accent2:#eaf0fb;--ok:#1f7a4c;--bad:#b42318;
+  --warn:#8a5a00;--violet:#6b46a2
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#28467f,#5f7fc1);color:#fff;padding:26px 20px}
+header h1{margin:0 0 6px;font-size:clamp(1.8rem,4vw,2.7rem)}
+header p{margin:0;max-width:900px}
+.wrap{max-width:1100px;margin:auto;padding:18px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+button.alt{background:#e7ebf2;color:#24324a}
+button.active{background:#203d78}
+.card{background:var(--card);padding:18px;margin:14px 0;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+h2{color:#233f79;margin-top:0}
+.sec{display:none}.sec.active{display:block}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #c9d2e3;padding:8px;vertical-align:top}
+th{background:#eef3fb;text-align:left}
+.tip{background:#fff8db;border-left:5px solid #d9a400}
+.support{background:#edf8f1;border-left:5px solid #2a8a57}
+.challenge{background:#f5efff;border-left:5px solid var(--violet)}
+.quiz{border:1px solid #d6deeb;padding:12px;border-radius:10px;margin:10px 0}
+textarea,input[type=text],select{width:100%;padding:10px;border:1px solid #b7c0d0;border-radius:8px;font:inherit}
+textarea{min-height:95px;resize:vertical}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+.pill{display:inline-block;background:var(--accent2);padding:5px 9px;margin:3px;border-radius:999px}
+.timer{font-size:1.6rem;font-weight:700}
+.drag li{background:#eef3fb;border:1px solid #c5d2ea;padding:10px;margin:7px 0;border-radius:8px;cursor:grab}
+.small{font-size:.92rem;color:var(--muted)}
+@media print{nav,button{display:none!important}.sec{display:block!important}.card{box-shadow:none;border:1px solid #bbb}body{background:#fff}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Czy uważnie przeczytaliśmy lekturę?</h1>
+  <p>Mark Twain, „Przygody Tomka Sawyera” — język polski, klasa 5, lekcja 45-minutowa.</p>
+</header>
+
+<div class="wrap">
+<nav>
+  <button class="tab active" data-id="plan">Plan lekcji</button>
+  <button class="tab" data-id="bohaterowie">Bohaterowie</button>
+  <button class="tab" data-id="wydarzenia">Wydarzenia</button>
+  <button class="tab" data-id="opowiadanie">Opowiadanie</button>
+  <button class="tab" data-id="quiz">Quiz</button>
+  <button class="tab" data-id="ocena">Ocena</button>
+</nav>
+
+<section id="plan" class="sec active">
+<div class="card">
+  <h2>Cel i kryteria sukcesu</h2>
+  <p><b>Cel lekcji:</b> uczeń rozumie treść lektury, rozpoznaje bohaterów i najważniejsze wydarzenia oraz potrafi swobodnie o nich opowiadać.</p>
+  <label><input type="checkbox"> Rozpoznaję najważniejszych bohaterów.</label><br>
+  <label><input type="checkbox"> Układam wydarzenia w logicznej kolejności.</label><br>
+  <label><input type="checkbox"> Odpowiadam pełnymi zdaniami.</label><br>
+  <label><input type="checkbox"> Uzasadniam swoją opinię przykładem z książki.</label>
+</div>
+
+<div class="card">
+  <h2>Harmonogram 45 minut</h2>
+  <table>
+    <tr><th>Czas</th><th>Etap</th><th>Działania uczniów</th><th>Podpowiedź nauczyciela</th><th>Ocena</th></tr>
+    <tr><td>0–5 min</td><td>Rozgrzewka</td><td>Podają skojarzenia z lekturą.</td><td>„Powiedz jedno słowo, które kojarzy Ci się z Tomkiem Sawyerem.”</td><td>Aktywność ustna</td></tr>
+    <tr><td>5–12 min</td><td>Bohaterowie</td><td>Dopasowują postacie do opisów.</td><td>„Najpierw przypomnij sobie, co ta postać zrobiła.”</td><td>Ćwiczenie interaktywne</td></tr>
+    <tr><td>12–20 min</td><td>Wydarzenia</td><td>Porządkują kluczowe zdarzenia.</td><td>„Zastanów się, co wydarzyło się wcześniej, a co później.”</td><td>Sprawdzenie kolejności</td></tr>
+    <tr><td>20–34 min</td><td>Opowiadanie</td><td>Odpowiadają na pytania i opowiadają wybrany epizod.</td><td>„Odpowiedz: kto, gdzie, co zrobił i dlaczego.”</td><td>Obserwacja i informacja zwrotna</td></tr>
+    <tr><td>34–41 min</td><td>Quiz</td><td>Rozwiązują zadania sprawdzające.</td><td>„Zaznacz odpowiedź i wróć do wydarzenia w pamięci.”</td><td>Automatyczny wynik</td></tr>
+    <tr><td>41–45 min</td><td>Podsumowanie</td><td>Wypełniają samoocenę i exit ticket.</td><td>„Który fragment lektury pamiętasz najlepiej i dlaczego?”</td><td>Samoocena</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>Minutnik</h2>
+  <div id="timer" class="timer">05:00</div>
+  <button onclick="startT()">Start</button>
+  <button class="alt" onclick="pauseT()">Pauza</button>
+  <button class="alt" onclick="resetT(5)">5 min</button>
+  <button class="alt" onclick="resetT(7)">7 min</button>
+  <button class="alt" onclick="resetT(14)">14 min</button>
+</div>
+
+<div class="card tip">
+  <b>Dla nauczyciela zastępującego:</b> prowadź lekcję zakładka po zakładce. Wszystkie pytania i komunikaty są gotowe do odczytania. Uczniowie mogą pracować indywidualnie, w parach albo odpowiadać ustnie.
+</div>
+</section>
+
+<section id="bohaterowie" class="sec">
+<div class="card">
+  <h2>Dopasuj bohatera do opisu</h2>
+  <div class="quiz">
+    <p>1. Kto jest najlepszym przyjacielem Tomka i często towarzyszy mu w przygodach?</p>
+    <select id="b1">
+      <option value="">— wybierz —</option>
+      <option value="a">Huck Finn</option>
+      <option value="b">Sid</option>
+      <option value="c">Sędzia Thatcher</option>
+    </select>
+  </div>
+  <div class="quiz">
+    <p>2. Kto wychowuje Tomka i próbuje nauczyć go odpowiedzialności?</p>
+    <select id="b2">
+      <option value="">— wybierz —</option>
+      <option value="a">Ciotka Polly</option>
+      <option value="b">Becky Thatcher</option>
+      <option value="c">Wdowa Douglas</option>
+    </select>
+  </div>
+  <div class="quiz">
+    <p>3. Która bohaterka jest ważna dla Tomka i pojawia się w scenach szkolnych oraz w jaskini?</p>
+    <select id="b3">
+      <option value="">— wybierz —</option>
+      <option value="a">Mary</option>
+      <option value="b">Becky Thatcher</option>
+      <option value="c">Amy Lawrence</option>
+    </select>
+  </div>
+  <button onclick="checkB()">Sprawdź</button>
+  <p id="bf"></p>
+</div>
+
+<div class="card support">
+  <b>Zdania początkowe:</b>
+  <ul>
+    <li>Ta postać jest ważna, ponieważ...</li>
+    <li>Najlepiej pamiętam ją z wydarzenia, w którym...</li>
+    <li>Jej relacja z Tomkiem polega na tym, że...</li>
+  </ul>
+</div>
+
+<div class="card challenge">
+  <b>Dla uczniów pracujących szybciej:</b> porównaj Tomka i Hucka. Wskaż jedną cechę wspólną i jedną różnicę.
+</div>
+</section>
+
+<section id="wydarzenia" class="sec">
+<div class="card">
+  <h2>Ułóż wydarzenia w kolejności</h2>
+  <p>Przeciągnij elementy, aby ustawić logiczną kolejność wydarzeń.</p>
+  <ul id="drag" class="drag">
+    <li draggable="true" data-k="plot">Tomek sprytnie przekonuje innych chłopców do malowania płotu.</li>
+    <li draggable="true" data-k="island">Tomek, Huck i Joe uciekają na wyspę.</li>
+    <li draggable="true" data-k="court">Tomek składa zeznania w sądzie.</li>
+    <li draggable="true" data-k="cave">Tomek i Becky gubią się w jaskini.</li>
+  </ul>
+  <button onclick="checkOrder()">Sprawdź kolejność</button>
+  <p id="orderF"></p>
+</div>
+
+<div class="card tip">
+  <b>Zdanie nauczyciela:</b> „Nie musisz pamiętać wszystkich szczegółów. Skup się na tym, które wydarzenie mogło doprowadzić do następnego.”
+</div>
+</section>
+
+<section id="opowiadanie" class="sec">
+<div class="card">
+  <h2>Opowiedz o lekturze</h2>
+  <p>Wybierz jedno pytanie i przygotuj odpowiedź w 4–6 zdaniach.</p>
+  <div class="grid">
+    <div class="quiz"><b>Pytanie A</b><p>Dlaczego scena malowania płotu jest zabawna i czego dowiadujemy się dzięki niej o Tomku?</p></div>
+    <div class="quiz"><b>Pytanie B</b><p>Jak zachowuje się Tomek w sytuacji zagrożenia lub próby odwagi?</p></div>
+    <div class="quiz"><b>Pytanie C</b><p>Która przygoda Tomka była Twoim zdaniem najciekawsza? Uzasadnij.</p></div>
+  </div>
+</div>
+
+<div class="card support">
+  <h3>Zdania początkowe dla uczniów potrzebujących wsparcia</h3>
+  <ul>
+    <li>Wybrałem/am wydarzenie, w którym...</li>
+    <li>Najważniejszym bohaterem tej sceny jest...</li>
+    <li>Na początku wydarzyło się...</li>
+    <li>Następnie...</li>
+    <li>To wydarzenie pokazuje, że Tomek jest...</li>
+    <li>Moim zdaniem ta scena jest ważna, ponieważ...</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Notatki do wypowiedzi</h3>
+  <textarea id="notes" placeholder="Zapisz: kto? gdzie? co się wydarzyło? dlaczego? jaki był skutek?"></textarea>
+  <button onclick="saveNotes()">Zapisz notatki</button>
+  <button class="alt" onclick="loadNotes()">Wczytaj notatki</button>
+</div>
+
+<div class="card">
+  <h3>Odpowiedź pełnymi zdaniami</h3>
+  <textarea id="answer" style="min-height:180px" placeholder="Napisz lub przygotuj swoją wypowiedź ustną."></textarea>
+</div>
+</section>
+
+<section id="quiz" class="sec">
+<div class="card">
+  <h2>Quiz sprawdzający znajomość lektury</h2>
+  <div class="quiz">
+    <p>1. Jak Tomek reaguje na obowiązek malowania płotu?</p>
+    <label><input type="radio" name="q1" value="a"> Wykonuje go bez pomysłu.</label><br>
+    <label><input type="radio" name="q1" value="b"> Przedstawia pracę jako atrakcyjne zajęcie i zachęca innych.</label><br>
+    <label><input type="radio" name="q1" value="c"> Ucieka z miasta.</label>
+  </div>
+  <div class="quiz">
+    <p>2. Co łączy Tomka i Hucka?</p>
+    <label><input type="radio" name="q2" value="a"> Zamiłowanie do przygód i niezależności.</label><br>
+    <label><input type="radio" name="q2" value="b"> Wspólna nauka muzyki.</label><br>
+    <label><input type="radio" name="q2" value="c"> Praca w sądzie.</label>
+  </div>
+  <div class="quiz">
+    <p>3. Co pokazuje zachowanie Tomka w sądzie?</p>
+    <label><input type="radio" name="q3" value="a"> Że potrafi zdobyć się na odwagę.</label><br>
+    <label><input type="radio" name="q3" value="b"> Że nie pamięta wydarzeń.</label><br>
+    <label><input type="radio" name="q3" value="c"> Że chce opuścić szkołę.</label>
+  </div>
+  <div class="quiz">
+    <p>4. Dlaczego pobyt w jaskini jest ważny dla fabuły?</p>
+    <label><input type="radio" name="q4" value="a"> Jest tylko zabawnym epizodem.</label><br>
+    <label><input type="radio" name="q4" value="b"> Wystawia bohaterów na próbę i wymaga opanowania.</label><br>
+    <label><input type="radio" name="q4" value="c"> Dotyczy przygotowań do lekcji.</label>
+  </div>
+  <div class="quiz">
+    <p>5. Która cecha najlepiej pasuje do Tomka?</p>
+    <label><input type="radio" name="q5" value="a"> Pomysłowość</label><br>
+    <label><input type="radio" name="q5" value="b"> Obojętność</label><br>
+    <label><input type="radio" name="q5" value="c"> Nieśmiałość w każdej sytuacji</label>
+  </div>
+  <button onclick="checkQ()">Sprawdź wynik</button>
+  <p id="qf"></p>
+</div>
+</section>
+
+<section id="ocena" class="sec">
+<div class="card">
+  <h2>Ocena koleżeńska wypowiedzi</h2>
+  <label><input type="checkbox"> Odpowiedź dotyczy pytania.</label><br>
+  <label><input type="checkbox"> Wypowiedź zawiera konkretny przykład z lektury.</label><br>
+  <label><input type="checkbox"> Wydarzenia są opowiedziane w logicznej kolejności.</label><br>
+  <label><input type="checkbox"> Uczeń mówi pełnymi zdaniami.</label><br>
+  <label><input type="checkbox"> Opinia jest uzasadniona.</label>
+  <p><b>Mocna strona odpowiedzi:</b></p>
+  <input type="text" placeholder="Napisz jedną konkretną pochwałę.">
+  <p><b>Jedna wskazówka:</b></p>
+  <input type="text" placeholder="Napisz jedną rzecz do poprawy.">
+</div>
+
+<div class="card">
+  <h2>Samoocena</h2>
+  <label><input type="radio" name="self"> Potrzebuję jeszcze pomocy w przypominaniu wydarzeń.</label><br>
+  <label><input type="radio" name="self"> Potrafię odpowiedzieć z użyciem zdań początkowych.</label><br>
+  <label><input type="radio" name="self"> Potrafię swobodnie opowiadać o lekturze.</label>
+  <p><b>Exit ticket:</b></p>
+  <input type="text" placeholder="Najlepiej zapamiętałem/am..., ponieważ...">
+</div>
+
+<div class="card">
+  <h2>Wskazówka dla nauczyciela</h2>
+  <p>Oceniaj przede wszystkim rozumienie treści, logiczny porządek wypowiedzi, odwołanie do konkretnego wydarzenia i umiejętność uzasadnienia odpowiedzi.</p>
+  <button class="alt" onclick="window.print()">Drukuj / zapisz jako PDF</button>
+</div>
+</section>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');document.getElementById(b.dataset.id).classList.add('active')
+});
+
+let sec=300,id=null;
+function showT(){timer.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function startT(){if(id)return;id=setInterval(()=>{if(sec>0){sec--;showT()}else{pauseT();alert('Czas minął.')}},1000)}
+function pauseT(){clearInterval(id);id=null}
+function resetT(m){pauseT();sec=m*60;showT()}
+
+function checkB(){
+  let s=(b1.value==='a')+(b2.value==='a')+(b3.value==='b');
+  bf.textContent='Wynik: '+s+'/3';
+  bf.className=s===3?'ok':'bad'
+}
+
+let dragged=null;
+document.querySelectorAll('#drag li').forEach(li=>{
+  li.ondragstart=()=>dragged=li;
+  li.ondragover=e=>e.preventDefault();
+  li.ondrop=e=>{
+    e.preventDefault();
+    if(dragged!==li){
+      let p=li.parentNode,a=[...p.children];
+      a.indexOf(dragged)<a.indexOf(li)?p.insertBefore(dragged,li.nextSibling):p.insertBefore(dragged,li)
+    }
+  }
+});
+function checkOrder(){
+  let ok=[...document.querySelectorAll('#drag li')].map(x=>x.dataset.k).join(',')==='plot,island,court,cave';
+  orderF.textContent=ok?'Dobrze. Kolejność jest poprawna.':'Spróbuj ponownie. Zacznij od malowania płotu.';
+  orderF.className=ok?'ok':'bad'
+}
+
+function saveNotes(){
+  localStorage.setItem('tomek_notes',notes.value);
+  localStorage.setItem('tomek_answer',answer.value);
+  alert('Zapisano w tej przeglądarce.')
+}
+function loadNotes(){
+  notes.value=localStorage.getItem('tomek_notes')||'';
+  answer.value=localStorage.getItem('tomek_answer')||''
+}
+
+function val(n){let x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+function checkQ(){
+  let a={q1:'b',q2:'a',q3:'a',q4:'b',q5:'a'},s=0;
+  Object.keys(a).forEach(k=>{if(val(k)===a[k])s++});
+  qf.textContent='Wynik: '+s+'/5. '+(s>=4?'Bardzo dobrze pamiętasz treść lektury.':'Wróć do zakładek „Bohaterowie” i „Wydarzenia”.');
+  qf.className=s>=4?'ok':'bad'
+}
+showT();
+</script>
+</body>
+</html>

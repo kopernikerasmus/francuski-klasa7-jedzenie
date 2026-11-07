@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitologia_grecka_wstep_klasa5</title>
+
+<style>
+:root{
+--bg:#f7f2ea;
+--card:#fffaf5;
+--primary:#c9ad8a;
+--secondary:#e8d8c3;
+--accent:#b98f63;
+--text:#4a4038;
+--success:#7da46b;
+--warning:#d6a85d;
+--shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to bottom,#f9f6f1,#efe5d8);
+color:var(--text);
+}
+
+header{
+padding:20px;
+text-align:center;
+background:var(--secondary);
+box-shadow:var(--shadow);
+}
+
+header h1{
+margin:0;
+font-size:2rem;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+padding:15px;
+}
+
+.timer{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+align-items:center;
+margin-bottom:20px;
+background:var(--card);
+padding:15px;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+
+.timer-display{
+font-size:2rem;
+font-weight:bold;
+padding:10px;
+min-width:130px;
+}
+
+button{
+cursor:pointer;
+border:none;
+padding:10px 15px;
+border-radius:15px;
+background:var(--primary);
+color:white;
+font-weight:bold;
+transition:.2s;
+}
+
+button:hover{
+transform:scale(1.03);
+background:var(--accent);
+}
+
+.tabs{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-bottom:15px;
+}
+
+.tab-btn{
+background:var(--secondary);
+color:var(--text);
+}
+
+.tab-btn.active{
+background:var(--accent);
+color:white;
+}
+
+.tab-content{
+display:none;
+background:var(--card);
+padding:25px;
+border-radius:25px;
+box-shadow:var(--shadow);
+animation:fade .3s ease;
+}
+
+.tab-content.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.card{
+background:white;
+padding:18px;
+border-radius:20px;
+margin-bottom:15px;
+box-shadow:var(--shadow);
+}
+
+ul li{
+margin-bottom:8px;
+}
+
+.god-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.god{
+background:#faf4ed;
+padding:15px;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+
+.drop-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.draggable{
+padding:10px;
+margin:5px;
+background:var(--primary);
+border-radius:12px;
+color:white;
+cursor:grab;
+}
+
+.dropzone{
+background:#f5ece1;
+padding:15px;
+border-radius:15px;
+min-height:90px;
+}
+
+.correct{
+background:#c8e6c9 !important;
+}
+
+.incorrect{
+background:#ffcdd2 !important;
+}
+
+.question{
+margin-bottom:25px;
+padding:15px;
+background:#faf6f0;
+border-radius:15px;
+}
+
+.progress-bar{
+width:100%;
+height:25px;
+background:#ddd;
+border-radius:30px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:var(--success);
+transition:.3s;
+}
+
+textarea{
+width:100%;
+min-height:120px;
+border-radius:15px;
+padding:12px;
+border:1px solid #ccc;
+resize:vertical;
+}
+
+.notes-input{
+margin-bottom:15px;
+}
+
+.self-check{
+margin-bottom:15px;
+}
+
+footer{
+margin-top:30px;
+padding:20px;
+text-align:center;
+font-size:.95rem;
+background:var(--secondary);
+border-radius:20px;
+}
+
+@media print{
+button,
+.tabs,
+.timer{
+display:none;
+}
+body{
+background:white;
+}
+.tab-content{
+display:block !important;
+box-shadow:none;
+margin-bottom:20px;
+}
+}
+
+@media(max-width:700px){
+header h1{
+font-size:1.4rem;
+}
+.timer-display{
+font-size:1.6rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>🏛️ Wprowadzenie do mitologii greckiej – klasa 5</h1>
+<p>Interaktywna lekcja języka polskiego (40 minut)</p>
+</header>
+
+<div class="container">
+
+<div class="timer">
+
+<div class="timer-display" id="timerDisplay">05:00</div>
+
+<button onclick="startTimer()">Start</button>
+<button onclick="pauseTimer()">Pauza</button>
+<button onclick="resetTimer(5)">Reset 5 min</button>
+<button onclick="resetTimer(10)">Reset 10 min</button>
+<button onclick="resetTimer(15)">Reset 15 min</button>
+
+</div>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab(event,'plan')">Plan lekcji</button>
+<button class="tab-btn" onclick="openTab(event,'mit')">Czym jest mit?</button>
+<button class="tab-btn" onclick="openTab(event,'bogowie')">Bogowie</button>
+<button class="tab-btn" onclick="openTab(event,'drag')">Ćwiczenie</button>
+<button class="tab-btn" onclick="openTab(event,'arachne')">Mit o Arachne</button>
+<button class="tab-btn" onclick="openTab(event,'quiz')">Quiz</button>
+<button class="tab-btn" onclick="openTab(event,'notes')">Notatki</button>
+<button class="tab-btn" onclick="openTab(event,'self')">Samoocena</button>
+</div>
+
+<!-- PLAN -->
+
+<div id="plan" class="tab-content active">
+
+<div class="card">
+<h2>Cele lekcji</h2>
+<ul>
+<li>Poznasz pojęcie mitu.</li>
+<li>Dowiesz się, kim byli bogowie greccy.</li>
+<li>Poznasz mit o Arachne.</li>
+<li>Rozpoznasz funkcje mitów.</li>
+<li>Sprawdzisz swoją wiedzę w quizie.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Po lekcji potrafię...</h2>
+<ul>
+<li>Wyjaśnić, czym jest mit.</li>
+<li>Wymienić najważniejszych bogów greckich.</li>
+<li>Wskazać ich atrybuty.</li>
+<li>Opowiedzieć mit o Arachne.</li>
+<li>Wymienić cechy i funkcje mitu.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Harmonogram 40 minut</h2>
+<ul>
+<li>5 min – Plan lekcji.</li>
+<li>8 min – Czym jest mit?</li>
+<li>7 min – Bogowie greccy.</li>
+<li>5 min – Ćwiczenie.</li>
+<li>5 min – Mit o Arachne.</li>
+<li>5 min – Quiz.</li>
+<li>3 min – Notatki.</li>
+<li>2 min – Samoocena.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Informacja dla nauczyciela</h2>
+<p>Lekcja działa całkowicie offline. Uczniowie mogą samodzielnie wykonywać zadania, zapisywać swoje odpowiedzi oraz korzystać z minutnika.</p>
+</div>
+
+</div>
+
+<!-- MIT -->
+
+<div id="mit" class="tab-content">
+
+<div class="card">
+<h2>Czym jest mit?</h2>
+
+<p><strong>Mit</strong> to opowieść przekazywana przez starożytne ludy, która wyjaśniała powstanie świata, ludzi, bogów oraz różne zjawiska przyrody.</p>
+
+<h3>Cechy mitu</h3>
+<ul>
+<li>Opowiada o bogach, herosach i niezwykłych wydarzeniach.</li>
+<li>Wyjaśnia ważne pytania dotyczące świata.</li>
+<li>Zawiera elementy fantastyczne.</li>
+<li>Przekazuje wartości i pouczenia.</li>
+</ul>
+
+<h3>Funkcje mitu</h3>
+<ul>
+<li>Poznawcza – wyjaśnia świat.</li>
+<li>Wychowawcza – uczy właściwych zachowań.</li>
+<li>Religijna – pomagała wierzyć w bogów.</li>
+<li>Kulturotwórcza – inspirowała sztukę i literaturę.</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Starożytna Grecja</h2>
+
+<ul>
+<li>Grecy wierzyli w wielu bogów.</li>
+<li>Bogowie mieszkali na górze Olimp.</li>
+<li>Budowano świątynie ku ich czci.</li>
+<li>Organizowano igrzyska i święta religijne.</li>
+<li>Mity przekazywano ustnie przez wiele pokoleń.</li>
+</ul>
+
+<h3>Dlaczego Grecy tworzyli mity?</h3>
+
+<ul>
+<li>Nie znali jeszcze naukowych wyjaśnień zjawisk.</li>
+<li>Chcieli zrozumieć świat.</li>
+<li>Uczyli młodszych ważnych wartości.</li>
+<li>Opowiadali historie ku czci bogów.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Ciekawostki</h2>
+
+<ul>
+<li>Mitologia grecka inspiruje filmy, książki i gry do dziś.</li>
+<li>Nazwy planet często pochodzą od imion bogów.</li>
+<li>Grecy wierzyli, że bogowie mają ludzkie emocje.</li>
+<li>Olimp jest prawdziwą górą znajdującą się w Grecji.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- BOGOWIE -->
+
+<div id="bogowie" class="tab-content">
+
+<div class="god-grid">
+
+<div class="god">
+<h3>🌍 Gaja</h3>
+<p>Bogini Ziemi. Symbolizowała początek życia i naturę.</p>
+</div>
+
+<div class="god">
+<h3>🌌 Uranos</h3>
+<p>Bóg Nieba. Uosabiał sklepienie niebieskie.</p>
+</div>
+
+<div class="god">
+<h3>⏳ Kronos</h3>
+<p>Tytan czasu. Ojciec Zeusa.</p>
+</div>
+
+<div class="god">
+<h3>👑 Rea</h3>
+<p>Matka bogów olimpijskich.</p>
+</div>
+
+<div class="god">
+<h3>⚡ Zeus</h3>
+<p>Władca bogów. Atrybut: piorun – symbol jego potęgi.</p>
+</div>
+
+<div class="god">
+<h3>👑 Hera</h3>
+<p>Bogini małżeństwa. Paw symbolizował królewską godność.</p>
+</div>
+
+<div class="god">
+<h3>🌊 Posejdon</h3>
+<p>Bóg mórz. Trójząb symbolizował władzę nad wodami.</p>
+</div>
+
+<div class="god">
+<h3>🦉 Atena</h3>
+<p>Bogini mądrości. Sowa symbolizuje wiedzę.</p>
+</div>
+
+<div class="god">
+<h3>☀️ Apollo</h3>
+<p>Bóg sztuki, muzyki i światła. Lira symbolizuje muzykę.</p>
+</div>
+
+<div class="god">
+<h3>🏹 Artemida</h3>
+<p>Bogini łowów. Łuk symbolizuje zręczność.</p>
+</div>
+
+<div class="god">
+<h3>🪽 Hermes</h3>
+<p>Posłaniec bogów. Skrzydlate sandały symbolizują szybkość.</p>
+</div>
+
+<div class="god">
+<h3>🌹 Afrodyta</h3>
+<p>Bogini miłości i piękna. Muszla symbolizuje narodziny z morskiej piany.</p>
+</div>
+
+<div class="god">
+<h3>💀 Hades</h3>
+<p>Władca podziemi. Berło symbolizuje jego władzę.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- DRAG -->
+
+<div id="drag" class="tab-content">
+
+<h2>Dopasuj boga do jego dziedziny</h2>
+
+<div class="card">
+<div id="dragItems">
+<div class="draggable" draggable="true" id="Zeus">Zeus</div>
+<div class="draggable" draggable="true" id="Posejdon">Posejdon</div>
+<div class="draggable" draggable="true" id="Atena">Atena</div>
+<div class="draggable" draggable="true" id="Apollo">Apollo</div>
+<div class="draggable" draggable="true" id="Afrodyta">Afrodyta</div>
+</div>
+</div>
+
+<div class="drop-container">
+
+<div class="dropzone" data-answer="Zeus">
+<strong>Władca bogów</strong>
+</div>
+
+<div class="dropzone" data-answer="Posejdon">
+<strong>Bóg mórz</strong>
+</div>
+
+<div class="dropzone" data-answer="Atena">
+<strong>Bogini mądrości</strong>
+</div>
+
+<div class="dropzone" data-answer="Apollo">
+<strong>Bóg muzyki i sztuki</strong>
+</div>
+
+<div class="dropzone" data-answer="Afrodyta">
+<strong>Bogini miłości</strong>
+</div>
+
+</div>
+
+<br>
+<button onclick="checkDrag()">Sprawdź</button>
+
+<p id="dragResult"></p>
+
+</div>
+
+<!-- ARACHNE -->
+
+<div id="arachne" class="tab-content">
+
+<div class="card">
+
+<h2>Mit o Arachne</h2>
+
+<p>Arachne była niezwykle utalentowaną tkaczką. Tworzyła piękne tkaniny, których podziwiano w całej Grecji. Z czasem stała się bardzo dumna ze swoich umiejętności i zaczęła twierdzić, że jest lepsza od samej Ateny – bogini mądrości i opiekunki rzemiosła.</p>
+
+<p>Atena postanowiła sprawdzić, czy Arachne rzeczywiście jest tak dobra. Przybrała postać starszej kobiety i ostrzegła dziewczynę, aby przeprosiła bogów za swoją pychę. Arachne odmówiła i wyzwała Atenę na konkurs tkacki.</p>
+
+<p>Obie stworzyły przepiękne dzieła. Tkanina Ateny ukazywała wielkość bogów. Arachne przedstawiła natomiast błędy i słabości bogów olimpijskich.</p>
+
+<p>Choć praca Arachne była znakomita, jej zachowanie świadczyło o braku szacunku wobec bogów. Atena rozgniewała się. Według mitu zamieniła Arachne w pająka, który do dziś nieustannie tka swoją sieć.</p>
+
+<h3>Czego uczy ten mit?</h3>
+
+<ul>
+<li>Pycha może prowadzić do przykrych konsekwencji.</li>
+<li>Należy szanować innych i doceniać własne talenty bez wywyższania się.</li>
+<li>Mit wyjaśnia symbolicznie pochodzenie pająków i pajęczyn.</li>
+</ul>
+
+<h3>Funkcje mitu o Arachne</h3>
+
+<ul>
+<li>Poznawcza – wyjaśnia pochodzenie pająków.</li>
+<li>Wychowawcza – ostrzega przed pychą.</li>
+<li>Kulturotwórcza – inspiruje sztukę i literaturę.</li>
+<li>Religijna – ukazuje rolę bogów.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
+
+<div id="quiz" class="tab-content">
+
+<h2>Quiz</h2>
+
+<div class="progress-bar">
+<div class="progress" id="quizProgress"></div>
+</div>
+
+<br>
+
+<div id="quizContainer"></div>
+
+<button onclick="checkQuiz()">Sprawdź quiz</button>
+
+<h3 id="quizScore"></h3>
+<p id="quizMessage"></p>
+
+</div>
+
+<!-- NOTES -->
+
+<div id="notes" class="tab-content">
+
+<h2>Moje notatki</h2>
+
+<div class="notes-input">
+<label>Skojarzenia z mitologią:</label>
+<textarea id="note1"></textarea>
+</div>
+
+<div class="notes-input">
+<label>Bogowie, których zapamiętałem:</label>
+<textarea id="note2"></textarea>
+</div>
+
+<div class="notes-input">
+<label>Jakie cechy i funkcje mitu rozpoznaję w micie o Arachne?</label>
+<textarea id="note3"></textarea>
+</div>
+
+<button onclick="saveNotes()">Zapisz moją pracę</button>
+<button onclick="loadNotes()">Wczytaj zapis</button>
+
+<p id="notesInfo"></p>
+
+</div>
+
+<!-- SELF -->
+
+<div id="self" class="tab-content">
+
+<h2>Samoocena</h2>
+
+<div class="self-check">
+<label><input type="checkbox"> Rozumiem, czym jest mit.</label><br>
+<label><input type="checkbox"> Potrafię wymienić kilku bogów greckich.</label><br>
+<label><input type="checkbox"> Znam przynajmniej jeden mit.</label><br>
+<label><input type="checkbox"> Potrafię wymienić dwa fakty o starożytnej Grecji.</label><br>
+<label><input type="checkbox"> Znam atrybuty bogów.</label>
+</div>
+
+<h3>Jak się dziś czuję?</h3>
+
+<label><input type="radio" name="ocena"> Potrzebuję jeszcze pomocy.</label><br>
+<label><input type="radio" name="ocena"> Umiem już całkiem dużo.</label><br>
+<label><input type="radio" name="ocena"> Jestem ekspertem od mitologii.</label>
+
+</div>
+
+<footer>
+Materiał działa offline. Wszystkie odpowiedzi ucznia pozostają wyłącznie na jego urządzeniu.
+</footer>
+
+</div>
+
+<script>
+
+//TABS
+
+function openTab(evt,name){
+let tabs=document.querySelectorAll('.tab-content');
+tabs.forEach(t=>t.classList.remove('active'));
+
+document.getElementById(name).classList.add('active');
+
+let btns=document.querySelectorAll('.tab-btn');
+btns.forEach(b=>b.classList.remove('active'));
+
+evt.currentTarget.classList.add('active');
+}
+
+
+//TIMER
+
+let timer;
+let time=300;
+
+function updateTimer(){
+let min=Math.floor(time/60);
+let sec=time%60;
+document.getElementById("timerDisplay").textContent=
+String(min).padStart(2,'0')+":"+String(sec).padStart(2,'0');
+}
+
+function startTimer(){
+clearInterval(timer);
+timer=setInterval(()=>{
+if(time>0){
+time--;
+updateTimer();
+}
+},1000);
+}
+
+function pauseTimer(){
+clearInterval(timer);
+}
+
+function resetTimer(min){
+clearInterval(timer);
+time=min*60;
+updateTimer();
+}
+
+updateTimer();
+
+
+//DRAG
+
+let draggables=document.querySelectorAll('.draggable');
+let dropzones=document.querySelectorAll('.dropzone');
+
+draggables.forEach(item=>{
+item.addEventListener('dragstart',e=>{
+e.dataTransfer.setData("text",e.target.id);
+});
+});
+
+dropzones.forEach(zone=>{
+zone.addEventListener('dragover',e=>e.preventDefault());
+
+zone.addEventListener('drop',e=>{
+e.preventDefault();
+let id=e.dataTransfer.getData("text");
+let item=document.getElementById(id);
+zone.appendChild(item);
+});
+});
+
+
+function checkDrag(){
+
+let score=0;
+
+dropzones.forEach(zone=>{
+
+zone.classList.remove("correct","incorrect");
+
+let child=zone.querySelector(".draggable");
+
+if(child && child.id===zone.dataset.answer){
+zone.classList.add("correct");
+score++;
+}else{
+zone.classList.add("incorrect");
+}
+
+});
+
+document.getElementById("dragResult").innerHTML=
+"Wynik: "+score+"/5. Świetnie! Uczysz się jak prawdziwy znawca mitologii!";
+
+}
+
+
+//QUIZ
+
+const quizData=[
+
+["Mit to...",["starożytna opowieść","gazeta","bajka"],0],
+
+["Gdzie mieszkali bogowie olimpijscy?",["na Olimpie","w Egipcie","w Rzymie"],0],
+
+["Bogiem mórz był...",["Posejdon","Apollo","Hermes"],0],
+
+["Atrybut Ateny to...",["sowa","trójząb","berło"],0],
+
+["Arachne była...",["tkaczką","królową","kapłanką"],0],
+
+["Mit o Arachne uczy...",["pokory","lenistwa","milczenia"],0],
+
+["Jedną z funkcji mitu jest...",["wychowawcza","sportowa","matematyczna"],0],
+
+["Apollo był bogiem...",["muzyki","podziemi","wojny"],0]
+
+];
+
+const quizContainer=document.getElementById("quizContainer");
+
+quizData.forEach((q,index)=>{
+
+let html=`<div class='question'><strong>${index+1}. ${q[0]}</strong><br>`;
+
+q[1].forEach((ans,i)=>{
+
+html+=`<label><input type='radio' name='q${index}' value='${i}'> ${ans}</label><br>`;
+
+});
+
+html+="</div>";
+
+quizContainer.innerHTML+=html;
+
+});
+
+
+function checkQuiz(){
+
+let score=0;
+
+quizData.forEach((q,index)=>{
+
+let answer=document.querySelector(`input[name=q${index}]:checked`);
+
+if(answer && Number(answer.value)===q[2]){
+score++;
+}
+
+});
+
+let percent=(score/quizData.length)*100;
+
+document.getElementById("quizProgress").style.width=percent+"%";
+
+document.getElementById("quizScore").innerHTML=
+"Twój wynik: "+score+" / "+quizData.length+" punktów";
+
+let msg="";
+
+if(percent<50){
+msg="Ćwicz dalej! Każdy ekspert kiedyś zaczynał.";
+}else if(percent<80){
+msg="Bardzo dobrze! Coraz lepiej znasz mitologię.";
+}else{
+msg="Brawo! Jesteś prawdziwym odkrywcą mitologii greckiej!";
+}
+
+document.getElementById("quizMessage").innerHTML=msg;
+
+}
+
+
+//LOCAL STORAGE
+
+function saveNotes(){
+
+localStorage.setItem("note1",document.getElementById("note1").value);
+localStorage.setItem("note2",document.getElementById("note2").value);
+localStorage.setItem("note3",document.getElementById("note3").value);
+
+document.getElementById("notesInfo").innerHTML="Twoje notatki zostały zapisane.";
+
+}
+
+function loadNotes(){
+
+document.getElementById("note1").value=
+localStorage.getItem("note1") || "";
+
+document.getElementById("note2").value=
+localStorage.getItem("note2") || "";
+
+document.getElementById("note3").value=
+localStorage.getItem("note3") || "";
+
+document.getElementById("notesInfo").innerHTML="Wczytano zapisane notatki.";
+
+}
+
+loadNotes();
+
+</script>
+
+</body>
+</html>

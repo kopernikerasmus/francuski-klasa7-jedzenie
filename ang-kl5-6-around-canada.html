@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around Canada – Canadian Culture Lab</title>
+<style>
+:root{--red:#c83243;--navy:#183b59;--blue:#397ca0;--gold:#e9bd61;--cream:#fff5df;--ink:#293947}
+*{box-sizing:border-box}
+body{margin:0;background:#f0f4f7;color:var(--ink);font-family:Arial,sans-serif;line-height:1.65}
+header{text-align:center;color:white;padding:42px 18px;background:linear-gradient(135deg,#9d2034,#d94b55 55%,#173b59)}
+header h1{font-size:clamp(2.1rem,6vw,3.7rem);margin:8px 0}
+header p{max-width:850px;margin:10px auto}
+.flagline{font-size:2.4rem}
+main{max-width:1120px;margin:auto;padding:18px}
+section{background:white;border-radius:18px;padding:24px;margin:22px 0;box-shadow:0 5px 20px #18345412}
+h2{color:var(--navy);border-bottom:3px solid var(--gold);padding-bottom:8px}
+h3{color:var(--red)}
+.hero{width:100%;max-height:390px;object-fit:cover;border-radius:14px;margin:12px 0}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin:18px 0}
+figure{margin:0;background:#f1f5f8;border-radius:12px;overflow:hidden}
+figure img{width:100%;height:170px;object-fit:cover;display:block}
+figcaption{padding:9px 12px;font-size:.9rem}
+.note{background:#fff5dc;border-left:5px solid var(--gold);padding:13px 16px;border-radius:9px;margin:15px 0}
+.blue-note{background:#eaf3fa;border-left-color:var(--blue)}
+.red-note{background:#fff0f1;border-left-color:var(--red)}
+.green-note{background:#eaf6ef;border-left-color:#397b61}
+
+/* Reversible flashcards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:15px;align-items:stretch;margin:18px 0}
+.flip-card{display:block;position:relative;width:100%;height:165px;min-height:165px;padding:0;border:0;background:transparent;cursor:pointer;font:inherit;color:inherit;text-align:center;perspective:1000px}
+.flip-inner{display:block;position:relative;width:100%;height:165px;transform-style:preserve-3d;transition:transform .65s ease}
+.flip-card.is-flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{display:flex;position:absolute;inset:0;width:100%;height:100%;padding:15px;flex-direction:column;justify-content:center;align-items:center;overflow-wrap:anywhere;border-radius:13px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 3px 12px #142b4a18}
+.flip-front{background:#eaf1f7;border:2px solid #c6d7e5;color:var(--navy)}
+.flip-back{background:#fff2d2;border:2px solid #e8d18d;transform:rotateY(180deg)}
+.flip-front strong{font-size:1.05rem;line-height:1.35}
+.flip-front small,.flip-back small{margin-top:8px;color:#53657a}
+.card-icon{font-size:2rem;margin-bottom:5px}
+.flip-card:focus-visible{outline:4px solid var(--gold);outline-offset:4px}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.timeline .flip-card,.timeline .flip-inner{height:180px;min-height:180px}
+.activity{background:#f4f7fa;padding:17px;border-radius:12px;margin:15px 0}
+.question{margin:13px 0;padding:12px;background:white;border-radius:8px}
+.quiz-options label{display:block;margin:7px 0;cursor:pointer}
+button.action{border:0;border-radius:9px;background:var(--navy);color:white;padding:11px 17px;font-size:1rem;cursor:pointer;margin:5px}
+button.action:hover{background:var(--blue)}
+.result{font-weight:bold;margin-top:12px}
+textarea{width:100%;font:inherit;padding:10px;border:1px solid #b9c6d5;border-radius:7px}
+a{color:#245c91}
+footer{text-align:center;background:var(--navy);color:white;padding:25px}
+@media(max-width:600px){
+ main{padding:10px}section{padding:16px}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .flip-card,.flip-inner{height:165px;min-height:165px}
+ .flip-front,.flip-back{padding:9px;font-size:.9rem}
+ .flip-front strong{font-size:.98rem}
+}
+@media(max-width:360px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="flagline">🇨🇦 🍁 🏒 🐻‍❄️</div>
+<h1>AROUND CANADA</h1>
+<h2 style="color:white;border:0">Canadian Culture Lab</h2>
+<p>Discover Canada – od wodospadu Niagara po Góry Skaliste, od francuskiego Québecu po arktyczną północ!</p>
+<p>🇵🇱 Lekcja po polsku z angielskimi nazwami i tekstami na poziomie A2.</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. Canada – co to za kraj?</h2>
+<img class="hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Canada_Montreal_Skyline.jpg" alt="Panorama Kanady" loading="lazy">
+<p><strong>Canada</strong> to ogromne państwo w Ameryce Północnej. Jest drugim co do powierzchni krajem świata. Rozciąga się od Oceanu Atlantyckiego na wschodzie po Ocean Spokojny na zachodzie, a na północy sięga Oceanu Arktycznego.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🇨🇦</span><strong>CANADA</strong><small>Kliknij, aby odwrócić</small></span><span class="flip-back"><strong>KANADA</strong><small>Państwo w Ameryce Północnej, drugie największe państwo świata pod względem powierzchni.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏛️</span><strong>OTTAWA</strong></span><span class="flip-back"><strong>STOLICA KANADY</strong><small>Ottawa leży w prowincji Ontario, nad rzeką Ottawa.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🗣️</span><strong>OFFICIAL LANGUAGES</strong></span><span class="flip-back"><strong>JĘZYKI URZĘDOWE</strong><small>Angielski i francuski na poziomie federalnym.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">💵</span><strong>CANADIAN DOLLAR</strong></span><span class="flip-back"><strong>DOLAR KANADYJSKI</strong><small>Waluta Kanady. Kod waluty: CAD.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🌎</span><strong>NORTH AMERICA</strong></span><span class="flip-back"><strong>AMERYKA PÓŁNOCNA</strong><small>Kontynent, na którym leży Kanada. Jej jedynym lądowym sąsiadem są Stany Zjednoczone.</small></span></span></button>
+</div>
+<div class="note">
+<strong>Podstawowe informacje:</strong>
+<ul>
+<li>Stolica: Ottawa</li><li>Największe miasto: Toronto</li>
+<li>Waluta: Canadian dollar (CAD)</li>
+<li>Języki urzędowe federacji: angielski i francuski</li>
+<li>Podział administracyjny: 10 prowincji i 3 terytoria</li>
+<li>Ustrój: monarchia konstytucyjna, demokracja parlamentarna i federacja</li>
+</ul>
+</div>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canada.svg" alt="Flaga Kanady" loading="lazy"><figcaption>Canadian flag</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_Hill_Ottawa.jpg" alt="Wzgórze Parlamentarne w Ottawie" loading="lazy"><figcaption>Parliament Hill – Ottawa</figcaption></figure>
+</div>
+</section>
+
+<section>
+<h2>2. The Canadian flag – flaga Kanady</h2>
+<img class="hero" style="max-height:230px;object-fit:contain;background:#f4f5f7" src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canada.svg" alt="Flaga Kanady">
+<p>Flaga Kanady jest biało-czerwona. Pośrodku znajduje się czerwony liść klonu – jeden z najbardziej rozpoznawalnych symboli kraju. Flagę wprowadzono 15 lutego 1965 roku.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MAPLE LEAF</strong><span class="card-icon">🍁</span></span><span class="flip-back"><strong>LIŚĆ KLONU</strong><small>Najbardziej rozpoznawalny symbol Kanady. Klon jest ważnym elementem kanadyjskiej przyrody i kultury.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>RED AND WHITE</strong></span><span class="flip-back"><strong>CZERWIEŃ I BIEL</strong><small>Oficjalne barwy narodowe Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>15 FEBRUARY 1965</strong></span><span class="flip-back"><strong>15 LUTEGO 1965</strong><small>Dzień, w którym nowa flaga została po raz pierwszy oficjalnie podniesiona. Obchodzony jest wtedy National Flag of Canada Day.</small></span></span></button>
+</div>
+<div class="note red-note"><strong>Ciekawostka:</strong> Liść na fladze jest stylizowany – ma 11 ostrych zakończeń. Nie oznaczają one liczby prowincji ani terytoriów.</div>
+</section>
+
+<section>
+<h2>3. Indigenous peoples – rdzenne narody Kanady</h2>
+<img class="hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Haida_totem_pole.jpg" alt="Totem Haida" loading="lazy">
+<p>Przed przybyciem Europejczyków tereny dzisiejszej Kanady były zamieszkane przez wiele rdzennych narodów o różnych językach, kulturach i tradycjach. Współczesna Kanada uznaje trzy główne grupy rdzennych ludów: First Nations, Inuit i Métis.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>FIRST NATIONS</strong></span><span class="flip-back"><strong>PIERWSZE NARODY</strong><small>Wiele odrębnych rdzennych narodów i społeczności Kanady, z własnymi językami, historiami i tradycjami.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>INUIT</strong></span><span class="flip-back"><strong>INUIT</strong><small>Rdzenni mieszkańcy arktycznych obszarów Kanady i innych regionów Arktyki. Mają bogatą kulturę dostosowaną do życia na północy.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MÉTIS</strong></span><span class="flip-back"><strong>MÉTIS</strong><small>Odrębny lud rdzenny, którego historia i tożsamość ukształtowały się m.in. ze związków społeczności rdzennych i europejskich.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>INDIGENOUS LANGUAGES</strong></span><span class="flip-back"><strong>JĘZYKI RDZENNE</strong><small>W Kanadzie istnieje wiele języków rdzennych, m.in. Cree, Inuktitut, Ojibwe i języki Dene.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ELDER</strong></span><span class="flip-back"><strong>STARSZY / STARSZYZNA</strong><small>Osoba ceniona w społeczności za wiedzę, doświadczenie i przekazywanie tradycji.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>TRADITION</strong></span><span class="flip-back"><strong>TRADYCJA</strong><small>Zwyczaje, wiedza, opowieści i praktyki przekazywane kolejnym pokoleniom.</small></span></span></button>
+</div>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Inuit_igloo.jpg" alt="Igloo" loading="lazy"><figcaption>Igloo – tradycyjna konstrukcja śnieżna</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haida_totem_pole.jpg" alt="Totem" loading="lazy"><figcaption>Totem – sztuka niektórych narodów rdzennych północno-zachodniego wybrzeża</figcaption></figure>
+</div>
+<div class="note green-note"><strong>Ważne:</strong> Rdzenne narody Kanady nie tworzą jednej kultury. Mają wiele odrębnych języków, historii, sztuk i tradycji. Warto używać nazw konkretnych narodów, gdy są znane.</div>
+</section>
+
+<section>
+<h2>4. Languages – języki Kanady</h2>
+<p>Kanada jest krajem dwujęzycznym na poziomie federalnym. Angielski i francuski mają równy status w instytucjach federalnych. W prowincji Québec językiem urzędowym prowincji jest francuski.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ENGLISH</strong></span><span class="flip-back"><strong>JĘZYK ANGIELSKI</strong><small>Najczęściej używany język w Kanadzie. Dominuje w większości prowincji.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>FRENCH</strong></span><span class="flip-back"><strong>JĘZYK FRANCUSKI</strong><small>Szczególnie ważny w Québecu. Jest również używany w innych częściach kraju, np. w Nowym Brunszwiku i Ontario.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BILINGUAL</strong></span><span class="flip-back"><strong>DWUJĘZYCZNY</strong><small>Posługujący się dwoma językami. Kanada ma dwa języki urzędowe na poziomie federalnym.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>QUÉBEC</strong></span><span class="flip-back"><strong>QUÉBEC</strong><small>Prowincja, w której francuski jest jedynym językiem urzędowym na poziomie prowincji.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ACADIAN</strong></span><span class="flip-back"><strong>AKADYJSKI</strong><small>Odmiana i tradycja francuskojęzyczna związana m.in. ze społecznościami atlantyckiej Kanady.</small></span></span></button>
+</div>
+<div class="note blue-note"><strong>Przykłady po francusku:</strong> Bonjour! – Dzień dobry! · Merci! – Dziękuję! · Bienvenue au Canada! – Witamy w Kanadzie!</div>
+</section>
+
+<section>
+<h2>5. Geography – geografia Kanady</h2>
+<img class="hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Canada_topographic_map-en.svg" alt="Mapa topograficzna Kanady" loading="lazy">
+<p>Kanada ma bardzo zróżnicowany krajobraz: góry, lasy, prerie, jeziora, wybrzeża i arktyczną tundrę. Graniczy z trzema oceanami: Atlantyckim, Spokojnym i Arktycznym.</p>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian_Rockies.jpg" alt="Góry Skaliste" loading="lazy"><figcaption>Canadian Rockies – Góry Skaliste</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Niagara_Falls_from_Canadian_side.jpg" alt="Wodospad Niagara" loading="lazy"><figcaption>Niagara Falls – wodospad Niagara</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Louise_Banff_National_Park.jpg" alt="Lake Louise" loading="lazy"><figcaption>Lake Louise – Alberta</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ATLANTIC OCEAN</strong></span><span class="flip-back"><strong>OCEAN ATLANTYCKI</strong><small>Leży na wschód od Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>PACIFIC OCEAN</strong></span><span class="flip-back"><strong>OCEAN SPOKOJNY</strong><small>Leży na zachód od Kanady, przy wybrzeżu Kolumbii Brytyjskiej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ARCTIC OCEAN</strong></span><span class="flip-back"><strong>OCEAN ARKTYCZNY</strong><small>Znajduje się na północ od Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ROCKY MOUNTAINS</strong></span><span class="flip-back"><strong>GÓRY SKALISTE</strong><small>Rozległy łańcuch górski w zachodniej części Ameryki Północnej, obejmujący m.in. część Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>PRAIRIE</strong></span><span class="flip-back"><strong>PRERIA</strong><small>Rozległy obszar trawiasty, charakterystyczny dla części środkowej Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>TUNDRA</strong></span><span class="flip-back"><strong>TUNDRA</strong><small>Chłodny obszar przyrodniczy północy, z niską roślinnością i zamarzniętą glebą przez część roku.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>LAKE</strong></span><span class="flip-back"><strong>JEZIORO</strong><small>Kanada ma ogromną liczbę jezior i wielkie zasoby słodkiej wody.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>COASTLINE</strong></span><span class="flip-back"><strong>LINIA BRZEGOWA</strong><small>Kanada ma najdłuższą linię brzegową na świecie.</small></span></span></button>
+</div>
+<div class="note"><strong>Ciekawostka:</strong> Kanada ma tak wiele jezior, że jest jednym z najważniejszych krajów świata pod względem zasobów słodkiej wody.</div>
+</section>
+
+<section>
+<h2>6. Provinces and territories – prowincje i terytoria</h2>
+<p>Kanada dzieli się na 10 prowincji i 3 terytoria. Każda z tych jednostek ma własną stolicę. Ottawa jest stolicą całego kraju.</p>
+<img class="hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Canada_provinces_blank_map.svg" alt="Mapa prowincji i terytoriów Kanady" loading="lazy">
+<h3>Ten provinces – 10 prowincji</h3>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ONTARIO</strong></span><span class="flip-back"><strong>ONTARIO – TORONTO</strong><small>W prowincji leży Ottawa – stolica Kanady, oraz Toronto – największe miasto kraju.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>QUÉBEC</strong></span><span class="flip-back"><strong>QUÉBEC – QUÉBEC CITY</strong><small>Francuskojęzyczna prowincja, znana z miasta Québec i bogatej kultury francusko-kanadyjskiej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BRITISH COLUMBIA</strong></span><span class="flip-back"><strong>KOLUMBIA BRYTYJSKA – VICTORIA</strong><small>Prowincja na zachodnim wybrzeżu, znana z gór, lasów i wyspy Vancouver.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ALBERTA</strong></span><span class="flip-back"><strong>ALBERTA – EDMONTON</strong><small>Znana z Gór Skalistych, parków narodowych Banff i Jasper oraz Calgary Stampede.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MANITOBA</strong></span><span class="flip-back"><strong>MANITOBA – WINNIPEG</strong><small>Prowincja prerii, jezior i rozległych przestrzeni.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>SASKATCHEWAN</strong></span><span class="flip-back"><strong>SASKATCHEWAN – REGINA</strong><small>Znana z rozległych pól uprawnych i krajobrazów prerii.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NOVA SCOTIA</strong></span><span class="flip-back"><strong>NOWA SZKOCJA – HALIFAX</strong><small>Atlantycka prowincja znana z wybrzeża, portów i historii morskiej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NEW BRUNSWICK</strong></span><span class="flip-back"><strong>NOWY BRUNSZWIK – FREDERICTON</strong><small>Jedyna oficjalnie dwujęzyczna prowincja Kanady – angielski i francuski mają tu status urzędowy.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>PRINCE EDWARD ISLAND</strong></span><span class="flip-back"><strong>WYSPA KSIĘCIA EDWARDA – CHARLOTTETOWN</strong><small>Najmniejsza prowincja Kanady, znana z czerwonych klifów i zielonych pól.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NEWFOUNDLAND AND LABRADOR</strong></span><span class="flip-back"><strong>NOWA FUNDLANDIA I LABRADOR – ST. JOHN'S</strong><small>Atlantycka prowincja z surowymi wybrzeżami, rybacką historią i górami lodowymi.</small></span></span></button>
+</div>
+<h3>Three territories – 3 terytoria</h3>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>YUKON</strong></span><span class="flip-back"><strong>YUKON – WHITEHORSE</strong><small>Terytorium słynne z historii gorączki złota Klondike i dzikiej przyrody.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NORTHWEST TERRITORIES</strong></span><span class="flip-back"><strong>TERRITORIES PÓŁNOCNO-ZACHODNIE – YELLOWKNIFE</strong><small>Rozległy region północny, znany m.in. z jeziora Great Slave Lake i zorzy polarnej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NUNAVUT</strong></span><span class="flip-back"><strong>NUNAVUT – IQALUIT</strong><small>Największe terytorium Kanady, utworzone w 1999 roku. Dużą część ludności stanowią Inuit.</small></span></span></button>
+</div>
+<div class="note red-note"><strong>Zapamiętaj:</strong> Ottawa jest stolicą Kanady. Toronto jest największym miastem. Québec City jest stolicą prowincji Québec, a nie całego kraju.</div>
+</section>
+
+<section>
+<h2>7. Famous Canadian cities – znane miasta</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Toronto_skyline_from_Centre_Island.jpg" alt="Toronto" loading="lazy"><figcaption>Toronto</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Montreal_skyline.jpg" alt="Montreal" loading="lazy"><figcaption>Montréal</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vancouver_skyline.jpg" alt="Vancouver" loading="lazy"><figcaption>Vancouver</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Quebec_City_skyline.jpg" alt="Québec City" loading="lazy"><figcaption>Québec City</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>OTTAWA</strong></span><span class="flip-back"><strong>OTTAWA</strong><small>Stolica Kanady. Znajdują się tu parlament i ważne muzea narodowe.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>TORONTO</strong></span><span class="flip-back"><strong>TORONTO</strong><small>Największe miasto Kanady, znane z CN Tower i wielokulturowej społeczności.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MONTRÉAL</strong></span><span class="flip-back"><strong>MONTRÉAL</strong><small>Duże miasto w Québecu, znane z języka francuskiego, festiwali i sztuki.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>VANCOUVER</strong></span><span class="flip-back"><strong>VANCOUVER</strong><small>Miasto na zachodnim wybrzeżu, otoczone górami i oceanem.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>QUÉBEC CITY</strong></span><span class="flip-back"><strong>QUÉBEC CITY</strong><small>Historyczne miasto z murami obronnymi i francuskojęzyczną kulturą.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CALGARY</strong></span><span class="flip-back"><strong>CALGARY</strong><small>Miasto w Albercie, znane z Calgary Stampede i bliskości Gór Skalistych.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>8. Government and monarchy – rządy i monarchia</h2>
+<img class="hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_Hill_Ottawa.jpg" alt="Kanadyjski parlament" loading="lazy">
+<p>Kanada jest niezależnym państwem i monarchią konstytucyjną. Głową państwa jest król Karol III, reprezentowany w Kanadzie przez gubernatora generalnego. Premier kieruje rządem, a parlament uchwala prawo.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CONSTITUTIONAL MONARCHY</strong></span><span class="flip-back"><strong>MONARCHIA KONSTYTUCYJNA</strong><small>Ustrój, w którym monarcha jest głową państwa, a jego rola jest określona przez konstytucję i prawo.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>KING CHARLES III</strong></span><span class="flip-back"><strong>KRÓL KAROL III</strong><small>Głowa państwa Kanady. Kanada ma własny parlament, rząd i system prawny.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>GOVERNOR GENERAL</strong></span><span class="flip-back"><strong>GUBERNATOR GENERALNY</strong><small>Reprezentuje monarchę w Kanadzie i wykonuje określone funkcje konstytucyjne.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>PRIME MINISTER</strong></span><span class="flip-back"><strong>PREMIER</strong><small>Szef rządu, który kieruje pracą ministrów i polityką państwa.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>PARLIAMENT</strong></span><span class="flip-back"><strong>PARLAMENT</strong><small>Składa się z Izby Gmin, Senatu i monarchy reprezentowanego w procesie ustawodawczym przez gubernatora generalnego.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>FEDERAL STATE</strong></span><span class="flip-back"><strong>PAŃSTWO FEDERALNE</strong><small>Władza jest podzielona między rząd federalny i rządy prowincji oraz terytoriów.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>9. A short history – krótka historia Kanady</h2>
+<p>Historia Kanady obejmuje tysiące lat historii rdzennych narodów, przybycie Europejczyków, francuskie i brytyjskie osadnictwo oraz stopniowe uzyskiwanie niezależności.</p>
+<div class="timeline">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BEFORE 1500</strong><small>Indigenous peoples</small></span><span class="flip-back"><strong>PRZED PRZYBYCIEM EUROPEJCZYKÓW</strong><small>Na terenach dzisiejszej Kanady żyły liczne rdzenne narody z własnymi językami i kulturami.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1534</strong><small>Jacques Cartier</small></span><span class="flip-back"><strong>JACQUES CARTIER</strong><small>Francuski podróżnik dotarł do Zatoki Świętego Wawrzyńca i badał te tereny.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1608</strong><small>Québec founded</small></span><span class="flip-back"><strong>POWSTANIE QUÉBECU</strong><small>Samuel de Champlain założył francuską osadę Québec.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1763</strong><small>British rule</small></span><span class="flip-back"><strong>RZĄDY BRYTYJSKIE</strong><small>Po wojnie siedmioletniej Francja przekazała Wielkiej Brytanii większość swoich posiadłości w Ameryce Północnej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1867</strong><small>Confederation</small></span><span class="flip-back"><strong>KONFEDERACJA KANADY</strong><small>1 lipca 1867 roku powstało Dominium Kanady. Połączyły się Ontario, Québec, Nowa Szkocja i Nowy Brunszwik.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1893</strong><small>Women's vote</small></span><span class="flip-back"><strong>PRAWA WYBORCZE KOBIET</strong><small>W różnych częściach Kanady prawa wyborcze kobiet wprowadzano stopniowo. W 1918 roku większość kobiet uzyskała federalne prawo głosu, z ważnymi wyjątkami.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1931</strong><small>Statute of Westminster</small></span><span class="flip-back"><strong>WIĘKSZA NIEZALEŻNOŚĆ</strong><small>Statut Westminsterski potwierdził szeroką autonomię Kanady w relacjach z Wielką Brytanią.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1965</strong><small>New flag</small></span><span class="flip-back"><strong>NOWA FLAGA</strong><small>Kanada przyjęła obecną flagę z czerwonym liściem klonu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1982</strong><small>Constitution</small></span><span class="flip-back"><strong>KONSTYTUCJA</strong><small>Kanada przejęła pełną kontrolę nad zmianami własnej konstytucji. Przyjęto też Canadian Charter of Rights and Freedoms.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>1999</strong><small>Nunavut</small></span><span class="flip-back"><strong>POWSTANIE NUNAVUT</strong><small>Utworzono nowe terytorium Nunavut, w którym dużą część ludności stanowią Inuit.</small></span></span></button>
+</div>
+<div class="note"><strong>Ważne:</strong> 1 lipca obchodzony jest Canada Day – święto upamiętniające Konfederację z 1867 roku. Nie oznacza to, że wszystkie etapy pełnej niezależności Kanady nastąpiły jednego dnia.</div>
+</section>
+
+<section>
+<h2>10. Canadian symbols – symbole Kanady</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Maple_leaf.jpg" alt="Liść klonu" loading="lazy"><figcaption>Maple leaf</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/American_beaver.jpg" alt="Bóbr" loading="lazy"><figcaption>Beaver</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian_goose.jpg" alt="Gęś kanadyjska" loading="lazy"><figcaption>Canada goose</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍁</span><strong>MAPLE LEAF</strong></span><span class="flip-back"><strong>LIŚĆ KLONU</strong><small>Symbol narodowy widoczny na fladze Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🦫</span><strong>BEAVER</strong></span><span class="flip-back"><strong>BÓBR</strong><small>Oficjalne zwierzę narodowe Kanady. Ważny także w historii handlu futrami.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🎵</span><strong>O CANADA</strong></span><span class="flip-back"><strong>HYMN KANADY</strong><small>Hymn narodowy, oficjalnie ustanowiony w 1980 roku. Istnieją wersje angielska i francuska.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏒</span><strong>ICE HOCKEY</strong></span><span class="flip-back"><strong>HOKEJ NA LODZIE</strong><small>Sport bardzo silnie związany z kanadyjską kulturą i tożsamością.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🪙</span><strong>LOONIE</strong></span><span class="flip-back"><strong>MONETA JEDNODOLAROWA</strong><small>Potoczna nazwa kanadyjskiej monety o nominale jednego dolara. Znajduje się na niej nurek (loon).</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🐻</span><strong>POLAR BEAR</strong></span><span class="flip-back"><strong>NIEDŹWIEDŹ POLARNY</strong><small>Charakterystyczne zwierzę kanadyjskiej Arktyki, ważne dla przyrody północy.</small></span></span></button>
+</div>
+<div class="note">Nie wszystkie popularne symbole są oficjalnymi symbolami państwowymi. Liść klonu i bóbr mają oficjalne znaczenie, a hokej jest bardzo silnym symbolem kulturowym.</div>
+</section>
+
+<section>
+<h2>11. Amazing Canadian animals – zwierzęta Kanady</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Polar_bear_in_the_Arctic.jpg" alt="Niedźwiedź polarny" loading="lazy"><figcaption>Polar bear</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Moose_in_Canada.jpg" alt="Łoś" loading="lazy"><figcaption>Moose</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian_beaver.jpg" alt="Bóbr" loading="lazy"><figcaption>Beaver</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canada_lynx.jpg" alt="Ryś kanadyjski" loading="lazy"><figcaption>Canada lynx</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>POLAR BEAR</strong></span><span class="flip-back"><strong>NIEDŹWIEDŹ POLARNY</strong><small>Wielki drapieżnik Arktyki, doskonale przystosowany do zimnego klimatu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MOOSE</strong></span><span class="flip-back"><strong>ŁOŚ</strong><small>Duży ssak z rodziny jeleniowatych, występujący w lasach i na terenach podmokłych.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BEAVER</strong></span><span class="flip-back"><strong>BÓBR</strong><small>Gryzoń budujący tamy i żeremia. Oficjalne zwierzę narodowe Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CANADA GOOSE</strong></span><span class="flip-back"><strong>GĘŚ KANADYJSKA</strong><small>Duży ptak wodny, często spotykany w parkach i nad jeziorami.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CANADA LYNX</strong></span><span class="flip-back"><strong>RYŚ KANADYJSKI</strong><small>Drapieżny kot o szerokich łapach, które pomagają mu poruszać się po śniegu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CARIBOU</strong></span><span class="flip-back"><strong>RENIFER / KARIBU</strong><small>Dziki przedstawiciel jeleniowatych żyjący w północnych regionach Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>WOLF</strong></span><span class="flip-back"><strong>WILK</strong><small>Drapieżnik żyjący w wielu kanadyjskich ekosystemach.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BELUGA</strong></span><span class="flip-back"><strong>BIAŁUCHa</strong><small>Jasny wieloryb arktyczny, który żyje m.in. w kanadyjskich wodach północnych.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>12. Famous natural places – słynne miejsca przyrodnicze</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Niagara_Falls_from_Canadian_side.jpg" alt="Niagara Falls" loading="lazy"><figcaption>Niagara Falls – Ontario</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Louise_Banff_National_Park.jpg" alt="Lake Louise" loading="lazy"><figcaption>Lake Louise – Alberta</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Moraine_Lake_Banff_National_Park.jpg" alt="Moraine Lake" loading="lazy"><figcaption>Moraine Lake – Alberta</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Northern_Lights_over_Canada.jpg" alt="Zorza polarna" loading="lazy"><figcaption>Northern Lights</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NIAGARA FALLS</strong></span><span class="flip-back"><strong>WODOSPAD NIAGARA</strong><small>Słynny zespół wodospadów na granicy Kanady i USA. Po stronie kanadyjskiej znajduje się Horseshoe Falls.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>BANFF NATIONAL PARK</strong></span><span class="flip-back"><strong>PARK NARODOWY BANFF</strong><small>Najstarszy park narodowy Kanady, położony w Górach Skalistych w Albercie.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>JASPER NATIONAL PARK</strong></span><span class="flip-back"><strong>PARK NARODOWY JASPER</strong><small>Park w Górach Skalistych, znany z gór, lodowców, jezior i dzikiej przyrody.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NIAGARA RIVER</strong></span><span class="flip-back"><strong>RZEKA NIAGARA</strong><small>Łączy jezioro Erie z jeziorem Ontario i tworzy słynne wodospady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>NORTHERN LIGHTS</strong></span><span class="flip-back"><strong>ZORZA POLARNA</strong><small>Kolorowe światła na niebie, które można obserwować szczególnie w północnych częściach kraju.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>GREAT BEAR RAINFOREST</strong></span><span class="flip-back"><strong>WIELKI LAS DESZCZOWY NIEDŹWIEDZI</strong><small>Rozległy las deszczowy strefy umiarkowanej na wybrzeżu Kolumbii Brytyjskiej.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>13. Holidays and celebrations – święta i uroczystości</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canada_Day_fireworks.jpg" alt="Fajerwerki Canada Day" loading="lazy"><figcaption>Canada Day</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Quebec_Winter_Carnival.jpg" alt="Karnawał zimowy w Québecu" loading="lazy"><figcaption>Québec Winter Carnival</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CANADA DAY</strong><small>July 1</small></span><span class="flip-back"><strong>ŚWIĘTO KANADY</strong><small>1 lipca. Upamiętnia Konfederację Kanady z 1867 roku. Odbywają się parady, koncerty i pokazy fajerwerków.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>THANKSGIVING</strong><small>October</small></span><span class="flip-back"><strong>ŚWIĘTO DZIĘKCZYNIENIA</strong><small>W Kanadzie obchodzone w drugi poniedziałek października. Rodziny często spotykają się przy wspólnym posiłku.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>REMEMBRANCE DAY</strong><small>November 11</small></span><span class="flip-back"><strong>DZIEŃ PAMIĘCI</strong><small>11 listopada. Upamiętnia osoby, które służyły i zginęły podczas konfliktów zbrojnych. Symbolem jest czerwony mak.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>VICTORIA DAY</strong><small>May</small></span><span class="flip-back"><strong>VICTORIA DAY</strong><small>Święto obchodzone w maju, związane historycznie z urodzinami królowej Wiktorii i kanadyjską Koroną.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>SAINT-JEAN-BAPTISTE DAY</strong><small>June 24</small></span><span class="flip-back"><strong>ŚWIĘTO NARODOWE QUÉBECU</strong><small>24 czerwca. Ważne święto kultury francuskojęzycznej, szczególnie w Québecu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>WINTER CARNIVAL</strong></span><span class="flip-back"><strong>KARNAWAŁ ZIMOWY</strong><small>Québec Winter Carnival – słynny zimowy festiwal z rzeźbami lodowymi, paradami i aktywnościami na śniegu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CHRISTMAS</strong><small>December 25</small></span><span class="flip-back"><strong>BOŻE NARODZENIE</strong><small>Święto obchodzone zimą. W wielu regionach Kanady towarzyszy mu śnieg i zimowa atmosfera.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>FAMILY DAY</strong></span><span class="flip-back"><strong>ŚWIĘTO RODZINY</strong><small>Święto obchodzone w wybranych prowincjach w lutym. Data i zasady zależą od regionu.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>14. Seasons and climate – pory roku i klimat</h2>
+<p>Kanada jest ogromna, dlatego klimat różni się w zależności od regionu. Na południu bywają gorące lata i mroźne zimy, a na północy panuje klimat arktyczny.</p>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🌸</span><strong>SPRING</strong><small>March – May</small></span><span class="flip-back"><strong>WIOSNA</strong><small>Marzec – maj. Śnieg topnieje, a przyroda budzi się do życia.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">☀️</span><strong>SUMMER</strong><small>June – August</small></span><span class="flip-back"><strong>LATO</strong><small>Czerwiec – sierpień. W wielu regionach jest ciepło, a dni są długie.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍂</span><strong>AUTUMN</strong><small>September – November</small></span><span class="flip-back"><strong>JESIEŃ</strong><small>Wrzesień – listopad. Liście klonów zmieniają kolory, tworząc słynne jesienne krajobrazy.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">❄️</span><strong>WINTER</strong><small>December – February</small></span><span class="flip-back"><strong>ZIMA</strong><small>Grudzień – luty. W wielu regionach występują śnieg, mróz i doskonałe warunki do sportów zimowych.</small></span></span></button>
+</div>
+<div class="note">Ciekawostka: Kanada leży na półkuli północnej, więc pory roku występują w podobnym czasie jak w Polsce. Jednak na północy zimy są znacznie dłuższe i chłodniejsze.</div>
+</section>
+
+<section>
+<h2>15. Canadian sports – sport w Kanadzie</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice_hockey_game.jpg" alt="Mecz hokeja" loading="lazy"><figcaption>Ice hockey</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Curling.jpg" alt="Curling" loading="lazy"><figcaption>Curling</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lacrosse_game.jpg" alt="Lacrosse" loading="lazy"><figcaption>Lacrosse</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ICE HOCKEY</strong></span><span class="flip-back"><strong>HOKEJ NA LODZIE</strong><small>Jeden z najbardziej popularnych i rozpoznawalnych sportów Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>LACROSSE</strong></span><span class="flip-back"><strong>LACROSSE</strong><small>Sport o rdzennych korzeniach, rozgrywany przy użyciu kijów z siatką. Jest jednym z oficjalnych sportów narodowych Kanady.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CURLING</strong></span><span class="flip-back"><strong>CURLING</strong><small>Zimowy sport drużynowy, w którym zawodnicy przesuwają kamienie po lodzie w kierunku celu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>ICE SKATING</strong></span><span class="flip-back"><strong>ŁYŻWIARSTWO</strong><small>Popularna aktywność zimowa. W wielu miastach zimą otwierane są lodowiska na świeżym powietrzu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>SKIING</strong></span><span class="flip-back"><strong>NARCIARSTWO</strong><small>Popularne szczególnie w Górach Skalistych i innych górskich regionach kraju.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CANADIAN FOOTBALL</strong></span><span class="flip-back"><strong>FUTBOL KANADYJSKI</strong><small>Odmiana futbolu amerykańskiego z nieco innymi zasadami i większym boiskiem.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>16. Canadian food – jedzenie Kanady</h2>
+<div class="photo-grid">
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Poutine.jpg" alt="Poutine" loading="lazy"><figcaption>Poutine</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Butter_tarts.jpg" alt="Butter tarts" loading="lazy"><figcaption>Butter tarts</figcaption></figure>
+<figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canadian_maple_syrup.jpg" alt="Syrop klonowy" loading="lazy"><figcaption>Maple syrup</figcaption></figure>
+</div>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍟</span><strong>POUTINE</strong></span><span class="flip-back"><strong>POUTINE</strong><small>Potrawa z frytek, sera w kawałkach (cheese curds) i gorącego sosu pieczeniowego. Pochodzi z Québecu.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍁</span><strong>MAPLE SYRUP</strong></span><span class="flip-back"><strong>SYROP KLONOWY</strong><small>Słodki syrop produkowany z soku klonowego. Kanada jest jego ważnym producentem.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🥧</span><strong>BUTTER TARTS</strong></span><span class="flip-back"><strong>MAŁE TARTY MAŚLANE</strong><small>Słodkie kanadyjskie wypieki z maślanym nadzieniem.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🥓</span><strong>PEAMEAL BACON</strong></span><span class="flip-back"><strong>BEKON PEAMEAL</strong><small>Charakterystyczny produkt mięsny związany z kuchnią Toronto.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🐟</span><strong>SMOKED SALMON</strong></span><span class="flip-back"><strong>ŁOSOŚ WĘDZONY</strong><small>Popularny produkt spożywczy, szczególnie w regionach nadmorskich.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🫐</span><strong>WILD BLUEBERRIES</strong></span><span class="flip-back"><strong>LEŚNE JAGODY</strong><small>Owoce ważne w kuchni niektórych regionów Kanady, zwłaszcza Atlantyku.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍲</span><strong>TOURTIÈRE</strong></span><span class="flip-back"><strong>TOURTIÈRE</strong><small>Tradycyjna mięsna tarta z Québecu, często przygotowywana na święta.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍪</span><strong>NANAIMO BAR</strong></span><span class="flip-back"><strong>NANAIMO BAR</strong><small>Warstwowy deser bez pieczenia, pochodzący z miasta Nanaimo w Kolumbii Brytyjskiej.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>17. Famous Canadians – znani Kanadyjczycy</h2>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>WAYNE GRETZKY</strong></span><span class="flip-back"><strong>WAYNE GRETZKY</strong><small>Legendarny kanadyjski hokeista, nazywany „The Great One”.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>CELINE DION</strong></span><span class="flip-back"><strong>CÉLINE DION</strong><small>Kanadyjska piosenkarka z Québecu, znana na całym świecie.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>JUSTIN BIEBER</strong></span><span class="flip-back"><strong>JUSTIN BIEBER</strong><small>Kanadyjski piosenkarz, który zdobył międzynarodową popularność jako nastolatek.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>JIM CARREY</strong></span><span class="flip-back"><strong>JIM CARREY</strong><small>Aktor i komik urodzony w Kanadzie, znany z wielu filmów komediowych.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>RYAN REYNOLDS</strong></span><span class="flip-back"><strong>RYAN REYNOLDS</strong><small>Kanadyjski aktor znany z filmów i działalności komediowej.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>MARGARET ATWOOD</strong></span><span class="flip-back"><strong>MARGARET ATWOOD</strong><small>Kanadyjska pisarka, autorka m.in. „The Handmaid's Tale”.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>DAVID SUZUKI</strong></span><span class="flip-back"><strong>DAVID SUZUKI</strong><small>Kanadyjski naukowiec i popularyzator wiedzy o środowisku naturalnym.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><strong>JAMES CAMERON</strong></span><span class="flip-back"><strong>JAMES CAMERON</strong><small>Reżyser filmowy urodzony w Kanadzie, znany m.in. z filmów „Titanic” i „Avatar”.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>18. Legends and stories – legendy i opowieści</h2>
+<h3>Story 1: The legend of the Ogopogo</h3>
+<div class="note blue-note">
+<strong>Easy English – The Ogopogo</strong>
+<p>Ogopogo is a mysterious creature from stories about Okanagan Lake in British Columbia. Some people say it looks like a long lake monster. There are many stories about strange shapes in the water. No scientific evidence proves that Ogopogo exists, but the legend is famous in the region.</p>
+<p><em>Ogopogo to legendarne stworzenie, które według opowieści żyje w jeziorze Okanagan w Kolumbii Brytyjskiej. Nie ma naukowych dowodów na jego istnienie.</em></p>
+</div>
+<h3>Story 2: The Wendigo</h3>
+<div class="note blue-note">
+<strong>Easy English – The Wendigo</strong>
+<p>The Wendigo is a frightening figure in some stories of Algonquian-speaking Indigenous peoples. It is often connected with winter, hunger and greed. Different communities tell different versions of the story. It is important to remember that these are cultural traditions, not simply a monster story.</p>
+<p><em>Wendigo to postać z niektórych tradycji opowieści ludów algonkińskich. Jest związana z zimą, głodem i chciwością. Istnieją różne wersje tej opowieści.</em></p>
+</div>
+<h3>Story 3: The Klondike Gold Rush</h3>
+<div class="note blue-note">
+<strong>Easy English – The Gold Rush</strong>
+<p>In the late 1890s, many people travelled to the Yukon because they wanted to find gold. The journey was difficult and dangerous. People crossed mountains and cold rivers. Some found gold, but many did not become rich. The Klondike Gold Rush became an important part of Canadian history.</p>
+<p><em>Pod koniec XIX wieku tysiące ludzi przybywały do Yukonu w poszukiwaniu złota. Droga była trudna, a nie wszystkim udało się wzbogacić.</em></p>
+</div>
+<h3>Story 4: The Three Sisters</h3>
+<div class="note blue-note">
+<strong>Easy English – The Three Sisters</strong>
+<p>The Three Sisters are three famous mountain peaks near Canmore in Alberta. There are different stories and names connected with these mountains. They are an important part of the landscape of the Canadian Rockies.</p>
+<p><em>Three Sisters to trzy charakterystyczne szczyty w Albercie, niedaleko Canmore. Są jednym z rozpoznawalnych widoków Gór Skalistych.</em></p>
+</div>
+<div class="note"><strong>Uwaga:</strong> Opowieści rdzennych narodów mają różne wersje i pochodzą z konkretnych tradycji. Warto poznawać je z szacunkiem, pamiętając o ich kulturowym znaczeniu.</div>
+</section>
+
+<section>
+<h2>19. Picture dictionary – słowniczek obrazkowy</h2>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🍁</span><strong>MAPLE LEAF</strong></span><span class="flip-back">LIŚĆ KLONU<small>A leaf from a maple tree.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏔️</span><strong>MOUNTAIN</strong></span><span class="flip-back">GÓRA<small>A very high natural area of land.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🌲</span><strong>FOREST</strong></span><span class="flip-back">LAS<small>A large area covered with trees.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">❄️</span><strong>SNOW</strong></span><span class="flip-back">ŚNIEG<small>Frozen water that falls from the sky.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🫎</span><strong>MOOSE</strong></span><span class="flip-back">ŁOŚ<small>A large animal with long legs and wide antlers.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🦫</span><strong>BEAVER</strong></span><span class="flip-back">BÓBR<small>An animal that builds dams in rivers.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🌊</span><strong>WATERFALL</strong></span><span class="flip-back">WODOSPAD<small>Water falling from a high place.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏞️</span><strong>LAKE</strong></span><span class="flip-back">JEZIORO<small>A large area of water surrounded by land.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🌌</span><strong>NORTHERN LIGHTS</strong></span><span class="flip-back">ZORZA POLARNA<small>Colourful lights in the night sky.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏒</span><strong>HOCKEY STICK</strong></span><span class="flip-back">KIJ HOKEJOWY<small>A stick used to hit a puck in ice hockey.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🛶</span><strong>CANOE</strong></span><span class="flip-back">KAJAK / KANOe<small>A small boat moved with a paddle.</small></span></span></button>
+<button class="flip-card"><span class="flip-inner"><span class="flip-front"><span class="card-icon">🏕️</span><strong>CAMPING</strong></span><span class="flip-back">BIWAKOWANIE<small>Sleeping outdoors, often in a tent.</small></span></span></button>
+</div>
+</section>
+
+<section>
+<h2>20. A short reading – przeczytaj tekst po angielsku</h2>
+<h3>Welcome to Canada!</h3>
+<div class="note blue-note">
+<p><strong>Canada is a very large country in North America.</strong> It has three oceans: the Atlantic Ocean, the Pacific Ocean and the Arctic Ocean. The capital city is Ottawa. Toronto is the largest city.</p>
+<p>Canada has ten provinces and three territories. English and French are the two official languages at the federal level. French is especially important in the province of Quebec.</p>
+<p>Canada is famous for its beautiful nature. There are high mountains, deep forests, many lakes and amazing waterfalls. Niagara Falls is one of the most famous places in the country.</p>
+<p>The maple leaf is an important symbol of Canada. The beaver is the national animal. Many Canadians love ice hockey, skiing and outdoor activities.</p>
+<p>Canada is also home to many Indigenous peoples, including First Nations, Inuit and Métis. Their histories and cultures are an important part of the country.</p>
+<p>Would you like to visit Canada?</p>
+</div>
+<h3>Check your understanding</h3>
+<div class="activity">
+<p><strong>1. What is the capital of Canada?</strong></p>
+<label><input type="radio" name="r1" value="a"> Toronto</label><br><label><input type="radio" name="r1" value="b"> Ottawa</label><br><label><input type="radio" name="r1" value="c"> Vancouver</label>
+<p><strong>2. How many provinces does Canada have?</strong></p>
+<label><input type="radio" name="r2" value="a"> 10</label><br><label><input type="radio" name="r2" value="b"> 13</label><br><label><input type="radio" name="r2" value="c"> 5</label>
+<p><strong>3. What is an important symbol of Canada?</strong></p>
+<label><input type="radio" name="r3" value="a"> Kangaroo</label><br><label><input type="radio" name="r3" value="b"> Kiwi</label><br><label><input type="radio" name="r3" value="c"> Maple leaf</label>
+<button class="action" type="button" onclick="checkReading()">Sprawdź odpowiedzi</button>
+<div id="readingResult" class="result" aria-live="polite"></div>
+</div>
+</section>
+
+<section>
+<h2>21. Test yourself! – sprawdź swoją wiedzę</h2>
+<p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu kliknij „Sprawdź wynik”.</p>
+<form id="quiz">
+<div class="question"><strong>1. What is the capital of Canada?</strong><div class="quiz-options"><label><input type="radio" name="q1" value="a"> Toronto</label><label><input type="radio" name="q1" value="b"> Ottawa</label><label><input type="radio" name="q1" value="c"> Montréal</label></div></div>
+<div class="question"><strong>2. What is the largest city in Canada?</strong><div class="quiz-options"><label><input type="radio" name="q2" value="a"> Toronto</label><label><input type="radio" name="q2" value="b"> Ottawa</label><label><input type="radio" name="q2" value="c"> Québec City</label></div></div>
+<div class="question"><strong>3. How many provinces does Canada have?</strong><div class="quiz-options"><label><input type="radio" name="q3" value="a"> 3</label><label><input type="radio" name="q3" value="b"> 13</label><label><input type="radio" name="q3" value="c"> 10</label></div></div>
+<div class="question"><strong>4. How many territories does Canada have?</strong><div class="quiz-options"><label><input type="radio" name="q4" value="a"> 3</label><label><input type="radio" name="q4" value="b"> 10</label><label><input type="radio" name="q4" value="c"> 5</label></div></div>
+<div class="question"><strong>5. What is the Canadian currency?</strong><div class="quiz-options"><label><input type="radio" name="q5" value="a"> Euro</label><label><input type="radio" name="q5" value="b"> Canadian dollar</label><label><input type="radio" name="q5" value="c"> Pound</label></div></div>
+<div class="question"><strong>6. What are Canada's two federal official languages?</strong><div class="quiz-options"><label><input type="radio" name="q6" value="a"> English and Spanish</label><label><input type="radio" name="q6" value="b"> French and German</label><label><input type="radio" name="q6" value="c"> English and French</label></div></div>
+<div class="question"><strong>7. What is the main symbol on the Canadian flag?</strong><div class="quiz-options"><label><input type="radio" name="q7" value="a"> Maple leaf</label><label><input type="radio" name="q7" value="b"> Beaver</label><label><input type="radio" name="q7" value="c"> Eagle</label></div></div>
+<div class="question"><strong>8. What is Canada's national animal?</strong><div class="quiz-options"><label><input type="radio" name="q8" value="a"> Moose</label><label><input type="radio" name="q8" value="b"> Beaver</label><label><input type="radio" name="q8" value="c"> Polar bear</label></div></div>
+<div class="question"><strong>9. What is the capital of Québec province?</strong><div class="quiz-options"><label><input type="radio" name="q9" value="a"> Montréal</label><label><input type="radio" name="q9" value="b"> Toronto</label><label><input type="radio" name="q9" value="c"> Québec City</label></div></div>
+<div class="question"><strong>10. Which province is especially famous for French language and culture?</strong><div class="quiz-options"><label><input type="radio" name="q10" value="a"> Québec</label><label><input type="radio" name="q10" value="b"> Alberta</label><label><input type="radio" name="q10" value="c"> Manitoba</label></div></div>
+<div class="question"><strong>11. When is Canada Day?</strong><div class="quiz-options"><label><input type="radio" name="q11" value="a"> June 24</label><label><input type="radio" name="q11" value="b"> July 1</label><label><input type="radio" name="q11" value="c"> November 11</label></div></div>
+<div class="question"><strong>12. What happened in 1867?</strong><div class="quiz-options"><label><input type="radio" name="q12" value="a"> The first hockey match</label><label><input type="radio" name="q12" value="b"> The new flag was introduced</label><label><input type="radio" name="q12" value="c"> Canadian Confederation</label></div></div>
+<div class="question"><strong>13. Which three oceans border Canada?</strong><div class="quiz-options"><label><input type="radio" name="q13" value="a"> Atlantic, Pacific and Arctic</label><label><input type="radio" name="q13" value="b"> Indian, Atlantic and Pacific</label><label><input type="radio" name="q13" value="c"> Southern, Indian and Arctic</label></div></div>
+<div class="question"><strong>14. What is poutine?</strong><div class="quiz-options"><label><input type="radio" name="q14" value="a"> A kind of cake</label><label><input type="radio" name="q14" value="b"> Fries with cheese curds and gravy</label><label><input type="radio" name="q14" value="c"> A fish soup</label></div></div>
+<div class="question"><strong>15. What is the famous waterfall on the Canada–USA border?</strong><div class="quiz-options"><label><input type="radio" name="q15" value="a"> Victoria Falls</label><label><input type="radio" name="q15" value="b"> Angel Falls</label><label><input type="radio" name="q15" value="c"> Niagara Falls</label></div></div>
+<div class="question"><strong>16. Which group is one of Canada's Indigenous peoples?</strong><div class="quiz-options"><label><input type="radio" name="q16" value="a"> Inuit</label><label><input type="radio" name="q16" value="b"> Vikings</label><label><input type="radio" name="q16" value="c"> Romans</label></div></div>
+<div class="question"><strong>17. What is the capital of Nunavut?</strong><div class="quiz-options"><label><input type="radio" name="q17" value="a"> Whitehorse</label><label><input type="radio" name="q17" value="b"> Iqaluit</label><label><input type="radio" name="q17" value="c"> Yellowknife</label></div></div>
+<div class="question"><strong>18. What sport is strongly associated with Canada?</strong><div class="quiz-options"><label><input type="radio" name="q18" value="a"> Cricket</label><label><input type="radio" name="q18" value="b"> Sumo wrestling</label><label><input type="radio" name="q18" value="c"> Ice hockey</label></div></div>
+<div class="question"><strong>19. What is the Klondike Gold Rush famous for?</strong><div class="quiz-options"><label><input type="radio" name="q19" value="a"> People travelling to Yukon to find gold</label><label><input type="radio" name="q19" value="b"> Building the first airport</label><label><input type="radio" name="q19" value="c"> Discovering Niagara Falls</label></div></div>
+<div class="question"><strong>20. What is the name of Canada's national anthem?</strong><div class="quiz-options"><label><input type="radio" name="q20" value="a"> God Save the King</label><label><input type="radio" name="q20" value="b"> O Canada</label><label><input type="radio" name="q20" value="c"> The Maple Song</label></div></div>
+<button class="action" type="button" onclick="checkQuiz()">Sprawdź wynik</button>
+<button class="action" type="reset" onclick="document.getElementById('quizResult').textContent=''">Wyczyść odpowiedzi</button>
+<div id="quizResult" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<section>
+<h2>22. My mini project – mój mini projekt</h2>
+<p>Wybierz miasto, prowincję, zwierzę lub miejsce w Kanadzie. Napisz kilka zdań po angielsku.</p>
+<div class="note">
+<strong>Use these questions:</strong>
+<ol><li>What is the name of the place?</li><li>Where is it in Canada?</li><li>What is it famous for?</li><li>What can people see or do there?</li><li>Why would you like to visit it?</li></ol>
+<strong>Example:</strong> My favourite place in Canada is Niagara Falls. It is on the border between Canada and the USA. It is famous for its beautiful waterfalls. People can take a boat trip and enjoy the views. I would like to visit it because it looks amazing.
+</div>
+<textarea id="project" rows="6" placeholder="My favourite place in Canada is..."></textarea>
+<button class="action" onclick="saveText()">Zapisz tekst na swoim urządzeniu</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>23. Explore more – poznaj więcej!</h2>
+<ul>
+<li><a href="https://www.canada.ca/" target="_blank" rel="noopener">Government of Canada</a> – oficjalny portal rządowy.</li>
+<li><a href="https://www.canada.ca/en/canadian-heritage/services/official-symbols-canada.html" target="_blank" rel="noopener">Official Symbols of Canada</a> – symbole państwowe.</li>
+<li><a href="https://www.canada.ca/en/intergovernmental-affairs/services/provinces-territories.html" target="_blank" rel="noopener">Provinces and Territories</a> – prowincje i terytoria.</li>
+<li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada/read-online.html" target="_blank" rel="noopener">Discover Canada</a> – historia i informacje o kraju.</li>
+<li><a href="https://www.pc.gc.ca/" target="_blank" rel="noopener">Parks Canada</a> – parki narodowe i miejsca historyczne.</li>
+<li><a href="https://www.destinationcanada.com/" target="_blank" rel="noopener">Destination Canada</a> – turystyka i podróże.</li>
+<li><a href="https://www.musee-mccord-stewart.ca/en/" target="_blank" rel="noopener">McCord Stewart Museum</a> – historia i kultura Kanady.</li>
+<li><a href="https://www.rcaanc-cirnac.gc.ca/" target="_blank" rel="noopener">Crown-Indigenous Relations and Northern Affairs Canada</a> – informacje o relacjach z rdzennymi narodami.</li>
+<li><a href="https://www.thecanadianencyclopedia.ca/" target="_blank" rel="noopener">The Canadian Encyclopedia</a> – encyklopedia Kanady.</li>
+<li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> – zdjęcia i ilustracje.</li>
+</ul>
+</section>
+
+<section style="text-align:center;background:#fcebed">
+<h2>Well done! 🎉</h2>
+<p>Gratulacje! Poznałeś lub poznałaś Kanadę – jej historię, geografię, prowincje, języki, rdzenną kulturę, symbole, zwierzęta i tradycje.</p>
+<p><strong>Remember:</strong> The capital city is Ottawa. Canada has ten provinces and three territories. The maple leaf is a famous Canadian symbol.</p>
+<div style="font-size:2rem">🇨🇦 🍁 🏒 🦫</div>
+</section>
+
+</main>
+<footer>
+<p>AROUND CANADA – Canadian Culture Lab</p>
+<p>Interactive lesson • Learn • Discover • Explore</p>
+</footer>
+
+<script>
+document.querySelectorAll('.flip-card').forEach(card=>{
+  card.setAttribute('aria-pressed','false');
+  card.setAttribute('type','button');
+  card.addEventListener('click',()=>{
+    const flipped=card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed',String(flipped));
+  });
+});
+
+function checkReading(){
+ const answers={r1:'b',r2:'a',r3:'c'};
+ let score=0,answered=0;
+ Object.keys(answers).forEach(q=>{
+  const selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected){answered++;if(selected.value===answers[q])score++;}
+ });
+ document.getElementById('readingResult').textContent='Wynik: '+score+'/3. Odpowiedzi: '+answered+'/3.';
+}
+
+function checkQuiz(){
+ const answers={
+ q1:'b',q2:'a',q3:'c',q4:'a',q5:'b',
+ q6:'c',q7:'a',q8:'b',q9:'c',q10:'a',
+ q11:'b',q12:'c',q13:'a',q14:'b',q15:'c',
+ q16:'a',q17:'b',q18:'c',q19:'a',q20:'b'
+ };
+ let score=0,answered=0;
+ Object.keys(answers).forEach(q=>{
+  const selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected){answered++;if(selected.value===answers[q])score++;}
+ });
+ let message='Twój wynik: '+score+'/20 punktów. ';
+ if(answered<20)message+='Odpowiedziałeś na '+answered+' z 20 pytań. ';
+ if(score===20)message+='Excellent! Fantastycznie!';
+ else if(score>=16)message+='Great job! Bardzo dobrze!';
+ else if(score>=11)message+='Good work! Jeszcze trochę ćwiczeń i będzie świetnie!';
+ else message+='Spróbuj ponownie. Wróć do fiszek i powtórz materiał!';
+ document.getElementById('quizResult').textContent=message;
+}
+
+function saveText(){
+ const text=document.getElementById('project').value.trim();
+ const message=document.getElementById('saveMessage');
+ if(!text){message.textContent='Najpierw wpisz swój tekst.';return;}
+ const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement('a');
+ a.href=url;a.download='my-canada-project.txt';a.click();
+ URL.revokeObjectURL(url);
+ message.textContent='Twój tekst został przygotowany do zapisania.';
+}
+</script>
+</body>
+</html>

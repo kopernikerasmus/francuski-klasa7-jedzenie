@@ -1,0 +1,1399 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around New Zealand – New Zealand Culture Lab</title>
+<style>
+:root{
+  --navy:#173b56;--blue:#267b9b;--red:#c63d50;
+  --gold:#e6bd62;--green:#397b61;--cream:#fff6df;
+  --ink:#293947;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:#f0f5f7;color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.65
+}
+header{
+  text-align:center;color:white;padding:42px 18px 35px;
+  background:linear-gradient(135deg,#142f4b,#267b91)
+}
+header h1{font-size:clamp(2rem,6vw,3.5rem);margin:8px 0}
+header p{max-width:850px;margin:10px auto}
+.flag-line{font-size:2.2rem;letter-spacing:7px}
+main{max-width:1120px;margin:auto;padding:20px}
+section{
+  background:white;border-radius:18px;padding:24px;
+  margin:22px 0;box-shadow:0 5px 20px #18345412
+}
+h2{color:var(--navy);border-bottom:3px solid var(--gold);padding-bottom:8px}
+h3{color:var(--blue)}
+p{margin:10px 0}
+.hero-image{
+  width:100%;max-height:390px;object-fit:cover;
+  border-radius:14px;margin:12px 0
+}
+.photo-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;margin:18px 0
+}
+.photo-grid figure{margin:0;background:#f3f6fa;border-radius:12px;overflow:hidden}
+.photo-grid img{width:100%;height:170px;object-fit:cover;display:block}
+figcaption{padding:9px 12px;font-size:.9rem}
+.note{
+  background:#fff5d9;border-left:5px solid var(--gold);
+  padding:13px 16px;border-radius:9px;margin:15px 0
+}
+.blue-note{background:#eaf2fb;border-left-color:#4c79a8}
+.green-note{background:#eaf6ef;border-left-color:var(--green)}
+
+/* FISZKI – stała wysokość i responsywna siatka */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));
+  gap:16px;align-items:stretch;width:100%;margin:18px 0
+}
+.flip-card{
+  display:block;position:relative;width:100%;min-width:0;
+  height:165px;min-height:165px;padding:0;margin:0;
+  border:0;background:transparent;appearance:none;
+  cursor:pointer;text-align:center;font:inherit;color:inherit;
+  perspective:1000px
+}
+.flip-inner{
+  display:block;position:relative;width:100%;height:165px;
+  transform-style:preserve-3d;transition:transform .65s ease
+}
+.flip-card.is-flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  display:flex;position:absolute;inset:0;width:100%;height:100%;
+  padding:16px;flex-direction:column;justify-content:center;
+  align-items:center;overflow-wrap:anywhere;text-align:center;
+  border-radius:13px;backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;box-shadow:0 3px 12px #142b4a18
+}
+.flip-front{background:#e8f2f5;border:2px solid #c4dce4;color:var(--navy)}
+.flip-back{background:#fff3d2;border:2px solid #e8d18d;transform:rotateY(180deg)}
+.flip-front strong{font-size:1.08rem;line-height:1.35}
+.flip-front small,.flip-back small{margin-top:8px;color:#53657a}
+.card-icon{font-size:2rem;margin-bottom:6px}
+.flip-card:focus-visible{outline:4px solid var(--gold);outline-offset:4px;border-radius:13px}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.timeline .flip-card,.timeline .flip-inner,
+.timeline .flip-front,.timeline .flip-back{height:180px;min-height:180px}
+.activity{background:#f5f8fc;padding:17px;border-radius:12px;margin:15px 0}
+.question{margin:13px 0;padding:12px;background:white;border-radius:8px}
+.quiz-options label{display:block;margin:7px 0;cursor:pointer}
+button.action{
+  border:0;border-radius:9px;background:var(--navy);color:white;
+  padding:11px 17px;font-size:1rem;cursor:pointer;margin:5px
+}
+button.action:hover{background:#26749a}
+.result{font-weight:bold;margin-top:12px}
+textarea{width:100%;font:inherit;padding:10px;border:1px solid #b9c6d5;border-radius:7px}
+a{color:#245c91}
+footer{text-align:center;background:var(--navy);color:white;padding:25px}
+@media(max-width:600px){
+  main{padding:10px}
+  section{padding:16px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .flip-card,.flip-inner,.flip-front,.flip-back{height:165px;min-height:165px}
+  .flip-front,.flip-back{padding:10px;font-size:.9rem}
+  .flip-front strong{font-size:1rem}
+}
+@media(max-width:360px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="flag-line">🇳🇿 🥝 🐑 🌿</div>
+  <h1>AROUND NEW ZEALAND</h1>
+  <h2 style="color:white;border:0">New Zealand Culture Lab</h2>
+  <p>Discover Aotearoa! Poznaj kraj długiej białej chmury, kulturę Māori, niezwykłą przyrodę i tradycje Nowej Zelandii.</p>
+  <p>🇵🇱 Lekcja po polsku z angielskimi nazwami i tekstami na poziomie A2.</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. New Zealand – co to za kraj?</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Milford_Sound.jpg"
+alt="Milford Sound w Nowej Zelandii" loading="lazy">
+
+<p><strong>New Zealand</strong>, czyli Nowa Zelandia, to państwo wyspiarskie położone na południowo-zachodnim Pacyfiku. W języku Māori nazywa się <strong>Aotearoa</strong>, co jest najczęściej tłumaczone jako „Land of the Long White Cloud” – „Kraj Długiej Białej Chmury”.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🇳🇿</span><strong>NEW ZEALAND</strong><small>Kliknij, aby odwrócić</small></span>
+<span class="flip-back"><strong>NOWA ZELANDIA</strong><small>Państwo wyspiarskie na południowym Pacyfiku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">☁️</span><strong>AOTEAROA</strong></span>
+<span class="flip-back"><strong>KRAJ DŁUGIEJ BIAŁEJ CHMURY</strong><small>Māoryjska nazwa Nowej Zelandii, powszechnie używana obok nazwy angielskiej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏙️</span><strong>CAPITAL CITY</strong></span>
+<span class="flip-back"><strong>STOLICA</strong><small>Stolicą Nowej Zelandii jest Wellington, a nie Auckland!</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌏</span><strong>SOUTH PACIFIC</strong></span>
+<span class="flip-back"><strong>POŁUDNIOWY PACYFIK</strong><small>Nowa Zelandia leży na południowym Pacyfiku, na półkuli południowej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">💵</span><strong>NEW ZEALAND DOLLAR</strong></span>
+<span class="flip-back"><strong>DOLAR NOWOZELANDZKI</strong><small>Waluta kraju. Jej kod to NZD.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Podstawowe informacje:</strong>
+<ul>
+<li>Stolica: Wellington</li>
+<li>Największe miasto: Auckland</li>
+<li>Waluta: New Zealand dollar (NZD)</li>
+<li>Najważniejsze wyspy: North Island i South Island</li>
+<li>Języki urzędowe: Māori, New Zealand Sign Language; angielski jest najczęściej używanym językiem.</li>
+<li>Nowa Zelandia jest monarchią konstytucyjną i demokracją parlamentarną.</li>
+</ul>
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_New_Zealand.svg" alt="Flaga Nowej Zelandii" loading="lazy">
+<figcaption>New Zealand Flag</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wellington_New_Zealand_from_Mount_Victoria.jpg" alt="Wellington" loading="lazy">
+<figcaption>Wellington – stolica kraju</figcaption>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>2. The New Zealand flag – flaga Nowej Zelandii</h2>
+<img class="hero-image" style="max-height:230px;object-fit:contain;background:#eaf0f7"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_New_Zealand.svg"
+alt="Flaga Nowej Zelandii">
+
+<p>Flaga Nowej Zelandii ma granatowe tło. W lewym górnym rogu znajduje się Union Jack, a po prawej stronie cztery czerwone gwiazdy z białą obwódką.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>UNION JACK</strong></span>
+<span class="flip-back"><strong>FLAGA WIELKIEJ BRYTANII</strong><small>Przypomina o historycznych związkach Nowej Zelandii z Wielką Brytanią.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTHERN CROSS</strong></span>
+<span class="flip-back"><strong>KRZYŻ POŁUDNIA</strong><small>Gwiazdozbiór widoczny na niebie półkuli południowej. Cztery jego gwiazdy są na fladze.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BLUE BACKGROUND</strong></span>
+<span class="flip-back"><strong>NIEBIESKIE TŁO</strong><small>Przypomina o otaczającym kraj oceanie i morskim położeniu Nowej Zelandii.</small></span>
+</span></button>
+</div>
+
+<div class="note blue-note">
+<strong>Ciekawostka:</strong> Flaga Nowej Zelandii jest podobna do flagi Australii. Obie mają Union Jack i gwiazdy Krzyża Południa, ale różnią się m.in. układem i kolorem gwiazd.
+</div>
+
+<h3>Other important symbols – inne ważne symbole</h3>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Silver_fern_flag.svg" alt="Flaga ze srebrną paprocią" loading="lazy">
+<figcaption>Silver fern – srebrna paproć</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Maori_King_Movement.svg" alt="Flaga Kiingitanga" loading="lazy">
+<figcaption>Przykład symboliki Māori</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SILVER FERN</strong></span>
+<span class="flip-back"><strong>SREBRNA PAPROĆ</strong><small>Nieoficjalny, bardzo rozpoznawalny symbol Nowej Zelandii, używany m.in. przez drużyny sportowe.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KIWI</strong></span>
+<span class="flip-back"><strong>KIWI</strong><small>Nielotny ptak, który stał się jednym z najważniejszych symboli kraju. Mieszkańcy Nowej Zelandii też nazywają siebie Kiwis.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>POWHIRI</strong></span>
+<span class="flip-back"><strong>POWITANIE MAORI</strong><small>Tradycyjna ceremonia powitania gości, związana z kulturą Māori i zasadami marae.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>3. Māori – rdzenni mieszkańcy Nowej Zelandii</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Maori_carving.jpg"
+alt="Rzeźba w stylu Māori" loading="lazy">
+
+<p><strong>Māori</strong> to rdzenni mieszkańcy Aotearoa. Ich przodkowie przybyli na wyspy z innych części Polinezji, prawdopodobnie około XIII wieku. Māori mają bogatą kulturę, język, sztukę, tradycje, muzykę i opowieści przekazywane przez pokolenia.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MĀORI</strong></span>
+<span class="flip-back"><strong>MAORYSI</strong><small>Rdzenni mieszkańcy Nowej Zelandii, których kultura jest ważną częścią tożsamości kraju.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TANGATA WHENUA</strong></span>
+<span class="flip-back"><strong>LUDZIE ZIEMI</strong><small>Określenie odnoszące się do Māori jako rdzennych mieszkańców Aotearoa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TE REO MĀORI</strong></span>
+<span class="flip-back"><strong>JĘZYK MĀORI</strong><small>Jeden z języków urzędowych Nowej Zelandii. Można go usłyszeć w szkołach, mediach i podczas uroczystości.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WHĀNAU</strong></span>
+<span class="flip-back"><strong>RODZINA</strong><small>W kulturze Māori pojęcie rodziny może obejmować szerszą grupę krewnych i bliskich.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MANAAKITANGA</strong></span>
+<span class="flip-back"><strong>GOŚCINNOŚĆ I TROSKA</strong><small>Okazywanie troski, szacunku i życzliwości wobec innych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KAITIAKITANGA</strong></span>
+<span class="flip-back"><strong>OPIEKA NAD ŚRODOWISKIEM</strong><small>Odpowiedzialność za ochronę ziemi, wody, przyrody i zasobów dla przyszłych pokoleń.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MARAE</strong></span>
+<span class="flip-back"><strong>MIEJSCE SPOTKAŃ</strong><small>Ważna przestrzeń społeczna i ceremonialna w społecznościach Māori, często z domem spotkań wharenui.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WHARENUI</strong></span>
+<span class="flip-back"><strong>DOM SPOTKAŃ</strong><small>Rzeźbiony dom spotkań na marae, symbolizujący często przodka i wspólnotę.</small></span>
+</span></button>
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Maori_wharenui.jpg" alt="Wharenui – dom spotkań Māori" loading="lazy">
+<figcaption>Wharenui – dom spotkań</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Maori_ta_moko.jpg" alt="Tradycyjne wzory Māori" loading="lazy">
+<figcaption>Ta moko – tradycyjna sztuka tatuażu Māori</figcaption>
+</figure>
+</div>
+
+<div class="note green-note">
+<strong>Pamiętaj:</strong> Kultura Māori jest żywa i różnorodna. Jej symbole, język i zwyczaje mają głębokie znaczenie. Warto poznawać je z szacunkiem, a nie traktować wyłącznie jako atrakcji turystycznej.
+</div>
+</section>
+
+<section>
+<h2>4. Haka – coś więcej niż taniec</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/All_Blacks_haka.jpg"
+alt="Haka wykonywana przez drużynę rugby" loading="lazy">
+
+<p><strong>Haka</strong> to rodzaj tradycyjnego występu Māori, który może łączyć ruch, śpiew, rytm, mimikę i mocne gesty. Haka ma różne formy i znaczenia. Może być wykonywana podczas powitań, uroczystości, ważnych spotkań i wydarzeń sportowych.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HAKA</strong></span>
+<span class="flip-back"><strong>TRADYCYJNY WYSTĘP MĀORI</strong><small>Forma ekspresji, która może wyrażać siłę, jedność, emocje, szacunek lub powitanie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ALL BLACKS</strong></span>
+<span class="flip-back"><strong>REPREZENTACJA RUGBY</strong><small>Znana drużyna rugby z Nowej Zelandii, która wykonuje hakę przed wieloma meczami.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KA MATE</strong></span>
+<span class="flip-back"><strong>KA MATE</strong><small>Słynna haka, której autorem był Te Rauparaha. Jest jedną z najbardziej rozpoznawalnych hak w Nowej Zelandii.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Ważne:</strong> Haka nie jest po prostu „tańcem wojennym”. Ma wiele odmian i może pełnić różne funkcje w kulturze Māori.
+</div>
+</section>
+
+<section>
+<h2>5. Geography – geografia Nowej Zelandii</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/New_Zealand_topographic_map.svg"
+alt="Mapa topograficzna Nowej Zelandii" loading="lazy">
+
+<p>Nowa Zelandia składa się z dwóch głównych wysp: North Island i South Island. Należą do niej także mniejsze wyspy, między innymi Stewart Island / Rakiura.</p>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Cook_and_Lake_Pukaki.jpg" alt="Aoraki Mount Cook" loading="lazy">
+<figcaption>Aoraki / Mount Cook</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Milford_Sound_New_Zealand.jpg" alt="Milford Sound" loading="lazy">
+<figcaption>Milford Sound / Piopiotahi</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rotomahana_Lake.jpg" alt="Jezioro w Nowej Zelandii" loading="lazy">
+<figcaption>Jeziora i krajobrazy wulkaniczne</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NORTH ISLAND</strong></span>
+<span class="flip-back"><strong>WYSPA PÓŁNOCNA</strong><small>Znajdują się tu m.in. Auckland, Wellington, obszary geotermalne Rotorua i wiele miejsc ważnych dla kultury Māori.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTH ISLAND</strong></span>
+<span class="flip-back"><strong>WYSPA POŁUDNIOWA</strong><small>Znana z Alp Południowych, lodowców, jezior i spektakularnych fiordów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>STEWART ISLAND / RAKIURA</strong></span>
+<span class="flip-back"><strong>WYSPA STEWART / RAKIURA</strong><small>Wyspa na południe od Wyspy Południowej, znana z przyrody i możliwości obserwacji kiwi.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTHERN ALPS</strong></span>
+<span class="flip-back"><strong>ALPY POŁUDNIOWE</strong><small>Łańcuch górski na Wyspie Południowej. Znajduje się tam najwyższy szczyt kraju – Aoraki / Mount Cook.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AORAKI / MOUNT COOK</strong></span>
+<span class="flip-back"><strong>NAJWYŻSZY SZCZYT</strong><small>Najwyższa góra Nowej Zelandii, wznosząca się na 3724 metry nad poziomem morza.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>FIORD</strong></span>
+<span class="flip-back"><strong>FIORD</strong><small>Długa, wąska zatoka morska otoczona stromymi górami, ukształtowana przez lodowiec.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GEOTHERMAL AREA</strong></span>
+<span class="flip-back"><strong>OBSZAR GEOTERMALNY</strong><small>Miejsce, w którym ciepło wnętrza Ziemi powoduje występowanie gorących źródeł, gejzerów i błotnych basenów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>VOLCANO</strong></span>
+<span class="flip-back"><strong>WULKAN</strong><small>Góra lub otwór w skorupie ziemskiej, z którego może wydobywać się lawa, gazy i popiół.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Ciekawostka:</strong> Nowa Zelandia leży na granicy płyt tektonicznych. Dlatego występują tam trzęsienia ziemi, wulkany, gorące źródła i gejzery.
+</div>
+</section>
+
+<section>
+<h2>6. Important cities – najważniejsze miasta</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Auckland_skyline.jpg" alt="Auckland" loading="lazy">
+<figcaption>Auckland</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wellington_CBD.jpg" alt="Wellington" loading="lazy">
+<figcaption>Wellington</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Christchurch_Cathedral_Square.jpg" alt="Christchurch" loading="lazy">
+<figcaption>Christchurch</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Queenstown_New_Zealand.jpg" alt="Queenstown" loading="lazy">
+<figcaption>Queenstown</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WELLINGTON</strong><small>Capital city</small></span>
+<span class="flip-back"><strong>WELLINGTON</strong><small>Stolica kraju. Znajduje się na południowym krańcu Wyspy Północnej. Znana z parlamentu i muzeum Te Papa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUCKLAND</strong><small>Largest city</small></span>
+<span class="flip-back"><strong>AUCKLAND</strong><small>Największe miasto kraju. Znane z portów, wysp i wieży Sky Tower.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CHRISTCHURCH</strong></span>
+<span class="flip-back"><strong>CHRISTCHURCH</strong><small>Duże miasto na Wyspie Południowej, nazywane często „Garden City”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>QUEENSTOWN</strong></span>
+<span class="flip-back"><strong>QUEENSTOWN</strong><small>Popularne miejsce turystyczne, znane z gór, jeziora Wakatipu i sportów przygodowych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ROTORUA</strong></span>
+<span class="flip-back"><strong>ROTORUA</strong><small>Miasto znane z gejzerów, gorących źródeł i ważnych doświadczeń związanych z kulturą Māori.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DUNEDIN</strong></span>
+<span class="flip-back"><strong>DUNEDIN</strong><small>Miasto na Wyspie Południowej, znane z historii szkockiego osadnictwa i kolonii albatrosów.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>7. Government and monarchy – rządy i monarchia</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_Buildings_Wellington.jpg"
+alt="Parlament Nowej Zelandii" loading="lazy">
+
+<p>Nowa Zelandia jest niezależną monarchią konstytucyjną i demokracją parlamentarną. Głową państwa jest król Karol III. Reprezentuje go gubernator generalny. Premier jest szefem rządu i kieruje codzienną polityką państwa.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CONSTITUTIONAL MONARCHY</strong></span>
+<span class="flip-back"><strong>MONARCHIA KONSTYTUCYJNA</strong><small>Ustrój, w którym monarcha jest głową państwa, ale jego rola jest określona przez prawo i konstytucyjne zasady.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KING CHARLES III</strong></span>
+<span class="flip-back"><strong>KRÓL KAROL III</strong><small>Głowa państwa Nowej Zelandii. Kraj jest niezależny i ma własny parlament oraz rząd.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GOVERNOR-GENERAL</strong></span>
+<span class="flip-back"><strong>GUBERNATOR GENERALNY</strong><small>Reprezentuje monarchę w Nowej Zelandii i wykonuje określone funkcje konstytucyjne.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PRIME MINISTER</strong></span>
+<span class="flip-back"><strong>PREMIER</strong><small>Szef rządu, który kieruje pracą ministrów i polityką państwa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PARLIAMENT</strong></span>
+<span class="flip-back"><strong>PARLAMENT</strong><small>Instytucja, która uchwala prawo. Parlament Nowej Zelandii jest jednoizbowy – składa się z Izby Reprezentantów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DEMOCRACY</strong></span>
+<span class="flip-back"><strong>DEMOKRACJA</strong><small>System, w którym obywatele wybierają swoich przedstawicieli i mają wpływ na władzę.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Zapamiętaj:</strong> Nowa Zelandia nie jest częścią Wielkiej Brytanii. Jest niezależnym państwem, choć ma tego samego monarchę co Wielka Brytania.
+</div>
+</section>
+
+<section>
+<h2>8. The Treaty of Waitangi – Traktat z Waitangi</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Treaty_of_Waitangi_signing.jpg"
+alt="Historyczna scena podpisania Traktatu z Waitangi" loading="lazy">
+
+<p><strong>Te Tiriti o Waitangi / Treaty of Waitangi</strong> to dokument podpisany 6 lutego 1840 roku przez przedstawicieli brytyjskiej Korony i wielu wodzów Māori. Jest uznawany za dokument założycielski współczesnej Nowej Zelandii.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TREATY OF WAITANGI</strong></span>
+<span class="flip-back"><strong>TRAKTAT Z WAITANGI</strong><small>Porozumienie między przedstawicielami brytyjskiej Korony a wodzami Māori, podpisane w 1840 roku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TE TIRITI O WAITANGI</strong></span>
+<span class="flip-back"><strong>NAZWA MĀORI TRAKTATU</strong><small>Māoryjska wersja dokumentu. Tekst Māori i tekst angielski różnią się w ważnych kwestiach znaczeniowych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>6 FEBRUARY 1840</strong></span>
+<span class="flip-back"><strong>6 LUTEGO 1840</strong><small>Data pierwszego podpisania traktatu w Waitangi. Dziś 6 lutego obchodzony jest Waitangi Day.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RANGATIRA</strong></span>
+<span class="flip-back"><strong>WODZOWIE / PRZYWÓDCY MĀORI</strong><small>Przywódcy społeczności Māori, z których wielu podpisało traktat.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Dlaczego traktat jest ważny?</strong>
+<p>Dokument dotyczył m.in. władzy, praw Māori, ziemi i relacji z Koroną. Wersje angielska i Māori nie oddawały w pełni tych samych znaczeń. W kolejnych latach pojawiły się spory dotyczące interpretacji i przestrzegania obietnic. Temat traktatu pozostaje ważny we współczesnej Nowej Zelandii.</p>
+</div>
+</section>
+
+<section>
+<h2>9. A short history – krótka historia Nowej Zelandii</h2>
+<div class="timeline">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AROUND 1200–1300</strong><small>Polynesian settlement</small></span>
+<span class="flip-back"><strong>PRZYBYCIE PRZODKÓW MĀORI</strong><small>Przodkowie Māori osiedlali się na wyspach, przypływając z innych części Polinezji.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1642</strong><small>Abel Tasman</small></span>
+<span class="flip-back"><strong>ABEL TASMAN</strong><small>Holenderski żeglarz był pierwszym Europejczykiem, który odnotował kontakt z Nową Zelandią.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1769</strong><small>James Cook</small></span>
+<span class="flip-back"><strong>JAMES COOK</strong><small>Brytyjski żeglarz rozpoczął dokładniejsze mapowanie wybrzeży Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1840</strong><small>Treaty of Waitangi</small></span>
+<span class="flip-back"><strong>TRAKTAT Z WAITANGI</strong><small>Przedstawiciele Korony i wodzowie Māori podpisali traktat, który stał się ważnym dokumentem w historii kraju.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1850s</strong><small>Self-government</small></span>
+<span class="flip-back"><strong>SAMORZĄD</strong><small>Rozwijały się instytucje samorządowe i parlamentarne Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1893</strong><small>Women's suffrage</small></span>
+<span class="flip-back"><strong>PRAWA WYBORCZE KOBIET</strong><small>Nowa Zelandia jako pierwsze samorządne państwo przyznała kobietom prawo głosu w wyborach parlamentarnych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1907</strong><small>Dominion</small></span>
+<span class="flip-back"><strong>DOMINIUM</strong><small>Nowa Zelandia otrzymała status dominium w Imperium Brytyjskim.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1947</strong><small>Statute of Westminster</small></span>
+<span class="flip-back"><strong>WIĘKSZA NIEZALEŻNOŚĆ</strong><small>Nowa Zelandia przyjęła Statut Westminsterski, potwierdzając pełną autonomię ustawodawczą.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1987</strong><small>Māori language</small></span>
+<span class="flip-back"><strong>JĘZYK MĀORI</strong><small>Te reo Māori uzyskał status języka urzędowego.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Ciekawostka:</strong> W 1893 roku Nowa Zelandia stała się pionierem praw wyborczych kobiet. To ważny moment w historii demokracji na świecie.
+</div>
+</section>
+
+<section>
+<h2>10. National symbols – symbole Nowej Zelandii</h2>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiwi_%28Apteryx_australis%29.jpg" alt="Ptak kiwi" loading="lazy">
+<figcaption>Kiwi – narodowy symbol</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cyathea_dealbata.jpg" alt="Srebrna paproć" loading="lazy">
+<figcaption>Silver fern</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pohutukawa_flowers.jpg" alt="Kwiaty pohutukawa" loading="lazy">
+<figcaption>Pōhutukawa</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥝</span><strong>KIWI</strong></span>
+<span class="flip-back"><strong>KIWI</strong><small>Nielotny ptak, który jest jednym z najbardziej rozpoznawalnych symboli Nowej Zelandii. Nie jest oficjalnym godłem państwowym.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌿</span><strong>SILVER FERN</strong></span>
+<span class="flip-back"><strong>SREBRNA PAPROĆ</strong><small>Nieoficjalny symbol narodowy, znany m.in. z odznak sportowych i strojów drużyn.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌺</span><strong>PŌHUTUKAWA</strong></span>
+<span class="flip-back"><strong>DRZEWO PŌHUTUKAWA</strong><small>Drzewo o czerwonych kwiatach, które kwitnie w okresie letnim. Czasem nazywane nowozelandzką choinką.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐑</span><strong>SHEEP</strong></span>
+<span class="flip-back"><strong>OWCA</strong><small>Owce są ważnym elementem historii rolnictwa i krajobrazu Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🎵</span><strong>GOD DEFEND NEW ZEALAND</strong></span>
+<span class="flip-back"><strong>HYMN NOWEJ ZELANDII</strong><small>Jeden z dwóch hymnów narodowych. Często śpiewany w języku Māori i angielskim.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🛡️</span><strong>COAT OF ARMS</strong></span>
+<span class="flip-back"><strong>HERB PAŃSTWOWY</strong><small>Oficjalny symbol kraju, przedstawiający m.in. tarczę, koronę i postacie reprezentujące ludność Nowej Zelandii.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>11. Amazing animals – niezwykłe zwierzęta</h2>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiwi_%28Apteryx_australis%29.jpg" alt="Kiwi" loading="lazy">
+<figcaption>Kiwi</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kea_in_the_Southern_Alps.jpg" alt="Kea" loading="lazy">
+<figcaption>Kea</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tuatara.jpg" alt="Tuatara" loading="lazy">
+<figcaption>Tuatara</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hector%27s_dolphin.jpg" alt="Delfin Hektora" loading="lazy">
+<figcaption>Hector's dolphin</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KIWI</strong></span>
+<span class="flip-back"><strong>KIWI</strong><small>Nielotny ptak o długim dziobie. Jest aktywny głównie nocą i ma bardzo dobry węch.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KEA</strong></span>
+<span class="flip-back"><strong>KEA</strong><small>Duża, inteligentna papuga górska o oliwkowozielonym upierzeniu. Żyje na Wyspie Południowej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TUATARA</strong></span>
+<span class="flip-back"><strong>HATTERIA</strong><small>Gad, który przetrwał od bardzo dawnych czasów. Nie jest jaszczurką, choć może ją przypominać.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HECTOR'S DOLPHIN</strong></span>
+<span class="flip-back"><strong>DELFINEK HECTORA</strong><small>Mały, rzadki delfin występujący w wodach Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>YELLOW-EYED PENGUIN</strong></span>
+<span class="flip-back"><strong>PINGWIN ŻÓŁTOOKI</strong><small>Rzadki gatunek pingwina żyjący w Nowej Zelandii i na pobliskich wyspach.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>FUR SEAL</strong></span>
+<span class="flip-back"><strong>FOKA FUTRZASTA</strong><small>Foka, którą można spotkać na skalistych wybrzeżach Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ALBATROSS</strong></span>
+<span class="flip-back"><strong>ALBATROS</strong><small>Duży ptak morski o bardzo długich skrzydłach, potrafiący pokonywać ogromne odległości nad oceanem.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WĒTĀ</strong></span>
+<span class="flip-back"><strong>WĒTĀ</strong><small>Duży owad występujący w Nowej Zelandii. Niektóre gatunki przypominają świerszcze.</small></span>
+</span></button>
+</div>
+
+<div class="note green-note">
+<strong>Ważne:</strong> W Nowej Zelandii występuje wiele gatunków endemicznych, czyli takich, które naturalnie żyją tylko w określonym regionie. Wiele rodzimych gatunków jest zagrożonych przez utratę siedlisk i introdukowane drapieżniki.
+</div>
+</section>
+
+<section>
+<h2>12. Holidays and celebrations – święta i uroczystości</h2>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Waitangi_Day_celebrations.jpg" alt="Obchody Waitangi Day" loading="lazy">
+<figcaption>Waitangi Day</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Matariki_cluster.jpg" alt="Gromada gwiazd Matariki" loading="lazy">
+<figcaption>Matariki</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WAITANGI DAY</strong><small>February 6</small></span>
+<span class="flip-back"><strong>WAITANGI DAY</strong><small>6 lutego. Upamiętnia podpisanie Traktatu z Waitangi w 1840 roku. Jest świętem państwowym i dniem refleksji nad historią kraju.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ANZAC DAY</strong><small>April 25</small></span>
+<span class="flip-back"><strong>ANZAC DAY</strong><small>25 kwietnia. Dzień pamięci o żołnierzach Nowej Zelandii i Australii, którzy służyli i zginęli podczas wojen.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MATARIKI</strong></span>
+<span class="flip-back"><strong>NOWY ROK MĀORI</strong><small>Święto związane z pojawieniem się na niebie gromady gwiazd Matariki. To czas pamięci, spotkań, wdzięczności i planowania przyszłości. Data zmienia się każdego roku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WAITANGI COMMEMORATIONS</strong></span>
+<span class="flip-back"><strong>UROCZYSTOŚCI WAITANGI</strong><small>Spotkania, przemówienia, występy i dyskusje dotyczące historii oraz znaczenia traktatu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CHRISTMAS</strong><small>December 25</small></span>
+<span class="flip-back"><strong>BOŻE NARODZENIE</strong><small>25 grudnia. W Nowej Zelandii jest to lato. Rodziny często spotykają się na świeżym powietrzu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>EASTER</strong></span>
+<span class="flip-back"><strong>WIELKANOC</strong><small>Wypada jesienią na półkuli południowej. Jest to czas świąt religijnych i rodzinnych spotkań.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>13. Seasons and climate – pory roku i klimat</h2>
+<p>Nowa Zelandia leży na półkuli południowej. Pory roku występują tam odwrotnie niż w Polsce.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">☀️</span><strong>SUMMER</strong><small>December – February</small></span>
+<span class="flip-back"><strong>LATO</strong><small>Grudzień – luty. Dni są długie, a pogoda często ciepła.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍂</span><strong>AUTUMN</strong><small>March – May</small></span>
+<span class="flip-back"><strong>JESIEŃ</strong><small>Marzec – maj. Temperatury stopniowo spadają.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">❄️</span><strong>WINTER</strong><small>June – August</small></span>
+<span class="flip-back"><strong>ZIMA</strong><small>Czerwiec – sierpień. W górach często pada śnieg i działają ośrodki narciarskie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌸</span><strong>SPRING</strong><small>September – November</small></span>
+<span class="flip-back"><strong>WIOSNA</strong><small>Wrzesień – listopad. Przyroda budzi się do życia.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Przykład:</strong> Kiedy w Polsce jest lato i wakacje w lipcu, w Nowej Zelandii jest zima. Kiedy w Polsce jest zima w grudniu, w Nowej Zelandii trwa lato!
+</div>
+</section>
+
+<section>
+<h2>14. Māori legends – legendy i opowieści</h2>
+
+<h3>Story 1: Māui and the giant fish</h3>
+<div class="note blue-note">
+<strong>Easy English – Māui and the giant fish</strong>
+<p>Māui was a clever hero in Māori stories. One day, he went fishing with his brothers. He used a special hook and caught a giant fish. The fish became the North Island of New Zealand. In Māori, the island is called Te Ika-a-Māui – the fish of Māui.</p>
+<p><em>Māui był sprytnym bohaterem opowieści Māori. Według jednej z historii złowił ogromną rybę, która stała się Wyspą Północną.</em></p>
+</div>
+
+<h3>Story 2: Māui and the sun</h3>
+<div class="note blue-note">
+<strong>Easy English – Māui slows down the sun</strong>
+<p>Long ago, the days were too short. Māui wanted people to have more time to work and live. He and his brothers caught the sun with strong ropes. Māui asked the sun to move more slowly across the sky. The days became longer.</p>
+<p><em>Māui chciał, aby dni były dłuższe. Według legendy schwytał słońce i poprosił je, by poruszało się wolniej po niebie.</em></p>
+</div>
+
+<h3>Story 3: The taniwha</h3>
+<div class="note blue-note">
+<strong>Easy English – The taniwha</strong>
+<p>In Māori traditions, a taniwha is a powerful supernatural being. Some taniwha live in the sea, rivers or lakes. Different stories describe them in different ways. Some protect people and places, while others can be dangerous.</p>
+<p><em>Taniwha to istota z tradycji Māori, związana z wodą i określonymi miejscami. W różnych opowieściach może pełnić różne role.</em></p>
+</div>
+
+<h3>Story 4: The mountains of the South Island</h3>
+<div class="note blue-note">
+<strong>Easy English – The story of the mountains</strong>
+<p>Some Māori traditions tell stories about powerful ancestors and their journeys across the land. Mountains, lakes and rivers are connected with these stories. For Māori, natural places can have deep cultural and spiritual meaning.</p>
+<p><em>W tradycjach Māori góry, jeziora i rzeki mogą być związane z historiami przodków i mieć szczególne znaczenie duchowe.</em></p>
+</div>
+
+<div class="note">
+<strong>Uwaga:</strong> Opowieści Māori mają różne wersje zależnie od iwi, czyli społeczności lub plemienia. Powyższe teksty są krótkimi, uproszczonymi wprowadzeniami do bogatej tradycji ustnej.
+</div>
+</section>
+
+<section>
+<h2>15. New Zealand traditions – tradycje i styl życia</h2>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/All_Blacks_haka.jpg" alt="Haka" loading="lazy">
+<figcaption>Haka</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/New_Zealand_rugby.jpg" alt="Rugby" loading="lazy">
+<figcaption>Rugby</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/New_Zealand_hangi.jpg" alt="Hāngi" loading="lazy">
+<figcaption>Hāngi</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RUGBY</strong></span>
+<span class="flip-back"><strong>RUGBY</strong><small>Jeden z najpopularniejszych sportów w Nowej Zelandii. Reprezentacja All Blacks jest znana na całym świecie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HĀNGI</strong></span>
+<span class="flip-back"><strong>TRADYCYJNE GOTOWANIE W ZIEMI</strong><small>Potrawy przygotowuje się w specjalnym dole z gorącymi kamieniami i przykrywa, aby gotowały się powoli w ziemi.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>POWHIRI</strong></span>
+<span class="flip-back"><strong>CEREMONIA POWITANIA</strong><small>Tradycyjna ceremonia Māori, która odbywa się na marae i ma określony przebieg oraz zasady.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TRAMPING</strong></span>
+<span class="flip-back"><strong>WĘDROWANIE</strong><small>W Nowej Zelandii tak nazywa się piesze wędrówki po górach i szlakach przyrodniczych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>OUTDOOR LIFE</strong></span>
+<span class="flip-back"><strong>AKTYWNOŚĆ NA ŚWIEŻYM POWIETRZU</strong><small>Wędrówki, kajaki, wspinaczka, jazda na rowerze i inne aktywności blisko natury.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KIWIANA</strong></span>
+<span class="flip-back"><strong>NOWOZELANDZKIE SYMBOLE I CIEKAWOSTKI</strong><small>Charakterystyczne przedmioty, zwyczaje i symbole kojarzone z kulturą Nowej Zelandii.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>16. New Zealand food – jedzenie Nowej Zelandii</h2>
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hangi_food.jpg" alt="Jedzenie hāngi" loading="lazy">
+<figcaption>Hāngi</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pavlova_dessert.jpg" alt="Pavlova" loading="lazy">
+<figcaption>Pavlova</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Green-lipped_mussels.jpg" alt="Małże zielonowargowe" loading="lazy">
+<figcaption>Green-lipped mussels</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍖</span><strong>HĀNGI</strong></span>
+<span class="flip-back"><strong>HĀNGI</strong><small>Tradycyjna metoda przygotowywania jedzenia w ziemnym piecu. Można w ten sposób gotować mięso i warzywa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍰</span><strong>PAVLOVA</strong></span>
+<span class="flip-back"><strong>PAVLOVA</strong><small>Deser bezowy z bitą śmietaną i owocami. Australia i Nowa Zelandia spierają się o jego pochodzenie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥝</span><strong>KIWIFRUIT</strong></span>
+<span class="flip-back"><strong>OWOC KIWI</strong><small>Owoc znany na całym świecie. Nowa Zelandia jest ważnym producentem i eksporterem kiwi.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥩</span><strong>LAMB</strong></span>
+<span class="flip-back"><strong>JAGNIĘCINA</strong><small>Mięso jagnięce jest ważnym elementem tradycji kulinarnej i rolnictwa Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦪</span><strong>GREEN-LIPPED MUSSELS</strong></span>
+<span class="flip-back"><strong>MAŁŻE ZIELONOWARGOWE</strong><small>Owoce morza charakterystyczne dla wód Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍬</span><strong>HOKEY POKEY</strong></span>
+<span class="flip-back"><strong>LODY HOKEY POKEY</strong><small>Lody waniliowe z chrupiącymi kawałkami karmelu o strukturze plastra miodu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐟</span><strong>FISH AND CHIPS</strong></span>
+<span class="flip-back"><strong>RYBA Z FRYTKAMI</strong><small>Popularny posiłek, często jedzony na wynos lub nad morzem.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍯</span><strong>MĀNUKA HONEY</strong></span>
+<span class="flip-back"><strong>MIÓD MĀNUKA</strong><small>Miód produkowany z nektaru kwiatów krzewu mānuka, znany na świecie.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>17. Famous New Zealanders – znani Nowozelandczycy</h2>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>EDMUND HILLARY</strong></span>
+<span class="flip-back"><strong>EDMUND HILLARY</strong><small>Nowozelandzki alpinista, który wraz z Tenzingiem Norgayem zdobył Mount Everest w 1953 roku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PETER JACKSON</strong></span>
+<span class="flip-back"><strong>PETER JACKSON</strong><small>Reżyser filmowy z Nowej Zelandii, znany m.in. z trylogii „The Lord of the Rings”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>LORDE</strong></span>
+<span class="flip-back"><strong>LORDE</strong><small>Nowozelandzka piosenkarka i autorka tekstów, znana z utworu „Royals”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RUSSELL CROWE</strong></span>
+<span class="flip-back"><strong>RUSSELL CROWE</strong><small>Aktor urodzony w Nowej Zelandii, znany z wielu międzynarodowych filmów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>JACINDA ARDERN</strong></span>
+<span class="flip-back"><strong>JACINDA ARDERN</strong><small>Była premier Nowej Zelandii, sprawowała urząd w latach 2017–2023.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RICHARD PEARSE</strong></span>
+<span class="flip-back"><strong>RICHARD PEARSE</strong><small>Nowozelandzki pionier lotnictwa, który eksperymentował z maszynami latającymi na początku XX wieku.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>18. Māori words – podstawowe słowa i zwroty</h2>
+<p>Spróbuj przeczytać i zapamiętać kilka prostych zwrotów w języku Māori.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KIA ORA</strong></span>
+<span class="flip-back"><strong>CZEŚĆ! / DZIĘKUJĘ!</strong><small>Popularne powitanie i wyrażenie życzliwości.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HAERE MAI</strong></span>
+<span class="flip-back"><strong>WITAJ! / ZAPRASZAMY!</strong><small>Zwrot używany do powitania gości.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AROHA</strong></span>
+<span class="flip-back"><strong>MIŁOŚĆ / ŻYCZLIWOŚĆ</strong><small>Uczucie miłości, troski i współczucia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WHĀNAU</strong></span>
+<span class="flip-back"><strong>RODZINA</strong><small>Rodzina i bliska wspólnota.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MOANA</strong></span>
+<span class="flip-back"><strong>OCEAN / MORZE</strong><small>Ocean lub morze.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MAUNGA</strong></span>
+<span class="flip-back"><strong>GÓRA</strong><small>Góra lub szczyt.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WAI</strong></span>
+<span class="flip-back"><strong>WODA</strong><small>Woda.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KA PAI</strong></span>
+<span class="flip-back"><strong>DOBRZE! / ŚWIETNIE!</strong><small>Wyrażenie aprobaty lub pochwały.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>19. Picture dictionary – słowniczek obrazkowy</h2>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥝</span><strong>KIWI</strong></span>
+<span class="flip-back">KIWI – PTAK<small>A small flightless bird from New Zealand.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌿</span><strong>FERN</strong></span>
+<span class="flip-back">PAPROĆ<small>A plant with green leaves.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏔️</span><strong>MOUNTAIN</strong></span>
+<span class="flip-back">GÓRA<small>A very high natural area of land.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌋</span><strong>VOLCANO</strong></span>
+<span class="flip-back">WULKAN<small>A mountain that can erupt.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌊</span><strong>WATERFALL</strong></span>
+<span class="flip-back">WODOSPAD<small>Water falling from a high place.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏝️</span><strong>ISLAND</strong></span>
+<span class="flip-back">WYSPA<small>Land surrounded by water.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌲</span><strong>FOREST</strong></span>
+<span class="flip-back">LAS<small>A large area covered with trees.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐑</span><strong>SHEEP</strong></span>
+<span class="flip-back">OWCA<small>A farm animal that produces wool.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌌</span><strong>STARS</strong></span>
+<span class="flip-back">GWIAZDY<small>Bright objects in the night sky.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏖️</span><strong>BEACH</strong></span>
+<span class="flip-back">PLAŻA<small>An area of sand or stones next to the sea.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🛶</span><strong>CANOE</strong></span>
+<span class="flip-back">KAJAK / KANOe<small>A small boat moved with a paddle.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌧️</span><strong>RAIN</strong></span>
+<span class="flip-back">DESZCZ<small>Water falling from clouds.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>20. A short reading – przeczytaj tekst po angielsku</h2>
+<h3>Welcome to New Zealand!</h3>
+<div class="note blue-note">
+<p><strong>New Zealand is a beautiful country in the South Pacific.</strong> It has two main islands: the North Island and the South Island. The capital city is Wellington, but Auckland is the largest city.</p>
+<p>New Zealand is famous for its mountains, lakes, forests and beaches. Many people visit the country to go hiking, skiing and kayaking.</p>
+<p>The Māori are the indigenous people of New Zealand. Their language and traditions are an important part of the country's culture. The Māori name for New Zealand is Aotearoa.</p>
+<p>New Zealand is also famous for the kiwi bird, the silver fern and the All Blacks rugby team. The people of New Zealand are often called Kiwis.</p>
+<p>Would you like to visit this amazing country?</p>
+</div>
+
+<h3>Sprawdź, czy rozumiesz tekst</h3>
+<div class="activity">
+<p><strong>1. What is the capital of New Zealand?</strong></p>
+<label><input type="radio" name="reading1" value="a"> Auckland</label><br>
+<label><input type="radio" name="reading1" value="b"> Wellington</label><br>
+<label><input type="radio" name="reading1" value="c"> Christchurch</label>
+
+<p><strong>2. What is the Māori name for New Zealand?</strong></p>
+<label><input type="radio" name="reading2" value="a"> Australia</label><br>
+<label><input type="radio" name="reading2" value="b"> Tasmania</label><br>
+<label><input type="radio" name="reading2" value="c"> Aotearoa</label>
+
+<p><strong>3. Which bird is a symbol of New Zealand?</strong></p>
+<label><input type="radio" name="reading3" value="a"> Kiwi</label><br>
+<label><input type="radio" name="reading3" value="b"> Eagle</label><br>
+<label><input type="radio" name="reading3" value="c"> Penguin</label>
+
+<button class="action" type="button" onclick="checkReading()">Sprawdź odpowiedzi</button>
+<div id="readingResult" class="result" aria-live="polite"></div>
+</div>
+</section>
+
+<section>
+<h2>21. Test yourself! – sprawdź swoją wiedzę</h2>
+<p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu kliknij „Sprawdź wynik”.</p>
+
+<form id="quiz">
+<div class="question"><strong>1. What is the capital of New Zealand?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q1" value="a"> Auckland</label>
+<label><input type="radio" name="q1" value="b"> Wellington</label>
+<label><input type="radio" name="q1" value="c"> Queenstown</label>
+</div></div>
+
+<div class="question"><strong>2. What is the Māori name for New Zealand?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q2" value="a"> Aotearoa</label>
+<label><input type="radio" name="q2" value="b"> Australia</label>
+<label><input type="radio" name="q2" value="c"> Tasmania</label>
+</div></div>
+
+<div class="question"><strong>3. What is the largest city?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q3" value="a"> Wellington</label>
+<label><input type="radio" name="q3" value="b"> Dunedin</label>
+<label><input type="radio" name="q3" value="c"> Auckland</label>
+</div></div>
+
+<div class="question"><strong>4. Who are the Māori?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q4" value="a"> The indigenous people of New Zealand</label>
+<label><input type="radio" name="q4" value="b"> A group of birds</label>
+<label><input type="radio" name="q4" value="c"> A type of mountain</label>
+</div></div>
+
+<div class="question"><strong>5. What is the capital of New Zealand's government?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q5" value="a"> Sydney</label>
+<label><input type="radio" name="q5" value="b"> Wellington</label>
+<label><input type="radio" name="q5" value="c"> Melbourne</label>
+</div></div>
+
+<div class="question"><strong>6. What is the kiwi?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q6" value="a"> A flightless bird</label>
+<label><input type="radio" name="q6" value="b"> A large cat</label>
+<label><input type="radio" name="q6" value="c"> A fish</label>
+</div></div>
+
+<div class="question"><strong>7. When was the Treaty of Waitangi signed?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q7" value="a"> 1901</label>
+<label><input type="radio" name="q7" value="b"> 1840</label>
+<label><input type="radio" name="q7" value="c"> 1893</label>
+</div></div>
+
+<div class="question"><strong>8. When is Waitangi Day?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q8" value="a"> February 6</label>
+<label><input type="radio" name="q8" value="b"> April 25</label>
+<label><input type="radio" name="q8" value="c"> December 25</label>
+</div></div>
+
+<div class="question"><strong>9. What is the silver fern?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q9" value="a"> A mountain</label>
+<label><input type="radio" name="q9" value="b"> A traditional meal</label>
+<label><input type="radio" name="q9" value="c"> A national symbol</label>
+</div></div>
+
+<div class="question"><strong>10. What is the name of the South Island's highest mountain?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q10" value="a"> Aoraki / Mount Cook</label>
+<label><input type="radio" name="q10" value="b"> Mount Everest</label>
+<label><input type="radio" name="q10" value="c"> Mount Fuji</label>
+</div></div>
+
+<div class="question"><strong>11. What is haka?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q11" value="a"> A type of food</label>
+<label><input type="radio" name="q11" value="b"> A Māori performance tradition</label>
+<label><input type="radio" name="q11" value="c"> A city</label>
+</div></div>
+
+<div class="question"><strong>12. What is the capital of the South Island's Canterbury region?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q12" value="a"> Christchurch</label>
+<label><input type="radio" name="q12" value="b"> Auckland</label>
+<label><input type="radio" name="q12" value="c"> Rotorua</label>
+</div></div>
+
+<div class="question"><strong>13. Which season is it in New Zealand in July?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q13" value="a"> Summer</label>
+<label><input type="radio" name="q13" value="b"> Spring</label>
+<label><input type="radio" name="q13" value="c"> Winter</label>
+</div></div>
+
+<div class="question"><strong>14. What is hāngi?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q14" value="a"> A traditional way of cooking food in the ground</label>
+<label><input type="radio" name="q14" value="b"> A bird</label>
+<label><input type="radio" name="q14" value="c"> A mountain</label>
+</div></div>
+
+<div class="question"><strong>15. What is the currency of New Zealand?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q15" value="a"> Euro</label>
+<label><input type="radio" name="q15" value="b"> New Zealand dollar</label>
+<label><input type="radio" name="q15" value="c"> Australian dollar</label>
+</div></div>
+
+<div class="question"><strong>16. What does „Kia ora” mean?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q16" value="a"> Hello / thank you</label>
+<label><input type="radio" name="q16" value="b"> Goodbye forever</label>
+<label><input type="radio" name="q16" value="c"> Good night</label>
+</div></div>
+
+<div class="question"><strong>17. In which year did women gain the right to vote in parliamentary elections?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q17" value="a"> 1840</label>
+<label><input type="radio" name="q17" value="b"> 1901</label>
+<label><input type="radio" name="q17" value="c"> 1893</label>
+</div></div>
+
+<div class="question"><strong>18. What is the name of the famous rugby team?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q18" value="a"> The Kangaroos</label>
+<label><input type="radio" name="q18" value="b"> The All Blacks</label>
+<label><input type="radio" name="q18" value="c"> The Wallabies</label>
+</div></div>
+
+<div class="question"><strong>19. What is Matariki?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q19" value="a"> A Māori New Year celebration</label>
+<label><input type="radio" name="q19" value="b"> A kind of fish</label>
+<label><input type="radio" name="q19" value="c"> A city</label>
+</div></div>
+
+<div class="question"><strong>20. What is a taniwha?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q20" value="a"> A type of boat</label>
+<label><input type="radio" name="q20" value="b"> A traditional dessert</label>
+<label><input type="radio" name="q20" value="c"> A supernatural being in Māori traditions</label>
+</div></div>
+
+<button class="action" type="button" onclick="checkQuiz()">Sprawdź wynik</button>
+<button class="action" type="reset" onclick="document.getElementById('quizResult').textContent=''">Wyczyść odpowiedzi</button>
+<div id="quizResult" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<section>
+<h2>22. My mini project – mój mini projekt</h2>
+<p>Wybierz miejsce, zwierzę, miasto lub element kultury Nowej Zelandii. Napisz kilka zdań po angielsku.</p>
+<div class="note">
+<strong>Use these questions:</strong>
+<ol>
+<li>What is the name of the place or animal?</li>
+<li>Where is it in New Zealand?</li>
+<li>What is it famous for?</li>
+<li>What can people see or do there?</li>
+<li>Why would you like to visit it?</li>
+</ol>
+<strong>Example:</strong> My favourite place in New Zealand is Queenstown. It is on the South Island. It is famous for its mountains and beautiful lake. People can go hiking, skiing and kayaking there. I would like to visit it because I love nature.
+</div>
+<textarea id="project" rows="6" placeholder="My favourite place in New Zealand is..."></textarea>
+<button class="action" onclick="saveText()">Zapisz tekst na swoim urządzeniu</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>23. Explore more – poznaj więcej!</h2>
+<p>Przydatne strony internetowe:</p>
+<ul>
+<li><a href="https://www.newzealand.com/" target="_blank" rel="noopener">100% Pure New Zealand</a> – oficjalny portal turystyczny.</li>
+<li><a href="https://www.govt.nz/" target="_blank" rel="noopener">New Zealand Government</a> – informacje o państwie i usługach publicznych.</li>
+<li><a href="https://www.parliament.nz/" target="_blank" rel="noopener">New Zealand Parliament</a> – parlament i demokracja.</li>
+<li><a href="https://nzhistory.govt.nz/" target="_blank" rel="noopener">NZ History</a> – historia Nowej Zelandii.</li>
+<li><a href="https://teara.govt.nz/" target="_blank" rel="noopener">Te Ara – Encyclopedia of New Zealand</a> – encyklopedia kraju.</li>
+<li><a href="https://www.tepapa.govt.nz/" target="_blank" rel="noopener">Museum of New Zealand Te Papa Tongarewa</a> – historia, sztuka i kultura.</li>
+<li><a href="https://www.doc.govt.nz/" target="_blank" rel="noopener">Department of Conservation</a> – przyroda i parki narodowe.</li>
+<li><a href="https://www.treatyofwaitangi.govt.nz/" target="_blank" rel="noopener">Waitangi Treaty Grounds</a> – miejsce związane z traktatem.</li>
+<li><a href="https://www.maorilanguage.net/" target="_blank" rel="noopener">Te Reo Māori</a> – nauka języka Māori.</li>
+<li><a href="https://www.matariki.com/" target="_blank" rel="noopener">Matariki</a> – informacje o święcie Matariki.</li>
+<li><a href="https://www.allblacks.com/" target="_blank" rel="noopener">All Blacks</a> – reprezentacja rugby.</li>
+<li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> – zdjęcia i ilustracje.</li>
+</ul>
+</section>
+
+<section style="text-align:center;background:#e8f2f5">
+<h2>Well done! 🎉</h2>
+<p>Gratulacje! Poznałeś lub poznałaś Nową Zelandię – Aotearoa, jej historię, kulturę Māori, geografię, zwierzęta, symbole i tradycje.</p>
+<p><strong>Remember:</strong> The capital city is Wellington. The Māori name for New Zealand is Aotearoa. The kiwi is one of the country's best-known symbols.</p>
+<div style="font-size:2rem">🇳🇿 🥝 🌿 🏔️</div>
+</section>
+
+</main>
+
+<footer>
+<p>AROUND NEW ZEALAND – New Zealand Culture Lab</p>
+<p>Interactive lesson • Learn • Discover • Explore</p>
+</footer>
+
+<script>
+// FISZKI – kliknięcie lub dotknięcie odwraca kartę
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.setAttribute('aria-pressed','false');
+  card.setAttribute('type','button');
+  card.addEventListener('click', () => {
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed',String(flipped));
+  });
+});
+
+// KRÓTKIE PYTANIA DO TEKSTU
+function checkReading(){
+  const answers={reading1:'b',reading2:'c',reading3:'a'};
+  let score=0;
+  let answered=0;
+  Object.keys(answers).forEach(q=>{
+    const selected=document.querySelector('input[name="'+q+'"]:checked');
+    if(selected){
+      answered++;
+      if(selected.value===answers[q])score++;
+    }
+  });
+  document.getElementById('readingResult').textContent=
+    'Wynik: '+score+'/3. Odpowiedzi: '+answered+'/3.';
+}
+
+// QUIZ GŁÓWNY
+function checkQuiz(){
+  const answers={
+    q1:'b',q2:'a',q3:'c',q4:'a',q5:'b',
+    q6:'a',q7:'b',q8:'a',q9:'c',q10:'a',
+    q11:'b',q12:'a',q13:'c',q14:'a',q15:'b',
+    q16:'a',q17:'c',q18:'b',q19:'a',q20:'c'
+  };
+  let score=0;
+  let answered=0;
+  Object.keys(answers).forEach(q=>{
+    const selected=document.querySelector('input[name="'+q+'"]:checked');
+    if(selected){
+      answered++;
+      if(selected.value===answers[q])score++;
+    }
+  });
+
+  let message='Twój wynik: '+score+'/20 punktów. ';
+  if(answered<20){
+    message+='Odpowiedziałeś na '+answered+' z 20 pytań. ';
+  }
+  if(score===20){
+    message+='Excellent! Fantastycznie!';
+  }else if(score>=16){
+    message+='Great job! Bardzo dobrze!';
+  }else if(score>=11){
+    message+='Good work! Jeszcze trochę ćwiczeń i będzie świetnie!';
+  }else{
+    message+='Spróbuj ponownie. Wróć do fiszek i powtórz materiał!';
+  }
+  document.getElementById('quizResult').textContent=message;
+}
+
+// ZAPIS MINI PROJEKTU
+function saveText(){
+  const text=document.getElementById('project').value.trim();
+  const message=document.getElementById('saveMessage');
+  if(!text){
+    message.textContent='Najpierw wpisz swój tekst.';
+    return;
+  }
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='my-new-zealand-project.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  message.textContent='Twój tekst został przygotowany do zapisania.';
+}
+</script>
+</body>
+</html>

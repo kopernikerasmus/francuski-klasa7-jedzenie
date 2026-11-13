@@ -1,0 +1,1549 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around the United States – American Culture Lab</title>
+
+<style>
+:root {
+  --navy:#142b4a;
+  --blue:#285783;
+  --red:#c83b4b;
+  --gold:#e6bd55;
+  --cream:#fffaf0;
+  --green:#34745a;
+  --ink:#263449;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  background:#f1f5fa;
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.65;
+}
+
+header {
+  background:linear-gradient(135deg,#142b4a,#315d85);
+  color:white;
+  text-align:center;
+  padding:42px 18px 34px;
+}
+
+header h1 {
+  font-size:clamp(2rem,6vw,3.6rem);
+  margin:8px 0;
+}
+
+header p {
+  max-width:850px;
+  margin:10px auto;
+}
+
+.flag-line {
+  font-size:2rem;
+  letter-spacing:8px;
+}
+
+main {
+  max-width:1120px;
+  margin:auto;
+  padding:20px;
+}
+
+section {
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  margin:22px 0;
+  box-shadow:0 5px 20px #18345412;
+}
+
+h2 {
+  color:var(--navy);
+  border-bottom:3px solid var(--gold);
+  padding-bottom:8px;
+}
+
+h3 { color:var(--blue); }
+
+.hero-image {
+  width:100%;
+  max-height:390px;
+  object-fit:cover;
+  border-radius:14px;
+  margin:12px 0;
+}
+
+.photo-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin:18px 0;
+}
+
+.photo-grid figure {
+  margin:0;
+  background:#f3f6fa;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.photo-grid img {
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:block;
+}
+
+figcaption {
+  padding:9px 12px;
+  font-size:.9rem;
+}
+
+.note {
+  background:#fff5d9;
+  border-left:5px solid var(--gold);
+  padding:13px 16px;
+  border-radius:9px;
+  margin:15px 0;
+}
+
+.blue-note {
+  background:#eaf2fb;
+  border-left-color:#4c79a8;
+}
+
+.green-note {
+  background:#eaf6ef;
+  border-left-color:var(--green);
+}
+
+/* FISZKI – POPRAWIONY, RESPONSYWNY UKŁAD */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));
+  gap:16px;
+  align-items:stretch;
+  width:100%;
+  margin:18px 0;
+}
+
+.flip-card {
+  display:block;
+  position:relative;
+  width:100%;
+  min-width:0;
+  height:165px;
+  min-height:165px;
+  padding:0;
+  margin:0;
+  border:0;
+  background:transparent;
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+  perspective:1000px;
+  text-align:center;
+  font:inherit;
+  color:inherit;
+}
+
+.flip-inner {
+  display:block;
+  position:relative;
+  width:100%;
+  height:165px;
+  min-height:165px;
+  transform-style:preserve-3d;
+  transition:transform .65s ease;
+}
+
+.flip-card.is-flipped .flip-inner {
+  transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  display:flex;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:165px;
+  padding:16px;
+  box-sizing:border-box;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  text-align:center;
+  border-radius:13px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  box-shadow:0 3px 12px #142b4a18;
+}
+
+.flip-front {
+  background:#eaf1fa;
+  border:2px solid #c9d8e9;
+  color:var(--navy);
+}
+
+.flip-back {
+  background:#fff3d2;
+  border:2px solid #e8d18d;
+  transform:rotateY(180deg);
+}
+
+.flip-front strong {
+  font-size:1.12rem;
+  line-height:1.35;
+}
+
+.flip-front small,
+.flip-back small {
+  margin-top:8px;
+  color:#53657a;
+}
+
+.card-icon {
+  font-size:2rem;
+  margin-bottom:6px;
+}
+
+.flip-card:focus-visible {
+  outline:4px solid var(--gold);
+  outline-offset:4px;
+  border-radius:13px;
+}
+
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+}
+
+.timeline .flip-card,
+.timeline .flip-inner,
+.timeline .flip-front,
+.timeline .flip-back {
+  height:180px;
+  min-height:180px;
+}
+
+.country {
+  border-top:5px solid var(--red);
+}
+
+.country.west {
+  border-color:#3972b6;
+}
+
+.country.midwest {
+  border-color:#39865c;
+}
+
+.country.south {
+  border-color:#a58b48;
+}
+
+.country-title {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.country-title img {
+  width:90px;
+  height:65px;
+  object-fit:contain;
+}
+
+.country-title h2 {
+  border:0;
+  margin:0;
+}
+
+.activity {
+  background:#f5f8fc;
+  padding:17px;
+  border-radius:12px;
+  margin:15px 0;
+}
+
+button.action {
+  border:0;
+  border-radius:9px;
+  background:var(--navy);
+  color:white;
+  padding:11px 17px;
+  font-size:1rem;
+  cursor:pointer;
+  margin:5px;
+}
+
+button.action:hover { background:#315d85; }
+
+input,select,textarea {
+  font:inherit;
+  padding:9px;
+  border:1px solid #b9c6d5;
+  border-radius:7px;
+  max-width:100%;
+}
+
+.question {
+  margin:13px 0;
+  padding:12px;
+  background:white;
+  border-radius:8px;
+}
+
+.quiz-options label {
+  display:block;
+  margin:7px 0;
+  cursor:pointer;
+}
+
+.result {
+  font-weight:bold;
+  margin-top:12px;
+}
+
+textarea { width:100%; }
+
+a { color:#245c91; }
+
+footer {
+  text-align:center;
+  background:var(--navy);
+  color:white;
+  padding:25px;
+}
+
+@media(max-width:600px) {
+  main { padding:10px; }
+  section { padding:16px; }
+
+  .cards {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .flip-card,
+  .flip-inner,
+  .flip-front,
+  .flip-back {
+    height:165px;
+    min-height:165px;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding:10px;
+    font-size:.9rem;
+  }
+
+  .flip-front strong { font-size:1rem; }
+
+  .country-title img {
+    width:75px;
+    height:50px;
+  }
+}
+
+@media(max-width:360px) {
+  .cards { grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="flag-line">🇺🇸 🗽 🦅 ⭐</div>
+  <h1>AROUND THE UNITED STATES</h1>
+  <h2 style="color:white;border:0">American Culture Lab</h2>
+  <p>Discover America! Poznaj Stany Zjednoczone – ich historię, geografię, symbole, tradycje i niezwykłe miejsca.</p>
+  <p>🇵🇱 Lekcja po polsku z angielskimi nazwami i tekstami na poziomie A2.</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. The United States of America – co to za kraj?</h2>
+
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/United_States_on_the_globe_%28North_America_centered%29.svg"
+alt="Stany Zjednoczone na mapie świata" loading="lazy">
+
+<p><strong>The United States of America (USA)</strong> to państwo położone w Ameryce Północnej. Składa się z <strong>50 stanów</strong> oraz dystryktu federalnego Columbia, w którym znajduje się stolica kraju – Washington, D.C.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🇺🇸</span><strong>UNITED STATES</strong><small>Kliknij, aby odwrócić</small></span>
+<span class="flip-back"><strong>STANY ZJEDNOCZONE</strong><small>Państwo w Ameryce Północnej, składające się z 50 stanów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">⭐</span><strong>STATE</strong><small>Co oznacza to słowo?</small></span>
+<span class="flip-back"><strong>STAN</strong><small>Jedna z części składowych USA, np. California lub Texas.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏛️</span><strong>CAPITAL</strong></span>
+<span class="flip-back"><strong>STOLICA</strong><small>Miasto, w którym znajdują się najważniejsze instytucje państwowe. Stolicą USA jest Washington, D.C.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🗺️</span><strong>FEDERAL DISTRICT</strong></span>
+<span class="flip-back"><strong>DYSTRYKT FEDERALNY</strong><small>Washington, D.C. nie jest stanem. To osobny dystrykt federalny.</small></span>
+</span></button>
+
+</div>
+
+<div class="note">
+<strong>Ważne!</strong> USA ma 50 stanów. Alaska i Hawaje również należą do Stanów Zjednoczonych, ale nie leżą na głównym obszarze kraju. Alaska znajduje się na północnym zachodzie Ameryki Północnej, a Hawaje to wyspy na Oceanie Spokojnym.
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg" alt="Flaga USA" loading="lazy">
+<figcaption>The Stars and Stripes – flaga USA</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/United_States_Capitol_west_front.jpg" alt="Kapitol w Waszyngtonie" loading="lazy">
+<figcaption>United States Capitol – siedziba Kongresu</figcaption>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>2. The American flag – flaga amerykańska</h2>
+
+<img class="hero-image" style="max-height:230px;object-fit:contain;background:#eaf0f7"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_States.svg"
+alt="Flaga Stanów Zjednoczonych">
+
+<p>Flaga USA jest nazywana <strong>The Stars and Stripes</strong>, czyli Gwiazdy i Pasy. Ma 13 poziomych pasów oraz 50 białych gwiazd na niebieskim polu.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>50 STARS</strong><small>What do they represent?</small></span>
+<span class="flip-back"><strong>50 GWIAZD</strong><small>Każda gwiazda symbolizuje jeden z 50 stanów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>13 STRIPES</strong><small>What do they represent?</small></span>
+<span class="flip-back"><strong>13 PASÓW</strong><small>Upamiętniają 13 pierwotnych kolonii, które ogłosiły niepodległość.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RED</strong></span>
+<span class="flip-back"><strong>CZERWONY</strong><small>Jeden z trzech kolorów flagi USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WHITE</strong></span>
+<span class="flip-back"><strong>BIAŁY</strong><small>Kolor gwiazd i części pasów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BLUE</strong></span>
+<span class="flip-back"><strong>NIEBIESKI</strong><small>Kolor prostokątnego pola z gwiazdami.</small></span>
+</span></button>
+
+</div>
+
+<div class="note blue-note">
+<strong>Ciekawostka:</strong> Flaga zmieniała się wraz z przyjmowaniem kolejnych stanów do Unii. Obecna wersja ma 50 gwiazd.
+</div>
+</section>
+
+<section>
+<h2>3. Government – jak działa państwo?</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/White_House_south_facade.jpg" alt="Biały Dom" loading="lazy">
+<figcaption>The White House – Biały Dom, siedziba prezydenta</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/United_States_Capitol_west_front.jpg" alt="Kapitol" loading="lazy">
+<figcaption>The Capitol – siedziba Kongresu</figcaption>
+</figure>
+</div>
+
+<p>Stany Zjednoczone są republiką federalną i demokracją przedstawicielską. Prezydent jest głową państwa i szefem władzy wykonawczej. Władzę ustawodawczą sprawuje Kongres, a sądowniczą – sądy federalne, w tym Sąd Najwyższy.</p>
+
+<p>Na listopad 2026 roku prezydentem USA jest <strong>Donald Trump</strong>, 47. prezydent Stanów Zjednoczonych.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PRESIDENT</strong></span>
+<span class="flip-back"><strong>PREZYDENT</strong><small>Głowa państwa i szef władzy wykonawczej. Prezydent USA jest wybierany na czteroletnią kadencję.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CONGRESS</strong></span>
+<span class="flip-back"><strong>KONGRES</strong><small>Parlament USA, który składa się z Izby Reprezentantów i Senatu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>THE SENATE</strong></span>
+<span class="flip-back"><strong>SENAT</strong><small>Jedna z dwóch izb Kongresu. Każdy stan ma dwóch senatorów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HOUSE OF REPRESENTATIVES</strong></span>
+<span class="flip-back"><strong>IZBA REPREZENTANTÓW</strong><small>Druga izba Kongresu. Liczba reprezentantów danego stanu zależy od liczby jego mieszkańców.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SUPREME COURT</strong></span>
+<span class="flip-back"><strong>SĄD NAJWYŻSZY</strong><small>Najwyższy sąd w federalnym systemie sądownictwa USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DEMOCRACY</strong></span>
+<span class="flip-back"><strong>DEMOKRACJA</strong><small>System, w którym obywatele mają wpływ na władzę, m.in. poprzez wybory.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>REPUBLIC</strong></span>
+<span class="flip-back"><strong>REPUBLIKA</strong><small>Państwo, w którym głowa państwa nie dziedziczy władzy jak monarcha.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>STATE GOVERNOR</strong></span>
+<span class="flip-back"><strong>GUBERNATOR STANU</strong><small>Osoba stojąca na czele władzy wykonawczej w danym stanie.</small></span>
+</span></button>
+
+</div>
+
+<div class="note">
+<strong>Three branches of government – trzy gałęzie władzy:</strong>
+<ul>
+<li><strong>Executive branch</strong> – władza wykonawcza, na czele z prezydentem.</li>
+<li><strong>Legislative branch</strong> – władza ustawodawcza, czyli Kongres.</li>
+<li><strong>Judicial branch</strong> – władza sądownicza, czyli sądy federalne.</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>4. Geography – geografia USA</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Canyon_view_from_Pima_Point_2010.jpg" alt="Wielki Kanion" loading="lazy">
+<figcaption>Grand Canyon – Wielki Kanion</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yellowstone_Falls.jpg" alt="Wodospady Yellowstone" loading="lazy">
+<figcaption>Yellowstone National Park</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Denali_Mt_McKinley.jpg" alt="Denali" loading="lazy">
+<figcaption>Denali – najwyższy szczyt Ameryki Północnej</figcaption>
+</figure>
+</div>
+
+<p>USA to ogromny kraj o bardzo zróżnicowanej przyrodzie. Znajdziemy tu wysokie góry, pustynie, lasy, wielkie jeziora, prerie, rzeki, kaniony i długie wybrzeża.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ATLANTIC OCEAN</strong></span>
+<span class="flip-back"><strong>OCEAN ATLANTYCKI</strong><small>Znajduje się na wschód od głównej części USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PACIFIC OCEAN</strong></span>
+<span class="flip-back"><strong>OCEAN SPOKOJNY</strong><small>Znajduje się na zachód od głównej części USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MISSISSIPPI RIVER</strong></span>
+<span class="flip-back"><strong>RZEKA MISSISSIPPI</strong><small>Jedna z najważniejszych i najdłuższych rzek Ameryki Północnej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ROCKY MOUNTAINS</strong></span>
+<span class="flip-back"><strong>GÓRY SKALISTE</strong><small>Wielkie pasmo górskie na zachodzie Ameryki Północnej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GREAT LAKES</strong></span>
+<span class="flip-back"><strong>WIELKIE JEZIORA</strong><small>Grupa pięciu wielkich jezior na granicy USA i Kanady.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DESERT</strong></span>
+<span class="flip-back"><strong>PUSTYNIA</strong><small>Obszar o bardzo małych opadach, np. Mojave Desert.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GRAND CANYON</strong></span>
+<span class="flip-back"><strong>WIELKI KANION</strong><small>Ogromny kanion w Arizonie, wyrzeźbiony przez rzekę Kolorado.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WATERFALL</strong></span>
+<span class="flip-back"><strong>WODOSPAD</strong><small>Woda spadająca z wysokości, np. Niagara Falls.</small></span>
+</span></button>
+
+</div>
+
+<div class="note blue-note">
+<strong>Najwyższy szczyt:</strong> Denali na Alasce ma około 6190 metrów wysokości. Jest najwyższą górą Ameryki Północnej.
+</div>
+</section>
+
+<section>
+<h2>5. The 50 states – pięćdziesiąt stanów</h2>
+
+<p>Stany Zjednoczone składają się z 50 stanów. Każdy ma własną stolicę stanową, gubernatora i wiele charakterystycznych tradycji.</p>
+
+<img class="hero-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Map_of_USA_with_state_names.svg" alt="Mapa 50 stanów USA" loading="lazy">
+
+<p>Nie musisz zapamiętywać wszystkich nazw od razu. Poznaj najpierw kilka znanych stanów i ich charakterystyczne miejsca.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CALIFORNIA</strong><small>Which famous city is there?</small></span>
+<span class="flip-back"><strong>KALIFORNIA</strong><small>Stolica: Sacramento. Znane miasta: Los Angeles i San Francisco. Słynie z Hollywood i wybrzeża Pacyfiku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NEW YORK</strong></span>
+<span class="flip-back"><strong>NOWY JORK</strong><small>Stolica stanu: Albany. Największe miasto: New York City, znane z Statuy Wolności i Times Square.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TEXAS</strong></span>
+<span class="flip-back"><strong>TEXAS</strong><small>Stolica: Austin. Stan znany z kowbojskiej kultury, rancz i dużych przestrzeni.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>FLORIDA</strong></span>
+<span class="flip-back"><strong>FLORYDA</strong><small>Stolica: Tallahassee. Znana z plaż, Everglades i ciepłego klimatu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HAWAII</strong></span>
+<span class="flip-back"><strong>HAWAJE</strong><small>Stolica: Honolulu. Wyspy na Oceanie Spokojnym, znane z wulkanów i plaż.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ALASKA</strong></span>
+<span class="flip-back"><strong>ALASKA</strong><small>Stolica: Juneau. Największy stan USA pod względem powierzchni, znany z lodowców i dzikiej przyrody.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ILLINOIS</strong></span>
+<span class="flip-back"><strong>ILLINOIS</strong><small>Stolica: Springfield. Znane miasto: Chicago, położone nad jeziorem Michigan.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NEVADA</strong></span>
+<span class="flip-back"><strong>NEVADA</strong><small>Stolica: Carson City. Znana z pustynnych krajobrazów i Las Vegas.</small></span>
+</span></button>
+
+</div>
+
+<div class="note">
+<strong>Zapamiętaj:</strong> New York City jest największym miastem stanu Nowy Jork, ale stolicą tego stanu jest Albany. Los Angeles nie jest stolicą Kalifornii – stolicą jest Sacramento.
+</div>
+
+<h3>Four regions – cztery duże regiony</h3>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NORTHEAST</strong><small>Which states?</small></span>
+<span class="flip-back"><strong>PÓŁNOCNY WSCHÓD</strong><small>Między innymi New York, Massachusetts, Pennsylvania i Maine. Znany z historii kolonialnej i dużych miast.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MIDWEST</strong></span>
+<span class="flip-back"><strong>ŚRODKOWY ZACHÓD</strong><small>Między innymi Illinois, Michigan, Ohio i Wisconsin. Znany z Wielkich Jezior i rolnictwa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTH</strong></span>
+<span class="flip-back"><strong>POŁUDNIE</strong><small>Między innymi Texas, Florida, Georgia i Tennessee. Region o różnorodnej kulturze i historii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WEST</strong></span>
+<span class="flip-back"><strong>ZACHÓD</strong><small>Między innymi California, Oregon, Washington, Nevada i Alaska. Góry, pustynie, lasy i wybrzeża.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>6. A short history – krótka historia USA</h2>
+
+<p>Historia Stanów Zjednoczonych obejmuje tysiące lat historii rdzennych ludów Ameryki, okres kolonialny, walkę o niepodległość i rozwój współczesnego państwa.</p>
+
+<div class="note">
+<strong>Ważne:</strong> Na terenach dzisiejszych Stanów Zjednoczonych żyły liczne rdzenne narody i społeczności na długo przed przybyciem Europejczyków. Miały własne języki, kultury, tradycje i systemy społeczne.
+</div>
+
+<div class="timeline">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BEFORE 1492</strong><small>Native peoples</small></span>
+<span class="flip-back"><strong>RDZENNE NARODY</strong><small>Na kontynencie żyły liczne rdzenne społeczności, posiadające bogate kultury i historię.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1607</strong><small>Jamestown</small></span>
+<span class="flip-back"><strong>JAMESTOWN</strong><small>Powstała pierwsza trwała angielska osada kolonialna w Ameryce Północnej na obszarze dzisiejszych USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1620</strong><small>Mayflower</small></span>
+<span class="flip-back"><strong>MAYFLOWER</strong><small>Statek przywiózł grupę angielskich osadników do Ameryki. Wylądowali w okolicach dzisiejszego Massachusetts.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1776</strong><small>Declaration of Independence</small></span>
+<span class="flip-back"><strong>DEKLARACJA NIEPODLEGŁOŚCI</strong><small>4 lipca 1776 roku ogłoszono niepodległość trzynastu kolonii od Wielkiej Brytanii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1783</strong><small>End of the War</small></span>
+<span class="flip-back"><strong>KONIEC WOJNY O NIEPODLEGŁOŚĆ</strong><small>Wielka Brytania uznała niepodległość Stanów Zjednoczonych w traktacie paryskim.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1787</strong><small>Constitution</small></span>
+<span class="flip-back"><strong>KONSTYTUCJA</strong><small>Przyjęto Konstytucję USA, która określiła zasady działania państwa federalnego.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1861–1865</strong><small>American Civil War</small></span>
+<span class="flip-back"><strong>WOJNA SECESYJNA</strong><small>Wojna między Unią a Konfederacją. Jej ważną kwestią było niewolnictwo i przyszłość państwa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1865</strong><small>13th Amendment</small></span>
+<span class="flip-back"><strong>ZNIESIENIE NIEWOLNICTWA</strong><small>Trzynasta poprawka do Konstytucji zniosła niewolnictwo w USA, z wyjątkiem kary za przestępstwo.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1920</strong><small>Women's right to vote</small></span>
+<span class="flip-back"><strong>PRAWA WYBORCZE KOBIET</strong><small>19. poprawka do Konstytucji zakazała odmawiania prawa głosu ze względu na płeć.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1969</strong><small>Moon landing</small></span>
+<span class="flip-back"><strong>LOT NA KSIĘŻYC</strong><small>Misja Apollo 11. Neil Armstrong i Buzz Aldrin jako pierwsi ludzie spacerowali po Księżycu.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>7. Famous American symbols – symbole USA</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Statue_of_Liberty%2C_NY.jpg" alt="Statua Wolności" loading="lazy">
+<figcaption>Statue of Liberty – Statua Wolności</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bald_Eagle_Portrait.jpg" alt="Bielik amerykański" loading="lazy">
+<figcaption>Bald Eagle – bielik amerykański</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Liberty_Bell_2008.jpg" alt="Dzwon Wolności" loading="lazy">
+<figcaption>Liberty Bell – Dzwon Wolności</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦅</span><strong>BALD EAGLE</strong></span>
+<span class="flip-back"><strong>BIELIK AMERYKAŃSKI</strong><small>Symbol Stanów Zjednoczonych, kojarzony z siłą i wolnością.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🗽</span><strong>STATUE OF LIBERTY</strong></span>
+<span class="flip-back"><strong>STATUA WOLNOŚCI</strong><small>Pomnik w Nowym Jorku, symbol wolności i przyjaźni francusko-amerykańskiej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🔔</span><strong>LIBERTY BELL</strong></span>
+<span class="flip-back"><strong>DZWON WOLNOŚCI</strong><small>Historyczny dzwon w Filadelfii, związany z historią niepodległości.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">⭐</span><strong>STARS AND STRIPES</strong></span>
+<span class="flip-back"><strong>GWIAZDY I PASY</strong><small>Popularna nazwa amerykańskiej flagi.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌸</span><strong>ROSE</strong></span>
+<span class="flip-back"><strong>RÓŻA</strong><small>Róża jest narodowym kwiatem USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🗣️</span><strong>INDEPENDENCE</strong></span>
+<span class="flip-back"><strong>NIEPODLEGŁOŚĆ</strong><small>Samodzielność państwa i brak podległości innemu państwu.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>8. Famous places – słynne miejsca</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/White_House_south_facade.jpg" alt="Biały Dom" loading="lazy">
+<figcaption>White House – Waszyngton, D.C.</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Times_Square%2C_New_York_City_%28HDR%29.jpg" alt="Times Square" loading="lazy">
+<figcaption>Times Square – Nowy Jork</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Golden_Gate_Bridge_from_Battery_Spencer.jpg" alt="Golden Gate Bridge" loading="lazy">
+<figcaption>Golden Gate Bridge – San Francisco</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Rushmore_National_Memorial.jpg" alt="Mount Rushmore" loading="lazy">
+<figcaption>Mount Rushmore – Dakota Południowa</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Niagara_Falls_from_Canadian_side.jpg" alt="Wodospad Niagara" loading="lazy">
+<figcaption>Niagara Falls – przy granicy USA i Kanady</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Golden_Gate_Bridge_at_sunset_1.jpg" alt="Most Golden Gate o zachodzie słońca" loading="lazy">
+<figcaption>California – zachodnie wybrzeże</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>THE WHITE HOUSE</strong></span>
+<span class="flip-back"><strong>BIAŁY DOM</strong><small>Oficjalna rezydencja i miejsce pracy prezydenta USA w Waszyngtonie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TIMES SQUARE</strong></span>
+<span class="flip-back"><strong>TIMES SQUARE</strong><small>Słynne skrzyżowanie i plac w Nowym Jorku, znane z neonów i sylwestrowej kuli.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GOLDEN GATE BRIDGE</strong></span>
+<span class="flip-back"><strong>MOST GOLDEN GATE</strong><small>Słynny czerwono-pomarańczowy most w San Francisco.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MOUNT RUSHMORE</strong></span>
+<span class="flip-back"><strong>MOUNT RUSHMORE</strong><small>Pomnik skalny z rzeźbami czterech amerykańskich prezydentów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NIAGARA FALLS</strong></span>
+<span class="flip-back"><strong>WODOSPAD NIAGARA</strong><small>Grupa słynnych wodospadów na granicy USA i Kanady.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GRAND CANYON</strong></span>
+<span class="flip-back"><strong>WIELKI KANION</strong><small>Spektakularny kanion w stanie Arizona.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>9. American holidays – amerykańskie święta</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Independence_Day_fireworks.jpg" alt="Fajerwerki 4 lipca" loading="lazy">
+<figcaption>Independence Day – 4 lipca</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thanksgiving_turkey.jpg" alt="Indyk na Święto Dziękczynienia" loading="lazy">
+<figcaption>Thanksgiving – Święto Dziękczynienia</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>INDEPENDENCE DAY</strong><small>July 4</small></span>
+<span class="flip-back"><strong>DZIEŃ NIEPODLEGŁOŚCI</strong><small>4 lipca. Święto upamiętnia ogłoszenie Deklaracji Niepodległości w 1776 roku. Są parady, pikniki i fajerwerki.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>THANKSGIVING</strong><small>Fourth Thursday in November</small></span>
+<span class="flip-back"><strong>ŚWIĘTO DZIĘKCZYNIENIA</strong><small>Obchodzone w czwarty czwartek listopada. Rodziny spotykają się przy wspólnym posiłku, często z indykiem.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HALLOWEEN</strong><small>October 31</small></span>
+<span class="flip-back"><strong>HALLOWEEN</strong><small>31 października. Przebrania, dynie, dekoracje i zabawa „trick or treat”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MEMORIAL DAY</strong><small>Last Monday in May</small></span>
+<span class="flip-back"><strong>DZIEŃ PAMIĘCI</strong><small>Dzień pamięci o żołnierzach, którzy zginęli podczas służby wojskowej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>LABOR DAY</strong><small>First Monday in September</small></span>
+<span class="flip-back"><strong>ŚWIĘTO PRACY</strong><small>Dzień poświęcony pracownikom i ich wkładowi w rozwój kraju.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MARTIN LUTHER KING JR. DAY</strong></span>
+<span class="flip-back"><strong>DZIEŃ MARTINA LUTHERA KINGA JR.</strong><small>Święto obchodzone w styczniu, upamiętniające działacza na rzecz praw obywatelskich.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PRESIDENTS' DAY</strong></span>
+<span class="flip-back"><strong>DZIEŃ PREZYDENTÓW</strong><small>Święto federalne obchodzone w lutym, związane z historią amerykańskich prezydentów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CHRISTMAS</strong><small>December 25</small></span>
+<span class="flip-back"><strong>BOŻE NARODZENIE</strong><small>25 grudnia. Dekoracje, choinki, prezenty i rodzinne spotkania.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>10. American traditions – tradycje i zwyczaje</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/American_football_in_action.jpg" alt="Futbol amerykański" loading="lazy">
+<figcaption>American football</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Thanksgiving_dinner.jpg" alt="Kolacja na Święto Dziękczynienia" loading="lazy">
+<figcaption>Thanksgiving dinner</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Barbecue_grill.jpg" alt="Grillowanie" loading="lazy">
+<figcaption>Backyard barbecue</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BARBECUE / BBQ</strong></span>
+<span class="flip-back"><strong>GRILLOWANIE</strong><small>Spotkania z rodziną i przyjaciółmi przy jedzeniu przygotowywanym na grillu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TAILGATING</strong></span>
+<span class="flip-back"><strong>SPOTKANIE PRZED MECZEM</strong><small>Wspólne jedzenie i zabawa na parkingu przed wydarzeniem sportowym.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SUPER BOWL</strong></span>
+<span class="flip-back"><strong>SUPER BOWL</strong><small>Finałowy mecz ligi NFL w futbolu amerykańskim. Jedno z najważniejszych wydarzeń sportowych w USA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PROM</strong></span>
+<span class="flip-back"><strong>BAL SZKOLNY</strong><small>Uroczysty bal organizowany często na zakończenie szkoły średniej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ROAD TRIP</strong></span>
+<span class="flip-back"><strong>WYCIECZKA SAMOCHODOWA</strong><small>Podróż samochodem, często przez kilka stanów i znane miejsca.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PARADE</strong></span>
+<span class="flip-back"><strong>PARADA</strong><small>Uroczysty przemarsz z muzyką, platformami i dekoracjami.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>11. American food – amerykańskie jedzenie</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hamburger_sandwich.jpg" alt="Hamburger" loading="lazy">
+<figcaption>Hamburger</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple_pie.jpg" alt="Szarlotka amerykańska" loading="lazy">
+<figcaption>Apple pie</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hot_dog_with_mustard.png" alt="Hot dog" loading="lazy">
+<figcaption>Hot dog</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍔</span><strong>HAMBURGER</strong></span>
+<span class="flip-back"><strong>HAMBURGER</strong><small>Kanapka z kotletem, bułką i dodatkami. Popularna w amerykańskiej kulturze jedzenia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌭</span><strong>HOT DOG</strong></span>
+<span class="flip-back"><strong>HOT DOG</strong><small>Parówka w podłużnej bułce, często z musztardą lub ketchupem.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥧</span><strong>APPLE PIE</strong></span>
+<span class="flip-back"><strong>SZARLOTKA</strong><small>Ciasto z jabłkami, znane jako jeden z klasycznych deserów amerykańskich.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥞</span><strong>PANCAKES</strong></span>
+<span class="flip-back"><strong>NALEŚNIKI / PLACUSZKI</strong><small>Grube, puszyste placuszki, często podawane z syropem klonowym.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍗</span><strong>FRIED CHICKEN</strong></span>
+<span class="flip-back"><strong>KURCZAK SMAŻONY</strong><small>Popularne danie, szczególnie kojarzone z kuchnią południowych stanów.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌽</span><strong>CORN ON THE COB</strong></span>
+<span class="flip-back"><strong>KOLBA KUKURYDZY</strong><small>Kukurydza gotowana lub grillowana, często podawana z masłem.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>12. Legends and stories – amerykańskie legendy</h2>
+
+<h3>Legend 1: Paul Bunyan and Babe the Blue Ox</h3>
+
+<div class="note blue-note">
+<strong>Easy English – Paul Bunyan</strong>
+<p>Paul Bunyan was a giant lumberjack in American folklore. He was very strong and very tall. His best friend was Babe, a huge blue ox. People say that Paul and Babe travelled across the country and created amazing landscapes. This is a tall tale – a funny, exaggerated story.</p>
+<p><em>Paul Bunyan to legendarny olbrzym i drwal, któremu towarzyszył wielki niebieski wół Babe.</em></p>
+</div>
+
+<h3>Legend 2: The Headless Horseman</h3>
+
+<div class="note blue-note">
+<strong>Easy English – The Headless Horseman</strong>
+<p>In a small village called Sleepy Hollow, people tell a scary story about a mysterious horseman. He rides a black horse at night and has no head. Some people say that he looks for his lost head. The story became famous because of Washington Irving's book.</p>
+<p><em>Jeździec bez głowy to tajemnicza postać z opowieści Washingtona Irvinga.</em></p>
+</div>
+
+<h3>Legend 3: Bigfoot</h3>
+
+<div class="note blue-note">
+<strong>Easy English – Bigfoot</strong>
+<p>Some people believe that a very large, hairy creature lives in the forests of North America. They call it Bigfoot or Sasquatch. People tell stories about huge footprints, but scientists have not found reliable proof that Bigfoot exists.</p>
+<p><em>Bigfoot to legendarne, włochate stworzenie, które podobno żyje w lasach Ameryki Północnej.</em></p>
+</div>
+</section>
+
+<section>
+<h2>13. Famous Americans – znani Amerykanie</h2>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GEORGE WASHINGTON</strong></span>
+<span class="flip-back"><strong>GEORGE WASHINGTON</strong><small>Pierwszy prezydent USA, pełniący urząd w latach 1789–1797.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ABRAHAM LINCOLN</strong></span>
+<span class="flip-back"><strong>ABRAHAM LINCOLN</strong><small>Prezydent podczas wojny secesyjnej. Odegrał ważną rolę w zniesieniu niewolnictwa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MARTIN LUTHER KING JR.</strong></span>
+<span class="flip-back"><strong>MARTIN LUTHER KING JR.</strong><small>Działacz na rzecz praw obywatelskich i równości rasowej. Znany z przemówienia „I Have a Dream”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ROSA PARKS</strong></span>
+<span class="flip-back"><strong>ROSA PARKS</strong><small>Działaczka na rzecz praw obywatelskich. Jej protest w autobusie w Montgomery stał się ważnym symbolem walki z segregacją.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WALT DISNEY</strong></span>
+<span class="flip-back"><strong>WALT DISNEY</strong><small>Twórca filmów animowanych i współzałożyciel firmy Disney.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NEIL ARMSTRONG</strong></span>
+<span class="flip-back"><strong>NEIL ARMSTRONG</strong><small>Pierwszy człowiek, który stanął na Księżycu podczas misji Apollo 11 w 1969 roku.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>14. Picture dictionary – słowniczek obrazkowy</h2>
+<p>Kliknij fiszkę, aby poznać polskie znaczenie angielskiego słowa.</p>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🗽</span><strong>STATUE</strong></span>
+<span class="flip-back">POSĄG / POMNIK<small>A large sculpture of a person or animal.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">⭐</span><strong>STAR</strong></span>
+<span class="flip-back">GWIAZDA<small>A bright object in the night sky.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦅</span><strong>EAGLE</strong></span>
+<span class="flip-back">ORZEŁ<small>A large bird of prey.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏜️</span><strong>DESERT</strong></span>
+<span class="flip-back">PUSTYNIA<small>A very dry area with little rain.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏞️</span><strong>CANYON</strong></span>
+<span class="flip-back">KANION<small>A deep valley with steep sides.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏛️</span><strong>CAPITOL</strong></span>
+<span class="flip-back">KAPITOL<small>The building where the US Congress meets.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🗳️</span><strong>ELECTION</strong></span>
+<span class="flip-back">WYBORY<small>A process in which people vote for leaders.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🎆</span><strong>FIREWORKS</strong></span>
+<span class="flip-back">FAJERWERKI<small>Bright, colourful explosions in the sky.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦃</span><strong>TURKEY</strong></span>
+<span class="flip-back">INDYK<small>A large bird often eaten at Thanksgiving.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌽</span><strong>CORN</strong></span>
+<span class="flip-back">KUKURYDZA<small>A yellow vegetable and grain.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🛣️</span><strong>HIGHWAY</strong></span>
+<span class="flip-back">AUTOSTRADA / DROGA GŁÓWNA<small>A large road for fast travel.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏕️</span><strong>NATIONAL PARK</strong></span>
+<span class="flip-back">PARK NARODOWY<small>A protected natural area.</small></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>15. Useful English phrases – przydatne zwroty</h2>
+
+<div class="cards">
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>How many states are there in the USA?</strong></span>
+<span class="flip-back">Ile stanów jest w USA?<br><strong>There are 50 states.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What is the capital of the USA?</strong></span>
+<span class="flip-back">Jaka jest stolica USA?<br><strong>Washington, D.C.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What does the flag represent?</strong></span>
+<span class="flip-back">Co symbolizuje flaga?<br><strong>50 stars represent 50 states.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>When is Independence Day?</strong></span>
+<span class="flip-back">Kiedy jest Dzień Niepodległości?<br><strong>On July 4.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>Who is the president?</strong></span>
+<span class="flip-back">Kto jest prezydentem?<br><strong>Donald Trump (November 2026).</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>Where is the Grand Canyon?</strong></span>
+<span class="flip-back">Gdzie znajduje się Wielki Kanion?<br><strong>In Arizona.</strong></span>
+</span></button>
+
+</div>
+</section>
+
+<section>
+<h2>16. Test yourself! – sprawdź swoją wiedzę</h2>
+<p>Wybierz jedną poprawną odpowiedź w każdym pytaniu. Na końcu kliknij „Sprawdź wynik”.</p>
+
+<form id="quiz">
+
+<div class="question">
+<strong>1. How many states are there in the USA?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q1" value="a"> 48</label>
+<label><input type="radio" name="q1" value="b"> 50</label>
+<label><input type="radio" name="q1" value="c"> 52</label>
+</div>
+</div>
+
+<div class="question">
+<strong>2. What is the capital of the United States?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q2" value="a"> New York</label>
+<label><input type="radio" name="q2" value="b"> Los Angeles</label>
+<label><input type="radio" name="q2" value="c"> Washington, D.C.</label>
+</div>
+</div>
+
+<div class="question">
+<strong>3. What do the 50 stars on the flag represent?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q3" value="a"> 50 states</label>
+<label><input type="radio" name="q3" value="b"> 50 presidents</label>
+<label><input type="radio" name="q3" value="c"> 50 rivers</label>
+</div>
+</div>
+
+<div class="question">
+<strong>4. What do the 13 stripes represent?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q4" value="a"> 13 mountains</label>
+<label><input type="radio" name="q4" value="b"> 13 original colonies</label>
+<label><input type="radio" name="q4" value="c"> 13 presidents</label>
+</div>
+</div>
+
+<div class="question">
+<strong>5. When is Independence Day?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q5" value="a"> July 4</label>
+<label><input type="radio" name="q5" value="b"> November  Thanksgiving</label>
+<label><input type="radio" name="q5" value="c"> December 25</label>
+</div>
+</div>
+
+<div class="question">
+<strong>6. What is the national bird symbol of the USA?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q6" value="a"> Penguin</label>
+<label><input type="radio" name="q6" value="b"> Bald eagle</label>
+<label><input type="radio" name="q6" value="c"> Parrot</label>
+</div>
+</div>
+
+<div class="question">
+<strong>7. Where is the Statue of Liberty?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q7" value="a"> New York</label>
+<label><input type="radio" name="q7" value="b"> Texas</label>
+<label><input type="radio" name="q7" value="c"> Alaska</label>
+</div>
+</div>
+
+<div class="question">
+<strong>8. What is the Grand Canyon?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q8" value="a"> A lake</label>
+<label><input type="radio" name="q8" value="b"> A city</label>
+<label><input type="radio" name="q8" value="c"> A huge canyon</label>
+</div>
+</div>
+
+<div class="question">
+<strong>9. Which state is famous for Hollywood?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q9" value="a"> California</label>
+<label><input type="radio" name="q9" value="b"> Alaska</label>
+<label><input type="radio" name="q9" value="c"> Maine</label>
+</div>
+</div>
+
+<div class="question">
+<strong>10. What is the capital of California?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q10" value="a"> Los Angeles</label>
+<label><input type="radio" name="q10" value="b"> Sacramento</label>
+<label><input type="radio" name="q10" value="c"> San Francisco</label>
+</div>
+</div>
+
+<div class="question">
+<strong>11. When is Thanksgiving celebrated in the USA?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q11" value="a"> Fourth Thursday in November</label>
+<label><input type="radio" name="q11" value="b"> July 4</label>
+<label><input type="radio" name="q11" value="c"> October 31</label>
+</div>
+</div>
+
+<div class="question">
+<strong>12. What is the White House?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q12" value="a"> A museum in California</label>
+<label><input type="radio" name="q12" value="b"> A sports stadium</label>
+<label><input type="radio" name="q12" value="c"> The president's official residence and workplace</label>
+</div>
+</div>
+
+<div class="question">
+<strong>13. What is the Mississippi?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q13" value="a"> A river</label>
+<label><input type="radio" name="q13" value="b"> A mountain</label>
+<label><input type="radio" name="q13" value="c"> A desert</label>
+</div>
+</div>
+
+<div class="question">
+<strong>14. What is the capital of Texas?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q14" value="a"> Houston</label>
+<label><input type="radio" name="q14" value="b"> Austin</label>
+<label><input type="radio" name="q14" value="c"> Dallas</label>
+</div>
+</div>
+
+<div class="question">
+<strong>15. Which state is made up of islands in the Pacific Ocean?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q15" value="a"> Hawaii</label>
+<label><input type="radio" name="q15" value="b"> Nevada</label>
+<label><input type="radio" name="q15" value="c"> Ohio</label>
+</div>
+</div>
+
+<div class="question">
+<strong>16. What happened in 1776?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q16" value="a"> The Civil War began</label>
+<label><input type="radio" name="q16" value="b"> The Declaration of Independence was adopted</label>
+<label><input type="radio" name="q16" value="c"> The first moon landing took place</label>
+</div>
+</div>
+
+<div class="question">
+<strong>17. Who was the first president of the USA?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q17" value="a"> Abraham Lincoln</label>
+<label><input type="radio" name="q17" value="b"> George Washington</label>
+<label><input type="radio" name="q17" value="c"> Thomas Jefferson</label>
+</div>
+</div>
+
+<div class="question">
+<strong>18. What is the Super Bowl?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q18" value="a"> A national park</label>
+<label><input type="radio" name="q18" value="b"> A food festival</label>
+<label><input type="radio" name="q18" value="c"> The final game of the NFL season</label>
+</div>
+</div>
+
+<div class="question">
+<strong>19. What does „election” mean?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q19" value="a"> Wybory</label>
+<label><input type="radio" name="q19" value="b"> Wakacje</label>
+<label><input type="radio" name="q19" value="c"> Święto</label>
+</div>
+</div>
+
+<div class="question">
+<strong>20. What is Bigfoot?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q20" value="a"> A US president</label>
+<label><input type="radio" name="q20" value="b"> A legendary creature</label>
+<label><input type="radio" name="q20" value="c"> A famous bridge</label>
+</div>
+</div>
+
+<button class="action" type="button" onclick="checkQuiz()">Sprawdź wynik</button>
+<button class="action" type="reset" onclick="document.getElementById('quizResult').textContent=''">Wyczyść odpowiedzi</button>
+
+<div id="quizResult" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<section>
+<h2>17. My mini project – mój mini projekt</h2>
+
+<p>Wybierz jeden stan USA lub jedno znane miejsce. Napisz kilka zdań po angielsku.</p>
+
+<div class="note">
+<strong>Use these questions:</strong>
+<ol>
+<li>What is the name of the state?</li>
+<li>What is its capital?</li>
+<li>Where is it located?</li>
+<li>What famous places can you visit there?</li>
+<li>What would you like to see there?</li>
+</ol>
+</div>
+
+<textarea id="project" rows="6" placeholder="My favourite American state is..."></textarea>
+
+<button class="action" onclick="saveText()">Zapisz tekst na swoim urządzeniu</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>18. Explore more – poznaj więcej!</h2>
+
+<p>Przydatne strony internetowe:</p>
+
+<ul>
+<li><a href="https://www.usa.gov/" target="_blank" rel="noopener">USA.gov</a> – oficjalny portal rządu USA.</li>
+<li><a href="https://www.whitehouse.gov/" target="_blank" rel="noopener">The White House</a> – Biały Dom i prezydent.</li>
+<li><a href="https://www.congress.gov/" target="_blank" rel="noopener">Congress.gov</a> – Kongres Stanów Zjednoczonych.</li>
+<li><a href="https://www.nps.gov/" target="_blank" rel="noopener">National Park Service</a> – parki narodowe i zabytki.</li>
+<li><a href="https://www.visittheusa.com/" target="_blank" rel="noopener">Visit The USA</a> – podróże po Stanach Zjednoczonych.</li>
+<li><a href="https://www.si.edu/" target="_blank" rel="noopener">Smithsonian Institution</a> – muzea, nauka i historia.</li>
+<li><a href="https://www.loc.gov/" target="_blank" rel="noopener">Library of Congress</a> – biblioteka Kongresu.</li>
+<li><a href="https://americanhistory.si.edu/" target="_blank" rel="noopener">National Museum of American History</a> – historia USA.</li>
+<li><a href="https://www.nasa.gov/" target="_blank" rel="noopener">NASA</a> – kosmos i badania naukowe.</li>
+<li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> – zdjęcia i ilustracje.</li>
+</ul>
+</section>
+
+<section style="text-align:center;background:#eaf1fa">
+<h2>Well done! 🎉</h2>
+<p>Gratulacje! Poznałeś lub poznałaś Stany Zjednoczone – ich historię, geografię, symbole, święta, tradycje i ciekawostki.</p>
+<p><strong>Remember:</strong> The United States has 50 states. Its capital is Washington, D.C.!</p>
+<div style="font-size:2rem">🇺🇸 🗽 🦅 ⭐</div>
+</section>
+
+</main>
+
+<footer>
+<p>AROUND THE UNITED STATES – American Culture Lab</p>
+<p>Interactive lesson • Learn • Discover • Explore</p>
+</footer>
+
+<script>
+// FISZKI – obracanie kliknięciem lub dotknięciem
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.setAttribute('aria-pressed','false');
+  card.setAttribute('type','button');
+
+  card.addEventListener('click', () => {
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed',String(flipped));
+  });
+});
+
+// QUIZ – automatyczne sprawdzanie odpowiedzi
+function checkQuiz() {
+  const answers = {
+    q1:'b', q2:'c', q3:'a', q4:'b', q5:'a',
+    q6:'b', q7:'a', q8:'c', q9:'a', q10:'b',
+    q11:'a', q12:'c', q13:'a', q14:'b', q15:'a',
+    q16:'b', q17:'b', q18:'c', q19:'a', q20:'b'
+  };
+
+  let score = 0;
+  let answered = 0;
+
+  Object.keys(answers).forEach(q => {
+    const selected = document.querySelector('input[name="' + q + '"]:checked');
+
+    if (selected) {
+      answered++;
+      if (selected.value === answers[q]) {
+        score++;
+      }
+    }
+  });
+
+  const result = document.getElementById('quizResult');
+
+  let message = 'Twój wynik: ' + score + '/20 punktów. ';
+
+  if (answered < 20) {
+    message += 'Odpowiedziałeś na ' + answered + ' z 20 pytań. ';
+  }
+
+  if (score === 20) {
+    message += 'Excellent! Fantastycznie!';
+  } else if (score >= 16) {
+    message += 'Great job! Bardzo dobrze!';
+  } else if (score >= 11) {
+    message += 'Good work! Jeszcze trochę ćwiczeń i będzie świetnie!';
+  } else {
+    message += 'Spróbuj ponownie. Wróć do fiszek i powtórz materiał!';
+  }
+
+  result.textContent = message;
+}
+
+// ZAPIS MINI PROJEKTU
+function saveText() {
+  const text = document.getElementById('project').value.trim();
+  const message = document.getElementById('saveMessage');
+
+  if (!text) {
+    message.textContent = 'Najpierw wpisz swój tekst.';
+    return;
+  }
+
+  const blob = new Blob([text], {
+    type:'text/plain;charset=utf-8'
+  });
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+
+  a.href = url;
+  a.download = 'my-american-project.txt';
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  message.textContent = 'Twój tekst został przygotowany do zapisania.';
+}
+</script>
+
+</body>
+</html>

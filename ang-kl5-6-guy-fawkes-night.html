@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guy Fawkes' Night – English Culture Lab</title>
+<style>
+:root{--ink:#343638;--muted:#73716c;--paper:#f1eee7;--cream:#fbf8f1;--sand:#d8d0c2;--rust:#bd6b43;--gold:#d6a65b;--night:#30343a;--line:#d9d2c6;--green:#65776c}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(125deg,#33383d,#55544f 65%,#8a6a50);color:#fff;padding:34px 20px 28px;position:relative;overflow:hidden}
+header:after{content:"✦  ✧  ·  ✦  ·  ✧";position:absolute;right:5%;top:12px;font-size:clamp(24px,5vw,54px);color:#e2b77d;opacity:.7;letter-spacing:12px}
+.hero{max-width:1050px;margin:auto;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:3px;color:#e7c99d;font-size:.78rem;font-weight:700}
+h1{font-size:clamp(2.1rem,6vw,4.1rem);line-height:1.05;margin:12px 0}.hero p{max-width:720px;color:#f2eee7;font-size:1.08rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pill{border:1px solid #ffffff55;border-radius:30px;padding:5px 12px;font-size:.85rem}
+nav{position:sticky;top:0;background:#fbf8f1ee;backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid var(--line);padding:9px max(14px,calc((100% - 1050px)/2));display:flex;gap:7px;overflow:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:.85rem;padding:7px 11px;border-radius:20px;background:#e8e2d7}
+main{max-width:1050px;margin:24px auto;padding:0 16px 60px}.intro{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:22px}
+section{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,28px);margin:18px 0;box-shadow:0 5px 18px #514b4010}
+h2{font-size:1.55rem;margin:0 0 12px;color:#66594d}h3{font-size:1.08rem;margin:18px 0 8px}
+.kicker{color:var(--rust);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.75rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+.card{background:#f1eee7;border:1px solid var(--line);border-radius:14px;padding:15px}
+.card .emoji{font-size:2rem;display:block;margin-bottom:5px}
+.tag{display:inline-block;background:#e7ded0;color:#61564b;border-radius:20px;padding:3px 9px;font-size:.75rem;font-weight:700}
+details{background:#f1eee7;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:9px 0}
+summary{cursor:pointer;font-weight:750;color:#66594d}
+.wordgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.word{background:#f1eee7;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center}
+.word b{display:block;font-size:1.05rem}.word .pic{font-size:2rem;display:block}
+.en{color:#6b5a4c;font-weight:650}.translation{color:var(--muted);font-size:.9rem}
+button,select,input[type=text]{font:inherit}button{border:0;border-radius:10px;background:#66594d;color:white;padding:9px 14px;cursor:pointer;font-weight:700;margin:5px 4px 5px 0}
+button:hover{filter:brightness(1.12)}button.secondary{background:#dcd4c8;color:#393a39}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.question{padding:13px 0;border-bottom:1px solid var(--line)}.question:last-child{border:0}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.options label{background:#eee9df;padding:8px 11px;border-radius:9px;cursor:pointer}
+.feedback{font-weight:700;margin-top:6px;min-height:1.4em}.correct{color:#3f7658}.wrong{color:#a5483c}
+input[type=text]{padding:9px;border:1px solid #bcb3a5;border-radius:9px;background:white;max-width:100%}
+.poem{background:#e9e4db;border-left:5px solid var(--rust);padding:16px 20px;border-radius:8px;font-family:Georgia,serif;font-size:1.05rem}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}.timecard{background:#eee9df;border-radius:12px;padding:12px}
+.callout{background:#e7e1d6;border-radius:12px;padding:14px}.small{font-size:.87rem;color:var(--muted)}
+.score{font-size:1.2rem;font-weight:800;color:var(--rust);margin-top:10px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:22px}
+@media(max-width:600px){nav{padding:8px}section{padding:16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="hero">
+<div class="eyebrow">English Culture Lab · klasy 5–6 · poziom A2</div>
+<h1>Guy Fawkes’ Night</h1>
+<p><strong>Remember, remember the fifth of November!</strong><br>Historia, brytyjskie zwyczaje, angielskie słówka i zadania detektywistyczne.</p>
+<div class="pills"><span class="pill">🇬🇧 British culture</span><span class="pill">📚 History</span><span class="pill">🧩 Interactive tasks</span><span class="pill">A2 English</span></div>
+</div></header>
+<nav>
+<a href="#start">Start</a><a href="#history">Historia</a><a href="#today">Dzisiaj</a><a href="#words">Picture dictionary</a><a href="#english">A2 reading</a><a href="#poem">Rhyme</a><a href="#practice">Ćwiczenia</a><a href="#quiz">Quiz</a>
+</nav>
+<main>
+<div class="intro" id="start">
+<span class="kicker">Na dobry początek</span>
+<h2>Co to za święto?</h2>
+<p>W Wielkiej Brytanii wieczorem 5 listopada wiele osób ogląda pokazy fajerwerków i spotyka się przy ogniskach. Ten zwyczaj nazywa się <b>Bonfire Night</b> lub <b>Guy Fawkes’ Night</b>. Jego historia zaczęła się ponad 400 lat temu.</p>
+<div class="grid">
+<div class="card"><span class="emoji">🔥</span><b>Bonfire</b><br><span class="translation">ognisko</span></div>
+<div class="card"><span class="emoji">🎆</span><b>Fireworks</b><br><span class="translation">fajerwerki</span></div>
+<div class="card"><span class="emoji">🕯️</span><b>Remember</b><br><span class="translation">pamiętać</span></div>
+</div>
+<p class="small">Cele lekcji: poznasz tło historyczne święta, nauczysz się rozpoznawać najważniejsze angielskie słowa, przeczytasz krótki tekst A2 i sprawdzisz swoją wiedzę.</p>
+</div>
+
+<section id="history">
+<div class="kicker">01 · The story</div><h2>Historia: Gunpowder Plot – spisek prochowy</h2>
+<p>W 1605 roku w Anglii trwały napięcia religijne i polityczne. Grupa katolickich spiskowców chciała zabić króla Jakuba I oraz członków parlamentu, wysadzając budynek podczas uroczystego otwarcia obrad. Był to plan przemocy, który mógł doprowadzić do śmierci wielu ludzi.</p>
+<div class="grid">
+<div class="card"><span class="emoji">👑</span><b>James I</b><p>Król Anglii, który miał być obecny w parlamencie.</p></div>
+<div class="card"><span class="emoji">🧔</span><b>Guy Fawkes</b><p>Jeden ze spiskowców. Pilnował beczek z prochem w piwnicy pod Izbą Lordów.</p></div>
+<div class="card"><span class="emoji">🏛️</span><b>Parliament</b><p>Miejsce, w którym spotykają się przedstawiciele, by debatować i podejmować decyzje.</p></div>
+</div>
+<h3>Jak odkryto spisek?</h3>
+<div class="timeline">
+<div class="timecard"><b>1604–1605</b><p>Spiskowcy przygotowują plan.</p></div>
+<div class="timecard"><b>26 October 1605</b><p>Lord Monteagle otrzymuje anonimowy list ostrzegający przed udziałem w obradach.</p></div>
+<div class="timecard"><b>4 November 1605</b><p>Podczas przeszukania piwnic strażnicy znajdują Guya Fawkesa i proch.</p></div>
+<div class="timecard"><b>5 November 1605</b><p>Plan zostaje udaremniony. Król i parlament są bezpieczni.</p></div>
+</div>
+<details><summary>🔎 Odkryj ważny szczegół historyczny</summary><p>Guy Fawkes jest najbardziej znaną twarzą spisku, ale nie był jego głównym przywódcą. Ważną rolę odegrał Robert Catesby. Fawkes został zapamiętany, ponieważ znaleziono go przy prochu w piwnicy.</p></details>
+<div class="callout"><b>Warto pamiętać:</b> spisek nie był zabawną przygodą. Jego celem było zabicie wielu ludzi. Dzisiejsze świętowanie jest zwyczajem historyczno-kulturowym, a nie pochwałą przemocy.</div>
+</section>
+
+<section id="today">
+<div class="kicker">02 · Today</div><h2>Jak obchodzi się Bonfire Night dzisiaj?</h2>
+<p>Współcześnie 5 listopada (lub w najbliższy weekend) w wielu miejscach organizuje się publiczne pokazy fajerwerków i ogniska. Rodziny spotykają się na świeżym powietrzu, jedzą ciepłe przekąski i oglądają kolorowe światła na niebie. Zwyczaje różnią się w zależności od regionu.</p>
+<div class="grid">
+<div class="card"><span class="emoji">🎇</span><b>Firework display</b><p>Publiczny pokaz fajerwerków.</p></div>
+<div class="card"><span class="emoji">🔥</span><b>Bonfire</b><p>Duże ognisko organizowane podczas wydarzenia.</p></div>
+<div class="card"><span class="emoji">🧍</span><b>Guy</b><p>Tradycyjna kukła, dawniej często palona na ognisku.</p></div>
+<div class="card"><span class="emoji">🍎</span><b>Toffee apple</b><p>Jabłko na patyku w twardej, słodkiej polewie.</p></div>
+<div class="card"><span class="emoji">🥔</span><b>Baked potato</b><p>Pieczony ziemniak, często z masłem lub serem.</p></div>
+<div class="card"><span class="emoji">🧣</span><b>Warm clothes</b><p>Ciepłe ubrania na chłodny listopadowy wieczór.</p></div>
+</div>
+<h3>Bezpieczeństwo</h3>
+<p>Najbezpieczniej oglądać profesjonalny pokaz z wyznaczonego miejsca. Fajerwerków nie wolno odpalać samodzielnie bez nadzoru dorosłych i przestrzegania lokalnych przepisów. Nigdy nie podchodź do niewybuchu.</p>
+</section>
+
+<section id="words">
+<div class="kicker">03 · Picture dictionary</div><h2>Obrazkowy słowniczek</h2>
+<p>Odkryj słowa, przeczytaj je na głos i spróbuj zapamiętać ich znaczenie.</p>
+<div class="wordgrid">
+<div class="word"><span class="pic">🔥</span><b>bonfire</b><span class="translation">ognisko</span></div>
+<div class="word"><span class="pic">🎆</span><b>fireworks</b><span class="translation">fajerwerki</span></div>
+<div class="word"><span class="pic">🧨</span><b>gunpowder</b><span class="translation">proch strzelniczy</span></div>
+<div class="word"><span class="pic">🏛️</span><b>Parliament</b><span class="translation">parlament</span></div>
+<div class="word"><span class="pic">👑</span><b>king</b><span class="translation">król</span></div>
+<div class="word"><span class="pic">🧔</span><b>plotter</b><span class="translation">spiskowiec</span></div>
+<div class="word"><span class="pic">🕯️</span><b>lantern</b><span class="translation">latarnia</span></div>
+<div class="word"><span class="pic">🧍</span><b>effigy / guy</b><span class="translation">kukła</span></div>
+<div class="word"><span class="pic">🍎</span><b>toffee apple</b><span class="translation">jabłko w karmelu</span></div>
+<div class="word"><span class="pic">🥔</span><b>baked potato</b><span class="translation">pieczony ziemniak</span></div>
+<div class="word"><span class="pic">🧤</span><b>gloves</b><span class="translation">rękawiczki</span></div>
+<div class="word"><span class="pic">🌙</span><b>night</b><span class="translation">noc</span></div>
+</div>
+</section>
+
+<section id="english">
+<div class="kicker">04 · Reading A2</div><h2>Read and understand</h2>
+<p class="small">Przeczytaj krótki tekst po angielsku. Nie musisz rozumieć każdego słowa – spróbuj uchwycić najważniejsze informacje.</p>
+<div class="card">
+<h3>Bonfire Night in Britain</h3>
+<p>Every year, on the fifth of November, people in Britain remember the Gunpowder Plot. In 1605, a group of men wanted to blow up the Houses of Parliament. Guy Fawkes was one of the men. He was found in a cellar with gunpowder.</p>
+<p>Today, people celebrate Bonfire Night with fireworks and bonfires. Families meet outside and watch the bright lights in the sky. They sometimes eat baked potatoes and toffee apples. It can be cold, so people wear warm coats, hats and gloves.</p>
+<p>Bonfire Night is a special part of British culture. It reminds people of an important event in history.</p>
+<span class="tag">A2 · około 100 słów</span>
+</div>
+<h3>Sprawdź rozumienie tekstu</h3>
+<div id="readingQuiz"></div><button onclick="checkGroup('readingQuiz','readingResult')">Sprawdź odpowiedzi</button><div id="readingResult" class="feedback"></div>
+</section>
+
+<section id="poem">
+<div class="kicker">05 · A famous rhyme</div><h2>Wierszyk: Remember, remember!</h2>
+<p>Ten tradycyjny angielski rymowany tekst jest związany z 5 listopada. Poniżej krótki, znany fragment wierszyka:</p>
+<div class="poem">
+Remember, remember,<br>
+the fifth of November,<br>
+Gunpowder, treason and plot.<br>
+<br>
+I see no reason<br>
+why gunpowder treason<br>
+should ever be forgot.
+</div>
+<p><b>Pomoc językowa:</b></p>
+<ul><li><span class="en">remember</span> – pamiętać</li><li><span class="en">the fifth of November</span> – piąty listopada</li><li><span class="en">treason</span> – zdrada stanu</li><li><span class="en">plot</span> – spisek</li><li><span class="en">should be forgot</span> – powinno zostać zapomniane (stara/poetycka forma; dziś częściej: <i>should be forgotten</i>)</li></ul>
+<div class="callout">🎤 Zadanie: przeczytaj wierszyk rytmicznie. Zwróć uwagę na rymy: <i>remember – November</i> oraz <i>reason – treason</i>.</div>
+</section>
+
+<section id="practice">
+<div class="kicker">06 · Let's practise</div><h2>Interaktywne ćwiczenia</h2>
+<h3>A. Połącz słowo z tłumaczeniem</h3>
+<p>Wybierz polskie znaczenie każdego słowa.</p>
+<div id="matchTasks"></div><button onclick="checkMatch()">Sprawdź dopasowanie</button><div id="matchResult" class="feedback"></div>
+<h3>B. Uzupełnij zdania</h3>
+<div class="question">1. People watch colourful ______ in the sky.
+<select id="gap1"><option value="">Wybierz</option><option>fireworks</option><option>gloves</option><option>Parliament</option></select></div>
+<div class="question">2. A big outdoor fire is a ______.
+<select id="gap2"><option value="">Wybierz</option><option>lantern</option><option>bonfire</option><option>plotter</option></select></div>
+<div class="question">3. Guy Fawkes was one of the ______.
+<select id="gap3"><option value="">Wybierz</option><option>plotters</option><option>apples</option><option>kings</option></select></div>
+<button onclick="checkGaps()">Sprawdź zdania</button><div id="gapResult" class="feedback"></div>
+<h3>C. Ułóż wydarzenia w kolejności</h3>
+<p>Wpisz numery od 1 do 4. Co wydarzyło się najpierw?</p>
+<div class="question"><label>Spiskowcy przygotowują plan. <input type="text" id="ordA" size="3" placeholder="1–4"></label></div>
+<div class="question"><label>Guy Fawkes zostaje znaleziony w piwnicy. <input type="text" id="ordB" size="3" placeholder="1–4"></label></div>
+<div class="question"><label>Lord Monteagle otrzymuje ostrzegawczy list. <input type="text" id="ordC" size="3" placeholder="1–4"></label></div>
+<div class="question"><label>Spisek zostaje udaremniony. <input type="text" id="ordD" size="3" placeholder="1–4"></label></div>
+<button onclick="checkOrder()">Sprawdź kolejność</button><div id="orderResult" class="feedback"></div>
+</section>
+
+<section id="quiz">
+<div class="kicker">07 · Big quiz</div><h2>Wielki quiz: Are you a Bonfire Night expert?</h2>
+<p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu sprawdź swój wynik.</p>
+<div id="finalQuiz"></div><button onclick="checkFinal()">Sprawdź cały quiz</button><button class="secondary" onclick="resetFinal()">Spróbuj ponownie</button><div id="finalResult" class="score"></div>
+</section>
+
+<section>
+<div class="kicker">08 · Think and talk</div><h2>Porozmawiajmy!</h2>
+<div class="grid">
+<div class="card"><b>🤔 Think</b><p>Why do people remember historical events?</p><span class="translation">Dlaczego ludzie pamiętają wydarzenia historyczne?</span></div>
+<div class="card"><b>🗣️ Speak</b><p>Would you like to see a firework display? Why?</p><span class="translation">Czy chciał(a)byś zobaczyć pokaz fajerwerków? Dlaczego?</span></div>
+<div class="card"><b>✍️ Create</b><p>Draw a Bonfire Night poster. Add three English words.</p><span class="translation">Narysuj plakat i dodaj trzy angielskie słowa.</span></div>
+</div>
+<h3>Exit ticket – jedno zdanie na koniec</h3>
+<p>Dokończ po angielsku: <b>Today I learned that…</b></p>
+<input type="text" style="width:min(100%,600px)" placeholder="Today I learned that...">
+</section>
+
+<section>
+<h2>Źródła i ciekawostka dla nauczyciela</h2>
+<p class="small">Treści historyczne opracowano na podstawie materiałów edukacyjnych brytyjskiego parlamentu i The National Archives. Warto podkreślić, że Guy Fawkes był jednym z uczestników spisku, a nie jego jedynym ani głównym przywódcą. Tradycja obchodów zmieniała się na przestrzeni wieków.</p>
+<ul class="small">
+<li><a href="https://www.parliament.uk/gunpowderplot/" target="_blank" rel="noopener">UK Parliament – The Gunpowder Plot</a></li>
+<li><a href="https://www.nationalarchives.gov.uk/education/teaching-resources/the-gunpowder-plot/" target="_blank" rel="noopener">The National Archives – The Gunpowder Plot</a></li>
+<li><a href="https://learnenglishteens.britishcouncil.org/" target="_blank" rel="noopener">British Council – LearnEnglish</a></li>
+</ul>
+</section>
+<footer>English Culture Lab · Materiał edukacyjny dla klas 5–6 · Guy Fawkes’ Night</footer>
+</main>
+<script>
+const reading=[
+{q:"When did the Gunpowder Plot happen?",o:["1605","1705","1905"],a:0},
+{q:"Where was Guy Fawkes found?",o:["In a school","In a cellar","In a garden"],a:1},
+{q:"What do people watch today?",o:["Fireworks","A football match","A parade of cars"],a:0},
+{q:"What can people eat?",o:["Ice cream only","Baked potatoes and toffee apples","Soup and rice"],a:1}
+];
+function renderRadio(container,items,prefix){document.getElementById(container).innerHTML=items.map((x,i)=>`<div class="question"><b>${i+1}. ${x.q}</b><div class="options">${x.o.map((v,j)=>`<label><input type="radio" name="${prefix}${i}" value="${j}"> ${v}</label>`).join("")}</div></div>`).join("")}
+renderRadio("readingQuiz",reading,"r");
+function checkGroup(id,result){let score=0,items=reading;items.forEach((x,i)=>{let v=document.querySelector(`input[name="r${i}"]:checked`);if(v&&+v.value===x.a)score++});document.getElementById(result).textContent=`Twój wynik: ${score}/${items.length}. ${score===items.length?"Excellent!":"Przeczytaj tekst jeszcze raz i spróbuj ponownie."}`}
+const pairs=[["bonfire","ognisko"],["fireworks","fajerwerki"],["king","król"],["lantern","latarnia"],["gunpowder","proch strzelniczy"]];
+document.getElementById("matchTasks").innerHTML=pairs.map((p,i)=>`<div class="question"><b>${p[0]}</b> <select id="m${i}"><option value="">Wybierz znaczenie</option>${pairs.map(x=>`<option>${x[1]}</option>`).sort(()=>0).join("")}</select></div>`).join("");
+function checkMatch(){let s=0;pairs.forEach((p,i)=>{if(document.getElementById("m"+i).value===p[1])s++});document.getElementById("matchResult").textContent=`Wynik: ${s}/${pairs.length}. ${s===pairs.length?"Great job!":"Popraw błędne odpowiedzi."}`}
+function checkGaps(){let ans=["fireworks","bonfire","plotters"],s=0;ans.forEach((a,i)=>{if(document.getElementById("gap"+(i+1)).value===a)s++});document.getElementById("gapResult").textContent=`Poprawne odpowiedzi: ${s}/3`}
+function checkOrder(){let vals=["1","3","2","4"],ids=["ordA","ordB","ordC","ordD"],s=0;ids.forEach((id,i)=>{if(document.getElementById(id).value.trim()===vals[i])s++});document.getElementById("orderResult").textContent=`Poprawnie: ${s}/4. Kolejność: plan → list → odnalezienie Fawkesa → udaremnienie spisku.`}
+const final=[
+["What is another name for Guy Fawkes’ Night?",["Bonfire Night","Christmas Night","New Year Night"],0],
+["On which date is it celebrated?",["1 November","5 November","25 December"],1],
+["In which year was the Gunpowder Plot?",["1066","1605","1815"],1],
+["Who was the king in 1605?",["James I","Henry VIII","Charles III"],0],
+["Where was the gunpowder hidden?",["In a cellar under Parliament","In a church","In a castle tower"],0],
+["Guy Fawkes was…",["the only plotter","one of the plotters","the king"],1],
+["What does bonfire mean?",["fajerwerki","ognisko","latarnia"],1],
+["What are fireworks?",["fajerwerki","rękawiczki","jabłka"],0],
+["What is Parliament?",["parlament","pałac","więzienie"],0],
+["What is a toffee apple?",["jabłko w karmelu","pieczony ziemniak","ciasto"],0],
+["What do people often wear outside in November?",["swimwear","warm clothes","school uniform"],1],
+["What is a plot?",["spisek","pokaz","święto"],0],
+["What happened to the plot?",["It succeeded","It was discovered and stopped","Nobody knows about it"],1],
+["What is a lantern?",["latarnia","król","beczka"],0],
+["What does remember mean?",["zapomnieć","pamiętać","świętować"],1],
+["Which food is linked with Bonfire Night?",["baked potato","sushi","pancakes only"],0],
+["Why do people watch fireworks today?",["As part of a tradition and public celebration","To start a war","To elect a king"],0],
+["What is the safest choice?",["Watch an organised display from a safe place","Pick up fireworks","Stand next to a bonfire"],0],
+["Which phrase means 'piąty listopada'?",["the fifth of November","the first of December","the fifth of October"],0],
+["Was Guy Fawkes the only leader of the plot?",["Yes","No"],1]
+];
+renderRadio("finalQuiz",final.map(x=>({q:x[0],o:x[1],a:x[2]})),"f");
+function checkFinal(){let s=0;final.forEach((x,i)=>{let v=document.querySelector(`input[name="f${i}"]:checked`);if(v&&+v.value===x[2])s++});let msg=s>=18?"Outstanding!":s>=14?"Very good!":s>=10?"Good effort!":"Keep learning and try again!";document.getElementById("finalResult").textContent=`Twój wynik: ${s}/${final.length} – ${msg}`}
+function resetFinal(){document.querySelectorAll('#finalQuiz input').forEach(x=>x.checked=false);document.getElementById("finalResult").textContent=""}
+</script>
+</body></html>

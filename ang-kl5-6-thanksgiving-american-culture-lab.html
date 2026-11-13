@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanksgiving – American Culture Lab</title>
+<style>
+:root{--ink:#3d332b;--muted:#776b60;--paper:#f3eadb;--cream:#fffaf1;--line:#dfcdb5;--rust:#b95532;--orange:#df8538;--gold:#d4a64e;--brown:#79523a;--sage:#78805c;--dark:#493a30}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.58 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(125deg,#654431,#a4512d 58%,#d58b3c);color:#fff;padding:36px 20px 30px;position:relative;overflow:hidden}
+header:after{content:"🍂  🍁  🎃  🍂";position:absolute;right:2%;bottom:4px;font-size:clamp(28px,5vw,55px);opacity:.8;letter-spacing:5px}
+.hero{max-width:1060px;margin:auto;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:3px;color:#ffe2b4;font-size:.78rem;font-weight:800}
+h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.02;margin:12px 0}.hero p{max-width:740px;color:#fff4e7;font-size:1.08rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pill{border:1px solid #ffffff66;border-radius:30px;padding:5px 12px;font-size:.85rem}
+nav{position:sticky;top:0;background:#fffaf1ed;backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid var(--line);padding:9px max(14px,calc((100% - 1060px)/2));display:flex;gap:7px;overflow:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:.85rem;padding:7px 11px;border-radius:20px;background:#efe1ce}
+main{max-width:1060px;margin:24px auto;padding:0 16px 60px}.intro,section{background:var(--cream);border:1px solid var(--line);border-radius:19px;padding:clamp(18px,3vw,28px);margin:18px 0;box-shadow:0 5px 18px #5a382010}
+h2{font-size:1.55rem;margin:0 0 12px;color:#87502f}h3{font-size:1.08rem;margin:18px 0 8px}.kicker{color:var(--rust);font-weight:850;text-transform:uppercase;letter-spacing:1.5px;font-size:.75rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}.card{background:#f6ecdd;border:1px solid var(--line);border-radius:14px;padding:15px}.emoji{font-size:2.1rem;display:block;margin-bottom:5px}
+.tag{display:inline-block;background:#ead8c1;color:#69452f;border-radius:20px;padding:3px 9px;font-size:.75rem;font-weight:750}
+details{background:#f6ecdd;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:9px 0}summary{cursor:pointer;font-weight:750;color:#805033}
+.wordgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.word{background:#f6ecdd;border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center}.word b{display:block;font-size:1.02rem}.pic{font-size:2rem;display:block}.translation{color:var(--muted);font-size:.9rem}
+.en{color:#87502f;font-weight:700}.poem{background:#f0e2cf;border-left:5px solid var(--orange);padding:16px 20px;border-radius:8px;font-family:Georgia,serif;font-size:1.08rem}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px}.timecard{background:#f3e6d3;border-radius:12px;padding:12px}
+.callout{background:#efe1ce;border-radius:12px;padding:14px}.small{font-size:.87rem;color:var(--muted)}
+button,select,input[type=text]{font:inherit}button{border:0;border-radius:10px;background:#94502f;color:white;padding:9px 14px;cursor:pointer;font-weight:750;margin:5px 4px 5px 0}button:hover{filter:brightness(1.1)}button.secondary{background:#e6d5bf;color:#493a30}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.question{padding:13px 0;border-bottom:1px solid var(--line)}.question:last-child{border:0}.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.options label{background:#f1e5d5;padding:8px 11px;border-radius:9px;cursor:pointer}
+.feedback{font-weight:750;margin-top:7px;min-height:1.4em}.correct{color:#47734b}.wrong{color:#a3442f}
+input[type=text],select{padding:9px;border:1px solid #cbb79e;border-radius:9px;background:#fffdf8;max-width:100%}.score{font-size:1.2rem;font-weight:850;color:#9a4c2d;margin-top:10px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:22px}
+@media(max-width:600px){nav{padding:8px}section{padding:16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="hero">
+<div class="eyebrow">English Culture Lab · klasy 5–6 · poziom A2</div>
+<h1>Thanksgiving</h1>
+<p><strong>A time to say “thank you”!</strong><br>Amerykańskie Święto Dziękczynienia: historia, tradycje, jesienne smaki i angielskie słówka.</p>
+<div class="pills"><span class="pill">🇺🇸 American culture</span><span class="pill">🍁 Autumn traditions</span><span class="pill">🦃 Picture dictionary</span><span class="pill">A2 English</span></div>
+</div></header>
+<nav>
+<a href="#start">Start</a><a href="#history">Historia</a><a href="#today">Dzisiaj</a><a href="#food">Food</a><a href="#words">Słowniczek</a><a href="#reading">Reading A2</a><a href="#poem">Rymowanka</a><a href="#practice">Ćwiczenia</a><a href="#quiz">Quiz</a>
+</nav>
+<main>
+<div class="intro" id="start">
+<span class="kicker">Na dobry początek</span><h2>What are you thankful for?</h2>
+<p><b>Thanksgiving</b> to jedno z najważniejszych świąt w Stanach Zjednoczonych. To czas spotkań rodzinnych, wspólnego posiłku i okazywania wdzięczności. W USA obchodzone jest w czwarty czwartek listopada.</p>
+<div class="grid">
+<div class="card"><span class="emoji">🦃</span><b>turkey</b><br><span class="translation">indyk</span></div>
+<div class="card"><span class="emoji">🎃</span><b>pumpkin pie</b><br><span class="translation">ciasto dyniowe</span></div>
+<div class="card"><span class="emoji">🍁</span><b>thankful</b><br><span class="translation">wdzięczny / wdzięczna</span></div>
+</div>
+<p class="small">Po tej lekcji poznasz historię i współczesne tradycje Thanksgiving, nauczysz się jesiennego słownictwa, przeczytasz tekst A2 i sprawdzisz swoją wiedzę.</p>
+</div>
+
+<section id="history">
+<div class="kicker">01 · The story</div><h2>Skąd wzięło się Thanksgiving?</h2>
+<p>W 1620 roku statek <i>Mayflower</i> przypłynął z Anglii do Ameryki Północnej. Na pokładzie byli angielscy osadnicy, których często nazywa się Pilgrims. Założyli osadę w miejscu, które nazwali Plymouth. Pierwsza zima była bardzo trudna i wielu osadników zmarło.</p>
+<p>Wampanoagowie, rdzenna społeczność zamieszkująca ten region od pokoleń, pomogli przybyszom poznać lokalne warunki i sposoby uprawy żywności. Jesienią 1621 roku odbyło się kilkudniowe spotkanie związane ze zbiorami, w którym uczestniczyli osadnicy i ludzie Wampanoag. To wydarzenie często łączy się z początkami amerykańskiej tradycji Thanksgiving.</p>
+<div class="grid">
+<div class="card"><span class="emoji">🚢</span><b>Mayflower</b><p>Statek, którym przypłynęli osadnicy.</p></div>
+<div class="card"><span class="emoji">🌽</span><b>Harvest</b><p>Zbiory plonów; jesienią ludzie zbierają to, co wyrosło na polach.</p></div>
+<div class="card"><span class="emoji">🪶</span><b>Wampanoag</b><p>Rdzenna społeczność z terenów dzisiejszej Nowej Anglii, obecna tam na długo przed przybyciem osadników.</p></div>
+</div>
+<h3>Mała oś czasu</h3>
+<div class="timeline">
+<div class="timecard"><b>1620</b><p>Mayflower arrives in North America.</p></div>
+<div class="timecard"><b>1621</b><p>A harvest gathering takes place in Plymouth.</p></div>
+<div class="timecard"><b>1863</b><p>President Abraham Lincoln proclaims a national Thanksgiving Day during the Civil War.</p></div>
+<div class="timecard"><b>1941</b><p>US Congress sets Thanksgiving on the fourth Thursday of November.</p></div>
+</div>
+<details><summary>🔎 Ważne: czy historia jest taka prosta?</summary><p>Nie całkiem. Popularna opowieść o zgodnej uczcie to tylko część historii. Relacje między osadnikami a rdzennymi narodami zmieniały się, a kolonizacja przyniosła wielu rdzennym społecznościom utratę ziemi, choroby i przemoc. Dla części rdzennych Amerykanów ten dzień jest także czasem pamięci o trudnej historii. Warto poznawać różne perspektywy i nie przedstawiać Wampanoagów wyłącznie jako postaci z dawnej opowieści.</p></details>
+<div class="callout"><b>Zapamiętaj:</b> spotkanie w Plymouth w 1621 roku było ważnym wydarzeniem, ale nie oznacza, że od razu powstało współczesne święto obchodzone w całych Stanach Zjednoczonych.</div>
+</section>
+
+<section id="today">
+<div class="kicker">02 · Thanksgiving today</div><h2>Jak Amerykanie obchodzą Thanksgiving dzisiaj?</h2>
+<p>Thanksgiving to święto rodzinne i państwowe. Wiele osób podróżuje, aby spotkać się z bliskimi. Rodziny przygotowują uroczysty obiad, oglądają parady lub mecze futbolu amerykańskiego. Niektórzy pomagają w jadłodzielniach i organizacjach wspierających osoby potrzebujące.</p>
+<div class="grid">
+<div class="card"><span class="emoji">👨‍👩‍👧‍👦</span><b>Family dinner</b><p>Wspólny posiłek z rodziną.</p></div>
+<div class="card"><span class="emoji">🎈</span><b>Parade</b><p>Barwny pochód, często z wielkimi balonami.</p></div>
+<div class="card"><span class="emoji">🏈</span><b>Football</b><p>Wiele rodzin ogląda mecze futbolu amerykańskiego.</p></div>
+<div class="card"><span class="emoji">🤝</span><b>Helping others</b><p>Wolontariat i pomoc potrzebującym.</p></div>
+<div class="card"><span class="emoji">🙏</span><b>Gratitude</b><p>Rozmowa o tym, za co jesteśmy wdzięczni.</p></div>
+<div class="card"><span class="emoji">🍂</span><b>Autumn decorations</b><p>Dynie, liście, świece i jesienne kolory.</p></div>
+</div>
+<details><summary>🗓️ Kiedy dokładnie jest Thanksgiving?</summary><p>W USA Thanksgiving wypada w czwarty czwartek listopada. W Kanadzie obchodzi się je wcześniej – w drugi poniedziałek października.</p></details>
+</section>
+
+<section id="food">
+<div class="kicker">03 · At the table</div><h2>Thanksgiving dinner – co pojawia się na stole?</h2>
+<div class="grid">
+<div class="card"><span class="emoji">🦃</span><b>Roast turkey</b><p>Pieczony indyk – często główne danie.</p></div>
+<div class="card"><span class="emoji">🥔</span><b>Mashed potatoes</b><p>Puree ziemniaczane.</p></div>
+<div class="card"><span class="emoji">🥧</span><b>Pumpkin pie</b><p>Ciasto dyniowe z przyprawami.</p></div>
+<div class="card"><span class="emoji">🍒</span><b>Cranberry sauce</b><p>Sos żurawinowy.</p></div>
+<div class="card"><span class="emoji">🌽</span><b>Corn</b><p>Kukurydza.</p></div>
+<div class="card"><span class="emoji">🍞</span><b>Stuffing</b><p>Aromatyczny farsz, często z pieczywa i ziół.</p></div>
+</div>
+<div class="callout">🍽️ <b>Mini speaking:</b> Which food would you like to try? Say: <i>I'd like to try pumpkin pie because…</i> (Chciał(a)bym spróbować ciasta dyniowego, ponieważ…)</div>
+</section>
+
+<section id="words">
+<div class="kicker">04 · Picture dictionary</div><h2>Obrazkowy słowniczek Thanksgiving</h2>
+<p>Przeczytaj słowo, zobacz obrazek i spróbuj użyć go w krótkim zdaniu.</p>
+<div class="wordgrid">
+<div class="word"><span class="pic">🦃</span><b>turkey</b><span class="translation">indyk</span></div>
+<div class="word"><span class="pic">🎃</span><b>pumpkin</b><span class="translation">dynia</span></div>
+<div class="word"><span class="pic">🥧</span><b>pumpkin pie</b><span class="translation">ciasto dyniowe</span></div>
+<div class="word"><span class="pic">🍂</span><b>autumn leaves</b><span class="translation">jesienne liście</span></div>
+<div class="word"><span class="pic">🌽</span><b>corn</b><span class="translation">kukurydza</span></div>
+<div class="word"><span class="pic">🥔</span><b>mashed potatoes</b><span class="translation">puree ziemniaczane</span></div>
+<div class="word"><span class="pic">🍒</span><b>cranberry</b><span class="translation">żurawina</span></div>
+<div class="word"><span class="pic">🍽️</span><b>feast</b><span class="translation">uczta</span></div>
+<div class="word"><span class="pic">🙏</span><b>thankful</b><span class="translation">wdzięczny / wdzięczna</span></div>
+<div class="word"><span class="pic">🤝</span><b>share</b><span class="translation">dzielić się</span></div>
+<div class="word"><span class="pic">👨‍👩‍👧</span><b>family</b><span class="translation">rodzina</span></div>
+<div class="word"><span class="pic">🧡</span><b>gratitude</b><span class="translation">wdzięczność</span></div>
+<div class="word"><span class="pic">🚢</span><b>ship</b><span class="translation">statek</span></div>
+<div class="word"><span class="pic">🌾</span><b>harvest</b><span class="translation">zbiory</span></div>
+<div class="word"><span class="pic">🎈</span><b>parade</b><span class="translation">parada</span></div>
+<div class="word"><span class="pic">🏈</span><b>football game</b><span class="translation">mecz futbolu amerykańskiego</span></div>
+</div>
+</section>
+
+<section id="reading">
+<div class="kicker">05 · Reading A2</div><h2>Read: My Thanksgiving Day</h2>
+<p class="small">Przeczytaj tekst. Zwróć uwagę na słowa, które znasz ze słowniczka.</p>
+<div class="card">
+<h3>A special Thursday</h3>
+<p>Thanksgiving is my favourite family holiday. It is in November. In the morning, my family cooks a big dinner. We usually have roast turkey, mashed potatoes, corn and cranberry sauce. My grandma makes a delicious pumpkin pie!</p>
+<p>In the afternoon, we visit our cousins. We eat together and talk. Before dinner, everyone says one thing they are thankful for. I am thankful for my family, my friends and my dog. After dinner, we sometimes watch a parade or a football game on TV.</p>
+<p>Thanksgiving is not about expensive presents. It is about family, food and saying “thank you”.</p>
+<span class="tag">A2 · około 100 słów</span>
+</div>
+<h3>Check your understanding</h3><div id="readingQuiz"></div>
+<button onclick="checkReading()">Sprawdź odpowiedzi</button><div id="readingResult" class="feedback"></div>
+</section>
+
+<section id="poem">
+<div class="kicker">06 · A little autumn rhyme</div><h2>Thank you, autumn!</h2>
+<p>Krótka, autorska rymowanka do wspólnego przeczytania. Można ją rytmicznie wyklaskać.</p>
+<div class="poem">
+Orange pumpkins, leaves of gold,<br>
+Autumn days are getting cold.<br>
+Family, friends and food to share,<br>
+Thank you for the love and care!<br>
+<br>
+Turkey, apples, pumpkin pie,<br>
+Golden leaves are dancing by.<br>
+One small word can make our day:<br>
+“Thank you!” is what we say.
+</div>
+<h3>Word help</h3>
+<div class="grid">
+<div class="card"><b>leaves of gold</b><p class="translation">złote liście</p></div>
+<div class="card"><b>to share</b><p class="translation">dzielić się</p></div>
+<div class="card"><b>care</b><p class="translation">troska, opieka</p></div>
+<div class="card"><b>to make our day</b><p class="translation">poprawić nam dzień</p></div>
+</div>
+</section>
+
+<section id="practice">
+<div class="kicker">07 · Let's practise</div><h2>Interaktywne ćwiczenia</h2>
+<h3>A. Match the words – dopasuj słowa</h3><div id="matching"></div><button onclick="checkMatching()">Sprawdź dopasowanie</button><div id="matchingResult" class="feedback"></div>
+<h3>B. Complete the sentences – uzupełnij zdania</h3>
+<div class="question">1. A big orange vegetable is a <select id="g1"><option value="">Wybierz</option><option>pumpkin</option><option>parade</option><option>ship</option></select>.</div>
+<div class="question">2. People eat roast <select id="g2"><option value="">Wybierz</option><option>leaves</option><option>turkey</option><option>lantern</option></select> for Thanksgiving dinner.</div>
+<div class="question">3. When you feel thankful, you feel <select id="g3"><option value="">Wybierz</option><option>angry</option><option>grateful</option><option>sleepy</option></select>.</div>
+<div class="question">4. A public celebration with people walking in the street is a <select id="g4"><option value="">Wybierz</option><option>parade</option><option>harvest</option><option>recipe</option></select>.</div>
+<button onclick="checkGaps()">Sprawdź zdania</button><div id="gapsResult" class="feedback"></div>
+<h3>C. True or false?</h3><div id="trueFalse"></div><button onclick="checkTF()">Sprawdź</button><div id="tfResult" class="feedback"></div>
+<h3>D. My gratitude leaf 🍁</h3>
+<p>Wpisz po angielsku jedną rzecz, za którą jesteś wdzięczny / wdzięczna. Możesz użyć wzoru: <b>I am thankful for…</b></p>
+<input type="text" id="gratitude" style="width:min(100%,600px)" placeholder="I am thankful for my family...">
+<button class="secondary" onclick="showGratitude()">Pokaż moją myśl</button><div id="gratitudeResult" class="feedback"></div>
+</section>
+
+<section id="quiz">
+<div class="kicker">08 · Big quiz</div><h2>Thanksgiving Challenge!</h2>
+<p>20 pytań o historię, tradycje i słownictwo. Wybierz jedną odpowiedź i sprawdź swój wynik.</p>
+<div id="finalQuiz"></div><button onclick="checkFinal()">Sprawdź cały quiz</button><button class="secondary" onclick="resetFinal()">Spróbuj ponownie</button><div id="finalResult" class="score"></div>
+</section>
+
+<section>
+<div class="kicker">09 · Think, speak and create</div><h2>Let's talk about gratitude!</h2>
+<div class="grid">
+<div class="card"><span class="emoji">💭</span><b>Think</b><p>Why is it good to say “thank you”?</p><span class="translation">Dlaczego warto mówić „dziękuję”?</span></div>
+<div class="card"><span class="emoji">🗣️</span><b>Speak</b><p>What food would you put on your special dinner table?</p><span class="translation">Jakie jedzenie postawisz na swoim wyjątkowym stole?</span></div>
+<div class="card"><span class="emoji">🎨</span><b>Create</b><p>Design an autumn place card. Write: “I am thankful for…”</p><span class="translation">Zaprojektuj jesienną karteczkę na stół.</span></div>
+</div>
+<h3>Exit ticket</h3><p>Dokończ zdanie: <b>One new word I learned today is…</b></p><input type="text" style="width:min(100%,600px)" placeholder="One new word I learned today is...">
+</section>
+
+<section>
+<h2>Wskazówka kulturowa i źródła</h2>
+<p class="small">Materiał przedstawia popularne elementy współczesnego amerykańskiego Thanksgiving, ale zaznacza również złożoną historię kolonizacji i różne perspektywy rdzennych społeczności. Nie należy zakładać, że wszyscy Amerykanie obchodzą ten dzień w ten sam sposób.</p>
+<ul class="small">
+<li><a href="https://americanindian.si.edu/nk360/informational/thanksgiving" target="_blank" rel="noopener">Smithsonian National Museum of the American Indian – American Indian Perspectives on Thanksgiving</a></li>
+<li><a href="https://www.loc.gov/classroom-materials/thanksgiving/" target="_blank" rel="noopener">Library of Congress – Thanksgiving resources</a></li>
+<li><a href="https://www.usa.gov/thanksgiving" target="_blank" rel="noopener">USA.gov – Thanksgiving</a></li>
+</ul>
+</section>
+<footer>English Culture Lab · Materiał edukacyjny dla klas 5–6 · Thanksgiving</footer>
+</main>
+<script>
+const readQ=[
+{q:"When is Thanksgiving in the USA?",o:["In July","On the fourth Thursday in November","On 1 January"],a:1},
+{q:"What is the name of the ship in the story?",o:["Mayflower","Rainbow","Victory"],a:0},
+{q:"What does the family do before dinner in the text?",o:["They open presents","Everyone says what they are thankful for","They go to school"],a:1},
+{q:"What does the grandma make?",o:["A pumpkin pie","A pizza","A sandwich"],a:0}
+];
+function renderRadio(id,items,prefix){document.getElementById(id).innerHTML=items.map((x,i)=>`<div class="question"><b>${i+1}. ${x.q}</b><div class="options">${x.o.map((v,j)=>`<label><input type="radio" name="${prefix}${i}" value="${j}"> ${v}</label>`).join("")}</div></div>`).join("")}
+renderRadio("readingQuiz",readQ,"r");
+function checkReading(){let s=0;readQ.forEach((x,i)=>{let v=document.querySelector(`input[name="r${i}"]:checked`);if(v&&+v.value===x.a)s++});document.getElementById("readingResult").textContent=`Twój wynik: ${s}/${readQ.length}. ${s===readQ.length?"Excellent!":"Przeczytaj tekst jeszcze raz i spróbuj ponownie."}`}
+const pairs=[["turkey","indyk"],["pumpkin","dynia"],["harvest","zbiory"],["parade","parada"],["thankful","wdzięczny / wdzięczna"]];
+document.getElementById("matching").innerHTML=pairs.map((p,i)=>`<div class="question"><b>${p[0]}</b> <select id="m${i}"><option value="">Wybierz znaczenie</option>${pairs.map(x=>`<option>${x[1]}</option>`).join("")}</select></div>`).join("");
+function checkMatching(){let s=0;pairs.forEach((p,i)=>{if(document.getElementById("m"+i).value===p[1])s++});document.getElementById("matchingResult").textContent=`Wynik: ${s}/${pairs.length}. ${s===pairs.length?"Excellent!":"Sprawdź jeszcze raz błędne odpowiedzi."}`}
+function checkGaps(){let a=["pumpkin","turkey","grateful","parade"],s=0;a.forEach((v,i)=>{if(document.getElementById("g"+(i+1)).value===v)s++});document.getElementById("gapsResult").textContent=`Poprawne odpowiedzi: ${s}/4`}
+const tf=[["Thanksgiving in the USA is in November.",true],["The Mayflower arrived in 1620.",true],["Every American family celebrates in exactly the same way.",false],["Pumpkin pie is a popular Thanksgiving food.",true]];
+document.getElementById("trueFalse").innerHTML=tf.map((x,i)=>`<div class="question"><b>${i+1}. ${x[0]}</b><div class="options"><label><input type="radio" name="tf${i}" value="true"> True</label><label><input type="radio" name="tf${i}" value="false"> False</label></div></div>`).join("");
+function checkTF(){let s=0;tf.forEach((x,i)=>{let v=document.querySelector(`input[name="tf${i}"]:checked`);if(v&&String(x[1])===v.value)s++});document.getElementById("tfResult").textContent=`Wynik: ${s}/${tf.length}`}
+function showGratitude(){let v=document.getElementById("gratitude").value.trim();document.getElementById("gratitudeResult").textContent=v?`🍁 I am thankful for: ${v}`:"Wpisz najpierw swoją odpowiedź."}
+const quiz=[
+["When is Thanksgiving celebrated in the USA?",["The fourth Thursday in November","The first Monday in May","The last day of December"],0],
+["What does 'thankful' mean?",["zmęczony","wdzięczny","głodny"],1],
+["What was the name of the ship?",["Mayflower","Sunflower","Starship"],0],
+["In which year did the Mayflower arrive?",["1492","1620","1776"],1],
+["Who are the Wampanoag?",["A Native community","A type of food","A ship"],0],
+["What happened in Plymouth in 1621?",["A harvest gathering","A football match","A film festival"],0],
+["What is a harvest?",["Zbiory","Parada","Statek"],0],
+["Which food is a Thanksgiving classic?",["Pumpkin pie","Fish and chips","Sushi"],0],
+["What is cranberry sauce?",["Sos żurawinowy","Sos czekoladowy","Zupa"],0],
+["What does 'feast' mean?",["uczta","liść","statek"],0],
+["What do many families do on Thanksgiving?",["Have a family meal","Go to school","Exchange birthday gifts"],0],
+["What is a parade?",["A public procession","A dessert","A vegetable"],0],
+["Which sport is often watched on TV?",["American football","Tennis only","Ski jumping"],0],
+["What does 'share' mean?",["dzielić się","zapominać","biegać"],0],
+["What is a turkey?",["indyk","dynia","żurawina"],0],
+["When did Abraham Lincoln proclaim a national Thanksgiving Day?",["1863","1620","1941"],0],
+["In which year did Congress set the holiday on the fourth Thursday of November?",["1941","1901","2001"],0],
+["Do all Native people see Thanksgiving in the same way?",["Yes, always","No, perspectives differ"],1],
+["What is one way to help others on Thanksgiving?",["Volunteer or share food","Waste food","Ignore people"],0],
+["Complete: I am thankful ___ my friends.",["for","at","under"],0]
+];
+renderRadio("finalQuiz",quiz.map(x=>({q:x[0],o:x[1],a:x[2]})),"f");
+function checkFinal(){let s=0;quiz.forEach((x,i)=>{let v=document.querySelector(`input[name="f${i}"]:checked`);if(v&&+v.value===x[2])s++});let msg=s>=18?"Amazing!":s>=15?"Very good!":s>=11?"Good effort!":"Keep learning and try again!";document.getElementById("finalResult").textContent=`Twój wynik: ${s}/${quiz.length} – ${msg}`}
+function resetFinal(){document.querySelectorAll('#finalQuiz input').forEach(x=>x.checked=false);document.getElementById("finalResult").textContent=""}
+</script>
+</body></html>

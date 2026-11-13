@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independence Day – American Culture Lab</title>
+<style>
+:root{
+ --blue:#17365d;--navy:#102644;--red:#c93645;
+ --white:#fff;--cream:#f5f8fc;--pale:#e8eef7;
+ --gold:#e6b84a;--ink:#243247;--line:#cbd6e5;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);
+ font:16px/1.65 Arial,sans-serif}
+header{
+ background:linear-gradient(135deg,#102644,#17365d 60%,#8d2635);
+ color:white;text-align:center;padding:42px 18px 38px;
+ position:relative;overflow:hidden
+}
+header .decor{font-size:27px;letter-spacing:7px}
+header h1{font-size:clamp(2.2rem,7vw,4rem);
+ color:white;margin:7px 0;letter-spacing:2px}
+header p{margin:5px auto;max-width:760px;color:#edf3ff}
+.pills{margin-top:17px}
+.pill{display:inline-block;background:white;color:var(--blue);
+ padding:5px 13px;border-radius:30px;font-size:.8rem;
+ font-weight:bold;margin:4px}
+nav{background:var(--navy);padding:10px;display:flex;
+ justify-content:center;flex-wrap:wrap;gap:8px}
+nav a{color:white;text-decoration:none;border:1px solid #7188a7;
+ padding:6px 12px;border-radius:20px;font-size:.88rem}
+nav a:hover{background:var(--red)}
+main{max-width:1050px;margin:auto;padding:20px 15px 50px}
+section{background:white;border:1px solid var(--line);
+ border-radius:17px;padding:23px;margin:19px 0;
+ box-shadow:0 5px 18px #1026440b}
+h2{color:var(--blue);margin:0 0 15px;font-size:1.55rem}
+h3{color:#a12c3b;margin:18px 0 8px}
+.lead{font-size:1.08rem}
+.note{background:#edf3fc;border-left:5px solid var(--blue);
+ padding:13px 16px;border-radius:9px;margin:14px 0}
+.rednote{background:#fff0f0;border-left-color:var(--red)}
+.grid{display:grid;grid-template-columns:
+ repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.tile{background:#f3f6fb;border:1px solid #d7e0ed;
+ border-radius:14px;padding:14px;text-align:center}
+.emoji{display:block;font-size:2.5rem}
+.tile b{display:block;color:var(--blue)}
+.small{font-size:.9rem;color:#65758a}
+.darkbox{background:#142b49;color:#f3f6fc;padding:18px;
+ border-radius:13px}
+.darkbox h3{color:#ffb9c0}
+details{background:#f5f7fb;border:1px solid #d7e0ed;
+ border-radius:12px;padding:12px 15px;margin:9px 0}
+summary{cursor:pointer;font-weight:bold;color:var(--blue)}
+button{background:var(--blue);color:white;border:0;
+ border-radius:9px;padding:10px 15px;font-weight:bold;
+ cursor:pointer;margin:5px 3px}
+button:hover{background:var(--red)}
+button.dark{background:#a92d3c}
+input[type=text],select,textarea{
+ padding:10px;border:1px solid #c4d0e0;border-radius:8px;
+ font:inherit;max-width:100%
+}
+input[type=text]{width:240px}
+select{background:white}
+label{display:block;margin:6px 0;cursor:pointer}
+.question{padding:12px;border-bottom:1px dashed #cbd6e5}
+.feedback{font-weight:bold;margin:10px 0;min-height:24px}
+.good{color:#287443}.bad{color:#a93226}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px}
+.wordbank span{background:var(--blue);color:white;
+ padding:5px 11px;border-radius:18px}
+.quizq{background:#f5f7fb;border:1px solid #d7e0ed;
+ border-radius:12px;padding:14px;margin:13px 0}
+.progress{height:11px;background:#e3e9f1;
+ border-radius:20px;overflow:hidden;margin:15px 0}
+.progress span{display:block;height:100%;width:0;
+ background:var(--red);transition:width .3s}
+footer{text-align:center;padding:24px;color:#65758a}
+.source{color:#a12c3b}
+.timeline{border-left:4px solid var(--red);margin:15px 0 15px 12px;padding-left:19px}
+.event{margin:15px 0;position:relative}
+.event:before{content:"";position:absolute;left:-27px;top:7px;
+ width:12px;height:12px;background:var(--blue);
+ border:3px solid white;border-radius:50%}
+.flag{display:flex;max-width:330px;height:120px;margin:15px auto;
+ flex-direction:column;border:1px solid #ccd4df;overflow:hidden}
+.flag div{flex:1}
+@media(max-width:600px){section{padding:17px}nav{position:static}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="decor">🇺🇸 ✦ ⭐ ✦ 🇺🇸</div>
+<h1>INDEPENDENCE DAY</h1>
+<p><b>American Culture Lab</b></p>
+<p>Discover the story of America's birthday!</p>
+<div class="pills">
+<span class="pill">CLASSES 5–6</span>
+<span class="pill">HISTORY</span>
+<span class="pill">VOCABULARY</span>
+<span class="pill">READING A2</span>
+<span class="pill">GAMES & QUIZ</span>
+</div>
+</header>
+
+<nav>
+<a href="#about">What is it?</a>
+<a href="#history">History</a>
+<a href="#polish">Polish heroes</a>
+<a href="#traditions">Traditions</a>
+<a href="#words">Vocabulary</a>
+<a href="#reading">Reading</a>
+<a href="#games">Games</a>
+<a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="about">
+<h2>🇺🇸 1. What is Independence Day?</h2>
+<p class="lead">
+<b>Independence Day</b> is an American national holiday
+celebrated every year on <b>4 July</b>.
+It is also called <b>the Fourth of July</b>.
+</p>
+<p>
+On this day, Americans celebrate the birth of the United States
+as an independent country. Families and friends meet,
+have picnics, watch parades and enjoy fireworks.
+Many houses and streets are decorated with the colours
+of the American flag.
+</p>
+
+<div class="flag" aria-label="Stylised American flag">
+<div style="background:#c93645"></div>
+<div style="background:white"></div>
+<div style="background:#c93645"></div>
+<div style="background:white"></div>
+<div style="background:#c93645"></div>
+<div style="background:white"></div>
+<div style="background:#c93645"></div>
+</div>
+
+<div class="grid">
+<div class="tile"><span class="emoji">🔵</span>
+<b>Blue</b><span class="small">vigilance, perseverance and justice</span></div>
+<div class="tile"><span class="emoji">⚪</span>
+<b>White</b><span class="small">purity and innocence</span></div>
+<div class="tile"><span class="emoji">🔴</span>
+<b>Red</b><span class="small">hardiness and valour</span></div>
+</div>
+<div class="note">
+**Did you know?** The American flag is often called
+<b>the Stars and Stripes</b>. It has 50 stars and 13 stripes.
+The stars represent the 50 states. The 13 stripes represent
+the original thirteen colonies.
+</div>
+</section>
+
+<section id="history">
+<h2>📜 2. A short history of American independence</h2>
+<p>
+In the 18th century, thirteen British colonies existed
+in North America. Many colonists were unhappy with British
+taxes and rules. They wanted to make their own decisions.
+</p>
+
+<div class="timeline">
+<div class="event">
+<b>1775 – The war begins</b>
+<p>The American Revolutionary War began between
+Great Britain and the thirteen colonies.</p>
+</div>
+<div class="event">
+<b>4 July 1776 – The Declaration of Independence</b>
+<p>The Second Continental Congress adopted the
+Declaration of Independence. It announced that the
+thirteen colonies were free and independent states.</p>
+</div>
+<div class="event">
+<b>1781 – The victory at Yorktown</b>
+<p>American and French forces won an important victory
+against the British army at Yorktown.</p>
+</div>
+<div class="event">
+<b>1783 – The war ends</b>
+<p>The Treaty of Paris officially recognised the
+independence of the United States.</p>
+</div>
+</div>
+
+<div class="note rednote">
+<b>Remember:</b> 4 July 1776 is the date of the Declaration
+of Independence. The war did not end on that day.
+It continued until 1783.
+</div>
+
+<h3>Who wrote the Declaration?</h3>
+<div class="grid">
+<div class="tile"><span class="emoji">📜</span>
+<b>Thomas Jefferson</b>
+<p class="small">He wrote the first draft of the Declaration
+of Independence.</p></div>
+<div class="tile"><span class="emoji">🖋️</span>
+<b>John Adams</b>
+<p class="small">He supported independence and helped
+promote the Declaration.</p></div>
+<div class="tile"><span class="emoji">🕊️</span>
+<b>Benjamin Franklin</b>
+<p class="small">He was a diplomat, inventor and one of
+the important American leaders of the Revolution.</p></div>
+</div>
+</section>
+
+<section id="polish">
+<h2>🇵🇱 3. Polish heroes of American independence</h2>
+<p class="lead">
+Did you know that two famous Polish military leaders
+helped the Americans during the War of Independence?
+Their names were Tadeusz Kościuszko and Kazimierz Pułaski.
+</p>
+
+<div class="grid">
+<div class="tile">
+<span class="emoji">🏰</span>
+<b>Tadeusz Kościuszko</b>
+<p><i>Thaddeus Kosciuszko</i></p>
+<p class="small">
+He was a Polish military engineer. He helped the American
+army by designing and building important fortifications.
+His work at Saratoga and West Point was especially important.
+</p>
+<p class="small">
+He served in the Continental Army and became a brigadier
+general. Later, he returned to Poland and led the
+1794 uprising against foreign domination.
+</p>
+</div>
+
+<div class="tile">
+<span class="emoji">🐎</span>
+<b>Kazimierz Pułaski</b>
+<p><i>Casimir Pulaski</i></p>
+<p class="small">
+He was a Polish cavalry commander. He joined the American
+fight for independence in 1777 and helped organise and
+train American cavalry forces.
+</p>
+<p class="small">
+He was wounded during the siege of Savannah in 1779
+and died shortly afterwards. He is remembered as
+the Father of the American Cavalry.
+</p>
+</div>
+</div>
+
+<div class="note">
+<b>Why did they help America?</b><br>
+Both men believed in freedom and fought against
+oppression. They travelled from Europe to help the
+American cause. They are remembered as heroes in both
+Poland and the United States.
+</div>
+
+<h3>🇵🇱 Two countries, one idea: FREEDOM</h3>
+<p>
+Kościuszko and Pułaski are important symbols of the
+historical friendship between Poland and the United States.
+Their stories remind us that people from different
+countries can work together for freedom.
+</p>
+
+<div class="darkbox">
+<h3>Mini history challenge</h3>
+<p><b>Who was the engineer?</b> Tadeusz Kościuszko.</p>
+<p><b>Who was the cavalry commander?</b> Kazimierz Pułaski.</p>
+<p><b>Who helped organise American cavalry?</b> Kazimierz Pułaski.</p>
+</div>
+</section>
+
+<section id="traditions">
+<h2>🎆 4. How do Americans celebrate?</h2>
+
+<details open>
+<summary>🎇 Fireworks</summary>
+<p>Fireworks are one of the most popular parts of
+Independence Day. Many towns organise big evening
+firework displays.</p>
+</details>
+
+<details>
+<summary>🎺 Parades</summary>
+<p>People watch colourful parades with marching bands,
+flags, decorated cars and people wearing red, white
+and blue clothes.</p>
+</details>
+
+<details>
+<summary>🍔 Picnics and barbecues</summary>
+<p>Families and friends meet outdoors. They eat hot dogs,
+hamburgers, corn on the cob, salads and watermelon.</p>
+</details>
+
+<details>
+<summary>🎵 Music and concerts</summary>
+<p>There are outdoor concerts and patriotic songs.
+Some events include the national anthem,
+“The Star-Spangled Banner”.</p>
+</details>
+
+<details>
+<summary>⭐ Flags and decorations</summary>
+<p>People decorate their homes, gardens and streets
+with American flags, stars and stripes.</p>
+</details>
+
+<div class="grid">
+<div class="tile"><span class="emoji">🎆</span><b>Fireworks</b></div>
+<div class="tile"><span class="emoji">🎺</span><b>Parades</b></div>
+<div class="tile"><span class="emoji">🍉</span><b>Watermelon</b></div>
+<div class="tile"><span class="emoji">🍔</span><b>Barbecue</b></div>
+<div class="tile"><span class="emoji">🎵</span><b>Music</b></div>
+<div class="tile"><span class="emoji">⭐</span><b>Stars and stripes</b></div>
+</div>
+</section>
+
+<section id="words">
+<h2>🔤 5. Picture dictionary – Independence Day</h2>
+<p>Learn the words. Click <b>Listen</b> to hear
+their pronunciation.</p>
+<div class="grid">
+<div class="tile"><span class="emoji">🇺🇸</span><b>flag</b>
+<span class="small">flaga</span><button onclick="say('flag')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">⭐</span><b>star</b>
+<span class="small">gwiazda</span><button onclick="say('star')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🎆</span><b>fireworks</b>
+<span class="small">fajerwerki</span><button onclick="say('fireworks')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🗽</span><b>freedom</b>
+<span class="small">wolność</span><button onclick="say('freedom')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">📜</span><b>declaration</b>
+<span class="small">deklaracja</span><button onclick="say('declaration')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🏛️</span><b>independence</b>
+<span class="small">niepodległość</span><button onclick="say('independence')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🎺</span><b>parade</b>
+<span class="small">parada</span><button onclick="say('parade')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🍔</span><b>hamburger</b>
+<span class="small">hamburger</span><button onclick="say('hamburger')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🌽</span><b>corn</b>
+<span class="small">kukurydza</span><button onclick="say('corn')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🍉</span><b>watermelon</b>
+<span class="small">arbuz</span><button onclick="say('watermelon')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🎵</span><b>anthem</b>
+<span class="small">hymn</span><button onclick="say('anthem')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🪖</span><b>soldier</b>
+<span class="small">żołnierz</span><button onclick="say('soldier')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🛠️</span><b>engineer</b>
+<span class="small">inżynier</span><button onclick="say('engineer')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🐎</span><b>cavalry</b>
+<span class="small">kawaleria</span><button onclick="say('cavalry')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🕊️</span><b>peace</b>
+<span class="small">pokój</span><button onclick="say('peace')">🔊 Listen</button></div>
+<div class="tile"><span class="emoji">🤝</span><b>friendship</b>
+<span class="small">przyjaźń</span><button onclick="say('friendship')">🔊 Listen</button></div>
+</div>
+</section>
+
+<section id="reading">
+<h2>📖 6. Reading – My Fourth of July (A2)</h2>
+<div class="darkbox">
+<p>
+Hello! My name is Emma and I live in the United States.
+My favourite summer holiday is Independence Day.
+It is on the fourth of July.
+</p>
+<p>
+In the morning, my family decorates our garden with
+American flags. My brother wears a blue T-shirt
+and I wear a red dress. We go to a parade in our town.
+There are marching bands, colourful balloons and
+lots of people.
+</p>
+<p>
+In the afternoon, we have a barbecue with our friends.
+We eat hamburgers, corn and watermelon.
+My grandmother tells us stories about American history.
+She also tells us about two Polish heroes:
+Thaddeus Kosciuszko and Casimir Pulaski.
+They helped Americans during the War of Independence.
+</p>
+<p>
+In the evening, we watch beautiful fireworks.
+The sky is full of red, white and blue lights.
+I love this special day!
+</p>
+</div>
+
+<h3>Check your understanding</h3>
+<div id="readingQs">
+<div class="question" data-answer="b">
+<b>1. When is Independence Day?</b>
+<label><input type="radio" name="r1" value="a"> 1 July</label>
+<label><input type="radio" name="r1" value="b"> 4 July</label>
+<label><input type="radio" name="r1" value="c"> 14 July</label>
+</div>
+<div class="question" data-answer="a">
+<b>2. What does Emma's family put in the garden?</b>
+<label><input type="radio" name="r2" value="a"> American flags</label>
+<label><input type="radio" name="r2" value="b"> Christmas trees</label>
+<label><input type="radio" name="r2" value="c"> Pumpkins</label>
+</div>
+<div class="question" data-answer="c">
+<b>3. What do they eat?</b>
+<label><input type="radio" name="r3" value="a"> Pizza and pasta</label>
+<label><input type="radio" name="r3" value="b"> Fish and chips</label>
+<label><input type="radio" name="r3" value="c"> Hamburgers, corn and watermelon</label>
+</div>
+<div class="question" data-answer="b">
+<b>4. Which Polish heroes does Emma's grandmother mention?</b>
+<label><input type="radio" name="r4" value="a"> Chopin and Copernicus</label>
+<label><input type="radio" name="r4" value="b"> Kościuszko and Pułaski</label>
+<label><input type="radio" name="r4" value="c"> Curie and Łukasiewicz</label>
+</div>
+</div>
+<button onclick="checkReading()">Check answers</button>
+<div id="readingFeedback" class="feedback"></div>
+</section>
+
+<section id="games">
+<h2>🎲 7. Let's practise!</h2>
+
+<h3>Game A – Match the words</h3>
+<p>Wybierz odpowiednie angielskie słowo.</p>
+<div id="matching">
+<div class="question">1. wolność
+<select data-correct="freedom">
+<option value="">Choose…</option><option>freedom</option><option>flag</option><option>parade</option></select></div>
+<div class="question">2. flaga
+<select data-correct="flag">
+<option value="">Choose…</option><option>anthem</option><option>flag</option><option>star</option></select></div>
+<div class="question">3. fajerwerki
+<select data-correct="fireworks">
+<option value="">Choose…</option><option>fireworks</option><option>corn</option><option>peace</option></select></div>
+<div class="question">4. inżynier
+<select data-correct="engineer">
+<option value="">Choose…</option><option>soldier</option><option>engineer</option><option>cavalry</option></select></div>
+<div class="question">5. kawaleria
+<select data-correct="cavalry">
+<option value="">Choose…</option><option>cavalry</option><option>friendship</option><option>anthem</option></select></div>
+</div>
+<button onclick="checkMatching()">Check matching</button>
+<div id="matchFeedback" class="feedback"></div>
+
+<h3>Game B – Complete the sentences</h3>
+<p>Uzupełnij zdania słowami z ramki.</p>
+<div class="wordbank">
+<span>flag</span><span>fireworks</span><span>freedom</span><span>parade</span>
+</div>
+<div class="question">1. Americans celebrate Independence Day with a big ________.
+<input type="text" id="fill1" placeholder="Your answer"></div>
+<div class="question">2. The American ________ has 50 stars.
+<input type="text" id="fill2" placeholder="Your answer"></div>
+<div class="question">3. People watch ________ in the evening.
+<input type="text" id="fill3" placeholder="Your answer"></div>
+<div class="question">4. Independence means being free. It means ________.
+<input type="text" id="fill4" placeholder="Your answer"></div>
+<button onclick="checkFill()">Check sentences</button>
+<div id="fillFeedback" class="feedback"></div>
+
+<h3>Game C – True or False?</h3>
+<div id="tf">
+<div class="question" data-answer="true">
+<b>1. Independence Day is on 4 July.</b>
+<label><input type="radio" name="t1" value="true"> True</label>
+<label><input type="radio" name="t1" value="false"> False</label>
+</div>
+<div class="question" data-answer="false">
+<b>2. The Declaration of Independence was adopted in 1783.</b>
+<label><input type="radio" name="t2" value="true"> True</label>
+<label><input type="radio" name="t2" value="false"> False</label>
+</div>
+<div class="question" data-answer="true">
+<b>3. Kościuszko was a military engineer.</b>
+<label><input type="radio" name="t3" value="true"> True</label>
+<label><input type="radio" name="t3" value="false"> False</label>
+</div>
+<div class="question" data-answer="false">
+<b>4. Pułaski was famous as a painter.</b>
+<label><input type="radio" name="t4" value="true"> True</label>
+<label><input type="radio" name="t4" value="false"> False</label>
+</div>
+</div>
+<button onclick="checkTF()">Check answers</button>
+<div id="tfFeedback" class="feedback"></div>
+
+<h3>Game D – Who am I?</h3>
+<p>Przeczytaj wskazówki i wybierz właściwą postać.</p>
+<div class="question">
+<b>1. I was a Polish military engineer. I helped build
+fortifications at West Point. Who am I?</b><br>
+<select id="hero1">
+<option value="">Choose…</option>
+<option value="kosciuszko">Tadeusz Kościuszko</option>
+<option value="pulaski">Kazimierz Pułaski</option>
+</select>
+</div>
+<div class="question">
+<b>2. I was a Polish cavalry commander. I helped organise
+American cavalry. Who am I?</b><br>
+<select id="hero2">
+<option value="">Choose…</option>
+<option value="kosciuszko">Tadeusz Kościuszko</option>
+<option value="pulaski">Kazimierz Pułaski</option>
+</select>
+</div>
+<button onclick="checkHeroes()">Check answers</button>
+<div id="heroFeedback" class="feedback"></div>
+
+<h3>Game E – My Independence Day</h3>
+<p>Napisz 2–3 zdania o tym, jak chciałbyś/chciałabyś
+świętować Independence Day.</p>
+<textarea id="writing" rows="4" style="width:100%"
+placeholder="On Independence Day, I would like to..."></textarea>
+<p class="small">
+Pomocne zwroty: <i>I would like to watch fireworks.
+I want to eat… I would wear… I would go to a parade.</i>
+</p>
+<button onclick="saveWriting()">Show my text</button>
+<div id="writingFeedback" class="feedback"></div>
+</section>
+
+<section id="quiz">
+<h2>🏆 8. Final Independence Day Quiz</h2>
+<p>20 pytań. Wybierz jedną odpowiedź w każdym pytaniu.
+Na końcu sprawdź swój wynik!</p>
+<div class="progress"><span id="bar"></span></div>
+<div id="quizArea"></div>
+<button onclick="gradeQuiz()">Finish quiz</button>
+<button class="dark" onclick="resetQuiz()">Try again</button>
+<div id="quizResult" class="feedback" aria-live="polite"></div>
+</section>
+
+<section>
+<h2>🌟 9. Did you know?</h2>
+<ul>
+<li>The United States has 50 states.</li>
+<li>The first American flag had 13 stars.</li>
+<li>The Statue of Liberty was a gift from France.</li>
+<li>“The Star-Spangled Banner” is the American national anthem.</li>
+<li>Kościuszko and Pułaski are remembered in both Poland and the USA.</li>
+<li>There is a Thaddeus Kosciuszko National Memorial
+in Philadelphia.</li>
+</ul>
+<div class="note">
+<b>Mini challenge:</b> Can you name three American
+Independence Day traditions and two Polish heroes
+of the American Revolution?
+</div>
+</section>
+
+<section>
+<h2>🔎 10. Sources & learn more</h2>
+<ul>
+<li><a class="source" href="https://www.archives.gov/founding-docs/declaration"
+target="_blank" rel="noopener">U.S. National Archives – Declaration of Independence</a></li>
+<li><a class="source" href="https://www.nps.gov/thko/learn/historyculture/kosciuszkobio.htm"
+target="_blank" rel="noopener">National Park Service – Thaddeus Kosciuszko</a></li>
+<li><a class="source" href="https://home.nps.gov/nama/planyourvisit/pulaski.htm"
+target="_blank" rel="noopener">National Park Service – Casimir Pulaski Memorial</a></li>
+<li><a class="source" href="https://www.amrevmuseum.org/poland-and-the-american-revolution"
+target="_blank" rel="noopener">Museum of the American Revolution – Poland and the American Revolution</a></li>
+<li><a class="source" href="https://www.usa.gov/holidays"
+target="_blank" rel="noopener">USA.gov – Federal holidays</a></li>
+</ul>
+<p class="small">Materiał edukacyjny do nauki języka angielskiego.
+Poziom A1–A2. Klasy 5–6.</p>
+</section>
+
+</main>
+
+<footer>🇺🇸 American Culture Lab · Happy Independence Day! 🇵🇱</footer>
+
+<script>
+function say(word){
+ if('speechSynthesis' in window){
+  const u=new SpeechSynthesisUtterance(word);
+  u.lang='en-US';
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+ }
+}
+
+function mark(id,score,total){
+ const e=document.getElementById(id);
+ e.textContent='Your score: '+score+'/'+total;
+ e.className='feedback '+(score===total?'good':'bad');
+}
+
+function checkReading(){
+ const qs=[...document.querySelectorAll('#readingQs .question')];
+ let s=0;
+ qs.forEach(q=>{
+  const a=q.querySelector('input:checked');
+  if(a&&a.value===q.dataset.answer)s++;
+ });
+ mark('readingFeedback',s,qs.length);
+}
+
+function checkMatching(){
+ const qs=[...document.querySelectorAll('#matching select')];
+ let s=0;
+ qs.forEach(q=>{if(q.value===q.dataset.correct)s++});
+ mark('matchFeedback',s,qs.length);
+}
+
+function checkFill(){
+ const answers=['parade','flag','fireworks','freedom'];
+ let s=0;
+ answers.forEach((a,i)=>{
+  if(document.getElementById('fill'+(i+1))
+  .value.trim().toLowerCase()===a)s++;
+ });
+ mark('fillFeedback',s,4);
+}
+
+function checkTF(){
+ const qs=[...document.querySelectorAll('#tf .question')];
+ let s=0;
+ qs.forEach(q=>{
+  const a=q.querySelector('input:checked');
+  if(a&&a.value===q.dataset.answer)s++;
+ });
+ mark('tfFeedback',s,qs.length);
+}
+
+function checkHeroes(){
+ let s=0;
+ if(document.getElementById('hero1').value==='kosciuszko')s++;
+ if(document.getElementById('hero2').value==='pulaski')s++;
+ mark('heroFeedback',s,2);
+}
+
+function saveWriting(){
+ const t=document.getElementById('writing').value.trim();
+ const e=document.getElementById('writingFeedback');
+ if(!t){
+  e.textContent='Write at least one sentence first.';
+  e.className='feedback bad';
+  return;
+ }
+ e.textContent='Great effort! You wrote '+t.split(/\s+/).length+
+ ' words. Read your sentences aloud and check your spelling.';
+ e.className='feedback good';
+}
+
+const questions=[
+ ['When is Independence Day?',['4 July','1 July','14 July'],0],
+ ['What happened on 4 July 1776?',['The war ended','The Declaration of Independence was adopted','The first fireworks were invented'],1],
+ ['How many original colonies declared independence?',['10','13','50'],1],
+ ['When did the American Revolutionary War end?',['1776','1781','1783'],2],
+ ['How many stars are on the current American flag?',['13','50','100'],1],
+ ['What do the 13 stripes represent?',['The original 13 colonies','13 presidents','13 states today'],0],
+ ['What are the colours of the American flag?',['Green, yellow and black','Red, white and blue','Orange, purple and white'],1],
+ ['What is another name for Independence Day?',['The Fourth of July','The First of May','Thanksgiving'],0],
+ ['What do people often watch in the evening?',['Fireworks','A snowstorm','A parade of boats only'],0],
+ ['What is a parade?',['A public procession','A kind of food','A document'],0],
+ ['What does “freedom” mean in Polish?',['Przyjaźń','Wolność','Niepodległość'],1],
+ ['Who was a Polish military engineer?',['Kazimierz Pułaski','Tadeusz Kościuszko','Thomas Jefferson'],1],
+ ['What did Kościuszko help build?',['Fortifications','Airplanes','Ships for trade'],0],
+ ['Who was a Polish cavalry commander?',['Kazimierz Pułaski','Benjamin Franklin','John Adams'],0],
+ ['What is Pułaski remembered as?',['The Father of American Cavalry','The first US president','The author of the Declaration'],0],
+ ['In which year did Pułaski die?',['1776','1779','1783'],1],
+ ['What is “fireworks” in Polish?',['Fajerwerki','Flaga','Fala'],0],
+ ['What is a popular Independence Day food?',['Hamburgers','Sushi only','Pierogi only'],0],
+ ['What is the American national anthem called?',['God Save the King','The Star-Spangled Banner','O Canada'],1],
+ ['What is a good way to remember the Polish heroes?',['Learn about their contribution','Forget their names','Say they wrote the Declaration'],0]
+];
+
+function renderQuiz(){
+ const area=document.getElementById('quizArea');
+ area.innerHTML='';
+ questions.forEach((q,i)=>{
+  const d=document.createElement('div');
+  d.className='quizq';
+  const title=document.createElement('b');
+  title.textContent=(i+1)+'. '+q[0];
+  d.appendChild(title);
+  q[1].forEach((v,j)=>{
+   const label=document.createElement('label');
+   const input=document.createElement('input');
+   input.type='radio';
+   input.name='q'+i;
+   input.value=j;
+   label.append(input,document.createTextNode(' '+v));
+   d.appendChild(label);
+  });
+  area.appendChild(d);
+ });
+ document.getElementById('bar').style.width='0%';
+}
+
+function gradeQuiz(){
+ let score=0,answered=0;
+ questions.forEach((q,i)=>{
+  const x=document.querySelector('input[name="q'+i+'"]:checked');
+  if(x){
+   answered++;
+   if(Number(x.value)===q[2])score++;
+  }
+ });
+ let comment='Keep learning – you can try again!';
+ if(score>=18)comment='Amazing! American history expert!';
+ else if(score>=14)comment='Great work!';
+ else if(score>=10)comment='Good effort! Keep practising!';
+ const e=document.getElementById('quizResult');
+ e.textContent='You answered '+answered+'/20 questions. Your score: '+
+ score+'/20. '+comment;
+ e.className='feedback '+(score>=14?'good':'bad');
+ document.getElementById('bar').style.width=(score/20*100)+'%';
+}
+
+function resetQuiz(){
+ renderQuiz();
+ document.getElementById('quizResult').textContent='';
+}
+
+renderQuiz();
+</script>
+</body>
+</html>

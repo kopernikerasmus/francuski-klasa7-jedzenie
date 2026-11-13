@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francja – French Culture Lab | Klasy 7–8</title>
+<style>
+:root{
+  --blue:#173b78;--red:#d92e45;--cream:#fffaf2;
+  --ink:#20283a;--muted:#647084;--gold:#f3c65e;
+  --green:#287b62;--white:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f5fa;color:var(--ink);
+font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+header{
+ background:linear-gradient(120deg,#173b78 0 33%,#fff 33% 66%,#d92e45 66%);
+ padding:12px 18px 0;
+}
+.hero{
+ max-width:1100px;margin:auto;padding:65px 25px 55px;
+ text-align:center;background:rgba(255,255,255,.92);
+ border-radius:22px 22px 0 0;
+}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);margin:5px 0;color:var(--blue)}
+.hero p{font-size:1.15rem;margin:8px auto;max-width:700px}
+.flag{font-size:2rem;letter-spacing:8px}
+.tag{display:inline-block;background:#e9eefb;color:var(--blue);
+ padding:6px 14px;border-radius:30px;font-weight:bold;font-size:.85rem}
+nav{background:var(--blue);position:sticky;top:0;z-index:5;
+ display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{color:white;text-decoration:none;padding:7px 12px;border-radius:20px;
+ font-size:.9rem}
+nav a:hover{background:#ffffff30}
+main{max-width:1100px;margin:25px auto;padding:0 18px}
+section{background:white;border-radius:18px;padding:25px;margin:22px 0;
+ box-shadow:0 5px 22px #1d31500c}
+h2{color:var(--blue);font-size:1.8rem;margin-top:0}
+h3{color:var(--red)}
+.lead{font-size:1.08rem}
+.note{background:#fff6dc;border-left:5px solid var(--gold);
+ padding:13px 16px;border-radius:9px;margin:15px 0}
+.blue-note{background:#edf3ff;border-left:5px solid var(--blue);
+ padding:13px 16px;border-radius:9px;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{border:1px solid #e7eaf1;border-radius:15px;overflow:hidden;background:#fff}
+.card img{width:100%;height:170px;object-fit:cover;display:block}
+.card-content{padding:15px}
+.card h3{margin:0 0 6px}
+.small{font-size:.9rem;color:var(--muted)}
+.pill{display:inline-block;background:#edf1fa;color:var(--blue);
+ border-radius:20px;padding:4px 10px;font-size:.82rem;margin:3px}
+.fact{font-size:2rem}
+.map{width:100%;max-height:360px;object-fit:contain;background:#f5f6fa;
+ border-radius:12px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border-bottom:1px solid #e5e8ef;text-align:left}
+th{background:#edf2fb;color:var(--blue)}
+.flash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.flip-card{height:145px;perspective:900px;cursor:pointer;border:0;
+ background:transparent;padding:0;width:100%;text-align:center;color:var(--ink)}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .55s;
+ transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:14px;
+ display:flex;align-items:center;justify-content:center;flex-direction:column;
+ padding:12px;backface-visibility:hidden;border:2px solid #e4e9f3}
+.flip-front{background:#edf3ff;color:var(--blue);font-weight:bold}
+.flip-back{background:#fff1f1;border-color:#f3c5cb;transform:rotateY(180deg)}
+.flip-front strong{font-size:1.5rem}
+.flip-back strong{font-size:1.1rem;color:var(--red)}
+button,.btn{border:0;border-radius:10px;padding:11px 17px;
+ background:var(--blue);color:white;font-weight:bold;cursor:pointer;font-size:1rem}
+button:hover,.btn:hover{filter:brightness(1.12)}
+button.secondary{background:#e9edf6;color:var(--blue)}
+.activity{background:#f7f8fc;padding:17px;border-radius:13px;margin:15px 0}
+.question{padding:12px 0;border-bottom:1px solid #e2e6ef}
+.question label{display:block;padding:5px;cursor:pointer}
+.feedback{font-weight:bold;margin-top:8px}
+.correct{color:var(--green)}.wrong{color:var(--red)}
+input[type=text],textarea,select{padding:10px;border:1px solid #cbd2df;
+ border-radius:8px;font:inherit;max-width:100%}
+textarea{width:100%;min-height:110px}
+.score{font-size:1.2rem;font-weight:bold;color:var(--blue)}
+footer{text-align:center;padding:30px;color:var(--muted)}
+.reading{background:#fffaf2;border-radius:12px;padding:18px;font-size:1.08rem}
+.word{font-weight:bold;color:var(--blue)}
+@media(max-width:600px){
+ section{padding:18px}
+ nav{position:static}
+ table{font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="hero">
+  <div class="flag">🔵 ⚪ 🔴</div>
+  <span class="tag">FRENCH CULTURE LAB • A1</span>
+  <h1>Bonjour, la France !</h1>
+  <p><strong>Witaj we Francji!</strong> Poznaj kraj, jego symbole, miasta, zabytki, kuchnię i zwyczaje. Przy okazji nauczysz się podstawowych słów i zwrotów po francusku.</p>
+  <p>🇫🇷 Klasy 7–8 | Poziom językowy A1</p>
+ </div>
+</header>
+
+<nav>
+ <a href="#start">Start</a>
+ <a href="#geografia">Geografia</a>
+ <a href="#symbole">Symbole</a>
+ <a href="#miasta">Miasta</a>
+ <a href="#kultura">Kultura</a>
+ <a href="#slowa">Fiszki</a>
+ <a href="#czytanie">Czytanie</a>
+ <a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="start">
+ <h2>👋 1. Bienvenue en France !</h2>
+ <p class="lead">Francja to państwo w Europie Zachodniej. Słynie z pięknych miast, zabytków, sztuki, mody, kuchni i różnorodnych krajobrazów.</p>
+ <div class="grid">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Paryż i wieża Eiffla">
+   <div class="card-content"><h3>La France</h3><p>Francja – kraj, w którym językiem urzędowym jest francuski.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80" alt="Ulica w Paryżu">
+   <div class="card-content"><h3>Paris</h3><p>Paryż – stolica Francji, miasto sztuki, zabytków i mody.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80" alt="Morze i plaża na południu Francji">
+   <div class="card-content"><h3>La Côte d’Azur</h3><p>Lazurowe Wybrzeże – słoneczne wybrzeże Morza Śródziemnego.</p></div>
+  </div>
+ </div>
+ <div class="note"><strong>Czy wiesz, że…?</strong> Francja ma terytoria nie tylko w Europie, lecz także w innych częściach świata. Dlatego jej krajobrazy i klimat są bardzo różnorodne.</div>
+</section>
+
+<section id="geografia">
+ <h2>🗺️ 2. Francja – położenie i krajobrazy</h2>
+ <p>Francja metropolitalna leży w Europie Zachodniej. Jej granice wyznaczają między innymi Ocean Atlantycki, Morze Śródziemne, Pireneje i Alpy.</p>
+ <img class="map" src="https://commons.wikimedia.org/wiki/Special:FilePath/France_location_map-Regions_and_departments.svg" alt="Mapa Francji z regionami" onerror="this.style.display='none'">
+ <div class="grid">
+  <div class="card"><div class="card-content"><div class="fact">🏔️</div><h3>Les Alpes</h3><p>Alpy – wysokie góry na wschodzie. Znajduje się tam Mont Blanc.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">🌊</div><h3>L’océan Atlantique</h3><p>Ocean Atlantycki – wybrzeże na zachodzie Francji.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">☀️</div><h3>La Méditerranée</h3><p>Morze Śródziemne – ciepłe południe kraju.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">🌲</div><h3>Les campagnes</h3><p>Wieś, pola, lasy i malownicze miasteczka.</p></div></div>
+ </div>
+ <h3>Ważne informacje</h3>
+ <table>
+  <tr><th>Po polsku</th><th>Po francusku</th></tr>
+  <tr><td>Państwo</td><td>la France</td></tr>
+  <tr><td>Stolica</td><td>la capitale</td></tr>
+  <tr><td>Europa</td><td>l’Europe</td></tr>
+  <tr><td>góry</td><td>les montagnes</td></tr>
+  <tr><td>morze</td><td>la mer</td></tr>
+  <tr><td>rzeka</td><td>la rivière / le fleuve</td></tr>
+  <tr><td>wyspa</td><td>l’île</td></tr>
+ </table>
+ <div class="blue-note"><strong>Warto zapamiętać:</strong> Mont Blanc leży w Alpach, na granicy Francji i Włoch. Jest najwyższym szczytem Alp.</div>
+</section>
+
+<section id="symbole">
+ <h2>🇫🇷 3. Symbole Francji</h2>
+ <div class="grid">
+  <div class="card"><div class="card-content"><div class="fact">🔵⚪🔴</div><h3>Le drapeau tricolore</h3><p>Trójkolorowa flaga Francji: niebieski, biały i czerwony.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">🐓</div><h3>Le coq gaulois</h3><p>Kogut galijski – tradycyjny symbol Francji, szczególnie obecny w sporcie.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">👩</div><h3>Marianne</h3><p>Marianne – symbol Republiki Francuskiej i jej wartości.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">🎶</div><h3>La Marseillaise</h3><p>Marsylianka – hymn narodowy Francji.</p></div></div>
+ </div>
+ <h3>Ważne święto – 14 lipca</h3>
+ <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1000&q=80" alt="Paryż" style="width:100%;max-height:260px;object-fit:cover;border-radius:12px">
+ <p><strong>Le 14 juillet – Fête nationale</strong> to francuskie święto narodowe. Upamiętnia między innymi zdobycie Bastylii 14 lipca 1789 roku, ważne wydarzenie rewolucji francuskiej. Tego dnia odbywają się parady, koncerty i pokazy sztucznych ogni.</p>
+</section>
+
+<section id="miasta">
+ <h2>🏙️ 4. Najciekawsze miasta Francji</h2>
+ <div class="grid">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Paryż">
+   <div class="card-content"><h3>Paris</h3><p>Stolica Francji. Wieża Eiffla, Luwr, katedra Notre-Dame i Sekwana.</p><span class="pill">la tour Eiffel</span><span class="pill">le Louvre</span></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1524396309943-e03f5249f002?auto=format&fit=crop&w=800&q=80" alt="Lyon">
+   <div class="card-content"><h3>Lyon</h3><p>Miasto znane z historii, pięknej architektury i wyjątkowej kuchni.</p><span class="pill">la gastronomie</span></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Nicea i wybrzeże">
+   <div class="card-content"><h3>Nice</h3><p>Nicea – miasto nad Morzem Śródziemnym, słynące z plaż i Promenade des Anglais.</p><span class="pill">la plage</span></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Krajobraz Francji">
+   <div class="card-content"><h3>Marseille</h3><p>Marsylia – duży port nad Morzem Śródziemnym i jedno z najstarszych miast Francji.</p><span class="pill">le port</span></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1491557345352-5929e343eb89?auto=format&fit=crop&w=800&q=80" alt="Architektura miasta">
+   <div class="card-content"><h3>Strasbourg</h3><p>Strasburg – miasto w Alzacji, siedziba ważnych instytucji europejskich.</p><span class="pill">l’Europe</span></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80" alt="Zielony krajobraz">
+   <div class="card-content"><h3>Bordeaux</h3><p>Bordeaux – miasto znane z architektury i regionu winiarskiego.</p><span class="pill">l’architecture</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="zabytki">
+ <h2>🗼 5. Słynne miejsca i zabytki</h2>
+ <div class="grid">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&q=80" alt="Wieża Eiffla">
+   <div class="card-content"><h3>La tour Eiffel</h3><p>Wieża Eiffla – zbudowana na wystawę światową w 1889 roku. Jest jednym z najbardziej rozpoznawalnych symboli Francji.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1566139885334-6f9a4a4c3d83?auto=format&fit=crop&w=800&q=80" alt="Luwr">
+   <div class="card-content"><h3>Le Louvre</h3><p>Luwr – jedno z najsłynniejszych muzeów świata. Można tam zobaczyć między innymi Mona Lisę.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=800&q=80" alt="Mont Saint Michel">
+   <div class="card-content"><h3>Le Mont-Saint-Michel</h3><p>Wyjątkowa wyspa z opactwem, położona w Normandii.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1596627116790-af6f46dddb4a?auto=format&fit=crop&w=800&q=80" alt="Zamek we Francji">
+   <div class="card-content"><h3>Les châteaux de la Loire</h3><p>Zamki nad Loarą – wspaniałe rezydencje otoczone ogrodami.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="kultura">
+ <h2>🥐 6. Francuska kultura i kuchnia</h2>
+ <p>Francja kojarzy się z modą, malarstwem, filmem, muzyką, literaturą i oczywiście jedzeniem!</p>
+ <div class="grid">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissanty">
+   <div class="card-content"><h3>🥐 Le croissant</h3><p>Rogaliki z ciasta francuskiego, popularne na śniadanie.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Bagietka">
+   <div class="card-content"><h3>🥖 La baguette</h3><p>Długa, chrupiąca bagietka – jeden z symboli francuskiej kuchni.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80" alt="Deser">
+   <div class="card-content"><h3>🍰 Les desserts</h3><p>Francja słynie z deserów, ciast i słodkich wypieków.</p></div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=800&q=80" alt="Ser">
+   <div class="card-content"><h3>🧀 Le fromage</h3><p>Ser – ważny element francuskiej tradycji kulinarnej. Istnieje wiele jego regionalnych odmian.</p></div>
+  </div>
+ </div>
+ <h3>Francuskie zwyczaje</h3>
+ <ul>
+  <li><strong>Le petit-déjeuner</strong> – śniadanie, często z pieczywem i kawą lub herbatą.</li>
+  <li><strong>Le déjeuner</strong> – obiad, zwykle w środku dnia.</li>
+  <li><strong>Le dîner</strong> – kolacja.</li>
+  <li><strong>Bonjour !</strong> – dzień dobry; warto przywitać się, wchodząc do sklepu czy restauracji.</li>
+  <li><strong>Merci !</strong> – dziękuję; <strong>S’il vous plaît</strong> – proszę.</li>
+ </ul>
+ <div class="note">Nie wszyscy Francuzi jedzą codziennie croissanty i bagietki! To popularne skojarzenia, ale codzienne zwyczaje są różne.</div>
+</section>
+
+<section id="ludzie">
+ <h2>🎨 7. Sławni Francuzi</h2>
+ <div class="grid">
+  <div class="card"><div class="card-content"><div class="fact">🎨</div><h3>Claude Monet</h3><p>Malarz, jeden z najważniejszych przedstawicieli impresjonizmu.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">📚</div><h3>Victor Hugo</h3><p>Pisarz, autor między innymi „Nędzników” i „Katedry Marii Panny w Paryżu”.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">🔬</div><h3>Marie Curie</h3><p>Urodzona w Warszawie uczona, która pracowała we Francji. Otrzymała dwie Nagrody Nobla.</p></div></div>
+  <div class="card"><div class="card-content"><div class="fact">⚽</div><h3>Kylian Mbappé</h3><p>Francuski piłkarz, mistrz świata z reprezentacją Francji w 2018 roku.</p></div></div>
+ </div>
+</section>
+
+<section id="slowa">
+ <h2>🗣️ 8. Francuskie słówka – fiszki</h2>
+ <p>Kliknij kartę, aby zobaczyć tłumaczenie. Kliknij ponownie, aby wrócić do francuskiego słowa.</p>
+ <div class="flash-grid" id="flashcards"></div>
+ <div class="note">Wskazówka: francuskie rzeczowniki często występują z rodzajnikiem: <strong>le</strong>, <strong>la</strong> lub <strong>l’</strong>. Warto uczyć się ich razem ze słowem.</div>
+ <h3>Przydatne zwroty</h3>
+ <table>
+  <tr><th>Francuski</th><th>Polski</th></tr>
+  <tr><td>Bonjour !</td><td>Dzień dobry!</td></tr>
+  <tr><td>Salut !</td><td>Cześć!</td></tr>
+  <tr><td>Bonsoir !</td><td>Dobry wieczór!</td></tr>
+  <tr><td>Au revoir !</td><td>Do widzenia!</td></tr>
+  <tr><td>Merci beaucoup !</td><td>Dziękuję bardzo!</td></tr>
+  <tr><td>S’il vous plaît.</td><td>Proszę.</td></tr>
+  <tr><td>Excusez-moi.</td><td>Przepraszam.</td></tr>
+  <tr><td>Je m’appelle…</td><td>Nazywam się…</td></tr>
+  <tr><td>Je suis polonais / polonaise.</td><td>Jestem Polakiem / Polką.</td></tr>
+  <tr><td>J’aime la France.</td><td>Lubię Francję.</td></tr>
+ </table>
+ <h3>Mini-dialogue – w kawiarni</h3>
+ <div class="reading">
+  <p><strong>Serveur :</strong> Bonjour !</p>
+  <p><strong>Client :</strong> Bonjour ! Un croissant, s’il vous plaît.</p>
+  <p><strong>Serveur :</strong> Voilà !</p>
+  <p><strong>Client :</strong> Merci beaucoup !</p>
+  <p><strong>Serveur :</strong> Au revoir !</p>
+  <hr>
+  <p><strong>Kelner:</strong> Dzień dobry!</p>
+  <p><strong>Klient:</strong> Dzień dobry! Poproszę croissanta.</p>
+  <p><strong>Kelner:</strong> Proszę bardzo!</p>
+  <p><strong>Klient:</strong> Dziękuję bardzo!</p>
+  <p><strong>Kelner:</strong> Do widzenia!</p>
+ </div>
+</section>
+
+<section id="czytanie">
+ <h2>📖 9. Czytanie ze zrozumieniem – poziom A1</h2>
+ <p>Przeczytaj krótki tekst po francusku. Nie musisz znać każdego słowa – spróbuj zrozumieć najważniejsze informacje.</p>
+ <div class="reading">
+  <h3>Ma visite en France</h3>
+  <p>Bonjour ! Je m’appelle Emma. J’habite à Varsovie, en Pologne. J’aime voyager. En été, je visite la France avec ma famille.</p>
+  <p>Nous sommes à Paris. Paris est une grande et belle ville. Je visite la tour Eiffel et le musée du Louvre. Je prends des photos et je mange un croissant.</p>
+  <p>J’aime la France ! Les monuments sont magnifiques et les gens sont sympathiques. À bientôt, Paris !</p>
+ </div>
+ <h3>Słowniczek do tekstu</h3>
+ <table>
+  <tr><td>j’habite</td><td>mieszkam</td></tr>
+  <tr><td>je voyage</td><td>podróżuję</td></tr>
+  <tr><td>en été</td><td>latem</td></tr>
+  <tr><td>avec ma famille</td><td>z moją rodziną</td></tr>
+  <tr><td>je visite</td><td>zwiedzam</td></tr>
+  <tr><td>je prends des photos</td><td>robię zdjęcia</td></tr>
+  <tr><td>j’aime</td><td>lubię / kocham</td></tr>
+  <tr><td>à bientôt</td><td>do zobaczenia wkrótce</td></tr>
+ </table>
+ <div class="activity" id="readingQuestions">
+  <h3>Sprawdź, czy rozumiesz tekst</h3>
+  <div class="question"><p>1. Où habite Emma ?</p>
+   <label><input type="radio" name="r1" value="a"> À Paris.</label>
+   <label><input type="radio" name="r1" value="b"> À Varsovie.</label>
+   <label><input type="radio" name="r1" value="c"> À Lyon.</label>
+   <div class="feedback" id="rf1"></div>
+  </div>
+  <div class="question"><p>2. Avec qui visite-t-elle la France ?</p>
+   <label><input type="radio" name="r2" value="a"> Avec ses amis.</label>
+   <label><input type="radio" name="r2" value="b"> Avec sa classe.</label>
+   <label><input type="radio" name="r2" value="c"> Avec sa famille.</label>
+   <div class="feedback" id="rf2"></div>
+  </div>
+  <div class="question"><p>3. Qu’est-ce qu’elle mange ?</p>
+   <label><input type="radio" name="r3" value="a"> Un croissant.</label>
+   <label><input type="radio" name="r3" value="b"> Une pizza.</label>
+   <label><input type="radio" name="r3" value="c"> Une pomme.</label>
+   <div class="feedback" id="rf3"></div>
+  </div>
+  <button onclick="checkReading()">Sprawdź odpowiedzi</button>
+  <p class="score" id="readingScore"></p>
+ </div>
+</section>
+
+<section id="quiz">
+ <h2>🏆 10. Wielki quiz o Francji</h2>
+ <p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu sprawdź swój wynik!</p>
+ <form id="quizForm">
+  <div class="question"><p>1. Jaka jest stolica Francji?</p>
+   <label><input type="radio" name="q1" value="a"> Lyon</label>
+   <label><input type="radio" name="q1" value="b"> Paris</label>
+   <label><input type="radio" name="q1" value="c"> Nice</label>
+  </div>
+  <div class="question"><p>2. Jakie kolory ma flaga Francji?</p>
+   <label><input type="radio" name="q2" value="a"> Zielony, biały, czerwony</label>
+   <label><input type="radio" name="q2" value="b"> Niebieski, żółty, czerwony</label>
+   <label><input type="radio" name="q2" value="c"> Niebieski, biały, czerwony</label>
+  </div>
+  <div class="question"><p>3. Jak nazywa się francuski hymn?</p>
+   <label><input type="radio" name="q3" value="a"> La Marseillaise</label>
+   <label><input type="radio" name="q3" value="b"> La Parisienne</label>
+   <label><input type="radio" name="q3" value="c"> La Française</label>
+  </div>
+  <div class="question"><p>4. Kiedy Francja obchodzi święto narodowe?</p>
+   <label><input type="radio" name="q4" value="a"> 1 maja</label>
+   <label><input type="radio" name="q4" value="b"> 14 lipca</label>
+   <label><input type="radio" name="q4" value="c"> 25 grudnia</label>
+  </div>
+  <div class="question"><p>5. Co oznacza „Bonjour”?</p>
+   <label><input type="radio" name="q5" value="a"> Dobranoc</label>
+   <label><input type="radio" name="q5" value="b"> Dzień dobry</label>
+   <label><input type="radio" name="q5" value="c"> Dziękuję</label>
+  </div>
+  <div class="question"><p>6. Jak nazywa się słynna wieża w Paryżu?</p>
+   <label><input type="radio" name="q6" value="a"> La tour de Lyon</label>
+   <label><input type="radio" name="q6" value="b"> La tour de France</label>
+   <label><input type="radio" name="q6" value="c"> La tour Eiffel</label>
+  </div>
+  <div class="question"><p>7. Co oznacza „la baguette”?</p>
+   <label><input type="radio" name="q7" value="a"> Bagietka</label>
+   <label><input type="radio" name="q7" value="b"> Ser</label>
+   <label><input type="radio" name="q7" value="c"> Ciasto</label>
+  </div>
+  <div class="question"><p>8. Który symbol kojarzy się z Francją?</p>
+   <label><input type="radio" name="q8" value="a"> Kangur</label>
+   <label><input type="radio" name="q8" value="b"> Kogut galijski</label>
+   <label><input type="radio" name="q8" value="c"> Panda</label>
+  </div>
+  <div class="question"><p>9. Jak po francusku powiedzieć „dziękuję”?</p>
+   <label><input type="radio" name="q9" value="a"> Pardon</label>
+   <label><input type="radio" name="q9" value="b"> Bonjour</label>
+   <label><input type="radio" name="q9" value="c"> Merci</label>
+  </div>
+  <div class="question"><p>10. Gdzie leży Mont Blanc?</p>
+   <label><input type="radio" name="q10" value="a"> W Alpach</label>
+   <label><input type="radio" name="q10" value="b"> W Pirenejach</label>
+   <label><input type="radio" name="q10" value="c"> Nad oceanem</label>
+  </div>
+  <div class="question"><p>11. Co to jest „le Louvre”?</p>
+   <label><input type="radio" name="q11" value="a"> Stadion</label>
+   <label><input type="radio" name="q11" value="b"> Muzeum</label>
+   <label><input type="radio" name="q11" value="c"> Lotnisko</label>
+  </div>
+  <div class="question"><p>12. Jak po francusku powiedzieć „do widzenia”?</p>
+   <label><input type="radio" name="q12" value="a"> Merci</label>
+   <label><input type="radio" name="q12" value="b"> Salut</label>
+   <label><input type="radio" name="q12" value="c"> Au revoir</label>
+  </div>
+  <div class="question"><p>13. Które miasto leży nad Morzem Śródziemnym?</p>
+   <label><input type="radio" name="q13" value="a"> Nice</label>
+   <label><input type="radio" name="q13" value="b"> Strasbourg</label>
+   <label><input type="radio" name="q13" value="c"> Lille</label>
+  </div>
+  <div class="question"><p>14. Kto namalował obrazy z cyklu „Nenufary”?</p>
+   <label><input type="radio" name="q14" value="a"> Victor Hugo</label>
+   <label><input type="radio" name="q14" value="b"> Claude Monet</label>
+   <label><input type="radio" name="q14" value="c"> Kylian Mbappé</label>
+  </div>
+  <div class="question"><p>15. Co oznacza „J’aime la France”?</p>
+   <label><input type="radio" name="q15" value="a"> Jadę do Francji</label>
+   <label><input type="radio" name="q15" value="b"> Mieszkam we Francji</label>
+   <label><input type="radio" name="q15" value="c"> Lubię Francję</label>
+  </div>
+  <div class="question"><p>16. Jak nazywa się symbol Republiki Francuskiej?</p>
+   <label><input type="radio" name="q16" value="a"> Marianne</label>
+   <label><input type="radio" name="q16" value="b"> Jeanne</label>
+   <label><input type="radio" name="q16" value="c"> Sophie</label>
+  </div>
+  <div class="question"><p>17. Jak po francusku jest „morze”?</p>
+   <label><input type="radio" name="q17" value="a"> la montagne</label>
+   <label><input type="radio" name="q17" value="b"> la mer</label>
+   <label><input type="radio" name="q17" value="c"> la ville</label>
+  </div>
+  <div class="question"><p>18. Które miasto słynie z siedzib ważnych instytucji europejskich?</p>
+   <label><input type="radio" name="q18" value="a"> Nice</label>
+   <label><input type="radio" name="q18" value="b"> Marseille</label>
+   <label><input type="radio" name="q18" value="c"> Strasbourg</label>
+  </div>
+  <div class="question"><p>19. Jak po francusku powiedzieć „proszę”?</p>
+   <label><input type="radio" name="q19" value="a"> S’il vous plaît</label>
+   <label><input type="radio" name="q19" value="b"> Au revoir</label>
+   <label><input type="radio" name="q19" value="c"> Bonsoir</label>
+  </div>
+  <div class="question"><p>20. Gdzie znajduje się Mont-Saint-Michel?</p>
+   <label><input type="radio" name="q20" value="a"> W Paryżu</label>
+   <label><input type="radio" name="q20" value="b"> W Normandii</label>
+   <label><input type="radio" name="q20" value="c"> W Alpach</label>
+  </div>
+  <button type="button" onclick="checkQuiz()">Sprawdź mój wynik</button>
+  <button type="reset" class="secondary" onclick="document.getElementById('quizResult').innerHTML=''">Wyczyść odpowiedzi</button>
+ </form>
+ <div id="quizResult" class="activity" aria-live="polite"></div>
+</section>
+
+<section id="zadanie">
+ <h2>✍️ 11. Moja pocztówka z Francji</h2>
+ <p>Wyobraź sobie, że jesteś we Francji. Napisz krótką pocztówkę po francusku. Skorzystaj z podpowiedzi.</p>
+ <div class="blue-note">
+  <strong>Możesz użyć zdań:</strong><br>
+  Bonjour ! – Dzień dobry!<br>
+  Je suis à Paris. – Jestem w Paryżu.<br>
+  Paris est magnifique. – Paryż jest wspaniały.<br>
+  Je visite la tour Eiffel. – Zwiedzam wieżę Eiffla.<br>
+  J’aime la France. – Lubię Francję.<br>
+  À bientôt ! – Do zobaczenia!
+ </div>
+ <textarea id="postcard" placeholder="Bonjour ! Je suis à..."></textarea>
+ <p><button onclick="savePostcard()">Zapisz moją pocztówkę jako plik TXT</button></p>
+ <p class="small" id="saveMessage"></p>
+</section>
+
+<section>
+ <h2>🎯 12. Co już umiesz?</h2>
+ <p>Zaznacz wykonane zadania. Możesz wrócić do lekcji i uzupełnić pozostałe punkty.</p>
+ <label><input type="checkbox"> Wiem, gdzie leży Francja.</label><br>
+ <label><input type="checkbox"> Znam kolory francuskiej flagi.</label><br>
+ <label><input type="checkbox"> Potrafię wymienić trzy francuskie miasta.</label><br>
+ <label><input type="checkbox"> Znam co najmniej 10 francuskich słówek.</label><br>
+ <label><input type="checkbox"> Rozumiem krótki tekst na poziomie A1.</label><br>
+ <label><input type="checkbox"> Rozwiązałem / rozwiązałam quiz.</label><br>
+ <div class="note"><strong>Bravo !</strong> Świetna robota! Właśnie zrobiłeś / zrobiłaś pierwszy krok w poznawaniu Francji i języka francuskiego.</div>
+</section>
+
+</main>
+
+<footer>
+ 🇫🇷 French Culture Lab • Francja dla klas 7–8 • Poziom A1<br>
+ <span class="small">Materiał edukacyjny do nauki kultury i podstaw języka francuskiego.</span>
+</footer>
+
+<script>
+const words=[
+ ["la France","Francja","🇫🇷"],["Paris","Paryż","🗼"],
+ ["la capitale","stolica","🏙️"],["le drapeau","flaga","🚩"],
+ ["le coq","kogut","🐓"],["la tour Eiffel","wieża Eiffla","🗼"],
+ ["le musée","muzeum","🖼️"],["la mer","morze","🌊"],
+ ["la montagne","góra","🏔️"],["la rivière","rzeka","💧"],
+ ["la plage","plaża","🏖️"],["la ville","miasto","🏘️"],
+ ["le croissant","croissant","🥐"],["la baguette","bagietka","🥖"],
+ ["le fromage","ser","🧀"],["le pain","chleb","🍞"],
+ ["le chat","kot","🐈"],["le chien","pies","🐕"],
+ ["bonjour","dzień dobry","👋"],["merci","dziękuję","🙏"],
+ ["au revoir","do widzenia","👋"],["la famille","rodzina","👨‍👩‍👧"]
+];
+const flash=document.getElementById("flashcards");
+words.forEach((w)=>{
+ const b=document.createElement("button");
+ b.className="flip-card";
+ b.type="button";
+ b.setAttribute("aria-pressed","false");
+ b.innerHTML=`<span class="flip-inner">
+ <span class="flip-front"><strong>${w[2]}</strong>${w[0]}<small>kliknij, aby odkryć</small></span>
+ <span class="flip-back"><strong>${w[1]}</strong><small>${w[0]}</small></span>
+ </span>`;
+ b.addEventListener("click",()=>{
+  b.classList.toggle("flipped");
+  b.setAttribute("aria-pressed",b.classList.contains("flipped")?"true":"false");
+ });
+ flash.appendChild(b);
+});
+
+function checkReading(){
+ const answers={r1:"b",r2:"c",r3:"a"};
+ let score=0;
+ Object.keys(answers).forEach((name,i)=>{
+  const chosen=document.querySelector(`input[name="${name}"]:checked`);
+  const box=document.getElementById("rf"+(i+1));
+  if(chosen && chosen.value===answers[name]){
+   score++;box.textContent="✓ Dobrze!";box.className="feedback correct";
+  }else{
+   box.textContent="✗ Spróbuj jeszcze raz.";box.className="feedback wrong";
+  }
+ });
+ document.getElementById("readingScore").textContent=`Twój wynik: ${score}/3`;
+}
+
+const key={
+ q1:"b",q2:"c",q3:"a",q4:"b",q5:"b",
+ q6:"c",q7:"a",q8:"b",q9:"c",q10:"a",
+ q11:"b",q12:"c",q13:"a",q14:"b",q15:"c",
+ q16:"a",q17:"b",q18:"c",q19:"a",q20:"b"
+};
+function checkQuiz(){
+ let score=0,answered=0;
+ for(let i=1;i<=20;i++){
+  const chosen=document.querySelector(`input[name="q${i}"]:checked`);
+  if(chosen){
+   answered++;
+   if(chosen.value===key["q"+i])score++;
+  }
+ }
+ const result=document.getElementById("quizResult");
+ let message="";
+ if(score>=18)message="🏆 Excellent ! Jesteś ekspertem od Francji!";
+ else if(score>=15)message="🌟 Très bien ! Bardzo dobry wynik!";
+ else if(score>=11)message="👏 Bien ! Dobra robota!";
+ else if(score>=7)message="🙂 Pas mal ! Jeszcze trochę powtórki i będzie świetnie!";
+ else message="💪 Courage ! Wróć do lekcji i spróbuj ponownie!";
+ result.innerHTML=`<p class="score">Twój wynik: ${score}/20 punktów</p>
+ <p>Udzielono odpowiedzi na ${answered} z 20 pytań.</p>
+ <h3>${message}</h3>
+ <p>${score===20?"Félicitations ! Wszystkie odpowiedzi są poprawne!":"Możesz poprawić wynik, powtarzając materiał i rozwiązując quiz ponownie."}</p>`;
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function savePostcard(){
+ const content=document.getElementById("postcard").value.trim();
+ const msg=document.getElementById("saveMessage");
+ if(!content){msg.textContent="Najpierw napisz swoją pocztówkę.";return;}
+ const blob=new Blob([content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="ma-carte-postale.txt";
+ document.body.appendChild(a);a.click();a.remove();
+ URL.revokeObjectURL(url);
+ msg.textContent="Gotowe! Pocztówka została zapisana.";
+}
+</script>
+</body>
+</html>

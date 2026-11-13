@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day – English Culture Lab</title>
+<style>
+:root {
+  --pink: #f7a8c4;
+  --light: #fff0f5;
+  --red: #d7264d;
+  --dark: #7d1834;
+  --rose: #c74368;
+  --white: #fff;
+  --ink: #40232d;
+  --green: #28734d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg,#fff0f5,#ffe0eb,#fff7fa);
+  line-height: 1.6;
+}
+header {
+  text-align: center;
+  padding: 48px 20px 38px;
+  color: white;
+  background: linear-gradient(135deg,#c9184a,#ff4d6d,#ff8fab);
+  position: relative;
+  overflow: hidden;
+}
+header:before {
+  content: "♥  ♡  ♥  ♡  ♥";
+  display: block;
+  font-size: 28px;
+  letter-spacing: 15px;
+  opacity: .8;
+  margin-bottom: 12px;
+}
+header h1 {
+  font-size: clamp(2rem,6vw,3.5rem);
+  margin: 0;
+  line-height: 1.15;
+}
+header p { font-size: 1.15rem; margin: 12px 0 0; }
+.tag {
+  display: inline-block;
+  background: white;
+  color: #b5173c;
+  padding: 7px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-top: 18px;
+}
+.container { max-width: 1050px; margin: auto; padding: 22px; }
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 22px 0;
+  box-shadow: 0 5px 18px #a51d4420;
+  border: 1px solid #ffd1df;
+}
+h2 { color: #b5173c; margin-top: 0; }
+h3 { color: #c74368; }
+.intro {
+  font-size: 1.08rem;
+  text-align: center;
+}
+.pill {
+  display: inline-block;
+  background: #ffe0eb;
+  color: #8e1938;
+  border-radius: 20px;
+  padding: 5px 12px;
+  margin: 4px;
+  font-size: .9rem;
+  font-weight: bold;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+  gap: 13px;
+}
+.vocab {
+  background: #fff5f8;
+  border: 1px solid #ffc2d4;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+}
+.vocab .emoji { font-size: 2.2rem; display: block; }
+.vocab strong { display: block; color: #a4133c; font-size: 1.08rem; }
+.vocab small { color: #6f4654; }
+button {
+  border: 0;
+  background: #d7264d;
+  color: white;
+  border-radius: 12px;
+  padding: 11px 17px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 3px;
+}
+button:hover { background: #a4133c; }
+button.secondary { background: #f7a8c4; color: #64152d; }
+button.secondary:hover { background: #ef86aa; }
+button:focus, input:focus, select:focus { outline: 3px solid #ffb3c6; }
+.activity {
+  background: #fff7fa;
+  border: 1px solid #ffc2d4;
+  border-radius: 15px;
+  padding: 17px;
+  margin: 15px 0;
+}
+.question { margin: 13px 0; padding: 12px; background: white; border-radius: 12px; }
+label { display: block; margin: 7px 0; cursor: pointer; }
+input[type="text"] {
+  width: 100%;
+  max-width: 440px;
+  padding: 11px;
+  border: 1px solid #e6a1b5;
+  border-radius: 9px;
+  font-size: 1rem;
+}
+select {
+  padding: 9px;
+  border: 1px solid #e6a1b5;
+  border-radius: 9px;
+  background: white;
+  font-size: 1rem;
+  max-width: 100%;
+}
+.feedback { font-weight: bold; margin-top: 10px; }
+.correct { color: var(--green); }
+.incorrect { color: #b5173c; }
+.score {
+  background: #ffe0eb;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #8e1938;
+  margin-top: 15px;
+}
+.reading {
+  background: #fff7fa;
+  border-left: 5px solid #e75480;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+}
+.wordbank {
+  background: #ffe6ee;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+textarea {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid #e6a1b5;
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+}
+footer {
+  text-align: center;
+  background: #8e1938;
+  color: white;
+  padding: 25px;
+  margin-top: 30px;
+}
+.note { color: #76515e; font-size: .93rem; }
+hr { border: 0; border-top: 1px solid #ffd1df; margin: 22px 0; }
+@media(max-width:600px) {
+  .container { padding: 12px; }
+  .card { padding: 17px; }
+  header { padding: 35px 15px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Valentine’s Day</h1>
+  <p>English Culture Lab 💗 Love, Friendship & Kindness</p>
+  <span class="tag">ENGLISH • CULTURE • A2</span>
+</header>
+
+<main class="container">
+
+<section class="card intro">
+  <h2>💕 Welcome to the Valentine’s Day Lab!</h2>
+  <p>Do you know why people celebrate Valentine’s Day? What do they give to their friends? And who was Saint Valentine?</p>
+  <p>Explore the traditions, learn new words and test your English!</p>
+  <span class="pill">READ</span>
+  <span class="pill">LEARN</span>
+  <span class="pill">PLAY</span>
+  <span class="pill">QUIZ</span>
+</section>
+
+<section class="card">
+  <h2>❤️ 1. What is Valentine’s Day?</h2>
+  <p><strong>Valentine’s Day</strong> is celebrated on <strong>14 February</strong> every year. It is a day associated with love, friendship and kindness.</p>
+  <p>People often send cards, give flowers and chocolates, or spend time with someone special. In many schools, children exchange Valentine’s cards with their classmates and friends.</p>
+  <h3>Who was Saint Valentine?</h3>
+  <p>Saint Valentine was an early Christian figure associated with the history of this celebration. There are several stories about him, and historians do not know all the details of his life for certain.</p>
+  <p>One popular legend says that Valentine secretly married couples when the Roman emperor did not allow some soldiers to marry. This story helped connect his name with love and romance.</p>
+  <h3>How did it become a romantic celebration?</h3>
+  <p>During the Middle Ages, people in Europe began to connect 14 February with romantic love. Later, sending written Valentine’s messages became popular. In the nineteenth century, printed Valentine’s cards became much more common.</p>
+  <div class="activity">
+    <strong>Did you know?</strong>
+    <p>Valentine’s Day is not only about romantic love. It can also be a celebration of friendship, family and showing people that we care about them.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🌹 2. Valentine’s Day Traditions</h2>
+  <div class="grid">
+    <div class="vocab"><span class="emoji">💌</span><strong>Valentine’s card</strong><small>A card with a kind or loving message.</small></div>
+    <div class="vocab"><span class="emoji">🌹</span><strong>Red roses</strong><small>Flowers often connected with love.</small></div>
+    <div class="vocab"><span class="emoji">🍫</span><strong>Chocolates</strong><small>A popular Valentine’s gift.</small></div>
+    <div class="vocab"><span class="emoji">🧸</span><strong>Teddy bear</strong><small>A soft toy given as a present.</small></div>
+    <div class="vocab"><span class="emoji">💝</span><strong>A gift</strong><small>Something you give to another person.</small></div>
+    <div class="vocab"><span class="emoji">💐</span><strong>A bouquet</strong><small>A group of beautiful flowers.</small></div>
+  </div>
+  <h3>Valentine’s Day in English-speaking countries</h3>
+  <ul>
+    <li><strong>In the United States:</strong> children sometimes exchange Valentine’s cards or small treats at school. People may go out for a special dinner.</li>
+    <li><strong>In the United Kingdom:</strong> people send cards, flowers and chocolates. Some cards are signed anonymously.</li>
+    <li><strong>In Canada and Australia:</strong> people also celebrate with cards, flowers and small gifts. The day is often an opportunity to show appreciation.</li>
+  </ul>
+  <p class="note">Traditions can be different from family to family. Not everyone celebrates Valentine’s Day in the same way.</p>
+</section>
+
+<section class="card">
+  <h2>📚 3. Picture Dictionary – Valentine’s Vocabulary</h2>
+  <p>Click the speaker button to hear each English word. Try to repeat it!</p>
+  <div class="grid" id="vocabulary">
+    <div class="vocab"><span class="emoji">❤️</span><strong>heart</strong><small>serce</small><br><button onclick="speak('heart')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💌</span><strong>card</strong><small>kartka</small><br><button onclick="speak('card')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🌹</span><strong>rose</strong><small>róża</small><br><button onclick="speak('rose')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🍫</span><strong>chocolate</strong><small>czekolada</small><br><button onclick="speak('chocolate')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎁</span><strong>present</strong><small>prezent</small><br><button onclick="speak('present')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💐</span><strong>flowers</strong><small>kwiaty</small><br><button onclick="speak('flowers')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💑</span><strong>couple</strong><small>para</small><br><button onclick="speak('couple')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">😊</span><strong>kindness</strong><small>życzliwość</small><br><button onclick="speak('kindness')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💬</span><strong>message</strong><small>wiadomość</small><br><button onclick="speak('message')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💞</span><strong>friendship</strong><small>przyjaźń</small><br><button onclick="speak('friendship')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🥰</span><strong>love</strong><small>miłość</small><br><button onclick="speak('love')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎀</span><strong>ribbon</strong><small>wstążka</small><br><button onclick="speak('ribbon')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💍</span><strong>marriage</strong><small>małżeństwo</small><br><button onclick="speak('marriage')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🤗</span><strong>hug</strong><small>przytulenie</small><br><button onclick="speak('hug')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💌</span><strong>secret admirer</strong><small>tajemniczy wielbiciel</small><br><button onclick="speak('secret admirer')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💖</span><strong>to care</strong><small>troszczyć się</small><br><button onclick="speak('to care')">🔊 Listen</button></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>📖 4. Reading – A Special Day</h2>
+  <div class="reading">
+    <h3>A Valentine’s Day at School</h3>
+    <p>It is 14 February. Emma is very excited because it is Valentine’s Day. She is at school with her best friend, Lily.</p>
+    <p>In the morning, their teacher puts a big pink box on the desk. It is the Valentine’s mailbox! Students can put cards inside it. Some cards have names, but others are anonymous.</p>
+    <p>Emma gives Lily a beautiful card. It has a red heart and the words: “You are a wonderful friend!” Lily smiles and gives Emma a small box of chocolates.</p>
+    <p>After lunch, the teacher reads some kind messages. Everyone is happy. Emma thinks that Valentine’s Day is not only about presents. It is also about friendship, kindness and making other people smile.</p>
+  </div>
+  <h3>Check your understanding</h3>
+  <div id="readingQuestions"></div>
+  <button onclick="checkReading()">Check answers</button>
+  <div id="readingFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🧩 5. Match the Words</h2>
+  <p>Choose the correct Polish meaning.</p>
+  <div id="matching"></div>
+  <button onclick="checkMatching()">Check answers</button>
+  <div id="matchingFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>✏️ 6. Complete the Sentences</h2>
+  <p>Use the words from the box.</p>
+  <div class="wordbank">card • roses • chocolates • friendship • February</div>
+  <div id="fillExercises"></div>
+  <button onclick="checkFill()">Check answers</button>
+  <div id="fillFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>✅ 7. True or False?</h2>
+  <p>Read the sentences and decide if they are true or false according to the lesson.</p>
+  <div id="trueFalse"></div>
+  <button onclick="checkTF()">Check answers</button>
+  <div id="tfFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>💬 8. Who Am I?</h2>
+  <p>Read the clues and choose the correct word.</p>
+  <div id="riddles"></div>
+  <button onclick="checkRiddles()">Check answers</button>
+  <div id="riddleFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>💗 9. My Kindness Challenge</h2>
+  <p>Valentine’s Day can be a day of kindness. Write three small things you can do to make someone happy.</p>
+  <p class="note">Example: I can help my friend. I can say something nice. I can smile at someone.</p>
+  <textarea id="kindnessText" placeholder="1. I can...&#10;2. I can...&#10;3. I can..."></textarea>
+  <button onclick="saveKindness()">Show my ideas</button>
+  <div id="kindnessFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🏆 10. Final Quiz – Valentine’s Day Challenge</h2>
+  <p>20 questions. Choose one correct answer in each question. Good luck!</p>
+  <div id="quiz"></div>
+  <button onclick="checkQuiz()">Finish the quiz</button>
+  <button class="secondary" onclick="resetQuiz()">Try again</button>
+  <div id="quizResult" class="score" style="display:none"></div>
+</section>
+
+<section class="card intro">
+  <h2>💌 Remember!</h2>
+  <p><strong>Kindness is always in fashion!</strong></p>
+  <p>You do not need an expensive present to make someone happy. A smile, a kind word or a little help can mean a lot.</p>
+  <div style="font-size:2.5rem">💗 🌹 💌 🍫 💝</div>
+</section>
+
+</main>
+
+<footer>
+  <strong>Valentine’s Day – English Culture Lab</strong>
+  <p>Learn English. Discover culture. Share kindness. 💕</p>
+</footer>
+
+<script>
+function speak(word) {
+  if (!('speechSynthesis' in window)) {
+    alert('Sorry, speech synthesis is not available in this browser.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'en-GB';
+  utterance.rate = 0.85;
+  window.speechSynthesis.speak(utterance);
+}
+
+const readingData = [
+  {q:"What date is it in the story?",a:["14 February","1 January","31 October"],c:0},
+  {q:"What is on the teacher's desk?",a:["A birthday cake","A pink box","A big flower"],c:1},
+  {q:"What does Emma give Lily?",a:["A card","A teddy bear","A book"],c:0},
+  {q:"What does Lily give Emma?",a:["A rose","A box of chocolates","A letter"],c:1},
+  {q:"What is Valentine's Day also about?",a:["Only presents","Only food","Friendship and kindness"],c:2}
+];
+
+function renderRadioQuestions(containerId,data,prefix) {
+  document.getElementById(containerId).innerHTML = data.map((q,i)=>`
+    <div class="question">
+      <strong>${i+1}. ${q.q}</strong>
+      ${q.a.map((a,j)=>`<label><input type="radio" name="${prefix}${i}" value="${j}"> ${a}</label>`).join('')}
+    </div>`).join('');
+}
+renderRadioQuestions('readingQuestions',readingData,'read');
+
+function checkRadio(data,prefix,feedbackId) {
+  let score=0;
+  data.forEach((q,i)=>{
+    const chosen=document.querySelector(`input[name="${prefix}${i}"]:checked`);
+    if(chosen && Number(chosen.value)===q.c) score++;
+  });
+  const el=document.getElementById(feedbackId);
+  el.textContent=`Your score: ${score} / ${data.length}`;
+  el.className='feedback '+(score===data.length?'correct':'incorrect');
+}
+function checkReading(){checkRadio(readingData,'read','readingFeedback');}
+
+const matchingData=[
+  {q:"heart",a:["serce","kwiaty","prezent"],c:0},
+  {q:"friendship",a:["małżeństwo","przyjaźń","wstążka"],c:1},
+  {q:"rose",a:["róża","kartka","czekolada"],c:0},
+  {q:"hug",a:["wiadomość","przytulenie","miłość"],c:1},
+  {q:"gift",a:["prezent","życzliwość","para"],c:0},
+  {q:"message",a:["serce","wiadomość","róża"],c:1}
+];
+renderRadioQuestions('matching',matchingData,'match');
+function checkMatching(){checkRadio(matchingData,'match','matchingFeedback');}
+
+const fillData=[
+  {q:"Valentine’s Day is on 14 ________.",a:"february"},
+  {q:"People sometimes send a Valentine’s ________.",a:"card"},
+  {q:"Red ________ are a popular gift.",a:"roses"},
+  {q:"People often give ________ as a present.",a:"chocolates"},
+  {q:"Valentine’s Day can celebrate love and ________.",a:"friendship"}
+];
+document.getElementById('fillExercises').innerHTML=fillData.map((q,i)=>`
+  <div class="question"><strong>${i+1}. ${q.q}</strong><br>
+  <input type="text" id="fill${i}" placeholder="Your answer"></div>`).join('');
+
+function checkFill(){
+  let score=0;
+  fillData.forEach((q,i)=>{
+    const value=document.getElementById('fill'+i).value.trim().toLowerCase().replace(/[.!?]/g,'');
+    if(value===q.a) score++;
+  });
+  const el=document.getElementById('fillFeedback');
+  el.textContent=`Your score: ${score} / ${fillData.length}`;
+  el.className='feedback '+(score===fillData.length?'correct':'incorrect');
+}
+
+const tfData=[
+  {q:"Valentine’s Day is celebrated on 14 February.",c:true},
+  {q:"Saint Valentine was a famous English king.",c:false},
+  {q:"People sometimes exchange cards at school.",c:true},
+  {q:"A bouquet is a group of flowers.",c:true},
+  {q:"Valentine’s Day is only about expensive presents.",c:false},
+  {q:"Printed Valentine’s cards became more common in the nineteenth century.",c:true}
+];
+document.getElementById('trueFalse').innerHTML=tfData.map((q,i)=>`
+  <div class="question"><strong>${i+1}. ${q.q}</strong>
+  <label><input type="radio" name="tf${i}" value="true"> True</label>
+  <label><input type="radio" name="tf${i}" value="false"> False</label></div>`).join('');
+
+function checkTF(){
+  let score=0;
+  tfData.forEach((q,i)=>{
+    const a=document.querySelector(`input[name="tf${i}"]:checked`);
+    if(a && (a.value==='true')===q.c) score++;
+  });
+  const el=document.getElementById('tfFeedback');
+  el.textContent=`Your score: ${score} / ${tfData.length}`;
+  el.className='feedback '+(score===tfData.length?'correct':'incorrect');
+}
+
+const riddles=[
+  {q:"I am red or pink. You can draw me to show love. What am I?",a:["heart","rose","card"],c:0},
+  {q:"I am a flower. People often give me on Valentine's Day. What am I?",a:["teddy bear","rose","ribbon"],c:1},
+  {q:"You write a kind message inside me. What am I?",a:["card","chocolate","hug"],c:0},
+  {q:"I am sweet and brown. People love eating me. What am I?",a:["bouquet","message","chocolate"],c:2}
+];
+renderRadioQuestions('riddles',riddles,'riddle');
+function checkRiddles(){checkRadio(riddles,'riddle','riddleFeedback');}
+
+function saveKindness(){
+  const text=document.getElementById('kindnessText').value.trim();
+  const el=document.getElementById('kindnessFeedback');
+  if(!text){el.textContent='Write at least one idea first!';el.className='feedback incorrect';return;}
+  el.innerHTML='<strong>Wonderful ideas! 💗</strong><br>'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  el.className='feedback correct';
+}
+
+const quizData=[
+  {q:"When is Valentine’s Day?",a:["14 February","25 December","1 April"],c:0},
+  {q:"What is the traditional colour of love?",a:["Green","Red","Blue"],c:1},
+  {q:"Which flower is often connected with Valentine’s Day?",a:["Sunflower","Tulip","Rose"],c:2},
+  {q:"What is a Valentine’s card?",a:["A greeting card","A school book","A ticket"],c:0},
+  {q:"Who is associated with the history of Valentine’s Day?",a:["Saint Valentine","William Shakespeare","King Arthur"],c:0},
+  {q:"What is a bouquet?",a:["A box of sweets","A group of flowers","A love song"],c:1},
+  {q:"What does 'friendship' mean?",a:["Przyjaźń","Małżeństwo","Wiadomość"],c:0},
+  {q:"Which gift is made from cocoa?",a:["A ribbon","Chocolate","A card"],c:1},
+  {q:"What does 'kindness' mean?",a:["Złość","Życzliwość","Smutek"],c:1},
+  {q:"What can children exchange at school?",a:["Valentine’s cards","Passports","Train tickets"],c:0},
+  {q:"What does 'hug' mean?",a:["Przytulenie","Prezent","Kwiat"],c:0},
+  {q:"What is an anonymous card?",a:["A card without the sender's name","A very big card","A card with a photograph"],c:0},
+  {q:"Which word means 'serce'?",a:["heart","rose","gift"],c:0},
+  {q:"Which word means 'prezent'?",a:["message","present","couple"],c:1},
+  {q:"When did printed Valentine’s cards become more common?",a:["In the nineteenth century","In ancient Egypt","In the twenty-first century only"],c:0},
+  {q:"What does 'to care' mean?",a:["Troszczyć się","Zapominać","Biegać"],c:0},
+  {q:"Which country is mentioned in the lesson?",a:["The United Kingdom","Japan only","Brazil only"],c:0},
+  {q:"What does 'couple' mean?",a:["Para","Kartka","Róża"],c:0},
+  {q:"Valentine’s Day can celebrate...",a:["Only shopping","Friendship and kindness too","Only birthdays"],c:1},
+  {q:"What is the best way to show kindness?",a:["Laugh at people","Ignore your friends","Say something nice and help others"],c:2}
+];
+
+renderRadioQuestions('quiz',quizData,'quiz');
+
+function checkQuiz(){
+  let score=0;
+  let unanswered=0;
+  quizData.forEach((q,i)=>{
+    const a=document.querySelector(`input[name="quiz${i}"]:checked`);
+    if(!a) unanswered++;
+    else if(Number(a.value)===q.c) score++;
+  });
+  const result=document.getElementById('quizResult');
+  result.style.display='block';
+  if(unanswered>0){
+    result.textContent=`You have ${unanswered} unanswered question(s). Answer all questions to see your final score.`;
+    result.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  let message='';
+  if(score>=18) message='Excellent! You are a Valentine’s Day expert! 🌟';
+  else if(score>=15) message='Great job! Very good work! 💗';
+  else if(score>=11) message='Good work! Keep practising! 🌹';
+  else message='Keep learning! You can try again! 💌';
+  result.innerHTML=`Your result: <strong>${score} / 20</strong><br>${message}<br><small>${Math.round(score/20*100)}% correct answers</small>`;
+  result.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+  document.querySelectorAll('#quiz input[type="radio"]').forEach(el=>el.checked=false);
+  document.getElementById('quizResult').style.display='none';
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1435 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around Australia – Australian Culture Lab</title>
+<style>
+:root {
+  --navy:#123b55;
+  --blue:#24749a;
+  --red:#bd3545;
+  --gold:#e9bd52;
+  --green:#2f7956;
+  --cream:#fff8e8;
+  --ink:#263747;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:#f0f5f7;
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.65;
+}
+header {
+  text-align:center;
+  color:white;
+  padding:42px 18px 35px;
+  background:linear-gradient(135deg,#123b55,#267b86);
+}
+header h1 {
+  font-size:clamp(2rem,6vw,3.5rem);
+  margin:8px 0;
+}
+header p {max-width:850px;margin:10px auto}
+.flag-line {font-size:2.2rem;letter-spacing:7px}
+main {max-width:1120px;margin:auto;padding:20px}
+section {
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  margin:22px 0;
+  box-shadow:0 5px 20px #18345412;
+}
+h2 {
+  color:var(--navy);
+  border-bottom:3px solid var(--gold);
+  padding-bottom:8px;
+}
+h3 {color:var(--blue)}
+.hero-image {
+  width:100%;
+  max-height:390px;
+  object-fit:cover;
+  border-radius:14px;
+  margin:12px 0;
+}
+.photo-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin:18px 0;
+}
+.photo-grid figure {
+  margin:0;
+  background:#f3f6fa;
+  border-radius:12px;
+  overflow:hidden;
+}
+.photo-grid img {
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:block;
+}
+figcaption {padding:9px 12px;font-size:.9rem}
+.note {
+  background:#fff5d9;
+  border-left:5px solid var(--gold);
+  padding:13px 16px;
+  border-radius:9px;
+  margin:15px 0;
+}
+.blue-note {background:#eaf2fb;border-left-color:#4c79a8}
+.green-note {background:#eaf6ef;border-left-color:var(--green)}
+
+/* RÓWNE, RESPONSYWNE FISZKI */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));
+  gap:16px;
+  align-items:stretch;
+  width:100%;
+  margin:18px 0;
+}
+.flip-card {
+  display:block;
+  position:relative;
+  width:100%;
+  min-width:0;
+  height:165px;
+  min-height:165px;
+  padding:0;
+  margin:0;
+  border:0;
+  background:transparent;
+  appearance:none;
+  -webkit-appearance:none;
+  cursor:pointer;
+  perspective:1000px;
+  text-align:center;
+  font:inherit;
+  color:inherit;
+}
+.flip-inner {
+  display:block;
+  position:relative;
+  width:100%;
+  height:165px;
+  min-height:165px;
+  transform-style:preserve-3d;
+  transition:transform .65s ease;
+}
+.flip-card.is-flipped .flip-inner {transform:rotateY(180deg)}
+.flip-front,.flip-back {
+  display:flex;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:165px;
+  padding:16px;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow-wrap:anywhere;
+  text-align:center;
+  border-radius:13px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  box-shadow:0 3px 12px #142b4a18;
+}
+.flip-front {
+  background:#e8f2f5;
+  border:2px solid #c4dce4;
+  color:var(--navy);
+}
+.flip-back {
+  background:#fff3d2;
+  border:2px solid #e8d18d;
+  transform:rotateY(180deg);
+}
+.flip-front strong {font-size:1.1rem;line-height:1.35}
+.flip-front small,.flip-back small {margin-top:8px;color:#53657a}
+.card-icon {font-size:2rem;margin-bottom:6px}
+.flip-card:focus-visible {
+  outline:4px solid var(--gold);
+  outline-offset:4px;
+  border-radius:13px;
+}
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:14px;
+}
+.timeline .flip-card,.timeline .flip-inner,
+.timeline .flip-front,.timeline .flip-back {
+  height:180px;
+  min-height:180px;
+}
+.activity {background:#f5f8fc;padding:17px;border-radius:12px;margin:15px 0}
+button.action {
+  border:0;
+  border-radius:9px;
+  background:var(--navy);
+  color:white;
+  padding:11px 17px;
+  font-size:1rem;
+  cursor:pointer;
+  margin:5px;
+}
+button.action:hover {background:#26749a}
+.question {margin:13px 0;padding:12px;background:white;border-radius:8px}
+.quiz-options label {display:block;margin:7px 0;cursor:pointer}
+.result {font-weight:bold;margin-top:12px}
+textarea {width:100%;font:inherit;padding:10px;border:1px solid #b9c6d5;border-radius:7px}
+a {color:#245c91}
+footer {text-align:center;background:var(--navy);color:white;padding:25px}
+@media(max-width:600px) {
+  main {padding:10px}
+  section {padding:16px}
+  .cards {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .flip-card,.flip-inner,.flip-front,.flip-back {height:165px;min-height:165px}
+  .flip-front,.flip-back {padding:10px;font-size:.9rem}
+  .flip-front strong {font-size:1rem}
+}
+@media(max-width:360px) {.cards{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="flag-line">🇦🇺 🦘 🐨 🐊</div>
+  <h1>AROUND AUSTRALIA</h1>
+  <h2 style="color:white;border:0">Australian Culture Lab</h2>
+  <p>Discover Australia! Poznaj niezwykły kontynent, jego historię, przyrodę, kulturę i tradycje.</p>
+  <p>🇵🇱 Lekcja po polsku z angielskimi nazwami i tekstami na poziomie A2.</p>
+</header>
+
+<main>
+
+<section>
+<h2>1. Australia – co to za kraj?</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Australia_satellite_plane.jpg"
+alt="Australia widziana z kosmosu" loading="lazy">
+
+<p><strong>Australia</strong> to państwo i jednocześnie nazwa kontynentu. Leży na półkuli południowej, pomiędzy Oceanem Indyjskim a Oceanem Spokojnym. Jej pełna nazwa państwowa to <strong>Commonwealth of Australia</strong>.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🇦🇺</span><strong>AUSTRALIA</strong><small>Kliknij, aby odwrócić</small></span>
+<span class="flip-back"><strong>AUSTRALIA</strong><small>Państwo i kontynent na półkuli południowej.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏛️</span><strong>COMMONWEALTH</strong></span>
+<span class="flip-back"><strong>WSPÓLNOTA / PAŃSTWO</strong><small>Pełna nazwa państwa to Commonwealth of Australia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏙️</span><strong>CAPITAL CITY</strong></span>
+<span class="flip-back"><strong>STOLICA</strong><small>Stolicą Australii jest Canberra, a nie Sydney!</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌏</span><strong>SOUTHERN HEMISPHERE</strong></span>
+<span class="flip-back"><strong>PÓŁKULA POŁUDNIOWA</strong><small>Australia znajduje się na południe od równika.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">💵</span><strong>AUSTRALIAN DOLLAR</strong></span>
+<span class="flip-back"><strong>DOLAR AUSTRALIJSKI</strong><small>Waluta Australii. Jej kod to AUD.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Podstawowe informacje:</strong>
+<ul>
+<li>Stolica: Canberra</li>
+<li>Język używany powszechnie: angielski</li>
+<li>Waluta: Australian dollar (AUD)</li>
+<li>Liczba stanów: 6</li>
+<li>Liczba głównych terytoriów na lądzie: 2</li>
+<li>Australia jest szóstym co do powierzchni państwem świata.</li>
+</ul>
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Australia.svg" alt="Flaga Australii" loading="lazy">
+<figcaption>Australian National Flag</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Canberra_Montage.jpg" alt="Canberra" loading="lazy">
+<figcaption>Canberra – stolica Australii</figcaption>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>2. The Australian flag – flaga Australii</h2>
+<img class="hero-image" style="max-height:230px;object-fit:contain;background:#eaf0f7"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Australia.svg"
+alt="Flaga Australii">
+
+<p>Flaga Australii jest niebieska. Znajduje się na niej flaga Wielkiej Brytanii w lewym górnym rogu oraz białe gwiazdy.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>UNION JACK</strong></span>
+<span class="flip-back"><strong>FLAGA WIELKIEJ BRYTANII</strong><small>Przypomina o historycznych związkach Australii z Wielką Brytanią.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTHERN CROSS</strong></span>
+<span class="flip-back"><strong>KRZYŻ POŁUDNIA</strong><small>Gwiazdozbiór widoczny na niebie półkuli południowej. Jego gwiazdy znajdują się na fladze Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>COMMONWEALTH STAR</strong></span>
+<span class="flip-back"><strong>GWIAZDA FEDERACJI</strong><small>Duża gwiazda pod flagą brytyjską. Jej siedem ramion symbolizuje sześć stanów i terytoria.</small></span>
+</span></button>
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aboriginal_Flag.svg" alt="Flaga Aborygenów" loading="lazy">
+<figcaption>Aboriginal Flag – flaga Aborygenów</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Torres_Strait_Islander_Flag.svg" alt="Flaga mieszkańców Cieśniny Torresa" loading="lazy">
+<figcaption>Torres Strait Islander Flag</figcaption>
+</figure>
+</div>
+
+<h3>Three important flags – trzy ważne flagi</h3>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUSTRALIAN NATIONAL FLAG</strong></span>
+<span class="flip-back"><strong>FLAGA NARODOWA AUSTRALII</strong><small>Oficjalna flaga państwowa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ABORIGINAL FLAG</strong></span>
+<span class="flip-back"><strong>FLAGA ABORYGENÓW</strong><small>Czarny symbolizuje ludność Aborygeńską, czerwony ziemię i ochrowy kolor, żółty słońce.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TORRES STRAIT ISLANDER FLAG</strong></span>
+<span class="flip-back"><strong>FLAGA MIESZKAŃCÓW CIEŚNINY TORRESA</strong><small>Symbol tożsamości i jedności rdzennych mieszkańców wysp Cieśniny Torresa.</small></span>
+</span></button>
+</div>
+
+<div class="note blue-note">
+<strong>Ważne:</strong> Australia ma różne flagi reprezentujące różne społeczności. Flaga Aborygenów i flaga mieszkańców Cieśniny Torresa są ważnymi symbolami rdzennych ludów Australii.
+</div>
+</section>
+
+<section>
+<h2>3. Government and monarchy – rządy i monarchia</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_House_Canberra_Dusk_Panorama.jpg" alt="Parliament House w Canberze" loading="lazy">
+<figcaption>Parliament House – parlament Australii</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Government_House_Canberra.jpg" alt="Government House" loading="lazy">
+<figcaption>Government House</figcaption>
+</figure>
+</div>
+
+<p>Australia jest <strong>monarchią konstytucyjną</strong> i demokracją parlamentarną. Głową państwa jest król Karol III. W Australii reprezentuje go gubernator generalny. Na co dzień krajem kieruje premier i rząd, którzy działają w ramach systemu parlamentarnego.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CONSTITUTIONAL MONARCHY</strong></span>
+<span class="flip-back"><strong>MONARCHIA KONSTYTUCYJNA</strong><small>Ustrój, w którym monarcha jest głową państwa, ale jego rola jest określona przez konstytucję i prawo.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KING CHARLES III</strong></span>
+<span class="flip-back"><strong>KRÓL KAROL III</strong><small>Głowa państwa Australii. Australia i Wielka Brytania mają tego samego monarchę, ale są odrębnymi państwami.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GOVERNOR-GENERAL</strong></span>
+<span class="flip-back"><strong>GUBERNATOR GENERALNY</strong><small>Reprezentuje monarchę w Australii i wykonuje określone funkcje konstytucyjne.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PRIME MINISTER</strong></span>
+<span class="flip-back"><strong>PREMIER</strong><small>Szef rządu Australii. Kieruje pracą rządu i polityką państwa.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PARLIAMENT</strong></span>
+<span class="flip-back"><strong>PARLAMENT</strong><small>Instytucja, która uchwala prawo. Federalny parlament Australii składa się z Izby Reprezentantów i Senatu oraz monarchy reprezentowanego w procesie ustawodawczym przez gubernatora generalnego.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DEMOCRACY</strong></span>
+<span class="flip-back"><strong>DEMOKRACJA</strong><small>System, w którym obywatele mają wpływ na władzę, między innymi poprzez wybory.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Zapamiętaj:</strong> Australia jest państwem niezależnym. Nie jest częścią Wielkiej Brytanii, mimo że łączy je wspólny monarcha.
+</div>
+</section>
+
+<section>
+<h2>4. First Nations peoples – rdzenni mieszkańcy Australii</h2>
+
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Uluru_from_air.jpg"
+alt="Uluru w Australii" loading="lazy">
+
+<p>Rdzenni mieszkańcy Australii to przede wszystkim <strong>Aboriginal and Torres Strait Islander peoples</strong>. Ich przodkowie żyją na tych ziemiach od co najmniej 60 000 lat. To społeczności o niezwykle bogatej historii, językach, sztuce, tradycjach i wiedzy o przyrodzie.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ABORIGINAL PEOPLES</strong></span>
+<span class="flip-back"><strong>ABORYGENI</strong><small>Rdzenne ludy kontynentalnej Australii i Tasmanii, obejmujące wiele różnych narodów i społeczności.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TORRES STRAIT ISLANDER PEOPLES</strong></span>
+<span class="flip-back"><strong>RDZENNI MIESZKAŃCY CIEŚNINY TORRESA</strong><small>Rdzenne społeczności wysp położonych pomiędzy północną Australią a Papuą-Nową Gwineą.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>FIRST NATIONS</strong></span>
+<span class="flip-back"><strong>PIERWSZE NARODY</strong><small>Określenie odnoszące się do rdzennych społeczności Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>COUNTRY</strong></span>
+<span class="flip-back"><strong>KRAJ / ZIEMIA PRZODKÓW</strong><small>W wielu rdzennych kulturach oznacza coś więcej niż teren: obejmuje więź z ziemią, wodą, przodkami, kulturą i społecznością.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DOT PAINTING</strong></span>
+<span class="flip-back"><strong>MALARSTWO KROPKOWE</strong><small>Jedna z rozpoznawalnych technik sztuki aborygeńskiej. Sztuka rdzennych ludów jest jednak bardzo różnorodna i nie ogranicza się do kropek.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DIDGERIDOO</strong></span>
+<span class="flip-back"><strong>DIDGERIDOO</strong><small>Instrument dęty związany z kulturami rdzennych społeczności północnej Australii.</small></span>
+</span></button>
+</div>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aboriginal_artwork.jpg" alt="Sztuka Aborygenów" loading="lazy">
+<figcaption>Aboriginal art – sztuka rdzennych mieszkańców</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Didgeridoo.jpg" alt="Didgeridoo" loading="lazy">
+<figcaption>Didgeridoo – tradycyjny instrument</figcaption>
+</figure>
+</div>
+
+<div class="note green-note">
+<strong>Ważna wskazówka:</strong> Australia ma wiele różnych rdzennych narodów i języków. Nie istnieje jedna wspólna kultura, która opisywałaby wszystkich rdzennych mieszkańców.
+</div>
+</section>
+
+<section>
+<h2>5. Geography – geografia Australii</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great_Barrier_Reef.JPG" alt="Wielka Rafa Koralowa" loading="lazy">
+<figcaption>Great Barrier Reef</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Uluru%2C_helicopter_view%2C_aerial.jpg" alt="Uluru" loading="lazy">
+<figcaption>Uluru – święte miejsce rdzennych społeczności</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Twelve_Apostles%2C_Victoria%2C_Australia.jpg" alt="Twelve Apostles" loading="lazy">
+<figcaption>Twelve Apostles – formacje skalne</figcaption>
+</figure>
+</div>
+
+<p>Australia jest ogromna i ma bardzo różnorodne krajobrazy: pustynie, lasy tropikalne, góry, plaże, rafy koralowe i rozległe równiny.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GREAT BARRIER REEF</strong></span>
+<span class="flip-back"><strong>WIELKA RAFA KORALOWA</strong><small>Ogromny system raf koralowych u wybrzeży Queensland. Jest jednym z najbardziej znanych cudów przyrody Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ULURU</strong></span>
+<span class="flip-back"><strong>ULURU</strong><small>Wielka formacja skalna w środkowej Australii. Ma ogromne znaczenie kulturowe i duchowe dla rdzennych społeczności Anangu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>OUTBACK</strong></span>
+<span class="flip-back"><strong>OUTBACK</strong><small>Rozległe, słabo zaludnione obszary interioru Australii, często suche i pustynne.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DESERT</strong></span>
+<span class="flip-back"><strong>PUSTYNIA</strong><small>Obszar, na którym występuje bardzo mało opadów. W Australii znajduje się wiele pustyń.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RAINFOREST</strong></span>
+<span class="flip-back"><strong>LAS DESZCZOWY</strong><small>Wilgotny las o dużej różnorodności roślin i zwierząt, np. Daintree Rainforest.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>GREAT DIVIDING RANGE</strong></span>
+<span class="flip-back"><strong>WIELKIE GÓRY WODODZIAŁOWE</strong><small>Długi system pasm górskich i wyżyn na wschodzie Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>INDIAN OCEAN</strong></span>
+<span class="flip-back"><strong>OCEAN INDYJSKI</strong><small>Ocean położony na zachód od Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PACIFIC OCEAN</strong></span>
+<span class="flip-back"><strong>OCEAN SPOKOJNY</strong><small>Ocean położony na wschód od Australii.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Ciekawostka:</strong> Australia jest otoczona oceanami. Tasmania to wyspa i jednocześnie jeden z sześciu stanów Australii.
+</div>
+</section>
+
+<section>
+<h2>6. States and territories – stany i terytoria</h2>
+<img class="hero-image"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Australia_states_and_territories_labelled.svg"
+alt="Mapa stanów i terytoriów Australii" loading="lazy">
+
+<p>Australia jest federacją sześciu stanów i dwóch głównych terytoriów na kontynencie. Każdy stan i terytorium ma swoją stolicę.</p>
+
+<h3>Six states – sześć stanów</h3>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NEW SOUTH WALES</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>NOWA POŁUDNIOWA WALIA</strong><small>Stolica: Sydney. Najludniejszy stan Australii. Znany z Sydney Opera House i Harbour Bridge.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>VICTORIA</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>WIKTORIA</strong><small>Stolica: Melbourne. Znana z kultury, sportu, Great Ocean Road i kawiarni.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>QUEENSLAND</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>QUEENSLAND</strong><small>Stolica: Brisbane. Znany z Wielkiej Rafy Koralowej i tropikalnego klimatu na północy.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WESTERN AUSTRALIA</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>ZACHODNIA AUSTRALIA</strong><small>Stolica: Perth. Największy stan pod względem powierzchni, znany z pięknych wybrzeży i rozległych przestrzeni.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SOUTH AUSTRALIA</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>AUSTRALIA POŁUDNIOWA</strong><small>Stolica: Adelaide. Znana z festiwali, winnic i regionu Flinders Ranges.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TASMANIA</strong><small>Capital?</small></span>
+<span class="flip-back"><strong>TASMANIA</strong><small>Stolica: Hobart. Wyspiarski stan na południe od kontynentu, znany z dzikiej przyrody i gór.</small></span>
+</span></button>
+</div>
+
+<h3>Two main mainland territories – dwa główne terytoria</h3>
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUSTRALIAN CAPITAL TERRITORY</strong></span>
+<span class="flip-back"><strong>TERYTORIUM STOŁECZNE</strong><small>Stolica: Canberra. Znajdują się tu najważniejsze instytucje państwowe.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NORTHERN TERRITORY</strong></span>
+<span class="flip-back"><strong>TERYTORIUM PÓŁNOCNE</strong><small>Stolica: Darwin. Znane z Uluru, Kakadu National Park i tropikalnych krajobrazów.</small></span>
+</span></button>
+</div>
+
+<div class="note blue-note">
+<strong>Zapamiętaj:</strong> Canberra jest stolicą całej Australii. Sydney, Melbourne, Brisbane, Perth, Adelaide i Hobart są stolicami poszczególnych stanów.
+</div>
+</section>
+
+<section>
+<h2>7. Seasons and climate – pory roku i klimat</h2>
+
+<p>Australia leży na półkuli południowej, dlatego pory roku występują tam w odwrotnej kolejności niż w Polsce.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">☀️</span><strong>SUMMER</strong><small>December – February</small></span>
+<span class="flip-back"><strong>LATO</strong><small>Grudzień – luty. W wielu regionach jest gorąco.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍂</span><strong>AUTUMN</strong><small>March – May</small></span>
+<span class="flip-back"><strong>JESIEŃ</strong><small>Marzec – maj. Temperatury stopniowo spadają.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">❄️</span><strong>WINTER</strong><small>June – August</small></span>
+<span class="flip-back"><strong>ZIMA</strong><small>Czerwiec – sierpień. W górach może padać śnieg!</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌸</span><strong>SPRING</strong><small>September – November</small></span>
+<span class="flip-back"><strong>WIOSNA</strong><small>Wrzesień – listopad. Przyroda budzi się do życia.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Przykład:</strong> Kiedy w Polsce jest lato i wakacje w lipcu, w Australii jest zima. Kiedy w Australii obchodzone są święta Bożego Narodzenia w grudniu, trwa tam lato!
+</div>
+</section>
+
+<section>
+<h2>8. A short history – krótka historia Australii</h2>
+<p>Historia Australii jest znacznie starsza niż historia europejskiego osadnictwa. Rdzenne społeczności żyły na tym kontynencie przez dziesiątki tysięcy lat.</p>
+
+<div class="timeline">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>60,000+ YEARS AGO</strong><small>First Nations</small></span>
+<span class="flip-back"><strong>RDZENNE SPOŁECZNOŚCI</strong><small>Przodkowie rdzennych mieszkańców żyją na terenach Australii od co najmniej 60 000 lat.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1606</strong><small>European voyages</small></span>
+<span class="flip-back"><strong>EUROPEJSKIE WYPRAWY</strong><small>Holenderscy żeglarze docierali do wybrzeży Australii. W tym roku Willem Janszoon odbył wyprawę wzdłuż części północnego wybrzeża.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1770</strong><small>James Cook</small></span>
+<span class="flip-back"><strong>JAMES COOK</strong><small>James Cook zbadał wschodnie wybrzeże Australii i zgłosił brytyjskie roszczenia do tej części kontynentu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1788</strong><small>First Fleet</small></span>
+<span class="flip-back"><strong>PIERWSZA FLOTA</strong><small>Do Port Jackson przybyła brytyjska First Fleet. Rozpoczął się okres brytyjskiej kolonizacji, który przyniósł rdzennym społecznościom ogromne cierpienie i utratę ziemi.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1851</strong><small>Gold rush</small></span>
+<span class="flip-back"><strong>GORĄCZKA ZŁOTA</strong><small>Odkrycia złota przyciągnęły do Australii ludzi z wielu stron świata.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1901</strong><small>Federation</small></span>
+<span class="flip-back"><strong>FEDERACJA</strong><small>1 stycznia sześć kolonii połączyło się, tworząc Commonwealth of Australia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1915</strong><small>Gallipoli</small></span>
+<span class="flip-back"><strong>GALLIPOLI</strong><small>Żołnierze ANZAC wylądowali na półwyspie Gallipoli podczas I wojny światowej. Wydarzenie jest upamiętniane w Australii i Nowej Zelandii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>1967</strong><small>Referendum</small></span>
+<span class="flip-back"><strong>REFERENDUM</strong><small>Ważne referendum konstytucyjne zmieniło sposób uwzględniania rdzennych mieszkańców w spisie ludności i umożliwiło parlamentowi federalnemu stanowienie prawa w sprawach dotyczących Aborygenów.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Warto wiedzieć:</strong> Historia kolonizacji wiązała się z przemocą, odbieraniem ziemi i krzywdą rdzennych społeczności. Współczesna Australia prowadzi debatę o uznaniu historii, prawach i pojednaniu.
+</div>
+</section>
+
+<section>
+<h2>9. Australian national symbols – symbole narodowe</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kangaroo_Australia_01_11_2007_-_retouch.JPG" alt="Kangur" loading="lazy">
+<figcaption>Kangaroo – kangur</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Emu_walking.jpg" alt="Emu" loading="lazy">
+<figcaption>Emu – emu</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Acacia_pycnantha.jpg" alt="Golden wattle" loading="lazy">
+<figcaption>Golden Wattle – złociste akacje</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦘</span><strong>KANGAROO</strong></span>
+<span class="flip-back"><strong>KANGUR</strong><small>Jedno z najbardziej rozpoznawalnych zwierząt Australii. Jest symbolem kraju, ale nie jest oficjalnym godłem narodowym samodzielnie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐦</span><strong>EMU</strong></span>
+<span class="flip-back"><strong>EMU</strong><small>Duży nielotny ptak. Kangur i emu znajdują się na australijskim herbie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌼</span><strong>GOLDEN WATTLE</strong></span>
+<span class="flip-back"><strong>ZŁOCISTA AKACJA</strong><small>Narodowy kwiatowy symbol Australii. Kwitnie na żółto.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">💚</span><strong>GREEN AND GOLD</strong></span>
+<span class="flip-back"><strong>ZIELEŃ I ZŁOTO</strong><small>Oficjalne barwy narodowe Australii, inspirowane złocistą akacją.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🎵</span><strong>ADVANCE AUSTRALIA FAIR</strong></span>
+<span class="flip-back"><strong>HYMN AUSTRALII</strong><small>Oficjalny hymn narodowy Australii, przyjęty w 1984 roku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">💎</span><strong>AUSTRALIAN OPAL</strong></span>
+<span class="flip-back"><strong>OPAL AUSTRALIJSKI</strong><small>Kamień szlachetny uznany za narodowy klejnot Australii.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>10. Australian animals – niezwykłe zwierzęta</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koala_climbing_tree.jpg" alt="Koala na drzewie" loading="lazy">
+<figcaption>Koala</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Platypus.jpg" alt="Dziobak" loading="lazy">
+<figcaption>Platypus</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wombat_in_Tasmania.jpg" alt="Wombat" loading="lazy">
+<figcaption>Wombat</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Quokka.jpg" alt="Quokka" loading="lazy">
+<figcaption>Quokka</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kookaburra.jpg" alt="Kookaburra" loading="lazy">
+<figcaption>Kookaburra</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great_white_shark.jpg" alt="Żarłacz biały" loading="lazy">
+<figcaption>Great white shark</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KOALA</strong></span>
+<span class="flip-back"><strong>KOALA</strong><small>Ssak torbacz, który żyje na drzewach i żywi się głównie liśćmi eukaliptusa. Nie jest niedźwiedziem!</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>PLATYPUS</strong></span>
+<span class="flip-back"><strong>DZIOBAK</strong><small>Niezwykły ssak składający jaja. Ma dziób przypominający kaczy i błoniaste stopy.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>WOMBAT</strong></span>
+<span class="flip-back"><strong>WOMBAT</strong><small>Krępy torbacz, który kopie nory i prowadzi głównie nocny tryb życia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>QUOKKA</strong></span>
+<span class="flip-back"><strong>KUOKA</strong><small>Niewielki torbacz znany z sympatycznego wyglądu. Żyje m.in. na wyspie Rottnest.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KANGAROO</strong></span>
+<span class="flip-back"><strong>KANGUR</strong><small>Torbacz poruszający się skokami. Samica ma torbę, w której rozwija się młode.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>EMU</strong></span>
+<span class="flip-back"><strong>EMU</strong><small>Wielki nielotny ptak, który potrafi szybko biegać.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>DINGO</strong></span>
+<span class="flip-back"><strong>DINGO</strong><small>Dziki pies żyjący w Australii. Ma ważne miejsce w przyrodzie i kulturze kontynentu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KOOKABURRA</strong></span>
+<span class="flip-back"><strong>KUABURA</strong><small>Ptak znany z charakterystycznego głosu przypominającego śmiech.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ECHIDNA</strong></span>
+<span class="flip-back"><strong>KOLCZATKA</strong><small>Ssak składający jaja, pokryty kolcami i żywiący się głównie mrówkami oraz termitami.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CROCODILE</strong></span>
+<span class="flip-back"><strong>KROKODYL</strong><small>W północnej Australii żyją m.in. krokodyle różańcowe, które mogą być bardzo niebezpieczne.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>11. Australian holidays – święta i ważne dni</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Australia_Day_fireworks.jpg" alt="Fajerwerki podczas Australia Day" loading="lazy">
+<figcaption>Australia Day</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Anzac_Day_dawn_service.jpg" alt="Uroczystość ANZAC Day" loading="lazy">
+<figcaption>ANZAC Day</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUSTRALIA DAY</strong><small>January 26</small></span>
+<span class="flip-back"><strong>DZIEŃ AUSTRALII</strong><small>26 stycznia. Dzień związany z historią kraju i jego mieszkańcami. Dla wielu rdzennych Australijczyków jest także dniem żałoby, protestu i refleksji, nazywanym Invasion Day lub Survival Day.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ANZAC DAY</strong><small>April 25</small></span>
+<span class="flip-back"><strong>ANZAC DAY</strong><small>25 kwietnia. Dzień pamięci o Australijczykach i Nowozelandczykach, którzy służyli i zginęli podczas wojen i konfliktów. Upamiętnia lądowanie pod Gallipoli w 1915 roku.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CHRISTMAS</strong><small>December 25</small></span>
+<span class="flip-back"><strong>BOŻE NARODZENIE</strong><small>25 grudnia. W Australii przypada latem. Niektóre rodziny świętują przy grillu lub na plaży.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>EASTER</strong></span>
+<span class="flip-back"><strong>WIELKANOC</strong><small>Święta obchodzone wiosną na półkuli północnej, ale jesienią w Australii. Popularne są czekoladowe jajka i Easter Bilby.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NAIDOC WEEK</strong></span>
+<span class="flip-back"><strong>TYDZIEŃ NAIDOC</strong><small>Coroczne wydarzenia celebrujące historię, kulturę i osiągnięcia rdzennych ludów Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUSTRALIA'S NATIONAL DAY OF MOURNING</strong></span>
+<span class="flip-back"><strong>DZIEŃ PAMIĘCI I REFLEKSJI</strong><small>Określenie używane w różnych inicjatywach upamiętniających historię i krzywdy rdzennych społeczności. Nie jest jednym, stałym świętem federalnym.</small></span>
+</span></button>
+</div>
+
+<div class="note">
+<strong>Ważna perspektywa:</strong> 26 stycznia upamiętnia przybycie brytyjskiej First Fleet do Port Jackson w 1788 roku. Dla części Australijczyków jest to dzień świętowania państwowości, a dla wielu rdzennych mieszkańców – symbol rozpoczęcia kolonizacji i utraty ziemi. Warto poznać obie perspektywy.
+</div>
+</section>
+
+<section>
+<h2>12. Australian traditions – tradycje i styl życia</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cricket_batsman.jpg" alt="Krykiet" loading="lazy">
+<figcaption>Cricket</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Australian_surfing.jpg" alt="Surfing w Australii" loading="lazy">
+<figcaption>Surfing</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Australian_barbecue.jpg" alt="Australijski grill" loading="lazy">
+<figcaption>Barbecue</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BARBECUE / BBQ</strong></span>
+<span class="flip-back"><strong>GRILLOWANIE</strong><small>Spotkania na świeżym powietrzu przy wspólnym jedzeniu. Często mówi się po prostu „having a barbie”.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SURFING</strong></span>
+<span class="flip-back"><strong>SURFING</strong><small>Sport polegający na pływaniu na desce po falach. Popularny na australijskich wybrzeżach.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>CRICKET</strong></span>
+<span class="flip-back"><strong>KRYKIET</strong><small>Jeden z najpopularniejszych sportów Australii, szczególnie latem.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AUSTRALIAN RULES FOOTBALL</strong></span>
+<span class="flip-back"><strong>FUTBOL AUSTRALIJSKI</strong><small>Popularny sport drużynowy, szczególnie w południowych stanach kraju.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>RUGBY</strong></span>
+<span class="flip-back"><strong>RUGBY</strong><small>Sport drużynowy, który ma wielu fanów w Australii.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ROAD TRIP</strong></span>
+<span class="flip-back"><strong>WYCIECZKA SAMOCHODOWA</strong><small>Podróż samochodem przez duże odległości i niezwykłe krajobrazy.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BEACH CULTURE</strong></span>
+<span class="flip-back"><strong>KULTURA PLAŻOWA</strong><small>Plaże, pływanie, surfing, spacery i spotkania na świeżym powietrzu.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BUSHWALKING</strong></span>
+<span class="flip-back"><strong>WĘDRÓWKI PO BUSZU</strong><small>Wędrówki piesze po naturalnych terenach Australii, np. w parkach narodowych.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>13. Australian food – jedzenie Australii</h2>
+
+<div class="photo-grid">
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Meat_pie.jpg" alt="Meat pie" loading="lazy">
+<figcaption>Meat pie</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pavlova_dessert.jpg" alt="Pavlova" loading="lazy">
+<figcaption>Pavlova</figcaption>
+</figure>
+<figure>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamingtons.jpg" alt="Lamingtons" loading="lazy">
+<figcaption>Lamingtons</figcaption>
+</figure>
+</div>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🥧</span><strong>MEAT PIE</strong></span>
+<span class="flip-back"><strong>MIĘSNA BABECZKA / PLACEK</strong><small>Mały placek z ciasta wypełniony mięsnym farszem. Popularna przekąska.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍰</span><strong>PAVLOVA</strong></span>
+<span class="flip-back"><strong>PAVLOVA</strong><small>Deser bezowy z chrupiącą skorupką, miękkim środkiem, śmietaną i owocami. O jego pochodzenie spierają się Australia i Nowa Zelandia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍫</span><strong>LAMINGTON</strong></span>
+<span class="flip-back"><strong>LAMINGTON</strong><small>Kostka biszkoptu obtoczona w czekoladzie i wiórkach kokosowych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍞</span><strong>VEGEMITE</strong></span>
+<span class="flip-back"><strong>VEGEMITE</strong><small>Wyrazista, słona pasta drożdżowa. Australijczycy często smarują nią cienko tost.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍪</span><strong>ANZAC BISCUITS</strong></span>
+<span class="flip-back"><strong>CIACHA ANZAC</strong><small>Ciasteczka z płatków owsianych i kokosa, związane z tradycją ANZAC.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🍬</span><strong>FAIRY BREAD</strong></span>
+<span class="flip-back"><strong>FAIRY BREAD</strong><small>Kromka chleba z masłem i kolorową posypką, popularna na dziecięcych przyjęciach.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>14. Australian English – australijska odmiana angielskiego</h2>
+<p>W Australii mówi się po angielsku, ale można usłyszeć charakterystyczne słowa i skróty. Australijczycy często używają przyjaznego, potocznego języka.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>G'DAY!</strong></span>
+<span class="flip-back"><strong>CZEŚĆ! / DZIEŃ DOBRY!</strong><small>Popularne, nieformalne powitanie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>MATE</strong></span>
+<span class="flip-back"><strong>KOLEGA / PRZYJACIEL</strong><small>Nieformalne określenie drugiej osoby.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ARVO</strong></span>
+<span class="flip-back"><strong>POPOŁUDNIE</strong><small>Skrót od afternoon.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BREKKIE</strong></span>
+<span class="flip-back"><strong>ŚNIADANIE</strong><small>Potoczny skrót od breakfast.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>BARBIE</strong></span>
+<span class="flip-back"><strong>GRILL</strong><small>Potoczne określenie barbecue. Nie chodzi o lalkę!</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>NO WORRIES</strong></span>
+<span class="flip-back"><strong>NIE MA SPRAWY</strong><small>Zwrot używany, by uspokoić rozmówcę lub odpowiedzieć na podziękowanie.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>TA</strong></span>
+<span class="flip-back"><strong>DZIĘKI</strong><small>Potoczne, krótkie thank you.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>SERVO</strong></span>
+<span class="flip-back"><strong>STACJA BENZYNOWA</strong><small>Skrócona forma od service station.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>15. Legends and stories – australijskie legendy</h2>
+
+<h3>Story 1: The Rainbow Serpent</h3>
+<div class="note blue-note">
+<strong>Easy English – The Rainbow Serpent</strong>
+<p>In many Aboriginal traditions, there are stories about a powerful Rainbow Serpent. The Serpent is connected with water, land, creation and life. Different Aboriginal communities have their own versions of the story. These stories are very important and should be treated with respect.</p>
+<p><em>Tęczowy Wąż pojawia się w opowieściach wielu rdzennych społeczności. Jest związany z wodą, ziemią, stworzeniem i życiem. Poszczególne społeczności mają własne wersje tych opowieści.</em></p>
+</div>
+
+<h3>Story 2: The Bunyip</h3>
+<div class="note blue-note">
+<strong>Easy English – The Bunyip</strong>
+<p>The Bunyip is a mysterious creature from Australian folklore. People say that it lives in swamps, rivers and waterholes. Some stories describe it as a large and frightening animal. Nobody knows exactly what it looks like!</p>
+<p><em>Bunyip to tajemnicze stworzenie z australijskiego folkloru. Według opowieści żyje w bagnach, rzekach i wodnych zagłębieniach.</em></p>
+</div>
+
+<h3>Story 3: The Min Min Lights</h3>
+<div class="note blue-note">
+<strong>Easy English – The Min Min Lights</strong>
+<p>Some people in the Australian Outback tell stories about strange lights at night. They call them Min Min Lights. The lights seem to move across the dark landscape. People have different ideas about what they are, but there is no single proven explanation.</p>
+<p><em>Min Min Lights to tajemnicze światła, które według opowieści pojawiają się nocą na pustynnych terenach Australii.</em></p>
+</div>
+
+<div class="note">
+<strong>Uwaga kulturowa:</strong> Opowieści rdzennych ludów są częścią żywych tradycji i mogą mieć znaczenie duchowe. Nie należy traktować ich wyłącznie jako bajek czy legend dla turystów.
+</div>
+</section>
+
+<section>
+<h2>16. Famous Australians – znani Australijczycy</h2>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>STEVE IRWIN</strong></span>
+<span class="flip-back"><strong>STEVE IRWIN</strong><small>Przyrodnik i prezenter telewizyjny znany jako „The Crocodile Hunter”. Popularyzował wiedzę o zwierzętach.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>AC/DC</strong></span>
+<span class="flip-back"><strong>AC/DC</strong><small>Legendarny zespół rockowy założony w Australii przez braci Young.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>HUGH JACKMAN</strong></span>
+<span class="flip-back"><strong>HUGH JACKMAN</strong><small>Australijski aktor znany m.in. z roli Wolverine'a.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>KYRIE IRVING</strong></span>
+<span class="flip-back"><strong>KYRIE IRVING</strong><small>Koszykarz urodzony w Melbourne, znany z gry w NBA.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ASH BARTY</strong></span>
+<span class="flip-back"><strong>ASH BARTY</strong><small>Australijska tenisistka, była liderka światowego rankingu i zwyciężczyni turniejów wielkoszlemowych.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>ELLA HOOPER</strong></span>
+<span class="flip-back"><strong>ELLA HOOPER</strong><small>Australijska wokalistka, znana z zespołu Killing Heidi.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>17. Picture dictionary – słowniczek obrazkowy</h2>
+<p>Kliknij fiszkę, aby zobaczyć polskie znaczenie słowa.</p>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🦘</span><strong>KANGAROO</strong></span>
+<span class="flip-back">KANGUR<small>A famous Australian marsupial.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐨</span><strong>KOALA</strong></span>
+<span class="flip-back">KOALA<small>An animal that eats eucalyptus leaves.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏝️</span><strong>ISLAND</strong></span>
+<span class="flip-back">WYSPA<small>A piece of land surrounded by water.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏜️</span><strong>DESERT</strong></span>
+<span class="flip-back">PUSTYNIA<small>A very dry area with little rain.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌊</span><strong>REEF</strong></span>
+<span class="flip-back">RAFA<small>A ridge of rock or coral in the sea.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌳</span><strong>EUCALYPTUS</strong></span>
+<span class="flip-back">EUKALIPTUS<small>A tree whose leaves are food for koalas.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏕️</span><strong>OUTBACK</strong></span>
+<span class="flip-back">ODLEGŁE TERENY AUSTRALII<small>Remote inland areas of Australia.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🐊</span><strong>CROCODILE</strong></span>
+<span class="flip-back">KROKODYL<small>A large reptile that lives in water and on land.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🏖️</span><strong>BEACH</strong></span>
+<span class="flip-back">PLAŻA<small>An area of sand or stones next to the sea.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌏</span><strong>CONTINENT</strong></span>
+<span class="flip-back">KONTYNENT<small>One of the large land areas of the Earth.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🎵</span><strong>ANTHEM</strong></span>
+<span class="flip-back">HYMN<small>A song that represents a country.</small></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><span class="card-icon">🌼</span><strong>WATTLE</strong></span>
+<span class="flip-back">AKACJA<small>A flowering plant and Australia's floral emblem.</small></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>18. Useful English phrases – przydatne zwroty</h2>
+
+<div class="cards">
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What is the capital of Australia?</strong></span>
+<span class="flip-back">Jaka jest stolica Australii?<br><strong>Canberra.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>How many states are there?</strong></span>
+<span class="flip-back">Ile jest stanów?<br><strong>There are six states.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What is the national animal symbol?</strong></span>
+<span class="flip-back">Jakie zwierzęta są symbolami Australii?<br><strong>The kangaroo and the emu are on the coat of arms.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>When is Australia Day?</strong></span>
+<span class="flip-back">Kiedy jest Australia Day?<br><strong>On January 26.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What is the Great Barrier Reef?</strong></span>
+<span class="flip-back">Czym jest Wielka Rafa Koralowa?<br><strong>It is a huge coral reef system.</strong></span>
+</span></button>
+
+<button class="flip-card"><span class="flip-inner">
+<span class="flip-front"><strong>What is the national flower?</strong></span>
+<span class="flip-back">Jaki jest narodowy kwiat Australii?<br><strong>Golden Wattle.</strong></span>
+</span></button>
+</div>
+</section>
+
+<section>
+<h2>19. Test yourself! – sprawdź swoją wiedzę</h2>
+<p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu kliknij „Sprawdź wynik”.</p>
+
+<form id="quiz">
+<div class="question"><strong>1. What is the capital of Australia?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q1" value="a"> Sydney</label>
+<label><input type="radio" name="q1" value="b"> Canberra</label>
+<label><input type="radio" name="q1" value="c"> Melbourne</label>
+</div></div>
+
+<div class="question"><strong>2. How many states does Australia have?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q2" value="a"> 6</label>
+<label><input type="radio" name="q2" value="b"> 8</label>
+<label><input type="radio" name="q2" value="c"> 10</label>
+</div></div>
+
+<div class="question"><strong>3. What is the currency of Australia?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q3" value="a"> Euro</label>
+<label><input type="radio" name="q3" value="b"> Australian dollar</label>
+<label><input type="radio" name="q3" value="c"> Pound</label>
+</div></div>
+
+<div class="question"><strong>4. What animal is famous in Australia?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q4" value="a"> Kangaroo</label>
+<label><input type="radio" name="q4" value="b"> Polar bear</label>
+<label><input type="radio" name="q4" value="c"> Tiger</label>
+</div></div>
+
+<div class="question"><strong>5. What is the Great Barrier Reef?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q5" value="a"> A mountain range</label>
+<label><input type="radio" name="q5" value="b"> A desert</label>
+<label><input type="radio" name="q5" value="c"> A coral reef system</label>
+</div></div>
+
+<div class="question"><strong>6. What is the national floral emblem of Australia?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q6" value="a"> Rose</label>
+<label><input type="radio" name="q6" value="b"> Golden Wattle</label>
+<label><input type="radio" name="q6" value="c"> Tulip</label>
+</div></div>
+
+<div class="question"><strong>7. When is Australia Day?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q7" value="a"> January 26</label>
+<label><input type="radio" name="q7" value="b"> April 25</label>
+<label><input type="radio" name="q7" value="c"> December 25</label>
+</div></div>
+
+<div class="question"><strong>8. When is ANZAC Day?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q8" value="a"> January 1</label>
+<label><input type="radio" name="q8" value="b"> April 25</label>
+<label><input type="radio" name="q8" value="c"> July 4</label>
+</div></div>
+
+<div class="question"><strong>9. Which animal is a marsupial?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q9" value="a"> Koala</label>
+<label><input type="radio" name="q9" value="b"> Shark</label>
+<label><input type="radio" name="q9" value="c"> Crocodile</label>
+</div></div>
+
+<div class="question"><strong>10. What is the capital of Queensland?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q10" value="a"> Perth</label>
+<label><input type="radio" name="q10" value="b"> Brisbane</label>
+<label><input type="radio" name="q10" value="c"> Hobart</label>
+</div></div>
+
+<div class="question"><strong>11. What is Uluru?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q11" value="a"> A famous rock formation</label>
+<label><input type="radio" name="q11" value="b"> A city</label>
+<label><input type="radio" name="q11" value="c"> A river</label>
+</div></div>
+
+<div class="question"><strong>12. What is the capital of Tasmania?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q12" value="a"> Darwin</label>
+<label><input type="radio" name="q12" value="b"> Adelaide</label>
+<label><input type="radio" name="q12" value="c"> Hobart</label>
+</div></div>
+
+<div class="question"><strong>13. Which season is it in Australia in July?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q13" value="a"> Summer</label>
+<label><input type="radio" name="q13" value="b"> Winter</label>
+<label><input type="radio" name="q13" value="c"> Spring</label>
+</div></div>
+
+<div class="question"><strong>14. What is a platypus?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q14" value="a"> A bird</label>
+<label><input type="radio" name="q14" value="b"> A fish</label>
+<label><input type="radio" name="q14" value="c"> An egg-laying mammal</label>
+</div></div>
+
+<div class="question"><strong>15. Who is Australia's head of state?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q15" value="a"> The King</label>
+<label><input type="radio" name="q15" value="b"> The Prime Minister</label>
+<label><input type="radio" name="q15" value="c"> The Governor of New South Wales</label>
+</div></div>
+
+<div class="question"><strong>16. What does „G'day” mean?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q16" value="a"> Goodbye</label>
+<label><input type="radio" name="q16" value="b"> Hello</label>
+<label><input type="radio" name="q16" value="c"> Good night</label>
+</div></div>
+
+<div class="question"><strong>17. What happened in 1901?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q17" value="a"> Federation of Australia</label>
+<label><input type="radio" name="q17" value="b"> First moon landing</label>
+<label><input type="radio" name="q17" value="c"> The Olympic Games in Sydney</label>
+</div></div>
+
+<div class="question"><strong>18. What is Vegemite?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q18" value="a"> A fruit</label>
+<label><input type="radio" name="q18" value="b"> A salty yeast spread</label>
+<label><input type="radio" name="q18" value="c"> A cake</label>
+</div></div>
+
+<div class="question"><strong>19. What is the Outback?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q19" value="a"> A large city</label>
+<label><input type="radio" name="q19" value="b"> A famous beach</label>
+<label><input type="radio" name="q19" value="c"> Remote inland areas of Australia</label>
+</div></div>
+
+<div class="question"><strong>20. What does „No worries” mean?</strong>
+<div class="quiz-options">
+<label><input type="radio" name="q20" value="a"> Nie ma sprawy</label>
+<label><input type="radio" name="q20" value="b"> Bardzo się boję</label>
+<label><input type="radio" name="q20" value="c"> Do widzenia</label>
+</div></div>
+
+<button class="action" type="button" onclick="checkQuiz()">Sprawdź wynik</button>
+<button class="action" type="reset" onclick="document.getElementById('quizResult').textContent=''">Wyczyść odpowiedzi</button>
+<div id="quizResult" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<section>
+<h2>20. My mini project – mój mini projekt</h2>
+<p>Wybierz australijski stan, zwierzę, miasto lub słynne miejsce. Napisz kilka zdań po angielsku.</p>
+<div class="note">
+<strong>Use these questions:</strong>
+<ol>
+<li>What is the name of the place or animal?</li>
+<li>Where is it in Australia?</li>
+<li>What is it famous for?</li>
+<li>What can people see or do there?</li>
+<li>Why would you like to visit it?</li>
+</ol>
+<strong>Example:</strong> My favourite place in Australia is the Great Barrier Reef. It is in Queensland. It is famous for beautiful coral and sea animals. I would like to visit it because I love nature.
+</div>
+<textarea id="project" rows="6" placeholder="My favourite place in Australia is..."></textarea>
+<button class="action" onclick="saveText()">Zapisz tekst na swoim urządzeniu</button>
+<p id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>21. Explore more – poznaj więcej!</h2>
+<p>Przydatne strony internetowe:</p>
+<ul>
+<li><a href="https://www.australia.gov.au/" target="_blank" rel="noopener">Australian Government</a> – oficjalny portal rządowy.</li>
+<li><a href="https://www.australia.com/" target="_blank" rel="noopener">Tourism Australia</a> – podróże i atrakcje.</li>
+<li><a href="https://www.pmc.gov.au/honours-and-symbols/australian-national-symbols" target="_blank" rel="noopener">Australian National Symbols</a> – symbole narodowe.</li>
+<li><a href="https://www.aph.gov.au/" target="_blank" rel="noopener">Australian Parliament</a> – parlament i demokracja.</li>
+<li><a href="https://www.nma.gov.au/" target="_blank" rel="noopener">National Museum of Australia</a> – historia i kultura.</li>
+<li><a href="https://www.nma.gov.au/learn" target="_blank" rel="noopener">National Museum – Learn</a> – materiały edukacyjne.</li>
+<li><a href="https://www.nationalparks.nsw.gov.au/" target="_blank" rel="noopener">NSW National Parks</a> – parki i przyroda.</li>
+<li><a href="https://www.gbrmpa.gov.au/" target="_blank" rel="noopener">Great Barrier Reef Marine Park Authority</a> – Wielka Rafa Koralowa.</li>
+<li><a href="https://aiatsis.gov.au/" target="_blank" rel="noopener">AIATSIS</a> – wiedza i zasoby o rdzennych ludach Australii.</li>
+<li><a href="https://www.naidoc.org.au/" target="_blank" rel="noopener">NAIDOC</a> – kultura i wydarzenia First Nations.</li>
+<li><a href="https://www.nma.gov.au/defining-moments/resources/aboriginal-and-torres-strait-islander-flags" target="_blank" rel="noopener">Aboriginal and Torres Strait Islander Flags</a> – historia flag rdzennych mieszkańców.</li>
+<li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> – zdjęcia i ilustracje.</li>
+</ul>
+</section>
+
+<section style="text-align:center;background:#e8f2f5">
+<h2>Well done! 🎉</h2>
+<p>Gratulacje! Poznałeś lub poznałaś Australię – jej stany, historię, geografię, zwierzęta, symbole, kulturę i tradycje.</p>
+<p><strong>Remember:</strong> Australia's capital city is Canberra. There are six states and two main mainland territories.</p>
+<div style="font-size:2rem">🇦🇺 🦘 🐨 🌏</div>
+</section>
+
+</main>
+
+<footer>
+<p>AROUND AUSTRALIA – Australian Culture Lab</p>
+<p>Interactive lesson • Learn • Discover • Explore</p>
+</footer>
+
+<script>
+// FISZKI – działają kliknięciem i dotknięciem
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.setAttribute('aria-pressed','false');
+  card.setAttribute('type','button');
+  card.addEventListener('click', () => {
+    const flipped = card.classList.toggle('is-flipped');
+    card.setAttribute('aria-pressed',String(flipped));
+  });
+});
+
+// QUIZ
+function checkQuiz() {
+  const answers = {
+    q1:'b', q2:'a', q3:'b', q4:'a', q5:'c',
+    q6:'b', q7:'a', q8:'b', q9:'a', q10:'b',
+    q11:'a', q12:'c', q13:'b', q14:'c', q15:'a',
+    q16:'b', q17:'a', q18:'b', q19:'c', q20:'a'
+  };
+
+  let score = 0;
+  let answered = 0;
+
+  Object.keys(answers).forEach(q => {
+    const selected = document.querySelector('input[name="' + q + '"]:checked');
+    if (selected) {
+      answered++;
+      if (selected.value === answers[q]) score++;
+    }
+  });
+
+  let message = 'Twój wynik: ' + score + '/20 punktów. ';
+  if (answered < 20) {
+    message += 'Odpowiedziałeś na ' + answered + ' z 20 pytań. ';
+  }
+
+  if (score === 20) {
+    message += 'Excellent! Fantastycznie!';
+  } else if (score >= 16) {
+    message += 'Great job! Bardzo dobrze!';
+  } else if (score >= 11) {
+    message += 'Good work! Jeszcze trochę ćwiczeń i będzie świetnie!';
+  } else {
+    message += 'Spróbuj ponownie. Wróć do fiszek i powtórz materiał!';
+  }
+
+  document.getElementById('quizResult').textContent = message;
+}
+
+// ZAPIS MINI PROJEKTU
+function saveText() {
+  const text = document.getElementById('project').value.trim();
+  const message = document.getElementById('saveMessage');
+
+  if (!text) {
+    message.textContent = 'Najpierw wpisz swój tekst.';
+    return;
+  }
+
+  const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'my-australian-project.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  message.textContent = 'Twój tekst został przygotowany do zapisania.';
+}
+</script>
+</body>
+</html>

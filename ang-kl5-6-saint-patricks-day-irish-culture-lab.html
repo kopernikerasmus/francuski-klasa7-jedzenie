@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Patrick's Day – Irish Culture Lab</title>
+<style>
+:root {
+  --green:#08783e;
+  --dark:#064b2c;
+  --bright:#35a853;
+  --lime:#b7e4a1;
+  --light:#effbea;
+  --pale:#f8fff5;
+  --gold:#e8b943;
+  --ink:#193b29;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg,#effbea,#d9f2d0,#f8fff5);
+  line-height:1.65;
+}
+header{
+  text-align:center;
+  color:white;
+  padding:45px 18px 38px;
+  background:linear-gradient(135deg,#064b2c,#08783e,#35a853);
+  position:relative;
+  overflow:hidden;
+}
+header:before{
+  content:"🍀 ☘️ 🍀 ☘️ 🍀";
+  display:block;
+  font-size:30px;
+  letter-spacing:9px;
+  margin-bottom:12px;
+}
+header h1{
+  font-size:clamp(2rem,6vw,3.5rem);
+  margin:0;
+  line-height:1.15;
+}
+header p{font-size:1.15rem;margin:12px 0}
+.tag{
+  display:inline-block;
+  color:#07552f;
+  background:#e9f8df;
+  border-radius:30px;
+  padding:7px 17px;
+  font-weight:bold;
+  margin-top:12px;
+}
+.container{max-width:1050px;margin:auto;padding:22px}
+.card{
+  background:white;
+  border:1px solid #c6e8bd;
+  border-radius:20px;
+  padding:24px;
+  margin:22px 0;
+  box-shadow:0 5px 18px #064b2c16;
+}
+h2{color:#08783e;margin-top:0}
+h3{color:#21834b}
+.intro{text-align:center;font-size:1.08rem}
+.pill{
+  display:inline-block;
+  background:#e2f5d9;
+  color:#07552f;
+  padding:5px 12px;
+  margin:4px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:.9rem;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+  gap:13px;
+}
+.vocab{
+  background:#f5fff1;
+  border:1px solid #c6e8bd;
+  border-radius:15px;
+  padding:14px;
+  text-align:center;
+}
+.vocab .emoji{display:block;font-size:2.3rem}
+.vocab strong{display:block;color:#08783e;font-size:1.08rem}
+.vocab small{color:#52715b}
+button{
+  border:0;
+  border-radius:11px;
+  background:#08783e;
+  color:white;
+  padding:11px 17px;
+  font-size:1rem;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px 3px;
+}
+button:hover{background:#064b2c}
+button.secondary{background:#d9f2d0;color:#064b2c}
+button.secondary:hover{background:#b7e4a1}
+button:focus,input:focus,select:focus,textarea:focus{
+  outline:3px solid #a7d98e;
+}
+.activity{
+  background:#f5fff1;
+  border:1px solid #c6e8bd;
+  border-radius:15px;
+  padding:17px;
+  margin:15px 0;
+}
+.question{
+  background:#f9fff7;
+  padding:13px;
+  border-radius:12px;
+  margin:13px 0;
+  border:1px solid #e0f1d9;
+}
+label{display:block;margin:7px 0;cursor:pointer}
+.feedback{font-weight:bold;margin-top:12px}
+.correct{color:#08783e}
+.incorrect{color:#b32635}
+.reading{
+  background:#f5fff1;
+  border-left:5px solid #35a853;
+  border-radius:10px;
+  padding:18px;
+  font-size:1.04rem;
+}
+.wordbank{
+  background:#e5f5dc;
+  border-radius:10px;
+  padding:12px;
+  font-weight:bold;
+}
+input[type="text"],textarea{
+  width:100%;
+  max-width:480px;
+  padding:11px;
+  border:1px solid #acd39f;
+  border-radius:9px;
+  font:inherit;
+}
+textarea{max-width:100%;min-height:120px}
+.score{
+  display:none;
+  background:#e5f5dc;
+  border:2px solid #8ac779;
+  border-radius:15px;
+  padding:17px;
+  margin-top:15px;
+  font-size:1.12rem;
+  color:#064b2c;
+  font-weight:bold;
+}
+.note{font-size:.93rem;color:#58715e}
+footer{
+  text-align:center;
+  color:white;
+  background:#064b2c;
+  padding:25px;
+  margin-top:30px;
+}
+footer .clovers{font-size:2rem}
+hr{border:0;border-top:1px solid #d9edcf;margin:22px 0}
+@media(max-width:600px){
+ .container{padding:12px}
+ .card{padding:17px}
+ header{padding:35px 15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Saint Patrick’s Day</h1>
+  <p>Irish Culture Lab 🍀 Discover the Magic of Ireland!</p>
+  <span class="tag">ENGLISH • CULTURE • A2</span>
+</header>
+
+<main class="container">
+
+<section class="card intro">
+  <h2>🍀 Welcome to the Irish Culture Lab!</h2>
+  <p>Are you ready to discover Ireland? Why do people wear green on 17 March? What is a shamrock? And where can you find a pot of gold?</p>
+  <p>Explore Irish culture, learn new English words and complete the challenges!</p>
+  <span class="pill">READ</span>
+  <span class="pill">DISCOVER</span>
+  <span class="pill">PLAY</span>
+  <span class="pill">QUIZ</span>
+  <div style="font-size:2.6rem;margin-top:12px">🍀 🌈 🏞️ 💚</div>
+</section>
+
+<section class="card">
+  <h2>🇮🇪 1. What is Saint Patrick’s Day?</h2>
+  <p><strong>Saint Patrick’s Day</strong> is celebrated every year on <strong>17 March</strong>. It is a cultural and religious holiday that honours Saint Patrick, the patron saint of Ireland.</p>
+  <h3>Who was Saint Patrick?</h3>
+  <p>Saint Patrick lived many centuries ago. He was born in Roman Britain, probably in the late fourth century. When he was a teenager, he was taken to Ireland as a captive. After some years, he escaped and returned home.</p>
+  <p>Later, according to his own writings, he returned to Ireland as a Christian missionary. He helped spread Christianity there. Saint Patrick became one of the most important figures in Irish history and tradition.</p>
+  <h3>Why is 17 March special?</h3>
+  <p>Saint Patrick is traditionally believed to have died on 17 March, around the fifth century. People remember him on this day.</p>
+  <div class="activity">
+    <strong>🍀 Did you know?</strong>
+    <p>Saint Patrick’s Day is celebrated in Ireland and in many other countries around the world. Irish communities have helped make this celebration popular internationally.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>☘️ 2. Irish Symbols and Traditions</h2>
+  <div class="grid">
+    <div class="vocab">
+      <span class="emoji">☘️</span>
+      <strong>The shamrock</strong>
+      <small>A small three-leaf plant and a symbol of Ireland.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🌈</span>
+      <strong>The rainbow</strong>
+      <small>In Irish folklore, a pot of gold may be hidden at its end.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🍀</span>
+      <strong>Four-leaf clover</strong>
+      <small>A symbol of good luck.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🧝</span>
+      <strong>The leprechaun</strong>
+      <small>A little magical character from Irish folklore.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">💚</span>
+      <strong>Green colour</strong>
+      <small>A colour strongly connected with Ireland.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🎶</span>
+      <strong>Irish music</strong>
+      <small>Traditional songs, dancing and lively celebrations.</small>
+    </div>
+  </div>
+
+  <h3>How do people celebrate?</h3>
+  <ul>
+    <li><strong>Wearing green:</strong> people wear green clothes, hats and accessories.</li>
+    <li><strong>Parades:</strong> many towns and cities organise colourful parades with music and dancing.</li>
+    <li><strong>Irish music:</strong> people listen to traditional Irish music and enjoy dancing.</li>
+    <li><strong>Decorations:</strong> streets, shops and homes are decorated with shamrocks and green objects.</li>
+    <li><strong>Food:</strong> families and friends sometimes enjoy traditional Irish dishes together.</li>
+  </ul>
+  <h3>What is a leprechaun?</h3>
+  <p>A leprechaun is a small magical character in Irish folklore. He is often shown wearing green clothes and a hat. According to popular stories, leprechauns hide pots of gold and can be very tricky!</p>
+  <div class="activity">
+    <strong>🌈 The legend of the pot of gold</strong>
+    <p>Some stories say that a leprechaun hides a pot of gold at the end of a rainbow. Can you find it? It is a magical legend, not a real treasure map!</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🌍 3. Ireland – A Beautiful Country</h2>
+  <div class="grid">
+    <div class="vocab">
+      <span class="emoji">🏙️</span>
+      <strong>Dublin</strong>
+      <small>The capital city of Ireland.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🌊</span>
+      <strong>Cliffs</strong>
+      <small>High rocks beside the sea.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🏰</span>
+      <strong>Castles</strong>
+      <small>Old buildings with a long history.</small>
+    </div>
+    <div class="vocab">
+      <span class="emoji">🐑</span>
+      <strong>Green fields</strong>
+      <small>Beautiful landscapes with grass and hills.</small>
+    </div>
+  </div>
+  <p>Ireland is an island in north-western Europe. Its capital city is Dublin. Ireland is famous for its green landscapes, old castles, music, literature and friendly cultural traditions.</p>
+  <p class="note">The Republic of Ireland and Northern Ireland are two different political parts of the island. Northern Ireland is part of the United Kingdom.</p>
+</section>
+
+<section class="card">
+  <h2>📚 4. Picture Dictionary – Irish Vocabulary</h2>
+  <p>Click the button to hear the English word. Repeat it aloud!</p>
+  <div class="grid">
+    <div class="vocab"><span class="emoji">☘️</span><strong>shamrock</strong><small>koniczyna (trójlistna)</small><br><button onclick="speak('shamrock')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🍀</span><strong>clover</strong><small>koniczyna</small><br><button onclick="speak('clover')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🌈</span><strong>rainbow</strong><small>tęcza</small><br><button onclick="speak('rainbow')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🧝</span><strong>leprechaun</strong><small>skrzat z irlandzkich legend</small><br><button onclick="speak('leprechaun')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💰</span><strong>pot of gold</strong><small>garnek złota</small><br><button onclick="speak('pot of gold')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎩</span><strong>hat</strong><small>kapelusz</small><br><button onclick="speak('hat')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎉</span><strong>parade</strong><small>parada</small><br><button onclick="speak('parade')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎻</span><strong>fiddle</strong><small>skrzypce ludowe</small><br><button onclick="speak('fiddle')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💃</span><strong>dancing</strong><small>taniec</small><br><button onclick="speak('dancing')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🇮🇪</span><strong>Ireland</strong><small>Irlandia</small><br><button onclick="speak('Ireland')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🏙️</span><strong>capital city</strong><small>stolica</small><br><button onclick="speak('capital city')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">💚</span><strong>green</strong><small>zielony</small><br><button onclick="speak('green')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🎶</span><strong>music</strong><small>muzyka</small><br><button onclick="speak('music')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🏰</span><strong>castle</strong><small>zamek</small><br><button onclick="speak('castle')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">🌿</span><strong>landscape</strong><small>krajobraz</small><br><button onclick="speak('landscape')">🔊 Listen</button></div>
+    <div class="vocab"><span class="emoji">✨</span><strong>good luck</strong><small>powodzenia, szczęście</small><br><button onclick="speak('good luck')">🔊 Listen</button></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>📖 5. Reading – A Green Day in Dublin</h2>
+  <div class="reading">
+    <h3>Tom’s Saint Patrick’s Day</h3>
+    <p>Tom lives in Dublin, the capital city of Ireland. Every year, on 17 March, he celebrates Saint Patrick’s Day with his family and friends.</p>
+    <p>In the morning, Tom puts on a green T-shirt, a funny green hat and a shamrock badge. His little sister wears green socks and a green scarf.</p>
+    <p>They go to the city centre to watch the Saint Patrick’s Day parade. There are colourful floats, musicians, dancers and lots of happy people. Tom loves the traditional Irish music. He takes many photos with his phone.</p>
+    <p>After the parade, the family goes home. They eat a delicious meal and listen to Irish songs. Tom's grandmother tells them stories about leprechauns and their pots of gold.</p>
+    <p>Tom thinks Saint Patrick’s Day is fantastic. He loves the green decorations, the music and the happy atmosphere. He says: “Ireland is a wonderful place!”</p>
+  </div>
+  <h3>Check your understanding</h3>
+  <div id="readingQuestions"></div>
+  <button onclick="checkReading()">Check answers</button>
+  <div id="readingFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🧩 6. Match the Words</h2>
+  <p>Choose the correct Polish meaning.</p>
+  <div id="matching"></div>
+  <button onclick="checkMatching()">Check answers</button>
+  <div id="matchingFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>✏️ 7. Complete the Sentences</h2>
+  <p>Use the words from the box. Write one word in each gap.</p>
+  <div class="wordbank">Dublin • green • shamrock • parade • leprechaun</div>
+  <div id="fillExercises"></div>
+  <button onclick="checkFill()">Check answers</button>
+  <div id="fillFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>✅ 8. True or False?</h2>
+  <p>Read the sentences and decide if they are true or false.</p>
+  <div id="trueFalse"></div>
+  <button onclick="checkTF()">Check answers</button>
+  <div id="tfFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🍀 9. Who Am I?</h2>
+  <p>Read the clues and choose the correct answer.</p>
+  <div id="riddles"></div>
+  <button onclick="checkRiddles()">Check answers</button>
+  <div id="riddleFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🌈 10. My Irish Mini Project</h2>
+  <p>Imagine you are visiting Ireland on Saint Patrick’s Day. Write 4–5 sentences about your day.</p>
+  <p class="note">Use these ideas: Dublin, green clothes, parade, music, dancing, shamrock, leprechaun.</p>
+  <p><strong>Example:</strong> I am in Dublin. I am wearing green clothes. I can see a big parade. I can hear Irish music. It is a wonderful day!</p>
+  <textarea id="projectText" placeholder="I am in Ireland..."></textarea>
+  <button onclick="showProject()">Show my project</button>
+  <div id="projectFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+  <h2>🏆 11. Final Quiz – Irish Culture Challenge</h2>
+  <p>20 questions. One correct answer in each question. How much do you know about Ireland?</p>
+  <div id="quiz"></div>
+  <button onclick="checkQuiz()">Finish the quiz</button>
+  <button class="secondary" onclick="resetQuiz()">Try again</button>
+  <div id="quizResult" class="score"></div>
+</section>
+
+<section class="card intro">
+  <h2>💚 Your Irish Good Luck Message</h2>
+  <p>May your day be filled with happiness, friendship and a little bit of magic!</p>
+  <p><strong>Happy Saint Patrick’s Day!</strong></p>
+  <div style="font-size:3rem">🍀 🌈 💰 ☘️</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="clovers">🍀 ☘️ 🍀</div>
+  <strong>Saint Patrick’s Day – Irish Culture Lab</strong>
+  <p>Learn English. Discover Ireland. Find your lucky clover!</p>
+</footer>
+
+<script>
+function speak(word){
+  if(!('speechSynthesis' in window)){
+    alert('Sorry, speech synthesis is not available in this browser.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(word);
+  utterance.lang='en-GB';
+  utterance.rate=0.85;
+  window.speechSynthesis.speak(utterance);
+}
+
+function renderQuestions(id,data,prefix){
+  document.getElementById(id).innerHTML=data.map((q,i)=>`
+    <div class="question">
+      <strong>${i+1}. ${q.q}</strong>
+      ${q.a.map((a,j)=>`
+        <label><input type="radio" name="${prefix}${i}" value="${j}"> ${a}</label>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function checkAnswers(data,prefix,id){
+  let score=0;
+  let unanswered=0;
+  data.forEach((q,i)=>{
+    const selected=document.querySelector(`input[name="${prefix}${i}"]:checked`);
+    if(!selected) unanswered++;
+    else if(Number(selected.value)===q.c) score++;
+  });
+  const el=document.getElementById(id);
+  if(unanswered){
+    el.textContent=`You have ${unanswered} unanswered question(s).`;
+    el.className='feedback incorrect';
+    return;
+  }
+  el.textContent=`Your score: ${score} / ${data.length}`;
+  el.className='feedback '+(score===data.length?'correct':'incorrect');
+}
+
+const readingData=[
+ {q:"Where does Tom live?",a:["London","Dublin","Paris"],c:1},
+ {q:"When does he celebrate Saint Patrick’s Day?",a:["17 March","14 February","31 October"],c:0},
+ {q:"What does Tom wear?",a:["A blue jacket","A green T-shirt and hat","A red coat"],c:1},
+ {q:"What do they watch in the city centre?",a:["A football match","A film","A parade"],c:2},
+ {q:"What stories does Tom’s grandmother tell?",a:["Stories about leprechauns","Stories about pirates","Stories about dinosaurs"],c:0}
+];
+renderQuestions('readingQuestions',readingData,'read');
+function checkReading(){checkAnswers(readingData,'read','readingFeedback');}
+
+const matchingData=[
+ {q:"shamrock",a:["koniczyna trójlistna","tęcza","zamek"],c:0},
+ {q:"rainbow",a:["muzyka","tęcza","kapelusz"],c:1},
+ {q:"parade",a:["parada","krajobraz","garnek"],c:0},
+ {q:"leprechaun",a:["skrzat z irlandzkiej legendy","tancerz","muzyk"],c:0},
+ {q:"castle",a:["koniczyna","zamek","stolica"],c:1},
+ {q:"good luck",a:["zielony kolor","dobra zabawa","szczęście"],c:2}
+];
+renderQuestions('matching',matchingData,'match');
+function checkMatching(){checkAnswers(matchingData,'match','matchingFeedback');}
+
+const fillData=[
+ {q:"The capital city of Ireland is ________.",a:"dublin"},
+ {q:"People often wear ________ clothes on 17 March.",a:"green"},
+ {q:"A ________ is a small three-leaf plant and a symbol of Ireland.",a:"shamrock"},
+ {q:"People watch a colourful ________ in the streets.",a:"parade"},
+ {q:"A ________ is a magical character in Irish folklore.",a:"leprechaun"}
+];
+document.getElementById('fillExercises').innerHTML=fillData.map((q,i)=>`
+ <div class="question">
+  <strong>${i+1}. ${q.q}</strong><br>
+  <input type="text" id="fill${i}" placeholder="Your answer">
+ </div>
+`).join('');
+
+function checkFill(){
+ let score=0;
+ fillData.forEach((q,i)=>{
+  const val=document.getElementById('fill'+i).value.trim().toLowerCase().replace(/[.!?]/g,'');
+  if(val===q.a) score++;
+ });
+ const el=document.getElementById('fillFeedback');
+ el.textContent=`Your score: ${score} / ${fillData.length}`;
+ el.className='feedback '+(score===fillData.length?'correct':'incorrect');
+}
+
+const tfData=[
+ {q:"Saint Patrick’s Day is celebrated on 17 March.",c:true},
+ {q:"Dublin is the capital city of Ireland.",c:true},
+ {q:"People traditionally wear blue on Saint Patrick’s Day.",c:false},
+ {q:"A shamrock has three leaves.",c:true},
+ {q:"A leprechaun is a character from Irish folklore.",c:true},
+ {q:"Saint Patrick was born in Ireland.",c:false}
+];
+document.getElementById('trueFalse').innerHTML=tfData.map((q,i)=>`
+ <div class="question">
+  <strong>${i+1}. ${q.q}</strong>
+  <label><input type="radio" name="tf${i}" value="true"> True</label>
+  <label><input type="radio" name="tf${i}" value="false"> False</label>
+ </div>
+`).join('');
+
+function checkTF(){
+ let score=0,unanswered=0;
+ tfData.forEach((q,i)=>{
+  const a=document.querySelector(`input[name="tf${i}"]:checked`);
+  if(!a) unanswered++;
+  else if((a.value==='true')===q.c) score++;
+ });
+ const el=document.getElementById('tfFeedback');
+ if(unanswered){
+  el.textContent=`You have ${unanswered} unanswered question(s).`;
+  el.className='feedback incorrect';
+ }else{
+  el.textContent=`Your score: ${score} / ${tfData.length}`;
+  el.className='feedback '+(score===tfData.length?'correct':'incorrect');
+ }
+}
+
+const riddles=[
+ {q:"I am green and I have three leaves. I am a symbol of Ireland. What am I?",a:["rainbow","shamrock","castle"],c:1},
+ {q:"I am a magical little character. I may hide a pot of gold. Who am I?",a:["leprechaun","teacher","king"],c:0},
+ {q:"I have many colours and I appear in the sky after rain. What am I?",a:["hat","fiddle","rainbow"],c:2},
+ {q:"I am the capital city of Ireland. What is my name?",a:["Cork","Dublin","Belfast"],c:1}
+];
+renderQuestions('riddles',riddles,'riddle');
+function checkRiddles(){checkAnswers(riddles,'riddle','riddleFeedback');}
+
+function showProject(){
+ const text=document.getElementById('projectText').value.trim();
+ const el=document.getElementById('projectFeedback');
+ if(!text){
+  el.textContent='Write a few sentences first!';
+  el.className='feedback incorrect';
+  return;
+ }
+ el.textContent='Wonderful work! Your Irish mini project is ready. 🍀';
+ el.className='feedback correct';
+}
+
+const quizData=[
+ {q:"When is Saint Patrick’s Day?",a:["17 March","14 February","1 January"],c:0},
+ {q:"What is Saint Patrick’s Day associated with?",a:["Ireland","Japan","Brazil"],c:0},
+ {q:"What is the capital city of Ireland?",a:["Cork","Dublin","Galway"],c:1},
+ {q:"What colour do people often wear?",a:["Blue","Yellow","Green"],c:2},
+ {q:"What is a shamrock?",a:["A three-leaf plant","A musical instrument","A castle"],c:0},
+ {q:"Who was Saint Patrick?",a:["A Roman emperor","A Christian missionary and patron saint of Ireland","A famous footballer"],c:1},
+ {q:"What is a leprechaun?",a:["A magical character","A type of food","A city"],c:0},
+ {q:"What may a leprechaun hide?",a:["A book","A pot of gold","A bicycle"],c:1},
+ {q:"What does 'rainbow' mean?",a:["Tęcza","Koniczyna","Kapelusz"],c:0},
+ {q:"What does 'parade' mean?",a:["Zamek","Parada","Muzyka"],c:1},
+ {q:"What is a symbol of good luck?",a:["Four-leaf clover","A school bag","A pencil"],c:0},
+ {q:"Which instrument is often heard in traditional Irish music?",a:["Fiddle","Trumpet only","Piano only"],c:0},
+ {q:"Where is Ireland?",a:["South America","North-western Europe","Asia"],c:1},
+ {q:"What does 'castle' mean?",a:["Zamek","Tęcza","Krajobraz"],c:0},
+ {q:"What is the shamrock traditionally associated with?",a:["Ireland","Australia","Canada"],c:0},
+ {q:"What can people see at a Saint Patrick’s Day parade?",a:["Colourful floats and musicians","Only cars","Only boats"],c:0},
+ {q:"What does 'good luck' mean?",a:["Powodzenia","Do widzenia","Dzień dobry"],c:0},
+ {q:"What does 'dancing' mean?",a:["Śpiewanie","Taniec","Czytanie"],c:1},
+ {q:"What is Northern Ireland?",a:["A part of the island of Ireland and the UK","The capital of the Republic of Ireland","A city in France"],c:0},
+ {q:"What is a popular Saint Patrick’s Day activity?",a:["Wearing green clothes","Building snowmen","Flying kites"],c:0}
+];
+renderQuestions('quiz',quizData,'quiz');
+
+function checkQuiz(){
+ let score=0,unanswered=0;
+ quizData.forEach((q,i)=>{
+  const a=document.querySelector(`input[name="quiz${i}"]:checked`);
+  if(!a) unanswered++;
+  else if(Number(a.value)===q.c) score++;
+ });
+ const result=document.getElementById('quizResult');
+ result.style.display='block';
+ if(unanswered){
+  result.textContent=`You have ${unanswered} unanswered question(s). Please answer all questions.`;
+  result.scrollIntoView({behavior:'smooth',block:'center'});
+  return;
+ }
+ let message='';
+ if(score>=18) message='Fantastic! You are an Irish Culture Expert! 🍀';
+ else if(score>=15) message='Excellent work! Ireland is lucky to have you! 💚';
+ else if(score>=11) message='Good job! Keep learning about Ireland!';
+ else message='Keep practising! You can try again!';
+ result.innerHTML=`Your result: ${score} / 20<br>${message}<br><small>${Math.round(score/20*100)}% correct answers</small>`;
+ result.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+ document.querySelectorAll('#quiz input[type="radio"]').forEach(x=>x.checked=false);
+ const result=document.getElementById('quizResult');
+ result.style.display='none';
+ document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

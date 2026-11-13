@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Around the United Kingdom – Culture & Travel Lab</title>
+<style>
+:root{
+ --navy:#142b4a;--blue:#245b91;--red:#c52c42;--gold:#e2bd69;
+ --cream:#fffaf0;--light:#eef4fa;--ink:#24364a;--green:#34765a;
+ --line:#d9e2ed;--white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);
+ background:linear-gradient(135deg,#edf4fb,#fffaf2,#f2f5fa);line-height:1.68;
+}
+header{
+ text-align:center;color:white;padding:48px 18px 42px;
+ background:linear-gradient(125deg,#101f3b,#1e4777 55%,#9d2438);
+}
+header .decor{font-size:30px;letter-spacing:8px}
+header h1{font-size:clamp(2.1rem,6vw,3.8rem);line-height:1.1;margin:15px 0}
+header p{font-size:1.1rem;margin:10px}
+.tag{display:inline-block;background:#fff5dc;color:#283d5a;padding:8px 17px;border-radius:25px;font-weight:bold;margin-top:12px}
+.container{max-width:1120px;margin:auto;padding:20px}
+.card{
+ background:white;border:1px solid var(--line);border-radius:18px;
+ padding:23px;margin:21px 0;box-shadow:0 5px 18px #152c4912;
+}
+h2{color:var(--navy);margin-top:0}
+h3{color:#a3263c}
+h4{color:var(--blue);margin-bottom:5px}
+p{margin-top:8px}
+a{color:#205b94}
+a:hover{color:#a3263c}
+.intro{text-align:center;font-size:1.06rem}
+.pill{display:inline-block;background:#e8eff8;color:#173b65;padding:5px 12px;border-radius:20px;margin:4px;font-size:.88rem;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.country{
+ border:1px solid #d8e3ef;border-radius:15px;padding:15px;background:#fbfdff;
+}
+.country h3{margin:5px 0}
+.country img{width:100%;height:165px;object-fit:cover;border-radius:11px}
+.country .flag{font-size:2.3rem}
+.country .fact{background:#f1f5fa;border-radius:10px;padding:10px;margin:10px 0}
+.heroimg{width:100%;max-height:340px;object-fit:cover;border-radius:15px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.gallery img{width:100%;height:170px;object-fit:cover;border-radius:12px}
+.gallery figure{margin:0}
+.gallery figcaption{font-size:.9rem;padding:5px;color:#536579}
+.flagbox{background:#f5f7fa;border:1px solid #dce4ed;padding:15px;border-radius:13px;text-align:center}
+.flagbox svg{width:150px;max-width:100%;height:auto;display:block;margin:8px auto}
+.mapbox{background:#f4f8fc;padding:15px;border-radius:15px;text-align:center}
+.mapbox svg{width:100%;max-height:410px}
+.legend{
+ background:#fff9e9;border-left:5px solid var(--gold);padding:16px;
+ border-radius:9px;margin:15px 0;
+}
+.legend h4{margin-top:0}
+.english{
+ background:#edf4fb;border-left:5px solid var(--blue);
+ border-radius:9px;padding:14px;margin:12px 0;
+}
+.vocab{background:#f8fbff;border:1px solid #dce5ef;border-radius:12px;padding:12px;text-align:center}
+.vocab strong{display:block;color:var(--navy)}
+.vocab .emoji{font-size:2rem;display:block}
+.vocab small{color:#627286}
+.activity{background:#fff9e9;border:1px solid #f0dfb4;border-radius:12px;padding:15px;margin:14px 0}
+.timeline{border-left:4px solid var(--blue);padding-left:18px;margin-left:8px}
+.timeline-item{position:relative;margin:16px 0}
+.timeline-item:before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid white}
+.timeline-item strong{color:var(--red)}
+.question{background:#f8fbff;border:1px solid #e0e8f1;border-radius:11px;padding:13px;margin:12px 0}
+label{display:block;margin:7px 0;cursor:pointer}
+button{
+ border:0;border-radius:10px;background:var(--navy);color:white;
+ padding:10px 16px;font-size:1rem;font-weight:bold;cursor:pointer;margin:5px 3px;
+}
+button:hover{background:#315d8a}
+button.secondary{background:#f3e7c9;color:#654c16}
+button.secondary:hover{background:#e9d49d}
+button:focus,input:focus,textarea:focus,select:focus{outline:3px solid #a9c6e4}
+.feedback{font-weight:bold;margin-top:12px}
+.correct{color:#28734d}.incorrect{color:#b32635}
+.reading{background:#f8fbff;border-left:5px solid var(--red);padding:17px;border-radius:10px}
+.wordbank{background:#f3f0e8;padding:12px;border-radius:10px;font-weight:bold}
+input[type="text"],textarea,select{
+ width:100%;max-width:500px;padding:10px;border:1px solid #b9cadd;
+ border-radius:9px;font:inherit;background:white;
+}
+textarea{max-width:100%;min-height:125px}
+.score{display:none;background:#edf4fb;border:2px solid #a9c6e4;border-radius:14px;padding:16px;margin-top:15px;font-weight:bold;color:var(--navy)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:660px}
+th,td{border:1px solid #dce4ed;padding:10px;text-align:left;vertical-align:top}
+th{background:#eaf0f8;color:var(--navy)}
+tr:nth-child(even){background:#fbfcfe}
+.note{font-size:.92rem;color:#657386}
+.linklist li{margin:8px 0}
+footer{text-align:center;background:#142b4a;color:white;padding:27px;margin-top:30px}
+footer .decor{font-size:2rem}
+nav{
+ position:sticky;top:0;z-index:10;background:#fff;
+ border-bottom:1px solid #dce4ed;padding:8px 10px;
+ display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
+ box-shadow:0 3px 10px #10244012;
+}
+nav a{font-size:.83rem;text-decoration:none;font-weight:bold;padding:5px 8px;border-radius:7px;color:#193c63}
+nav a:hover{background:#edf4fb}
+@media(max-width:600px){
+ .container{padding:10px}.card{padding:16px}header{padding:35px 13px}
+ nav{position:relative}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="decor">🇬🇧 👑 🏰 🏴</div>
+ <h1>AROUND THE<br>UNITED KINGDOM</h1>
+ <p>Multimedia Culture & Travel Lab</p>
+ <span class="tag">POZNAJ CZTERY KRAJE • ODKRYJ ICH HISTORIĘ I LEGENDY</span>
+ <p>England • Scotland • Wales • Northern Ireland</p>
+</header>
+
+<nav>
+ <a href="#start">Start</a>
+ <a href="#basics">Informacje</a>
+ <a href="#monarchy">Monarchia</a>
+ <a href="#map">Mapa</a>
+ <a href="#history">Historia</a>
+ <a href="#england">Anglia</a>
+ <a href="#scotland">Szkocja</a>
+ <a href="#wales">Walia</a>
+ <a href="#ni">Irlandia Północna</a>
+ <a href="#quiz">Quiz</a>
+</nav>
+
+<main class="container">
+
+<section class="card intro" id="start">
+ <h2>🌍 Witaj w Zjednoczonym Królestwie!</h2>
+ <p>Czy wiesz, że Wielka Brytania i Zjednoczone Królestwo to nie dokładnie to samo? Czy potrafisz rozpoznać flagę Szkocji? A może znasz legendę o potworze z Loch Ness?</p>
+ <p>Zapraszamy w podróż przez historię, geografię, królewskie pałace, zamki, góry, wyspy i niezwykłe opowieści!</p>
+ <div style="font-size:2.5rem">🏰 🌊 🏔️ 👑 🐉</div>
+ <span class="pill">HISTORY</span><span class="pill">GEOGRAPHY</span>
+ <span class="pill">ROYAL FAMILY</span><span class="pill">LEGENDS</span>
+ <span class="pill">CULTURE</span>
+ <div class="activity">
+  <strong>🎯 Twoja misja:</strong>
+  <p>Poznaj cztery kraje tworzące United Kingdom, naucz się ich symboli, odkryj legendy i sprawdź swoją wiedzę w interaktywnych wyzwaniach.</p>
+ </div>
+</section>
+
+<section class="card" id="basics">
+ <h2>🇬🇧 1. United Kingdom – informacje ogólne</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Elizabeth_Tower,_Palace_of_Westminster.jpg" alt="Elizabeth Tower i Pałac Westminsterski" onerror="this.style.display='none'">
+ <p><strong>United Kingdom of Great Britain and Northern Ireland</strong> – Zjednoczone Królestwo Wielkiej Brytanii i Irlandii Północnej – to państwo położone w północno-zachodniej Europie.</p>
+ <p>Składa się z czterech krajów: Anglii, Szkocji, Walii i Irlandii Północnej. Każdy z nich ma własną historię, symbole, tradycje i charakterystyczną kulturę.</p>
+ <div class="grid">
+  <div class="vocab"><span class="emoji">🏛️</span><strong>Capital city</strong><small>London – stolica państwa</small></div>
+  <div class="vocab"><span class="emoji">👑</span><strong>Head of State</strong><small>King Charles III – głowa państwa</small></div>
+  <div class="vocab"><span class="emoji">💷</span><strong>Currency</strong><small>Pound sterling (£) – funt szterling</small></div>
+  <div class="vocab"><span class="emoji">🗣️</span><strong>Main language</strong><small>English – język angielski</small></div>
+  <div class="vocab"><span class="emoji">🏛️</span><strong>Government</strong><small>Parliamentary democracy – demokracja parlamentarna</small></div>
+  <div class="vocab"><span class="emoji">🚗</span><strong>Driving side</strong><small>Left – ruch lewostronny</small></div>
+ </div>
+ <h3>Ważne pojęcia – nie pomyl ich!</h3>
+ <div class="tablewrap">
+ <table>
+  <tr><th>English term</th><th>Co oznacza?</th></tr>
+  <tr><td><strong>England</strong></td><td>Anglia – jeden z czterech krajów Zjednoczonego Królestwa.</td></tr>
+  <tr><td><strong>Great Britain</strong></td><td>Wielka Brytania – wyspa, na której leżą Anglia, Szkocja i Walia.</td></tr>
+  <tr><td><strong>United Kingdom (UK)</strong></td><td>Państwo obejmujące Anglię, Szkocję, Walię i Irlandię Północną.</td></tr>
+  <tr><td><strong>British Isles</strong></td><td>Archipelag Wysp Brytyjskich – określenie geograficzne obejmujące m.in. Wielką Brytanię i Irlandię. Termin bywa wrażliwy politycznie i nie wszyscy go używają.</td></tr>
+  <tr><td><strong>Republic of Ireland</strong></td><td>Republika Irlandii – osobne, niepodległe państwo, które nie należy do UK.</td></tr>
+ </table>
+ </div>
+ <div class="activity"><strong>Zapamiętaj!</strong><p>England ≠ Great Britain ≠ United Kingdom. Anglia nie jest synonimem całego Zjednoczonego Królestwa.</p></div>
+</section>
+
+<section class="card" id="monarchy">
+ <h2>👑 2. Brytyjska monarchia</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Buckingham_Palace,_London_-_April_2009.jpg" alt="Buckingham Palace w Londynie" onerror="this.style.display='none'">
+ <p>Zjednoczone Królestwo jest <strong>monarchią konstytucyjną</strong> – constitutional monarchy. Oznacza to, że monarcha jest głową państwa, ale krajem rządzi demokratycznie wybrany parlament i rząd.</p>
+ <h3>Król Karol III – King Charles III</h3>
+ <p>Karol III został królem 8 września 2022 roku, po śmierci swojej matki, królowej Elżbiety II. Koronacja odbyła się 6 maja 2023 roku w Opactwie Westminsterskim.</p>
+ <div class="grid">
+  <div class="country">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Charles_III_in_March_2023.jpg" alt="Król Karol III" loading="lazy">
+   <h3>King Charles III</h3>
+   <p>Monarcha, głowa państwa i symbol ciągłości instytucji państwowych.</p>
+  </div>
+  <div class="country">
+   <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Camilla_2023.jpg" alt="Królowa Kamila" loading="lazy">
+   <h3>Queen Camilla</h3>
+   <p>Królowa małżonka – Queen Consort. Wspiera króla podczas obowiązków publicznych.</p>
+  </div>
+ </div>
+ <h3>Co robi monarcha?</h3>
+ <ul>
+  <li>Pełni funkcję głowy państwa.</li>
+  <li>Uczestniczy w uroczystościach państwowych.</li>
+  <li>Otwiera nową sesję parlamentu.</li>
+  <li>Udziela formalnej zgody królewskiej – Royal Assent – ustawom uchwalonym przez parlament.</li>
+  <li>Spotyka się z premierem i odbywa obowiązki reprezentacyjne.</li>
+  <li>Wspiera działalność organizacji charytatywnych i społecznych.</li>
+ </ul>
+ <div class="activity">
+  <strong>Ważne:</strong> król nie podejmuje samodzielnie codziennych decyzji politycznych. W systemie konstytucyjnym działa zgodnie z zasadami i konwenansami ustrojowymi. Parlament i rząd mają zasadniczą rolę w rządzeniu państwem.
+ </div>
+ <h3>Parliament – brytyjski parlament</h3>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Palace_of_Westminster_from_the_river.jpg" alt="Pałac Westminsterski nad Tamizą" loading="lazy">
+ <p>Parlament Zjednoczonego Królestwa obraduje w Westminsterze w Londynie. Składa się z trzech elementów:</p>
+ <ul>
+  <li><strong>House of Commons</strong> – Izba Gmin, której członkowie są wybierani przez obywateli.</li>
+  <li><strong>House of Lords</strong> – Izba Lordów, druga izba parlamentu.</li>
+  <li><strong>The Crown</strong> – Korona, czyli monarcha jako formalny element parlamentu.</li>
+ </ul>
+ <div class="english"><strong>English in action:</strong><br>
+  The King is the Head of State.<br>
+  Parliament makes laws.<br>
+  The Prime Minister leads the government.
+ </div>
+ <p class="note">Oficjalne informacje o monarchii: <a href="https://www.royal.uk/" target="_blank" rel="noopener">The Royal Family</a> i <a href="https://www.parliament.uk/" target="_blank" rel="noopener">UK Parliament</a>.</p>
+</section>
+
+<section class="card" id="map">
+ <h2>🗺️ 3. Geografia – gdzie leży UK?</h2>
+ <p>Zjednoczone Królestwo leży na wyspach na północny zachód od kontynentalnej Europy. Od wschodu oddziela je od Europy Morze Północne, a od południa kanał La Manche (English Channel).</p>
+ <div class="mapbox">
+  <strong>Schematyczna mapa czterech krajów UK</strong>
+  <svg viewBox="0 0 600 480" role="img" aria-label="Schematyczna mapa Zjednoczonego Królestwa">
+   <rect x="0" y="0" width="600" height="480" rx="15" fill="#e5f1fa"/>
+   <text x="30" y="35" fill="#426b91" font-size="15">ATLANTIC OCEAN</text>
+   <text x="425" y="85" fill="#426b91" font-size="14">NORTH SEA</text>
+   <path d="M276 36 L310 52 L321 81 L301 108 L316 130 L293 154 L307 176 L286 201 L296 230 L275 252 L265 280 L247 301 L238 331 L211 351 L193 343 L202 319 L187 302 L205 278 L196 251 L212 225 L203 204 L219 181 L215 158 L234 136 L225 110 L243 91 L240 63 Z" fill="#7c9ac0" stroke="#fff" stroke-width="3"/>
+   <path d="M277 36 L310 52 L321 81 L301 108 L316 130 L293 154 L307 176 L286 201 L296 230 L275 252 L265 280 L247 301 L238 331 L211 351 L193 343 L202 319 L187 302 L205 278 L196 251 L212 225 L203 204 L219 181 L215 158 L234 136 L225 110 L243 91 L240 63 Z" fill="#6f91b8" stroke="#fff" stroke-width="2"/>
+   <path d="M219 181 L286 201 L296 230 L275 252 L265 280 L247 301 L238 331 L211 351 L193 343 L202 319 L187 302 L205 278 L196 251 L212 225 L203 204 Z" fill="#d9a94c" stroke="#fff" stroke-width="2"/>
+   <path d="M187 302 L205 278 L196 251 L212 225 L203 204 L219 181 L234 201 L228 229 L239 253 L222 281 L238 331 L211 351 L193 343 L202 319 Z" fill="#9a7eb6" stroke="#fff" stroke-width="2" opacity=".95"/>
+   <path d="M193 343 L211 351 L238 331 L247 301 L265 280 L275 252 L296 230 L307 252 L293 274 L302 295 L281 319 L274 350 L249 369 L227 365 L204 378 L182 363 Z" fill="#d9a94c" stroke="#fff" stroke-width="2" opacity=".0"/>
+   <path d="M100 244 L130 231 L151 245 L153 270 L138 291 L112 286 L95 265 Z" fill="#75a97d" stroke="#fff" stroke-width="2"/>
+   <path d="M99 244 L130 231 L151 245 L153 270 L138 291 L112 286 L95 265 Z" fill="#75a97d"/>
+   <path d="M100 244 L130 231 L151 245 L153 270 L138 291 L112 286 L95 265 Z" fill="none" stroke="#fff" stroke-width="2"/>
+   <text x="355" y="180" fill="#183c60" font-size="19" font-weight="bold">SCOTLAND</text>
+   <text x="355" y="205" fill="#183c60" font-size="13">Edinburgh</text>
+   <path d="M320 190 L346 190" stroke="#183c60" stroke-width="2"/>
+   <text x="355" y="260" fill="#8c6410" font-size="19" font-weight="bold">ENGLAND</text>
+   <text x="355" y="283" fill="#8c6410" font-size="13">London</text>
+   <path d="M292 267 L346 267" stroke="#8c6410" stroke-width="2"/>
+   <text x="355" y="325" fill="#795b91" font-size="18" font-weight="bold">WALES</text>
+   <text x="355" y="345" fill="#795b91" font-size="13">Cardiff</text>
+   <path d="M227 330 L346 330" stroke="#795b91" stroke-width="2"/>
+   <text x="18" y="330" fill="#27643e" font-size="17" font-weight="bold">NORTHERN</text>
+   <text x="18" y="350" fill="#27643e" font-size="17" font-weight="bold">IRELAND</text>
+   <text x="18" y="371" fill="#27643e" font-size="13">Belfast</text>
+   <path d="M130 286 L130 315 L110 315" stroke="#27643e" stroke-width="2" fill="none"/>
+   <text x="260" y="440" fill="#426b91" font-size="14">ENGLISH CHANNEL</text>
+   <text x="25" y="465" fill="#6b7785" font-size="11">Mapa poglądowa – nie w skali</text>
+  </svg>
+  <p class="note">Schemat służy do zapamiętania położenia krajów, nie jest mapą nawigacyjną.</p>
+ </div>
+ <h3>Najważniejsze elementy geografii</h3>
+ <div class="grid">
+  <div class="country"><h3>🏔️ Góry</h3><p>Ben Nevis w Szkocji jest najwyższym szczytem UK. Walia słynie z pasma Eryri (Snowdonia).</p></div>
+  <div class="country"><h3>🌊 Wybrzeża</h3><p>Wielka Brytania i Irlandia Północna mają bardzo urozmaicone wybrzeża, klify, zatoki i plaże.</p></div>
+  <div class="country"><h3>🏞️ Jeziora</h3><p>Loch Ness w Szkocji jest słynnym jeziorem związanym z legendą o Nessie.</p></div>
+  <div class="country"><h3>🌳 Parki narodowe</h3><p>Lake District, Peak District, Eryri i Cairngorms chronią wyjątkowe krajobrazy.</p></div>
+ </div>
+ <h3>Najważniejsze rzeki i akweny</h3>
+ <ul>
+  <li>Thames – Tamiza, przepływa przez Londyn.</li>
+  <li>Severn – jedna z najdłuższych rzek Wielkiej Brytanii.</li>
+  <li>Loch Ness – słynne szkockie jezioro.</li>
+  <li>North Sea – Morze Północne.</li>
+  <li>Atlantic Ocean – Ocean Atlantycki.</li>
+ </ul>
+</section>
+
+<section class="card">
+ <h2>📸 4. Wielka Brytania w obrazach</h2>
+ <div class="gallery">
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Stonehenge2007_07_30.jpg" alt="Stonehenge" loading="lazy"><figcaption>Stonehenge – prehistoryczny kamienny krąg, Anglia</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Edinburgh_Castle_from_the_south_east.JPG" alt="Edinburgh Castle" loading="lazy"><figcaption>Edinburgh Castle – zamek w Szkocji</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Giant%27s_Causeway,_County_Antrim_(2).JPG" alt="Giant's Causeway" loading="lazy"><figcaption>Giant’s Causeway – Grobla Olbrzyma</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cardiff_Castle_Keep.jpg" alt="Cardiff Castle" loading="lazy"><figcaption>Cardiff Castle – zamek w stolicy Walii</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Urquhart_Castle_and_Loch_Ness.jpg" alt="Urquhart Castle and Loch Ness" loading="lazy"><figcaption>Loch Ness – jezioro i ruiny zamku</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tower_Bridge_London_Feb_2006.jpg" alt="Tower Bridge" loading="lazy"><figcaption>Tower Bridge – Londyn</figcaption></figure>
+ </div>
+ <p class="note">Zdjęcia są pobierane z Wikimedia Commons. Jeśli któreś nie wyświetli się w przeglądarce, można skorzystać z wyszukiwarki zdjęć Commons: <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a>.</p>
+</section>
+
+<section class="card" id="history">
+ <h2>📜 5. Zarys historii Zjednoczonego Królestwa</h2>
+ <p>Historia UK to wiele różnych historii: Anglii, Szkocji, Walii i Irlandii. Kraje te przez wieki rozwijały się osobno, walczyły, zawierały sojusze i stopniowo tworzyły wspólne państwo.</p>
+ <div class="timeline">
+  <div class="timeline-item"><strong>Prehistory – prehistoria</strong><p>Powstają niezwykłe budowle, takie jak Stonehenge. Na wyspach żyją społeczności epoki kamienia, brązu i żelaza.</p></div>
+  <div class="timeline-item"><strong>43 AD – Rzymianie</strong><p>Rzymska armia rozpoczyna podbój dużej części Brytanii. Powstają drogi, miasta, forty i budowle. Rzymianie budują też Wał Hadriana.</p></div>
+  <div class="timeline-item"><strong>410 AD – koniec rzymskiej administracji</strong><p>Rzymska władza wycofuje się z Brytanii. Na wyspach osiedlają się kolejne grupy ludności, m.in. Anglowie, Sasi i Jutowie.</p></div>
+  <div class="timeline-item"><strong>1066 – Norman Conquest</strong><p>Wilhelm Zdobywca pokonuje anglosaskiego króla Harolda w bitwie pod Hastings. Rozpoczyna się normańska dynastia w Anglii.</p></div>
+  <div class="timeline-item"><strong>1215 – Magna Carta</strong><p>Król Jan bez Ziemi zatwierdza Wielką Kartę Swobód. Dokument staje się ważnym elementem historii ograniczania władzy królewskiej.</p></div>
+  <div class="timeline-item"><strong>1603 – Union of the Crowns</strong><p>Jakub VI Szkocki zostaje także królem Anglii jako Jakub I. Oba królestwa mają jednego monarchę, ale pozostają odrębnymi państwami.</p></div>
+  <div class="timeline-item"><strong>1707 – Act of Union</strong><p>Anglia i Szkocja łączą się w Królestwo Wielkiej Brytanii – Kingdom of Great Britain.</p></div>
+  <div class="timeline-item"><strong>1801 – kolejne zjednoczenie</strong><p>Powstaje Zjednoczone Królestwo Wielkiej Brytanii i Irlandii – United Kingdom of Great Britain and Ireland.</p></div>
+  <div class="timeline-item"><strong>1921–1922 – podział Irlandii</strong><p>Większość Irlandii uzyskuje odrębny status jako Irish Free State. Sześć hrabstw na północnym wschodzie pozostaje w UK jako Irlandia Północna.</p></div>
+  <div class="timeline-item"><strong>1998 – Good Friday Agreement</strong><p>Porozumienie wielkopiątkowe pomaga zakończyć wieloletni konflikt w Irlandii Północnej i ustanawia ramy podziału władzy.</p></div>
+ </div>
+ <div class="activity"><strong>History fact:</strong><p>Rok 1707 jest ważny dla powstania Królestwa Wielkiej Brytanii, a rok 1801 dla powstania Zjednoczonego Królestwa Wielkiej Brytanii i Irlandii.</p></div>
+</section>
+
+<section class="card">
+ <h2>🏳️ 6. Flaga Zjednoczonego Królestwa – Union Jack</h2>
+ <div class="flagbox">
+  <strong>THE UNION FLAG / UNION JACK</strong>
+  <svg viewBox="0 0 300 180" role="img" aria-label="Flaga Union Jack">
+   <rect width="300" height="180" fill="#173b70"/>
+   <path d="M0 0 L300 180 M300 0 L0 180" stroke="white" stroke-width="42"/>
+   <path d="M0 0 L300 180 M300 0 L0 180" stroke="#c92c40" stroke-width="19"/>
+   <path d="M150 0 V180 M0 90 H300" stroke="white" stroke-width="56"/>
+   <path d="M150 0 V180 M0 90 H300" stroke="#c92c40" stroke-width="31"/>
+  </svg>
+  <p class="note">Uproszczona ilustracja Union Flag.</p>
+ </div>
+ <p>Union Jack łączy symbole trzech patronów: św. Jerzego (Anglia), św. Andrzeja (Szkocja) i św. Patryka (Irlandia). Flaga w obecnej formie pochodzi z 1801 roku.</p>
+ <p><strong>A co z Walią?</strong> Walijski czerwony smok nie został umieszczony na Union Flag, ponieważ Walia była już prawnie połączona z Anglią w czasie powstawania wcześniejszej wersji flagi.</p>
+</section>
+
+<!-- ENGLAND -->
+<section class="card" id="england">
+ <h2>🌹 7. ENGLAND – ANGLIA</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Big_Ben,_London_-_Feb_2007.jpg" alt="Big Ben w Londynie" loading="lazy">
+ <div class="grid">
+  <div class="flagbox">
+   <strong>Flag of England</strong>
+   <svg viewBox="0 0 300 180" role="img" aria-label="Flaga Anglii">
+    <rect width="300" height="180" fill="white"/>
+    <rect x="120" width="60" height="180" fill="#cf263b"/>
+    <rect y="60" width="300" height="60" fill="#cf263b"/>
+   </svg>
+   <small>St George’s Cross – krzyż św. Jerzego</small>
+  </div>
+  <div class="country">
+   <div class="flag">🌹</div>
+   <h3>Najważniejsze informacje</h3>
+   <p><strong>Stolica:</strong> London</p>
+   <p><strong>Język:</strong> English</p>
+   <p><strong>Patron:</strong> St George – św. Jerzy</p>
+   <p><strong>Święto patrona:</strong> 23 April – St George’s Day</p>
+   <p><strong>Symbol:</strong> red rose – czerwona róża</p>
+  </div>
+ </div>
+ <h3>Co warto wiedzieć o Anglii?</h3>
+ <p>Anglia jest największym i najludniejszym krajem UK. Jej stolicą jest Londyn – wielkie miasto, w którym znajdują się m.in. Buckingham Palace, Big Ben, Tower Bridge i British Museum.</p>
+ <div class="gallery">
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Stonehenge2007_07_30.jpg" alt="Stonehenge" loading="lazy"><figcaption>Stonehenge</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tower_Bridge_London_Feb_2006.jpg" alt="Tower Bridge" loading="lazy"><figcaption>Tower Bridge</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_District_National_Park.jpg" alt="Lake District" loading="lazy"><figcaption>Lake District</figcaption></figure>
+ </div>
+ <h3>Symbole i tradycje</h3>
+ <ul>
+  <li><strong>Red rose:</strong> czerwona róża – narodowy symbol Anglii.</li>
+  <li><strong>St George’s Cross:</strong> biało-czerwona flaga z krzyżem św. Jerzego.</li>
+  <li><strong>St George’s Day:</strong> 23 kwietnia – dzień patrona Anglii.</li>
+  <li><strong>Afternoon tea:</strong> tradycja popołudniowej herbaty, często z kanapkami, ciastkami i scones.</li>
+  <li><strong>Changing of the Guard:</strong> uroczysta zmiana warty przy królewskich rezydencjach.</li>
+  <li><strong>Bonfire Night:</strong> 5 listopada – wspomnienie spisku prochowego z 1605 roku, często z ogniskami i pokazami fajerwerków.</li>
+ </ul>
+ <h3>Święta i wydarzenia</h3>
+ <ul>
+  <li>St George’s Day – 23 April.</li>
+  <li>Bonfire Night – 5 November.</li>
+  <li>Trooping the Colour – uroczystość związana z oficjalnymi obchodami urodzin monarchy.</li>
+ </ul>
+ <h3>Legenda: King Arthur and the Sword in the Stone</h3>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Glastonbury_Abbey_ruins.jpg" alt="Ruiny opactwa Glastonbury" loading="lazy">
+ <p>Jedna z najsłynniejszych legend związanych z Anglią opowiada o królu Arturze, rycerzach Okrągłego Stołu i magicznym mieczu Excalibur. W wielu wersjach młody Artur wyciąga miecz z kamienia i zostaje królem. Historycy nie mają pewności, czy Artur był postacią historyczną. Legenda łączy się także z tradycjami celtyckimi i walijskimi.</p>
+ <div class="legend">
+  <h4>📖 The Sword in the Stone – Easy English</h4>
+  <p>Long ago, England had no king. One day, people saw a strange stone in a churchyard. A beautiful sword was stuck in the stone.</p>
+  <p>There was a message: “The person who pulls out the sword will be the true king.” Many strong knights tried, but nobody could move it.</p>
+  <p>Then a young boy called Arthur came. He pulled the sword out easily. People were surprised. Arthur became king. He was famous for his courage and kindness.</p>
+  <p><strong>Vocabulary:</strong> sword – miecz; stone – kamień; knight – rycerz; courage – odwaga; king – król.</p>
+ </div>
+ <h3>Ciekawostki o Anglii</h3>
+ <ul>
+  <li>Big Ben to nazwa dzwonu, a nie całej wieży. Wieża nazywa się Elizabeth Tower.</li>
+  <li>Stonehenge ma około 5 tysięcy lat.</li>
+  <li>W Anglii znajduje się wiele zabytkowych zamków i katedr.</li>
+  <li>Wimbledon jest jednym z najbardziej znanych turniejów tenisowych świata.</li>
+ </ul>
+ <div class="english"><strong>English mini dictionary</strong><br>
+  rose – róża • crown – korona • sword – miecz • castle – zamek • knight – rycerz • king – król • queen – królowa • tea – herbata
+ </div>
+ <p><strong>Odkrywaj Anglię:</strong> <a href="https://www.visitengland.com/" target="_blank" rel="noopener">Visit England</a> · <a href="https://www.english-heritage.org.uk/" target="_blank" rel="noopener">English Heritage</a></p>
+</section>
+
+<!-- SCOTLAND -->
+<section class="card" id="scotland">
+ <h2>🏴 8. SCOTLAND – SZKOCJA</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Edinburgh_Castle_from_the_south_east.JPG" alt="Edinburgh Castle" loading="lazy">
+ <div class="grid">
+  <div class="flagbox">
+   <strong>Flag of Scotland</strong>
+   <svg viewBox="0 0 300 180" role="img" aria-label="Flaga Szkocji">
+    <rect width="300" height="180" fill="#1763a6"/>
+    <path d="M0 0 L300 180 M300 0 L0 180" stroke="white" stroke-width="38"/>
+   </svg>
+   <small>St Andrew’s Cross – Saltire</small>
+  </div>
+  <div class="country">
+   <div class="flag">🦄</div>
+   <h3>Najważniejsze informacje</h3>
+   <p><strong>Stolica:</strong> Edinburgh</p>
+   <p><strong>Języki:</strong> English, Scots, Scottish Gaelic</p>
+   <p><strong>Patron:</strong> St Andrew – św. Andrzej</p>
+   <p><strong>Święto patrona:</strong> 30 November – St Andrew’s Day</p>
+   <p><strong>Symbole:</strong> thistle – oset; unicorn – jednorożec</p>
+  </div>
+ </div>
+ <h3>Kraina gór, jezior i zamków</h3>
+ <p>Szkocja słynie z pięknych krajobrazów: Highlands, jezior zwanych lochs, skalistych wysp i średniowiecznych zamków. Najwyższym szczytem UK jest Ben Nevis.</p>
+ <div class="gallery">
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Urquhart_Castle_and_Loch_Ness.jpg" alt="Loch Ness" loading="lazy"><figcaption>Loch Ness</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Eilean_Donan_Castle.jpg" alt="Eilean Donan Castle" loading="lazy"><figcaption>Eilean Donan Castle</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ben_Nevis_from_Banavie.jpg" alt="Ben Nevis" loading="lazy"><figcaption>Ben Nevis</figcaption></figure>
+ </div>
+ <h3>Symbole i tradycje</h3>
+ <ul>
+  <li><strong>Thistle:</strong> oset – narodowy kwiat Szkocji.</li>
+  <li><strong>Unicorn:</strong> jednorożec – symbol heraldyczny Szkocji.</li>
+  <li><strong>Tartan:</strong> wzór w kratę, kojarzony z klanami i szkocką kulturą.</li>
+  <li><strong>Kilt:</strong> tradycyjny element stroju, przypominający spódnicę.</li>
+  <li><strong>Bagpipes:</strong> dudy – instrument często kojarzony ze Szkocją.</li>
+  <li><strong>Highland Games:</strong> zawody i festiwale z tradycyjnymi konkurencjami sportowymi.</li>
+ </ul>
+ <h3>Święta i wydarzenia</h3>
+ <ul>
+  <li>St Andrew’s Day – 30 November.</li>
+  <li>Burns Night – 25 January, wieczór poświęcony poecie Robertowi Burnsowi.</li>
+  <li>Hogmanay – szkockie obchody Nowego Roku.</li>
+  <li>Up Helly Aa – festiwal ognia na Szetlandach, nawiązujący do tradycji nordyckich.</li>
+ </ul>
+ <h3>Legenda: The Loch Ness Monster</h3>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Loch_Ness.jpg" alt="Jezioro Loch Ness" loading="lazy">
+ <p>Loch Ness to głębokie jezioro w szkockich Highlands. Według legendy w jego wodach żyje tajemniczy potwór nazywany Nessie. Opowieści o niezwykłym stworzeniu krążą od dawna. Nie ma jednak wiarygodnych dowodów naukowych na istnienie potwora.</p>
+ <div class="legend">
+  <h4>📖 The Loch Ness Monster – Easy English</h4>
+  <p>There is a deep lake in Scotland. Its name is Loch Ness.</p>
+  <p>Many years ago, people started telling stories about a strange animal in the water. They called it Nessie.</p>
+  <p>Some people say Nessie has a long neck and a big body. Others think it is only a story.</p>
+  <p>Many tourists visit Loch Ness every year. They hope to see the famous monster!</p>
+  <p><strong>Vocabulary:</strong> lake – jezioro; monster – potwór; deep – głęboki; neck – szyja; water – woda; story – opowieść.</p>
+ </div>
+ <h3>Ciekawostki o Szkocji</h3>
+ <ul>
+  <li>Edynburg słynie z festiwali artystycznych, zwłaszcza Edinburgh Festival Fringe.</li>
+  <li>Szkocki tartan może mieć różne wzory i kolory kojarzone z rodzinami i klanami.</li>
+  <li>Haggis to tradycyjna potrawa szkocka.</li>
+  <li>W Szkocji znajduje się wiele zamków, a niektóre z nich stoją na wyspach jezior.</li>
+ </ul>
+ <div class="english"><strong>English mini dictionary</strong><br>
+  mountain – góra • lake – jezioro • monster – potwór • bagpipes – dudy • kilt – kilt • castle – zamek • thistle – oset • tartan – szkocka krata
+ </div>
+ <p><strong>Odkrywaj Szkocję:</strong> <a href="https://www.visitscotland.com/" target="_blank" rel="noopener">VisitScotland</a> · <a href="https://www.scottishheritage.org/" target="_blank" rel="noopener">Scottish Heritage</a></p>
+</section>
+
+<!-- WALES -->
+<section class="card" id="wales">
+ <h2>🐉 9. WALES – WALIA</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Snowdon_from_Llyn_Llydaw.jpg" alt="Góry Snowdonia w Walii" loading="lazy">
+ <div class="grid">
+  <div class="flagbox">
+   <strong>Flag of Wales</strong>
+   <svg viewBox="0 0 300 180" role="img" aria-label="Flaga Walii">
+    <rect width="300" height="90" fill="white"/>
+    <rect y="90" width="300" height="90" fill="#168344"/>
+    <path d="M65 120 L90 73 L112 87 L140 40 L158 84 L186 69 L210 121 L190 145 L163 131 L142 153 L120 131 L90 147 Z" fill="#c92d3c" stroke="#a61e2d" stroke-width="4"/>
+    <path d="M110 86 L125 102 L148 81 L160 105 L178 92 L185 125 L159 118 L140 140 L124 117 L101 127 Z" fill="#c92d3c"/>
+   </svg>
+   <small>Y Ddraig Goch – The Red Dragon</small>
+  </div>
+  <div class="country">
+   <div class="flag">🐉</div>
+   <h3>Najważniejsze informacje</h3>
+   <p><strong>Stolica:</strong> Cardiff</p>
+   <p><strong>Języki:</strong> Welsh and English</p>
+   <p><strong>Patron:</strong> St David – św. Dawid</p>
+   <p><strong>Święto patrona:</strong> 1 March – St David’s Day</p>
+   <p><strong>Symbole:</strong> red dragon – czerwony smok; leek – por; daffodil – żonkil</p>
+  </div>
+ </div>
+ <h3>Walia – kraina smoków i zamków</h3>
+ <p>Walia leży na zachodzie wyspy Wielka Brytania. Jest znana z gór, zielonych dolin, zamków i silnej tradycji języka walijskiego. W języku walijskim kraj nazywa się <strong>Cymru</strong>.</p>
+ <div class="gallery">
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cardiff_Castle_Keep.jpg" alt="Cardiff Castle" loading="lazy"><figcaption>Cardiff Castle</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Caernarfon_Castle_from_the_air.jpg" alt="Caernarfon Castle" loading="lazy"><figcaption>Caernarfon Castle</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Snowdon_from_Llyn_Llydaw.jpg" alt="Snowdonia" loading="lazy"><figcaption>Eryri / Snowdonia</figcaption></figure>
+ </div>
+ <h3>Symbole i tradycje</h3>
+ <ul>
+  <li><strong>Red Dragon – Y Ddraig Goch:</strong> czerwony smok na fladze Walii.</li>
+  <li><strong>Daffodil:</strong> żonkil – jeden z narodowych symboli Walii.</li>
+  <li><strong>Leek:</strong> por – tradycyjny symbol narodowy.</li>
+  <li><strong>Eisteddfod:</strong> festiwal poezji, muzyki i kultury walijskiej.</li>
+  <li><strong>Welsh language:</strong> język walijski jest ważną częścią tożsamości kraju.</li>
+ </ul>
+ <h3>Święta i wydarzenia</h3>
+ <ul>
+  <li>St David’s Day – 1 March.</li>
+  <li>Eisteddfod – festiwale kultury, muzyki i literatury walijskiej.</li>
+  <li>Calennig – tradycyjny zwyczaj noworoczny związany z życzeniami i drobnymi podarunkami.</li>
+ </ul>
+ <h3>Legenda: The Red Dragon of Wales</h3>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dinas_Emrys.jpg" alt="Dinas Emrys w Walii" loading="lazy">
+ <p>Jedna z walijskich opowieści mówi o dwóch smokach walczących pod wzgórzem. Czerwony smok symbolizował Brytów, a biały – najeźdźców. Ich walka miała być znakiem przyszłych losów kraju. Opowieść pojawia się w średniowiecznych tekstach, m.in. w historii związanej z postacią Merlina.</p>
+ <div class="legend">
+  <h4>📖 The Two Dragons – Easy English</h4>
+  <p>Long ago, a king wanted to build a castle on a hill in Wales.</p>
+  <p>But every night, the walls fell down. The king asked a wise boy for help.</p>
+  <p>The boy said: “There are two dragons under the hill!”</p>
+  <p>People dug a hole and found two dragons: one red and one white. The dragons started fighting.</p>
+  <p>The red dragon won. Today, the red dragon is a famous symbol of Wales.</p>
+  <p><strong>Vocabulary:</strong> dragon – smok; hill – wzgórze; castle – zamek; fight – walczyć; win – wygrać; symbol – symbol.</p>
+ </div>
+ <h3>Ciekawostki o Walii</h3>
+ <ul>
+  <li>Walia ma setki zamków i ruin zamkowych.</li>
+  <li>Walijski jest jednym z najstarszych żywych języków Europy.</li>
+  <li>Na walijskich drogach można zobaczyć dwujęzyczne znaki: po angielsku i walijsku.</li>
+  <li>Najdłuższa nazwa miejscowości w Walii to słynne Llanfair­pwllgwyngyll­gogerychwyrndrobwllllantysilio­gogogoch.</li>
+ </ul>
+ <div class="english"><strong>Useful Welsh words</strong><br>
+  Cymru – Wales • croeso – welcome • diolch – thank you • bore da – good morning • iechyd da – cheers!
+ </div>
+ <div class="english"><strong>English mini dictionary</strong><br>
+  dragon – smok • leek – por • daffodil – żonkil • castle – zamek • hill – wzgórze • language – język • festival – festiwal
+ </div>
+ <p><strong>Odkrywaj Walię:</strong> <a href="https://www.visitwales.com/" target="_blank" rel="noopener">Visit Wales</a> · <a href="https://museum.wales/" target="_blank" rel="noopener">Amgueddfa Cymru – Museum Wales</a></p>
+</section>
+
+<!-- NORTHERN IRELAND -->
+<section class="card" id="ni">
+ <h2>🍀 10. NORTHERN IRELAND – IRLANDIA PÓŁNOCNA</h2>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Giant%27s_Causeway,_County_Antrim_(2).JPG" alt="Grobla Olbrzyma" loading="lazy">
+ <div class="grid">
+  <div class="flagbox">
+   <strong>Symbols of Northern Ireland</strong>
+   <svg viewBox="0 0 300 180" role="img" aria-label="Flaga św. Patryka">
+    <rect width="300" height="180" fill="white"/>
+    <path d="M0 0 L300 180 M300 0 L0 180" stroke="#cf263b" stroke-width="32"/>
+   </svg>
+   <small>St Patrick’s Saltire – historyczny symbol</small>
+   <p class="note">Irlandia Północna nie ma obecnie jednej oficjalnej flagi państwowej. St Patrick’s Saltire jest symbolem historycznym; Union Flag jest flagą UK.</p>
+  </div>
+  <div class="country">
+   <div class="flag">🍀</div>
+   <h3>Najważniejsze informacje</h3>
+   <p><strong>Stolica:</strong> Belfast</p>
+   <p><strong>Języki:</strong> English, Irish, Ulster Scots</p>
+   <p><strong>Patron:</strong> St Patrick – św. Patryk</p>
+   <p><strong>Święto patrona:</strong> 17 March – St Patrick’s Day</p>
+   <p><strong>Symbole:</strong> shamrock – koniczyna; harp – harfa</p>
+  </div>
+ </div>
+ <h3>Kraina niezwykłych form skalnych</h3>
+ <p>Irlandia Północna leży na północnym wschodzie wyspy Irlandia. Jej stolicą jest Belfast. Znajdziemy tu zielone krajobrazy, wybrzeża, zamki, góry i słynną Groblę Olbrzyma.</p>
+ <div class="gallery">
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Giant%27s_Causeway,_County_Antrim_(2).JPG" alt="Giant's Causeway" loading="lazy"><figcaption>Giant’s Causeway</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Titanic_Belfast_September_2015.jpg" alt="Titanic Belfast" loading="lazy"><figcaption>Titanic Belfast</figcaption></figure>
+  <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dunluce_Castle_2013.jpg" alt="Dunluce Castle" loading="lazy"><figcaption>Dunluce Castle</figcaption></figure>
+ </div>
+ <h3>Symbole i tradycje</h3>
+ <ul>
+  <li><strong>Shamrock:</strong> trójlistna koniczyna, silnie kojarzona z Irlandią i św. Patrykiem.</li>
+  <li><strong>St Patrick:</strong> patron Irlandii, którego święto obchodzi się 17 marca.</li>
+  <li><strong>Irish language:</strong> język irlandzki jest częścią dziedzictwa kulturowego.</li>
+  <li><strong>Ulster Scots:</strong> język/regionalna odmiana związana z tradycją Ulsteru.</li>
+  <li><strong>Traditional music:</strong> muzyka tradycyjna i taniec irlandzki.</li>
+ </ul>
+ <h3>Święta i wydarzenia</h3>
+ <ul>
+  <li>St Patrick’s Day – 17 March.</li>
+  <li>Halloween – szczególnie silne tradycje związane z dawnymi zwyczajami celtyckimi.</li>
+  <li>W lokalnych społecznościach odbywają się festiwale muzyki, tańca i kultury.</li>
+ </ul>
+ <h3>Legenda: Finn McCool and the Giant’s Causeway</h3>
+ <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Giant%27s_Causeway,_County_Antrim_(2).JPG" alt="Bazaltowe kolumny Grobli Olbrzyma" loading="lazy">
+ <p>Według irlandzkiej legendy olbrzym Finn McCool zbudował kamienną drogę przez morze, aby dotrzeć do szkockiego olbrzyma Benandonnera. Kiedy zobaczył, jak wielki jest jego przeciwnik, postanowił wrócić do domu. Jego sprytna żona przebrała go za dziecko. Benandonner zobaczył ogromnego „niemowlaka” i pomyślał, że jego ojciec musi być jeszcze większy. Uciekł, niszcząc za sobą drogę.</p>
+ <div class="legend">
+  <h4>📖 Finn McCool and the Giant’s Causeway – Easy English</h4>
+  <p>Long ago, there was a giant called Finn McCool in Ireland.</p>
+  <p>He wanted to meet another giant in Scotland. Finn built a road of big stones across the sea.</p>
+  <p>When he saw the Scottish giant, he was afraid. The other giant was very big!</p>
+  <p>Finn’s clever wife had an idea. She dressed Finn as a baby and put him in a large bed.</p>
+  <p>The Scottish giant saw the huge baby and thought: “If the baby is so big, his father must be enormous!” He ran away.</p>
+  <p>The stones of the road became the Giant’s Causeway. It is a real and beautiful place in Northern Ireland!</p>
+  <p><strong>Vocabulary:</strong> giant – olbrzym; road – droga; stone – kamień; clever – sprytny; afraid – przestraszony; enormous – ogromny.</p>
+ </div>
+ <h3>Ciekawostki o Irlandii Północnej</h3>
+ <ul>
+  <li>Giant’s Causeway jest wpisana na listę światowego dziedzictwa UNESCO.</li>
+  <li>W Belfaście zbudowano słynny statek Titanic.</li>
+  <li>W Irlandii Północnej kręcono wiele scen do serialu „Gra o tron”.</li>
+  <li>St Patrick’s Day jest obchodzony w wielu krajach świata, nie tylko w Irlandii.</li>
+ </ul>
+ <div class="english"><strong>Irish words</strong><br>
+  fáilte – welcome • slán – goodbye • Éire – Ireland • Nollaig Shona – Merry Christmas
+ </div>
+ <div class="english"><strong>English mini dictionary</strong><br>
+  giant – olbrzym • stone – kamień • coast – wybrzeże • shamrock – koniczyna • harp – harfa • legend – legenda
+ </div>
+ <p><strong>Odkrywaj Irlandię Północną:</strong> <a href="https://discovernorthernireland.com/" target="_blank" rel="noopener">Discover Northern Ireland</a> · <a href="https://www.nationaltrust.org.uk/visit/northern-ireland" target="_blank" rel="noopener">National Trust – Northern Ireland</a></p>
+</section>
+
+<section class="card">
+ <h2>🧠 11. Cztery kraje – wielkie porównanie</h2>
+ <div class="tablewrap">
+ <table>
+  <tr><th>Cecha</th><th>🏴 England</th><th>🏴 Scotland</th><th>🏴 Wales</th><th>🇬🇧 Northern Ireland</th></tr>
+  <tr><td>Stolica</td><td>London</td><td>Edinburgh</td><td>Cardiff</td><td>Belfast</td></tr>
+  <tr><td>Patron</td><td>St George</td><td>St Andrew</td><td>St David</td><td>St Patrick</td></tr>
+  <tr><td>Dzień patrona</td><td>23 April</td><td>30 November</td><td>1 March</td><td>17 March</td></tr>
+  <tr><td>Symbol</td><td>Red rose</td><td>Thistle</td><td>Red dragon</td><td>Shamrock</td></tr>
+  <tr><td>Języki</td><td>English</td><td>English, Scots, Gaelic</td><td>English, Welsh</td><td>English, Irish, Ulster Scots</td></tr>
+  <tr><td>Znane miejsce</td><td>Stonehenge</td><td>Loch Ness</td><td>Snowdonia / Eryri</td><td>Giant’s Causeway</td></tr>
+  <tr><td>Legenda</td><td>King Arthur</td><td>Loch Ness Monster</td><td>Two Dragons</td><td>Finn McCool</td></tr>
+ </table>
+ </div>
+ <p class="note">Uwaga: w tabeli podano języki używane i tradycyjnie związane z poszczególnymi krajami. Ich status prawny i zakres użycia różnią się w zależności od kraju.</p>
+</section>
+
+<section class="card">
+ <h2>📖 12. English Vocabulary – słowniczek podróżnika</h2>
+ <div class="grid">
+  <div class="vocab"><span class="emoji">👑</span><strong>monarchy</strong><small>monarchia</small></div>
+  <div class="vocab"><span class="emoji">🏛️</span><strong>parliament</strong><small>parlament</small></div>
+  <div class="vocab"><span class="emoji">👑</span><strong>king</strong><small>król</small></div>
+  <div class="vocab"><span class="emoji">👸</span><strong>queen</strong><small>królowa</small></div>
+  <div class="vocab"><span class="emoji">🏰</span><strong>castle</strong><small>zamek</small></div>
+  <div class="vocab"><span class="emoji">🏔️</span><strong>mountain</strong><small>góra</small></div>
+  <div class="vocab"><span class="emoji">🌊</span><strong>coast</strong><small>wybrzeże</small></div>
+  <div class="vocab"><span class="emoji">🏞️</span><strong>lake</strong><small>jezioro</small></div>
+  <div class="vocab"><span class="emoji">🐉</span><strong>dragon</strong><small>smok</small></div>
+  <div class="vocab"><span class="emoji">🦄</span><strong>unicorn</strong><small>jednorożec</small></div>
+  <div class="vocab"><span class="emoji">🌹</span><strong>rose</strong><small>róża</small></div>
+  <div class="vocab"><span class="emoji">🍀</span><strong>shamrock</strong><small>koniczyna</small></div>
+  <div class="vocab"><span class="emoji">🏴</span><strong>flag</strong><small>flaga</small></div>
+  <div class="vocab"><span class="emoji">🗺️</span><strong>map</strong><small>mapa</small></div>
+  <div class="vocab"><span class="emoji">📜</span><strong>legend</strong><small>legenda</small></div>
+  <div class="vocab"><span class="emoji">🎉</span><strong>tradition</strong><small>tradycja</small></div>
+  <div class="vocab"><span class="emoji">🎭</span><strong>festival</strong><small>festiwal</small></div>
+  <div class="vocab"><span class="emoji">🗣️</span><strong>language</strong><small>język</small></div>
+ </div>
+</section>
+
+<section class="card">
+ <h2>🔗 13. Przydatne strony – odkrywaj UK dalej!</h2>
+ <div class="grid">
+  <div class="country">
+   <h3>🏛️ Oficjalne informacje</h3>
+   <ul class="linklist">
+    <li><a href="https://www.gov.uk/" target="_blank" rel="noopener">GOV.UK</a></li>
+    <li><a href="https://www.royal.uk/" target="_blank" rel="noopener">The Royal Family</a></li>
+    <li><a href="https://www.parliament.uk/" target="_blank" rel="noopener">UK Parliament</a></li>
+   </ul>
+  </div>
+  <div class="country">
+   <h3>🧭 Turystyka</h3>
+   <ul class="linklist">
+    <li><a href="https://www.visitbritain.com/" target="_blank" rel="noopener">VisitBritain</a></li>
+    <li><a href="https://www.visitengland.com/" target="_blank" rel="noopener">Visit England</a></li>
+    <li><a href="https://www.visitscotland.com/" target="_blank" rel="noopener">VisitScotland</a></li>
+    <li><a href="https://www.visitwales.com/" target="_blank" rel="noopener">Visit Wales</a></li>
+    <li><a href="https://discovernorthernireland.com/" target="_blank" rel="noopener">Discover Northern Ireland</a></li>
+   </ul>
+  </div>
+  <div class="country">
+   <h3>🏰 Historia i kultura</h3>
+   <ul class="linklist">
+    <li><a href="https://www.english-heritage.org.uk/" target="_blank" rel="noopener">English Heritage</a></li>
+    <li><a href="https://www.historicenvironment.scot/" target="_blank" rel="noopener">Historic Environment Scotland</a></li>
+    <li><a href="https://cadw.gov.wales/" target="_blank" rel="noopener">Cadw – Welsh heritage</a></li>
+    <li><a href="https://www.nationaltrust.org.uk/" target="_blank" rel="noopener">National Trust</a></li>
+    <li><a href="https://www.bbc.co.uk/history" target="_blank" rel="noopener">BBC History</a></li>
+   </ul>
+  </div>
+  <div class="country">
+   <h3>🖼️ Zdjęcia i mapy</h3>
+   <ul class="linklist">
+    <li><a href="https://commons.wikimedia.org/wiki/Category:United_Kingdom" target="_blank" rel="noopener">Wikimedia – United Kingdom</a></li>
+    <li><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a></li>
+    <li><a href="https://www.nationalarchives.gov.uk/" target="_blank" rel="noopener">The National Archives</a></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section class="card">
+ <h2>🧩 14. Challenge 1 – Dopasuj kraj do stolicy</h2>
+ <div id="capitalQuiz"></div>
+ <button onclick="checkCapital()">Check answers</button>
+ <div id="capitalFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+ <h2>🏳️ 15. Challenge 2 – Symbole i patroni</h2>
+ <div id="symbolQuiz"></div>
+ <button onclick="checkSymbols()">Check answers</button>
+ <div id="symbolFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+ <h2>📜 16. Challenge 3 – Historia UK</h2>
+ <div id="historyQuiz"></div>
+ <button onclick="checkHistory()">Check answers</button>
+ <div id="historyFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+ <h2>🐉 17. Challenge 4 – Legendy</h2>
+ <div id="legendQuiz"></div>
+ <button onclick="checkLegends()">Check answers</button>
+ <div id="legendFeedback" class="feedback"></div>
+</section>
+
+<section class="card">
+ <h2>🏆 18. Final Quiz – Around the United Kingdom</h2>
+ <p>25 pytań. Każde pytanie ma jedną poprawną odpowiedź. Sprawdź, czy jesteś prawdziwym UK Culture Expert!</p>
+ <div id="finalQuiz"></div>
+ <button onclick="checkFinal()">Finish the quiz</button>
+ <button class="secondary" onclick="resetFinal()">Try again</button>
+ <div id="finalResult" class="score"></div>
+</section>
+
+<section class="card intro">
+ <h2>🎓 Congratulations!</h2>
+ <p>You've travelled around the United Kingdom!</p>
+ <p>Poznałeś cztery kraje, ich historię, symbole, tradycje i legendy.</p>
+ <p><strong>Keep exploring. Keep learning. Keep discovering!</strong></p>
+ <div style="font-size:2.8rem">🇬🇧 👑 🏰 🐉 🍀</div>
+</section>
+
+</main>
+
+<footer>
+ <div class="decor">🇬🇧 👑 🏰 🌹 🐉 🍀</div>
+ <strong>AROUND THE UNITED KINGDOM</strong>
+ <p>Multimedia Culture & Travel Lab</p>
+ <small>Educational material • Polish explanations • English vocabulary and legends</small>
+</footer>
+
+<script>
+function renderQuestions(id,data,prefix){
+ document.getElementById(id).innerHTML=data.map((q,i)=>`
+  <div class="question">
+   <strong>${i+1}. ${q.q}</strong>
+   ${q.a.map((a,j)=>`<label><input type="radio" name="${prefix}${i}" value="${j}"> ${a}</label>`).join('')}
+  </div>`).join('');
+}
+function checkQuestions(data,prefix,id){
+ let score=0,missing=0;
+ data.forEach((q,i)=>{
+  const a=document.querySelector(`input[name="${prefix}${i}"]:checked`);
+  if(!a)missing++;
+  else if(Number(a.value)===q.c)score++;
+ });
+ const el=document.getElementById(id);
+ if(missing){
+  el.textContent=`Odpowiedz na wszystkie pytania. Brak odpowiedzi: ${missing}.`;
+  el.className='feedback incorrect';return;
+ }
+ el.textContent=`Twój wynik: ${score} / ${data.length}`;
+ el.className='feedback '+(score===data.length?'correct':'incorrect');
+}
+
+const capitals=[
+ {q:"What is the capital of England?",a:["Cardiff","London","Edinburgh"],c:1},
+ {q:"What is the capital of Scotland?",a:["Edinburgh","Belfast","London"],c:0},
+ {q:"What is the capital of Wales?",a:["Glasgow","Cardiff","Dublin"],c:1},
+ {q:"What is the capital of Northern Ireland?",a:["Belfast","Aberdeen","Cardiff"],c:0}
+];
+renderQuestions('capitalQuiz',capitals,'cap');
+function checkCapital(){checkQuestions(capitals,'cap','capitalFeedback');}
+
+const symbols=[
+ {q:"Which flower is a symbol of England?",a:["Rose","Thistle","Daffodil"],c:0},
+ {q:"Which plant is a symbol of Scotland?",a:["Shamrock","Thistle","Leek"],c:1},
+ {q:"Which animal appears on the flag of Wales?",a:["Unicorn","Lion","Red dragon"],c:2},
+ {q:"Who is the patron saint of Northern Ireland?",a:["St Andrew","St Patrick","St George"],c:1},
+ {q:"When is St David’s Day?",a:["1 March","17 March","30 November"],c:0},
+ {q:"What is Scotland's flag called?",a:["Union Jack","Saltire","Red Dragon"],c:1}
+];
+renderQuestions('symbolQuiz',symbols,'sym');
+function checkSymbols(){checkQuestions(symbols,'sym','symbolFeedback');}
+
+const history=[
+ {q:"When did the Romans begin their conquest of much of Britain?",a:["43 AD","1066","1707"],c:0},
+ {q:"What happened in 1066?",a:["The Act of Union","The Norman Conquest","The Good Friday Agreement"],c:1},
+ {q:"What is Magna Carta?",a:["A medieval document","A Scottish dance","A Welsh castle"],c:0},
+ {q:"When did England and Scotland unite to form the Kingdom of Great Britain?",a:["1215","1603","1707"],c:2},
+ {q:"When was the Act of Union with Ireland?",a:["1801","1922","1998"],c:0},
+ {q:"What was the Good Friday Agreement?",a:["A peace agreement","A royal wedding","A battle"],c:0}
+];
+renderQuestions('historyQuiz',history,'hist');
+function checkHistory(){checkQuestions(history,'hist','historyFeedback');}
+
+const legends=[
+ {q:"Which legendary king is connected with the sword Excalibur?",a:["King Arthur","Robert the Bruce","Finn McCool"],c:0},
+ {q:"What is the name of the famous Scottish lake monster?",a:["Merlin","Nessie","Boudica"],c:1},
+ {q:"What colour is the famous dragon on the Welsh flag?",a:["Blue","White","Red"],c:2},
+ {q:"Who built the Giant’s Causeway in the Irish legend?",a:["Finn McCool","King Arthur","St Andrew"],c:0},
+ {q:"Which legend tells a story about two dragons?",a:["Welsh legend","Scottish legend","English legend"],c:0}
+];
+renderQuestions('legendQuiz',legends,'leg');
+function checkLegends(){checkQuestions(legends,'leg','legendFeedback');}
+
+const finalData=[
+ {q:"How many countries make up the United Kingdom?",a:["Two","Four","Six"],c:1},
+ {q:"What is the capital of the UK?",a:["London","Edinburgh","Cardiff"],c:0},
+ {q:"Which country is NOT part of the UK?",a:["Wales","Republic of Ireland","Scotland"],c:1},
+ {q:"What is Great Britain?",a:["England only","The island of England, Scotland and Wales","The whole island of Ireland"],c:1},
+ {q:"Who is the current British monarch?",a:["King Charles III","King William V","King George VII"],c:0},
+ {q:"What is a constitutional monarchy?",a:["A system where the monarch rules alone","A system with a monarch and constitutional limits","A country without a parliament"],c:1},
+ {q:"Where does the UK Parliament meet?",a:["Edinburgh","Westminster, London","Cardiff"],c:1},
+ {q:"What is the currency of the UK?",a:["Euro","Pound sterling","Dollar"],c:1},
+ {q:"What is the flag of the UK called?",a:["Union Flag","Saltire","St George’s Cross"],c:0},
+ {q:"Which country has the red dragon on its flag?",a:["England","Wales","Scotland"],c:1},
+ {q:"What is the capital of Scotland?",a:["Edinburgh","Glasgow","Inverness"],c:0},
+ {q:"Which plant is a symbol of Scotland?",a:["Rose","Thistle","Shamrock"],c:1},
+ {q:"What is the Scottish national instrument often associated with traditional music?",a:["Bagpipes","Harp only","Trumpet"],c:0},
+ {q:"What is the capital of Wales?",a:["Swansea","Cardiff","Newport"],c:1},
+ {q:"What is the Welsh name for Wales?",a:["Cymru","Alba","Éire"],c:0},
+ {q:"Who is the patron saint of England?",a:["St David","St Andrew","St George"],c:2},
+ {q:"When is St Patrick’s Day?",a:["17 March","23 April","1 March"],c:0},
+ {q:"What is Nessie?",a:["A Scottish lake monster legend","A Welsh dragon","An English queen"],c:0},
+ {q:"What is the Giant’s Causeway?",a:["A famous rock formation in Northern Ireland","A castle in Wales","A bridge in London"],c:0},
+ {q:"Which legend is connected with Finn McCool?",a:["The Giant’s Causeway","The Sword in the Stone","The Loch Ness Monster"],c:0},
+ {q:"What is the Welsh dragon called in Welsh?",a:["Y Ddraig Goch","Saltire","Thistle"],c:0},
+ {q:"What is the English national flower?",a:["Daffodil","Red rose","Thistle"],c:1},
+ {q:"Which country has three commonly recognised languages: English, Scots and Scottish Gaelic?",a:["Scotland","Wales","England"],c:0},
+ {q:"What happened in 1066?",a:["The Norman Conquest","The Act of Union","The Good Friday Agreement"],c:0},
+ {q:"What is the patron saint of Wales?",a:["St Patrick","St David","St George"],c:1},
+ {q:"Does the Welsh dragon appear on the Union Flag?",a:["Yes","No"],c:1}
+];
+renderQuestions('finalQuiz',finalData,'final');
+
+function checkFinal(){
+ let score=0,missing=0;
+ finalData.forEach((q,i)=>{
+  const a=document.querySelector(`input[name="final${i}"]:checked`);
+  if(!a)missing++;
+  else if(Number(a.value)===q.c)score++;
+ });
+ const el=document.getElementById('finalResult');
+ el.style.display='block';
+ if(missing){
+  el.textContent=`Brakuje odpowiedzi na ${missing} pytania. Uzupełnij quiz i spróbuj ponownie.`;
+  el.scrollIntoView({behavior:'smooth',block:'center'});return;
+ }
+ let message='';
+ if(score>=23)message='Outstanding! You are a UK Culture Expert! 👑';
+ else if(score>=19)message='Excellent! You know the United Kingdom very well! 🌟';
+ else if(score>=15)message='Very good! Keep exploring the four countries! 🏰';
+ else if(score>=10)message='Good effort! Read the lesson again and try once more.';
+ else message='Keep learning! You can do it! 💪';
+ el.innerHTML=`Twój wynik: ${score} / 25<br>${message}<br><small>${Math.round(score/25*100)}% poprawnych odpowiedzi</small>`;
+ el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetFinal(){
+ document.querySelectorAll('#finalQuiz input[type="radio"]').forEach(x=>x.checked=false);
+ document.getElementById('finalResult').style.display='none';
+ document.getElementById('finalQuiz').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

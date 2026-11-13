@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halloween – English Culture Lab</title>
+<style>
+:root{
+ --orange:#f47721;--gold:#ffb347;--black:#191715;
+ --dark:#29211d;--cream:#fff8ed;--paper:#fffdf8;
+ --line:#f0c99f;--brown:#78370f;--green:#39734c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:#30251f;
+ font:16px/1.65 Arial,sans-serif}
+header{
+ background:radial-gradient(circle at 12% 20%,#58301d 0 5%,transparent 5.5%),
+ linear-gradient(135deg,#171412,#302019 65%,#71370f);
+ color:white;text-align:center;padding:42px 18px 38px
+}
+header .decor{font-size:30px;letter-spacing:8px}
+header h1{font-size:clamp(2.4rem,7vw,4.5rem);
+ color:#ff9639;margin:5px 0;letter-spacing:3px}
+header p{margin:5px auto;max-width:720px;color:#ffe8d1}
+.pills{margin-top:18px}
+.pill{display:inline-block;background:var(--orange);color:#21150d;
+ padding:5px 13px;border-radius:30px;font-size:.8rem;
+ font-weight:bold;margin:4px}
+nav{background:#211b17;padding:10px;display:flex;
+ justify-content:center;flex-wrap:wrap;gap:8px}
+nav a{color:#ffe3c5;text-decoration:none;border:1px solid #745039;
+ padding:6px 12px;border-radius:20px;font-size:.88rem}
+nav a:hover{background:var(--orange);color:#20150e}
+main{max-width:1050px;margin:auto;padding:20px 15px 50px}
+section{background:var(--paper);border:1px solid var(--line);
+ border-radius:18px;padding:23px;margin:19px 0;
+ box-shadow:0 5px 18px #5b2b1010}
+h2{color:#a94712;margin:0 0 15px;font-size:1.55rem}
+h3{color:#78370f;margin:18px 0 8px}
+.lead{font-size:1.08rem}
+.note{background:#fff0dc;border-left:5px solid var(--orange);
+ padding:13px 16px;border-radius:9px;margin:14px 0}
+.darkbox{background:#241c18;color:#fff0df;padding:18px;
+ border-radius:13px}
+.darkbox h3{color:#ffb347}
+.grid{display:grid;grid-template-columns:
+ repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.tile{background:#fff4e5;border:1px solid #f0d2b0;
+ border-radius:14px;padding:14px;text-align:center}
+.emoji{display:block;font-size:2.5rem}
+.tile b{display:block;color:#78370f}
+.small{font-size:.9rem;color:#776456}
+.tile button{margin-top:8px}
+details{background:#fff8ef;border:1px solid #f0d4b8;
+ border-radius:12px;padding:12px 15px;margin:9px 0}
+summary{cursor:pointer;font-weight:bold;color:#873b0e}
+button{background:var(--orange);color:#21150e;border:0;
+ border-radius:9px;padding:10px 15px;font-weight:bold;
+ cursor:pointer;margin:5px 3px}
+button:hover{background:var(--gold)}
+button.dark{background:#29211d;color:#fff0df}
+input[type=text],select,textarea{
+ padding:10px;border:1px solid #d9b99b;border-radius:8px;
+ font:inherit;max-width:100%
+}
+input[type=text]{width:240px}
+select{background:white}
+label{display:block;margin:6px 0;cursor:pointer}
+.question{padding:12px;border-bottom:1px dashed #e7c7a6}
+.feedback{font-weight:bold;margin:10px 0;min-height:24px}
+.good{color:#287443}.bad{color:#a93226}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px}
+.wordbank span{background:#29211d;color:#ffe2c1;
+ padding:5px 11px;border-radius:18px}
+.quizq{background:#fff7eb;border:1px solid #f0d7bc;
+ border-radius:12px;padding:14px;margin:13px 0}
+.progress{height:11px;background:#f0dfce;
+ border-radius:20px;overflow:hidden;margin:15px 0}
+.progress span{display:block;height:100%;width:0;
+ background:var(--orange);transition:width .3s}
+footer{text-align:center;padding:24px;color:#806b5c}
+a.source{color:#a94712}
+@media(max-width:600px){
+ section{padding:17px}
+ nav{position:static}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="decor">🦇 ✦ 🎃 ✦ 🕷️</div>
+ <h1>HALLOWEEN</h1>
+ <p><b>English Culture Lab</b></p>
+ <p>Discover the spooky side of English-speaking culture!</p>
+ <div class="pills">
+  <span class="pill">CLASSES 5–6</span>
+  <span class="pill">VOCABULARY</span>
+  <span class="pill">READING A2</span>
+  <span class="pill">GAMES & QUIZ</span>
+ </div>
+</header>
+
+<nav>
+ <a href="#about">Halloween</a>
+ <a href="#history">History</a>
+ <a href="#traditions">Traditions</a>
+ <a href="#vocabulary">Vocabulary</a>
+ <a href="#reading">Reading</a>
+ <a href="#games">Games</a>
+ <a href="#quiz">Final quiz</a>
+</nav>
+
+<main>
+
+<section id="about">
+<h2>🎃 1. What is Halloween?</h2>
+<p class="lead">
+<b>Halloween</b> is celebrated every year on <b>31 October</b>.
+It is popular in the United States, Canada, Ireland,
+the United Kingdom and many other countries.
+</p>
+<p>
+People decorate their homes with pumpkins, ghosts, bats
+and skeletons. Children often wear costumes and go from
+house to house asking for sweets. Halloween is spooky,
+but it is also playful and creative!
+</p>
+<div class="note">
+<b>Important!</b> Halloween is on 31 October.
+All Saints’ Day is on 1 November, and All Souls’ Day
+is on 2 November. These dates have different traditions
+and meanings.
+</div>
+<div class="grid">
+ <div class="tile"><span class="emoji">🎃</span>
+ <b>Orange</b><span class="small">autumn and pumpkins</span></div>
+ <div class="tile"><span class="emoji">🌙</span>
+ <b>Black</b><span class="small">night and mystery</span></div>
+ <div class="tile"><span class="emoji">🦇</span>
+ <b>Spooky fun</b><span class="small">costumes and stories</span></div>
+</div>
+</section>
+
+<section id="history">
+<h2>📜 2. A little bit of history</h2>
+<div class="grid">
+ <div class="tile">
+  <span class="emoji">🔥</span>
+  <b>Ancient Samhain</b>
+  <p class="small">Over 2,000 years ago, Celtic people in Ireland
+  and parts of Britain celebrated Samhain at the end of
+  the harvest season. It marked the beginning of winter.</p>
+ </div>
+ <div class="tile">
+  <span class="emoji">⛪</span>
+  <b>All Hallows’ Eve</b>
+  <p class="small">The evening before All Saints’ Day was called
+  All Hallows’ Eve. Over time, the name became Halloween.</p>
+ </div>
+ <div class="tile">
+  <span class="emoji">🎃</span>
+  <b>Jack-o’-lantern</b>
+  <p class="small">Irish people told stories about a man called Jack.
+  They carved turnips to make lanterns. In America,
+  pumpkins became popular because they were bigger
+  and easier to carve.</p>
+ </div>
+</div>
+<div class="note">
+Halloween developed over many centuries. Modern celebrations
+combine older customs with newer games, decorations
+and popular culture.
+</div>
+</section>
+
+<section id="traditions">
+<h2>🕸️ 3. Halloween traditions</h2>
+
+<details open>
+ <summary>🍬 Trick-or-treating</summary>
+ <p>Children dress up and visit neighbours. They say
+ <b>“Trick or treat!”</b> and receive sweets or other treats.
+ It is a playful request for something nice to eat.</p>
+</details>
+
+<details>
+ <summary>🎃 Pumpkin carving</summary>
+ <p>People cut a face into a pumpkin, take out the seeds
+ and put a small light inside. This decoration is called
+ a <b>jack-o’-lantern</b>.</p>
+</details>
+
+<details>
+ <summary>🧛 Costumes and fancy-dress parties</summary>
+ <p>People dress up as witches, vampires, ghosts, superheroes,
+ animals or characters from stories and films.
+ In British English, a costume party is often called
+ a <b>fancy-dress party</b>.</p>
+</details>
+
+<details>
+ <summary>🏚️ Haunted houses and spooky stories</summary>
+ <p>Some people visit attractions decorated like haunted houses.
+ Friends may tell ghost stories or watch not-too-scary films.</p>
+</details>
+
+<details>
+ <summary>🍎 Apple bobbing</summary>
+ <p>A traditional game is <b>apple bobbing</b>.
+ Apples float in water and players try to catch one
+ using only their mouths. Always play safely and
+ with adult supervision.</p>
+</details>
+
+<div class="note">
+<b>Culture tip:</b> Not everyone celebrates Halloween.
+Some families enjoy costumes and parties; others prefer
+not to take part. It is important to respect different choices.
+</div>
+</section>
+
+<section id="vocabulary">
+<h2>🧡 4. Picture dictionary – Halloween words</h2>
+<p>Look at the pictures, learn the words and click
+<b>Listen</b> to hear their pronunciation.</p>
+<div class="grid">
+ <div class="tile"><span class="emoji">🎃</span><b>pumpkin</b>
+ <span class="small">dynia</span><button onclick="say('pumpkin')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🕯️</span><b>candle</b>
+ <span class="small">świeca</span><button onclick="say('candle')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🧙</span><b>witch</b>
+ <span class="small">czarownica</span><button onclick="say('witch')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🧛</span><b>vampire</b>
+ <span class="small">wampir</span><button onclick="say('vampire')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">👻</span><b>ghost</b>
+ <span class="small">duch</span><button onclick="say('ghost')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🦇</span><b>bat</b>
+ <span class="small">nietoperz</span><button onclick="say('bat')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🕸️</span><b>web</b>
+ <span class="small">sieć</span><button onclick="say('web')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🕷️</span><b>spider</b>
+ <span class="small">pająk</span><button onclick="say('spider')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">💀</span><b>skeleton</b>
+ <span class="small">szkielet</span><button onclick="say('skeleton')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🧹</span><b>broom</b>
+ <span class="small">miotła</span><button onclick="say('broom')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🍬</span><b>sweets</b>
+ <span class="small">słodycze (BrE)</span><button onclick="say('sweets')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🍭</span><b>candy</b>
+ <span class="small">słodycze (AmE)</span><button onclick="say('candy')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🦉</span><b>owl</b>
+ <span class="small">sowa</span><button onclick="say('owl')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🧟</span><b>monster</b>
+ <span class="small">potwór</span><button onclick="say('monster')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🧥</span><b>costume</b>
+ <span class="small">przebranie</span><button onclick="say('costume')">🔊 Listen</button></div>
+ <div class="tile"><span class="emoji">🏚️</span><b>haunted house</b>
+ <span class="small">nawiedzony dom</span><button onclick="say('haunted house')">🔊 Listen</button></div>
+</div>
+</section>
+
+<section id="reading">
+<h2>📖 5. Reading – My Halloween Party (A2)</h2>
+<div class="darkbox">
+<p>Hi! My name is Alex and Halloween is my favourite
+autumn celebration.</p>
+<p>On 31 October, my friends come to my house for a
+Halloween party. This year I am wearing a vampire costume.
+My sister is a witch and my best friend is a funny skeleton.</p>
+<p>We decorate the living room with orange balloons,
+paper bats and a big jack-o’-lantern. My dad makes
+pumpkin soup, and we have lots of sweets and popcorn.</p>
+<p>We play a guessing game and tell spooky stories.
+At eight o’clock, we watch a funny Halloween film.
+It is not too scary!</p>
+<p>My favourite part is the pumpkin. We make its face
+together and put a little light inside. Happy Halloween!</p>
+</div>
+
+<h3>Check your understanding</h3>
+<div id="readingQs">
+ <div class="question" data-answer="b">
+ <b>1. When is Halloween?</b>
+ <label><input type="radio" name="r1" value="a"> 1 November</label>
+ <label><input type="radio" name="r1" value="b"> 31 October</label>
+ <label><input type="radio" name="r1" value="c"> 24 December</label>
+ </div>
+ <div class="question" data-answer="b">
+ <b>2. What is Alex wearing?</b>
+ <label><input type="radio" name="r2" value="a"> A witch costume</label>
+ <label><input type="radio" name="r2" value="b"> A vampire costume</label>
+ <label><input type="radio" name="r2" value="c"> A ghost costume</label>
+ </div>
+ <div class="question" data-answer="c">
+ <b>3. What does Alex’s dad make?</b>
+ <label><input type="radio" name="r3" value="a"> Pizza</label>
+ <label><input type="radio" name="r3" value="b"> A cake</label>
+ <label><input type="radio" name="r3" value="c"> Pumpkin soup</label>
+ </div>
+ <div class="question" data-answer="a">
+ <b>4. What do Alex and friends watch?</b>
+ <label><input type="radio" name="r4" value="a"> A funny Halloween film</label>
+ <label><input type="radio" name="r4" value="b"> A football match</label>
+ <label><input type="radio" name="r4" value="c"> A documentary</label>
+ </div>
+</div>
+<button onclick="checkReading()">Check answers</button>
+<div id="readingFeedback" class="feedback"></div>
+</section>
+
+<section id="games">
+<h2>🎲 6. Let’s practise!</h2>
+
+<h3>Game A – Match the words</h3>
+<p>Wybierz odpowiednie angielskie słowo.</p>
+<div id="matching">
+ <div class="question">1. duch
+ <select data-correct="ghost">
+ <option value="">Choose…</option><option>witch</option>
+ <option>ghost</option><option>bat</option></select></div>
+ <div class="question">2. dynia
+ <select data-correct="pumpkin">
+ <option value="">Choose…</option><option>pumpkin</option>
+ <option>candle</option><option>web</option></select></div>
+ <div class="question">3. miotła
+ <select data-correct="broom">
+ <option value="">Choose…</option><option>spider</option>
+ <option>broom</option><option>costume</option></select></div>
+ <div class="question">4. nietoperz
+ <select data-correct="bat">
+ <option value="">Choose…</option><option>bat</option>
+ <option>owl</option><option>monster</option></select></div>
+ <div class="question">5. pająk
+ <select data-correct="spider">
+ <option value="">Choose…</option><option>spider</option>
+ <option>skeleton</option><option>candy</option></select></div>
+</div>
+<button onclick="checkMatching()">Check matching</button>
+<div id="matchFeedback" class="feedback"></div>
+
+<h3>Game B – Complete the sentences</h3>
+<p>Uzupełnij zdania słowami z ramki.</p>
+<div class="wordbank">
+ <span>witch</span><span>pumpkin</span>
+ <span>ghost</span><span>sweets</span>
+</div>
+<div class="question">1. A ________ is orange and grows in a field.
+<input type="text" id="fill1" placeholder="Your answer"></div>
+<div class="question">2. Children often get ________ on Halloween.
+<input type="text" id="fill2" placeholder="Your answer"></div>
+<div class="question">3. A ________ can fly on a broom in stories.
+<input type="text" id="fill3" placeholder="Your answer"></div>
+<div class="question">4. A ________ is a spirit in a spooky story.
+<input type="text" id="fill4" placeholder="Your answer"></div>
+<button onclick="checkFill()">Check sentences</button>
+<div id="fillFeedback" class="feedback"></div>
+
+<h3>Game C – True or False?</h3>
+<div id="tf">
+ <div class="question" data-answer="true">
+ <b>1. Halloween is on 31 October.</b>
+ <label><input type="radio" name="t1" value="true"> True</label>
+ <label><input type="radio" name="t1" value="false"> False</label>
+ </div>
+ <div class="question" data-answer="false">
+ <b>2. A jack-o’-lantern is usually made from a potato.</b>
+ <label><input type="radio" name="t2" value="true"> True</label>
+ <label><input type="radio" name="t2" value="false"> False</label>
+ </div>
+ <div class="question" data-answer="true">
+ <b>3. “Trick or treat!” is said when children ask for treats.</b>
+ <label><input type="radio" name="t3" value="true"> True</label>
+ <label><input type="radio" name="t3" value="false"> False</label>
+ </div>
+ <div class="question" data-answer="false">
+ <b>4. A bat is a kind of insect.</b>
+ <label><input type="radio" name="t4" value="true"> True</label>
+ <label><input type="radio" name="t4" value="false"> False</label>
+ </div>
+</div>
+<button onclick="checkTF()">Check answers</button>
+<div id="tfFeedback" class="feedback"></div>
+
+<h3>Game D – My Halloween idea</h3>
+<p>Napisz 2–3 zdania o swoim wymarzonym kostiumie
+lub przyjęciu Halloween.</p>
+<textarea id="writing" rows="4" style="width:100%"
+ placeholder="For Halloween, I want to wear..."></textarea>
+<p class="small">
+Pomocne zwroty: <i>I want to dress up as… / My costume is…
+/ I would like to eat… / We can play…</i>
+</p>
+<button onclick="saveWriting()">Show my text</button>
+<div id="writingFeedback" class="feedback"></div>
+</section>
+
+<section id="quiz">
+<h2>🏆 7. Final Halloween Quiz</h2>
+<p>20 pytań. Wybierz jedną odpowiedź w każdym pytaniu.
+Na końcu sprawdź swój wynik!</p>
+<div class="progress"><span id="bar"></span></div>
+<div id="quizArea"></div>
+<button onclick="gradeQuiz()">Finish quiz</button>
+<button class="dark" onclick="resetQuiz()">Try again</button>
+<div id="quizResult" class="feedback" aria-live="polite"></div>
+</section>
+
+<section>
+<h2>🌟 8. Did you know?</h2>
+<ul>
+ <li>The word <b>Halloween</b> comes from
+ <i>All Hallows’ Eve</i>.</li>
+ <li>Orange and black are traditional Halloween colours.</li>
+ <li>Orange is linked with autumn and harvest.</li>
+ <li>Black is linked with night and mystery.</li>
+ <li>In some places, people decorate their homes
+ weeks before 31 October.</li>
+</ul>
+<div class="note">
+<b>Mini challenge:</b> Can you name five Halloween words
+without looking at the picture dictionary?
+</div>
+</section>
+
+<section>
+<h2>🔎 9. Sources & learn more</h2>
+<ul>
+ <li><a class="source" href="https://www.britannica.com/topic/Halloween"
+ target="_blank" rel="noopener">Encyclopaedia Britannica – Halloween</a></li>
+ <li><a class="source" href="https://www.history.com/topics/halloween/history-of-halloween"
+ target="_blank" rel="noopener">HISTORY – Halloween history</a></li>
+ <li><a class="source" href="https://kids.nationalgeographic.com/history/article/halloween"
+ target="_blank" rel="noopener">National Geographic Kids – Halloween</a></li>
+</ul>
+<p class="small">Materiał edukacyjny do nauki języka angielskiego.
+Poziom A1–A2. Klasy 5–6.</p>
+</section>
+
+</main>
+
+<footer>🎃 English Culture Lab · Happy Halloween! 🦇</footer>
+
+<script>
+function say(word){
+ if('speechSynthesis' in window){
+  const u=new SpeechSynthesisUtterance(word);
+  u.lang='en-GB';
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+ }
+}
+
+function mark(id,score,total){
+ const e=document.getElementById(id);
+ e.textContent='Your score: '+score+'/'+total;
+ e.className='feedback '+(score===total?'good':'bad');
+}
+
+function checkReading(){
+ const qs=[...document.querySelectorAll('#readingQs .question')];
+ let s=0;
+ qs.forEach(q=>{
+  const a=q.querySelector('input:checked');
+  if(a&&a.value===q.dataset.answer)s++;
+ });
+ mark('readingFeedback',s,qs.length);
+}
+
+function checkMatching(){
+ const qs=[...document.querySelectorAll('#matching select')];
+ let s=0;
+ qs.forEach(q=>{if(q.value===q.dataset.correct)s++});
+ mark('matchFeedback',s,qs.length);
+}
+
+function checkFill(){
+ const answers=['pumpkin','sweets','witch','ghost'];
+ let s=0;
+ answers.forEach((a,i)=>{
+  if(document.getElementById('fill'+(i+1))
+   .value.trim().toLowerCase()===a)s++;
+ });
+ mark('fillFeedback',s,4);
+}
+
+function checkTF(){
+ const qs=[...document.querySelectorAll('#tf .question')];
+ let s=0;
+ qs.forEach(q=>{
+  const a=q.querySelector('input:checked');
+  if(a&&a.value===q.dataset.answer)s++;
+ });
+ mark('tfFeedback',s,qs.length);
+}
+
+function saveWriting(){
+ const t=document.getElementById('writing').value.trim();
+ const e=document.getElementById('writingFeedback');
+ if(!t){
+  e.textContent='Write at least one sentence first.';
+  e.className='feedback bad';
+  return;
+ }
+ const count=t.split(/\s+/).length;
+ e.textContent='Great effort! You wrote '+count+
+ ' words. Read your sentences aloud and check your spelling.';
+ e.className='feedback good';
+}
+
+const questions=[
+ ['When is Halloween?',['30 October','31 October','1 November'],1],
+ ['Which country is strongly connected with Samhain?',['Ireland','Spain','Japan'],0],
+ ['What is a jack-o’-lantern?',['A pumpkin lantern','A cake','A costume'],0],
+ ['What do children say when asking for treats?',['Good morning!','Trick or treat!','Merry Christmas!'],1],
+ ['What is a witch?',['A magical character','A bird','A sweet'],0],
+ ['What is a bat?',['A small mammal','A pumpkin','A candle'],0],
+ ['What colour is a typical pumpkin?',['Blue','Orange','Purple'],1],
+ ['What does “ghost” mean in Polish?',['Potwór','Duch','Pająk'],1],
+ ['Which item can a witch fly on in stories?',['A broom','A spoon','A bicycle'],0],
+ ['What is “costume” in Polish?',['Kostium','Świeca','Sieć'],0],
+ ['What are “sweets” in British English?',['Słodycze','Dynie','Świece'],0],
+ ['What does “haunted house” mean?',['Nawiedzony dom','Dom na drzewie','Zamek z piasku'],0],
+ ['What date comes after Halloween?',['1 November','24 December','1 January'],0],
+ ['What is apple bobbing?',['A Halloween game','A dance','A costume'],0],
+ ['Which colours are linked with Halloween?',['Pink and green','Orange and black','Blue and white'],1],
+ ['What is a “spider”?',['Sowa','Pająk','Nietoperz'],1],
+ ['What is a skeleton?',['Szkielet','Wampir','Czarownica'],0],
+ ['Where do people put a light in a carved pumpkin?',['Inside','On the roof','Under the table'],0],
+ ['Does everyone celebrate Halloween?',['Yes, everyone','No, not everyone'],1],
+ ['What is a polite thing to do if someone does not celebrate Halloween?',['Respect their choice','Make them join','Laugh at them'],0]
+];
+
+function renderQuiz(){
+ const area=document.getElementById('quizArea');
+ area.innerHTML='';
+ questions.forEach((q,i)=>{
+  const d=document.createElement('div');
+  d.className='quizq';
+  const title=document.createElement('b');
+  title.textContent=(i+1)+'. '+q[0];
+  d.appendChild(title);
+  q[1].forEach((v,j)=>{
+   const label=document.createElement('label');
+   const input=document.createElement('input');
+   input.type='radio';
+   input.name='q'+i;
+   input.value=j;
+   label.append(input,document.createTextNode(' '+v));
+   d.appendChild(label);
+  });
+  area.appendChild(d);
+ });
+ document.getElementById('bar').style.width='0%';
+}
+
+function gradeQuiz(){
+ let score=0,answered=0;
+ questions.forEach((q,i)=>{
+  const x=document.querySelector('input[name="q'+i+'"]:checked');
+  if(x){
+   answered++;
+   if(Number(x.value)===q[2])score++;
+  }
+ });
+ const e=document.getElementById('quizResult');
+ let comment='Keep learning – you can try again!';
+ if(score>=18)comment='Amazing! Halloween expert!';
+ else if(score>=14)comment='Great work!';
+ else if(score>=10)comment='Good effort! Keep practising!';
+ e.textContent='You answered '+answered+'/20 questions. Your score: '+
+ score+'/20. '+comment;
+ e.className='feedback '+(score>=14?'good':'bad');
+ document.getElementById('bar').style.width=(score/20*100)+'%';
+}
+
+function resetQuiz(){
+ renderQuiz();
+ document.getElementById('quizResult').textContent='';
+}
+
+renderQuiz();
+</script>
+
+</body>
+</html>

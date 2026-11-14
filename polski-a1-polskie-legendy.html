@@ -1,0 +1,284 @@
+
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Polskie legendy – język polski A1</title>
+<style>
+:root{--ink:#24304a;--blue:#234d70;--red:#b8323c;--cream:#fffaf0;--violet:#72508f;--gold:#efc66a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f2f5fa;color:var(--ink);font:16px/1.6 system-ui,Arial,sans-serif}
+header{padding:34px 18px 28px;text-align:center;color:white;background:linear-gradient(120deg,#183e62,#476d91 58%,#8a6b9f);border-bottom:7px solid var(--red)}
+header .art{font-size:clamp(2.5rem,7vw,5rem);letter-spacing:12px}
+h1{font:700 clamp(2.1rem,6vw,3.8rem)/1.1 Georgia,serif;margin:4px}
+header p{margin:8px}
+nav{position:sticky;top:0;z-index:5;background:#173b5b;display:flex;gap:7px;overflow:auto;padding:10px;justify-content:center}
+nav a{color:white;text-decoration:none;white-space:nowrap;padding:7px 12px;border-radius:20px}
+nav a:hover{background:#ffffff2b}
+main{max-width:1120px;margin:auto;padding:16px}
+section{background:white;border-radius:20px;padding:clamp(18px,3vw,30px);margin:20px 0;box-shadow:0 6px 22px #1b38500d;scroll-margin-top:65px}
+h2{font:700 clamp(1.5rem,4vw,2.2rem) Georgia,serif;color:var(--blue);margin:0 0 14px}
+h3{color:var(--red);margin:8px 0}
+.intro{font-size:1.08rem}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.legend-link{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid #dce3ed;border-radius:14px;background:#fbfcff;text-decoration:none;color:var(--ink);font-weight:650}
+.legend-link .emoji{font-size:2rem}
+.legend-link:hover{border-color:var(--red);background:#fff7f4}
+.legend{border:1px solid #e1e5ed;border-radius:20px;padding:20px;margin:24px 0;background:linear-gradient(135deg,#fff 60%,#f6f1fa)}
+.legend-head{display:flex;align-items:center;gap:14px}
+.legend-head .emoji{font-size:3.5rem}
+.legend-head h2{margin:0}
+.scene{min-height:150px;border-radius:16px;background:linear-gradient(145deg,#dbeaf4,#fff1d4);display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,28px);font-size:clamp(2.8rem,7vw,5rem);margin:14px 0;padding:18px;position:relative;overflow:hidden}
+.scene:after{content:"";position:absolute;bottom:0;left:0;right:0;height:18px;background:#6f9b72;opacity:.45}
+.story{font-size:1.06rem;max-width:900px}
+.story strong{color:#9d2e3b}
+.vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:12px 0 18px}
+.flip{height:120px;perspective:700px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;border:1px solid #d9dfeb;border-radius:13px;background:#f6f8fc;backface-visibility:hidden;text-align:center;padding:8px}
+.face.front{font-size:1.8rem}
+.face.front b{font-size:1rem}
+.face.back{transform:rotateY(180deg);background:#fff5e8;font-size:.92rem}
+.hint{font-size:.85rem;color:#69758a;margin:0 0 8px}
+.quiz{background:#f6f8fc;border-radius:15px;padding:16px;margin-top:16px}
+.quiz h3{margin-top:0}
+.task{padding:12px;background:white;border:1px solid #e2e7ef;border-radius:12px;margin:10px 0}
+.task label{display:block;margin:5px 0;cursor:pointer}
+.task select{padding:7px;border-radius:8px;border:1px solid #bdc8d8}
+button{border:0;border-radius:11px;padding:10px 15px;background:var(--blue);color:white;font:inherit;cursor:pointer}
+button:hover{filter:brightness(1.1)}
+.check{background:var(--red)}
+.result{font-weight:700;margin:12px 0;min-height:24px}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}
+.match select{width:100%;padding:8px;border:1px solid #ccd5e2;border-radius:8px}
+footer{text-align:center;padding:25px;color:#657187}
+@media(max-width:600px){nav{justify-content:flex-start}.match{grid-template-columns:1fr}.legend-head{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+<div class="art">🏰 🐉 🧜‍♀️ 🦅</div>
+<h1>Polskie legendy</h1>
+<p>Język polski dla cudzoziemców • poziom A1</p>
+<p>📖 Czytaj • 🃏 Odkrywaj słowa • 🧠 Rozwiązuj quizy</p>
+</header>
+
+<nav>
+<a href="#start">Początek</a>
+<a href="#spis">Siedem legend</a>
+<a href="#piast">Piast</a>
+<a href="#popiel">Popiel</a>
+<a href="#lech">Lech</a>
+<a href="#wars">Wars i Sawa</a>
+<a href="#smok">Smok</a>
+<a href="#wanda">Wanda</a>
+<a href="#syrenka">Syrenka</a>
+</nav>
+
+<main>
+<section id="start">
+<h2>Witaj w świecie polskich legend!</h2>
+<p class="intro">Legenda to stara opowieść. Często mówi o niezwykłych ludziach, zwierzętach i magicznych wydarzeniach. Legendy przekazujemy z pokolenia na pokolenie. Nie wszystko w legendzie jest prawdziwe – to opowieść, która łączy historię i wyobraźnię.</p>
+<p>W tej lekcji poznasz siedem znanych polskich legend. Najpierw obejrzyj fiszki. Kliknij kartę, aby ją odwrócić. Potem przeczytaj tekst i rozwiąż quiz.</p>
+<div class="legend-grid" id="spis">
+<a class="legend-link" href="#piast"><span class="emoji">🛞</span> O Piaście Kołodzieju</a>
+<a class="legend-link" href="#popiel"><span class="emoji">🐭</span> O Popielu, co go myszy zjadły</a>
+<a class="legend-link" href="#lech"><span class="emoji">🦅</span> O Lechu, Czechu i Rusie</a>
+<a class="legend-link" href="#wars"><span class="emoji">🌊</span> O Warsie i Sawie</a>
+<a class="legend-link" href="#smok"><span class="emoji">🐉</span> O Wawelskim Smoku</a>
+<a class="legend-link" href="#wanda"><span class="emoji">👑</span> O Wandzie, co nie chciała Niemca</a>
+<a class="legend-link" href="#syrenka"><span class="emoji">🧜‍♀️</span> O Syrence warszawskiej</a>
+</div>
+</section>
+<div id="lessons"></div>
+</main>
+
+<footer>Polskie legendy • Interaktywna lekcja języka polskiego A1</footer>
+
+<script>
+const lessons = [
+{
+id:"piast",title:"O Piaście Kołodzieju",icon:"🛞",scene:["🛞","🪵","🏡","👨‍👩‍👦","👑"],
+words:[["🛞","koło","okrągła część wozu"],["🪚","kołodziej","rzemieślnik, który robi koła i wozy"],["🏡","chata","mały dom"],["🍞","gość","osoba, która przychodzi do domu"],["👑","książę","władca, syn lub członek rodziny królewskiej"],["🤝","gościnność","miłe przyjęcie gości"]],
+story:`Dawno temu żył Piast. Był <strong>kołodziejem</strong> – robił koła do wozów. Mieszkał w małej chacie z żoną Rzepichą i synem. Pewnego dnia do domu Piasta przyszli dwaj nieznajomi goście. Piast i jego żona przyjęli ich bardzo dobrze. Dali im jedzenie i picie. Goście byli zadowoleni. Okazało się, że byli to ważni wędrowcy. Zobaczyli, że Piast jest dobrym i uczciwym człowiekiem. Później ludzie wybrali Piasta na władcę. Tak zaczęła się dynastia Piastów – pierwsza dynastia władców Polski.`,
+q:[{t:"Kim był Piast?",o:["Rybakiem","Kołodziejem","Rycerzem"],a:1},{t:"Z kim mieszkał Piast?",o:["Z żoną i synem","Z królem","Sam"],a:0}],
+tf:["Piast robił koła do wozów.","Piast nie chciał przyjąć gości."],tfA:[true,false],
+match:[["kołodziej","rzemieślnik robiący koła"],["chata","mały dom"],["gość","osoba, która przychodzi"]],
+order:["Piast przyjął gości.","Piast robił koła do wozów.","Ludzie wybrali Piasta na władcę."],orderA:[1,0,2],
+fill:{t:"Piast był ______. (kołodziejem / smokiem)",a:"kołodziejem"}
+},
+{
+id:"popiel",title:"O Popielu, co go myszy zjadły",icon:"🐭",scene:["🏰","👑","🍗","🐭","🌊"],
+words:[["👑","król","władca państwa"],["😠","okrutny","zły dla innych ludzi"],["🍗","uczta","duże przyjęcie z jedzeniem"],["🐭","mysz","małe zwierzę"],["🏰","wieża","wysoka część zamku"],["🌊","jezioro","duży zbiornik wody"]],
+story:`Dawno temu żył książę Popiel. Mieszkał w zamku z żoną. Popiel był złym władcą. Nie pomagał ludziom i myślał tylko o sobie. Pewnego dnia zaprosił gości na wielką ucztę. Potem, według legendy, kazał zabić swoich krewnych, aby nikt nie zabrał mu władzy. Ludzie byli przerażeni. Wkrótce w zamku pojawiło się bardzo dużo myszy. Myszy weszły do komnat i goniły Popiela. Książę uciekł na wyspę i schował się w wysokiej wieży. Myszy znalazły go także tam. Legenda mówi, że zjadły złego władcę.`,
+q:[{t:"Jaki był Popiel?",o:["Dobry i pomocny","Okrutny i samolubny","Wesoły i hojny"],a:1},{t:"Gdzie schował się Popiel?",o:["W lesie","W wieży","W chacie"],a:1}],
+tf:["Popiel był dobrym władcą.","Myszy znalazły Popiela w wieży."],tfA:[false,true],
+match:[["uczta","duże przyjęcie z jedzeniem"],["wieża","wysoka część zamku"],["mysz","małe zwierzę"]],
+order:["Popiel uciekł do wieży.","Popiel urządził ucztę.","Myszy pojawiły się w zamku."],orderA:[1,2,0],
+fill:{t:"Popiel schował się w wysokiej ______. (wieży / rzece)",a:"wieży"}
+},
+{
+id:"lech",title:"O Lechu, Czechu i Rusie",icon:"🦅",scene:["👨‍👦‍👦","🌲","🦅","🥚","🏙️"],
+words:[["👨‍👦‍👦","bracia","synowie tych samych rodziców"],["🌲","las","miejsce z wieloma drzewami"],["🦅","orzeł","duży ptak drapieżny"],["🥚","gniazdo","dom ptaków"],["🏙️","gród","dawne, małe miasto"],["⚪","biały","kolor śniegu i mleka"]],
+story:`Dawno temu trzej bracia – Lech, Czech i Rus – wyruszyli w drogę. Szukali miejsca na nowy dom. Szli przez lasy, pola i rzeki. W końcu dotarli na piękną równinę. Lech zobaczył wielkiego białego orła. Ptak siedział w gnieździe na wysokim drzewie. Nad nim było czerwone niebo zachodzącego słońca. Lech uznał, że to dobry znak. Postanowił zostać w tym miejscu i zbudować gród. Nazwał go Gnieznem – od słowa „gniazdo”. Orzeł stał się symbolem Polski. Czech i Rus poszli dalej i według legendy dali początek swoim narodom.`,
+q:[{t:"Jak mieli na imię trzej bracia?",o:["Lech, Czech i Rus","Wars, Krak i Popiel","Piast, Lech i Smok"],a:0},{t:"Co zobaczył Lech?",o:["Złotą rybę","Białego orła","Smoka"],a:1}],
+tf:["Lech szukał miejsca na nowy dom.","Lech zobaczył czarnego konia."],tfA:[true,false],
+match:[["orzeł","duży ptak"],["gniazdo","dom ptaków"],["las","miejsce z wieloma drzewami"]],
+order:["Lech zobaczył białego orła.","Bracia wyruszyli w drogę.","Lech zbudował gród."],orderA:[1,0,2],
+fill:{t:"Lech zobaczył białego ______. (orła / smoka)",a:"orła"}
+},
+{
+id:"wars",title:"O Warsie i Sawie",icon:"🌊",scene:["🎣","🌊","🧜‍♀️","🏡","🏙️"],
+words:[["🎣","rybak","człowiek, który łowi ryby"],["🌊","rzeka","płynąca woda"],["🧜‍♀️","syrena","postać: kobieta i ryba"],["🏡","chata","mały dom"],["❤️","zakochać się","poczuć miłość"],["🏙️","miasto","duża miejscowość"]],
+story:`Dawno temu nad rzeką Wisłą mieszkał rybak Wars. Pewnego dnia usłyszał piękny śpiew. Zobaczył w wodzie niezwykłą kobietę – syrenę Sawę. Wars i Sawa szybko się zaprzyjaźnili, a potem zakochali. Sawa postanowiła zostać z Warsem na brzegu rzeki. Razem zbudowali dom. Wkrótce w tym miejscu powstała mała osada. Przybywało coraz więcej ludzi i domów. Osada zmieniła się w duże miasto. Legenda mówi, że nazwa Warszawa pochodzi od imion Wars i Sawa. Dziś Warszawa jest stolicą Polski.`,
+q:[{t:"Kim był Wars?",o:["Rybakiem","Królem","Kupcem"],a:0},{t:"Gdzie mieszkał Wars?",o:["Nad Wisłą","W górach","Nad morzem"],a:0}],
+tf:["Sawa była syreną.","Wars i Sawa zbudowali zamek na górze."],tfA:[true,false],
+match:[["rybak","człowiek, który łowi ryby"],["rzeka","płynąca woda"],["miasto","duża miejscowość"]],
+order:["Wars spotkał Sawę.","Razem zbudowali dom.","W tym miejscu powstała osada."],orderA:[0,1,2],
+fill:{t:"Wars był ______. (rybakiem / księciem)",a:"rybakiem"}
+},
+{
+id:"smok",title:"O Wawelskim Smoku",icon:"🐉",scene:["🏰","🐉","🔥","🐑","👟"],
+words:[["🐉","smok","duże, legendarne zwierzę"],["🏰","zamek","duży, dawny dom władcy"],["🔥","ogień","płomienie, które dają ciepło"],["🐑","owca","zwierzę, które daje wełnę"],["🧠","sprytny","mądry i pomysłowy"],["👑","król","władca państwa"]],
+story:`Dawno temu w Krakowie, pod Wawelem, mieszkał straszny smok. Smok bał się ludzi, ale ludzie bali się jego. Zwierzę zjadało owce i niszczyło okolicę. Król obiecał nagrodę temu, kto pokona smoka. Wielu rycerzy próbowało, ale nikt nie wygrał. W końcu młody szewczyk wymyślił plan. Wziął owczą skórę i włożył do niej siarkę. Zostawił taką „owcę” przed jaskinią smoka. Smok zjadł ją i poczuł wielkie pragnienie. Pobiegł do Wisły i pił wodę. Pił tak dużo, że pękł. Kraków był wolny od smoka.`,
+q:[{t:"Gdzie mieszkał smok?",o:["Pod Wawelem","W Warszawie","W lesie"],a:0},{t:"Kto wymyślił plan?",o:["Król","Szewczyk","Rybak"],a:1}],
+tf:["Smok zjadał owce.","Rycerze szybko pokonali smoka."],tfA:[true,false],
+match:[["smok","legendarne zwierzę"],["szewczyk","osoba, która robi buty"],["ogień","płomienie"]],
+order:["Szewczyk przygotował owczą skórę z siarką.","Smok zjadł przynętę.","Smok pobiegł do Wisły."],orderA:[0,1,2],
+fill:{t:"Smok mieszkał pod ______. (Wawelem / morzem)",a:"Wawelem"}
+},
+{
+id:"wanda",title:"O Wandzie, co nie chciała Niemca",icon:"👑",scene:["👸","🏰","🤴","🌊","🌸"],
+words:[["👸","księżniczka","córka króla lub władcy"],["🤴","książę","mężczyzna z rodziny królewskiej"],["💍","małżeństwo","związek dwóch osób"],["⚔️","wojna","walka między państwami"],["🌊","Wisła","największa rzeka Polski"],["🌸","odważna","taka, która się nie boi"]],
+story:`Dawno temu w Krakowie żyła księżniczka Wanda. Była piękna i odważna. Po śmierci ojca została władczynią. Do Krakowa przyjechał niemiecki książę Rytgier. Chciał poślubić Wandę, ale ona nie chciała tego małżeństwa. Książę się rozgniewał i zagroził wojną. Wanda nie chciała, aby jej ludzie cierpieli. Według jednej wersji legendy poszła nad Wisłę i skoczyła do rzeki. Wolała umrzeć, niż zgodzić się na małżeństwo. Ludzie długo pamiętali jej odwagę. Kopiec Wandy w Krakowie przypomina o tej opowieści.`,
+q:[{t:"Kim była Wanda?",o:["Księżniczką","Rybaczką","Smoczycą"],a:0},{t:"Czego chciał książę Rytgier?",o:["Zbudować most","Poślubić Wandę","Zostać rybakiem"],a:1}],
+tf:["Wanda chciała poślubić Rytgiera.","Legenda mówi, że Wanda była odważna."],tfA:[false,true],
+match:[["księżniczka","córka władcy"],["małżeństwo","związek dwóch osób"],["odważna","taka, która się nie boi"]],
+order:["Rytgier przyjechał do Krakowa.","Wanda odmówiła małżeństwa.","Książę zagroził wojną."],orderA:[0,1,2],
+fill:{t:"Wanda była ______. (odważna / przestraszona)",a:"odważna"}
+},
+{
+id:"syrenka",title:"O Syrence warszawskiej",icon:"🧜‍♀️",scene:["🌊","🧜‍♀️","🎣","🛡️","🏙️"],
+words:[["🧜‍♀️","syrena","postać: kobieta i ryba"],["🎣","rybak","człowiek, który łowi ryby"],["🪢","sieć","przedmiot do łowienia ryb"],["🛡️","tarcza","ochrona w czasie walki"],["⚔️","miecz","broń z metalu"],["🏙️","Warszawa","stolica Polski"]],
+story:`Dawno temu w Wiśle pływała piękna syrena. Pewnego dnia rybacy zobaczyli ją w wodzie. Byli zachwyceni jej śpiewem. Jeden z kupców złapał syrenę i zamknął ją w szopie. Syrena płakała i śpiewała smutne pieśni. Usłyszał ją młody rybak. Pomógł jej uciec. Syrena była bardzo wdzięczna. Obiecała, że będzie opiekować się ludźmi i bronić miasta. Dlatego na wielu obrazach syrenka trzyma tarczę i miecz. Dziś Syrenka Warszawska jest symbolem stolicy Polski. Jej pomnik stoi nad Wisłą.`,
+q:[{t:"Gdzie mieszkała syrena?",o:["W Wiśle","W górach","W zamku"],a:0},{t:"Co trzyma Syrenka Warszawska?",o:["Książkę i pióro","Tarczę i miecz","Koło i młotek"],a:1}],
+tf:["Rybak pomógł syrence uciec.","Syrena obiecała, że będzie szkodzić miastu."],tfA:[true,false],
+match:[["syrena","postać: kobieta i ryba"],["tarcza","ochrona w czasie walki"],["miecz","broń z metalu"]],
+order:["Kupiec złapał syrenę.","Rybak pomógł jej uciec.","Syrena obiecała chronić miasto."],orderA:[0,1,2],
+fill:{t:"Syrenka trzyma tarczę i ______. (miecz / koło)",a:"miecz"}
+}
+];
+
+const letters=["A","B","C","D"];
+
+function renderLesson(L,i){
+const vocab=L.words.map(w=>`
+<div class="flip" tabindex="0" role="button" aria-label="Odwróć fiszkę: ${w[1]}" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+<div class="flip-inner">
+<div class="face front"><span>${w[0]}</span><b>${w[1]}</b></div>
+<div class="face back"><b>${w[1]}</b><span>${w[2]}</span><small>↻ odwróć</small></div>
+</div></div>`).join("");
+
+const mc=L.q.map((q,j)=>`
+<div class="task"><b>${j+1}. ${q.t}</b>
+${q.o.map((o,k)=>`<label><input type="radio" name="${L.id}-mc${j}" value="${k}"> ${letters[k]}. ${o}</label>`).join("")}
+</div>`).join("");
+
+const tf=L.tf.map((t,j)=>`
+<div class="task"><b>${j+1}. ${t}</b>
+<label><input type="radio" name="${L.id}-tf${j}" value="true"> Prawda</label>
+<label><input type="radio" name="${L.id}-tf${j}" value="false"> Fałsz</label>
+</div>`).join("");
+
+const matching=L.match.map((m,j)=>`
+<div class="match"><span>${m[0]}</span>
+<select id="${L.id}-match${j}">
+<option value="">Wybierz znaczenie</option>
+${L.match.map((x,k)=>`<option value="${k}">${x[1]}</option>`).join("")}
+</select></div>`).join("");
+
+const ordering=L.order.map((t,j)=>`
+<div class="task"><label>
+<input type="number" min="1" max="${L.order.length}" id="${L.id}-order${j}" style="width:55px;padding:6px">
+${t}</label></div>`).join("");
+
+return `
+<section class="legend" id="${L.id}">
+<div class="legend-head"><span class="emoji">${L.icon}</span><h2>${i+1}. ${L.title}</h2></div>
+<h3>🃏 Słowniczek obrazkowy – odwracane fiszki</h3>
+<p class="hint">Kliknij kartę lub naciśnij Enter, aby zobaczyć znaczenie słowa.</p>
+<div class="vocab">${vocab}</div>
+<div class="scene" role="img" aria-label="Ilustracja do legendy">${L.scene.map(x=>`<span>${x}</span>`).join("")}</div>
+<h3>📖 Przeczytaj legendę</h3>
+<p class="story">${L.story}</p>
+<div class="quiz">
+<h3>🧠 Quiz – sprawdź, czy rozumiesz tekst!</h3>
+<h3>1. Wybierz poprawną odpowiedź (ABC)</h3>
+${mc}
+<h3>2. Prawda czy fałsz?</h3>
+${tf}
+<h3>3. Dopasuj słowo do znaczenia</h3>
+<div class="task">${matching}</div>
+<h3>4. Ułóż wydarzenia w kolejności – wpisz 1, 2, 3</h3>
+${ordering}
+<h3>5. Uzupełnij zdanie</h3>
+<div class="task">${L.fill.t}<br>
+<input id="${L.id}-fill" type="text" placeholder="Wpisz brakujące słowo" style="padding:8px;border:1px solid #ccd;border-radius:8px;margin-top:8px">
+</div>
+<button class="check" onclick="check('${L.id}')">Sprawdź quiz</button>
+<p class="result" id="${L.id}-result" aria-live="polite"></p>
+</div>
+</section>`;
+}
+
+document.getElementById("lessons").innerHTML=lessons.map(renderLesson).join("");
+
+function check(id){
+const L=lessons.find(x=>x.id===id);
+let score=0;
+let total=L.q.length+L.tf.length+L.match.length+L.order.length+1;
+let missing=0;
+
+L.q.forEach((q,j)=>{
+let v=document.querySelector(`input[name="${id}-mc${j}"]:checked`);
+if(v&&Number(v.value)===q.a)score++;
+else if(!v)missing++;
+});
+
+L.tf.forEach((q,j)=>{
+let v=document.querySelector(`input[name="${id}-tf${j}"]:checked`);
+if(v&&v.value===String(L.tfA[j]))score++;
+else if(!v)missing++;
+});
+
+L.match.forEach((q,j)=>{
+let v=document.getElementById(`${id}-match${j}`).value;
+if(v!==""&&Number(v)===j)score++;
+else if(v==="")missing++;
+});
+
+L.orderA.forEach((correct,j)=>{
+let v=document.getElementById(`${id}-order${j}`).value;
+if(v!==""&&Number(v)===correct+1)score++;
+else if(v==="")missing++;
+});
+
+let f=document.getElementById(id+"-fill").value.trim().toLocaleLowerCase("pl");
+if(f===L.fill.a.toLocaleLowerCase("pl"))score++;
+else if(!f)missing++;
+
+const out=document.getElementById(id+"-result");
+out.textContent=missing
+?`Masz ${score} / ${total} punktów. Uzupełnij jeszcze ${missing} ${missing===1?"odpowiedź":"odpowiedzi"}.`
+:`Twój wynik: ${score} / ${total} punktów. `+(score===total
+?"Świetnie! Wszystkie odpowiedzi są poprawne! 🎉"
+:score>=total*.7
+?"Bardzo dobrze! Przeczytaj jeszcze raz trudniejsze fragmenty."
+:"Przeczytaj tekst ponownie i spróbuj jeszcze raz.");
+}
+</script>
+</body>
+</html>

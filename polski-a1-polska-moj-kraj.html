@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polska – mój kraj | Język polski A1</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+--red:#c73545;--navy:#263d5b;--gold:#d6a94e;
+--cream:#fffaf1;--ink:#293447;--muted:#68758a;
+--green:#39775d;--blue:#4a85ad;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 Arial,sans-serif}
+header{
+background:linear-gradient(135deg,#fff 0%,#fff 49%,#c73545 50%,#a91f32 100%);
+padding:42px 18px;text-align:center;border-bottom:6px solid var(--gold)
+}
+.hero{
+max-width:1000px;margin:auto;background:#ffffffeb;border-radius:22px;
+padding:25px;box-shadow:0 8px 25px #17274720
+}
+header h1{font:clamp(35px,7vw,65px) Georgia,serif;color:var(--navy);margin:5px}
+header p{font-size:18px;margin:8px}
+.flag{font-size:52px}
+.tag{display:inline-block;background:#f4e8e8;padding:5px 12px;border-radius:20px;margin:4px;font-size:12px;font-weight:bold}
+nav{
+position:sticky;top:0;z-index:1000;background:white;
+display:flex;justify-content:center;flex-wrap:wrap;gap:4px;
+padding:9px;border-bottom:1px solid #e5e0d6
+}
+nav a{font-size:12px;color:var(--navy);text-decoration:none;font-weight:bold;padding:6px 8px;border-radius:15px}
+nav a:hover{background:#f7e8e9}
+main{max-width:1120px;margin:auto;padding:20px 15px 60px}
+section{background:white;border-radius:17px;margin:22px 0;padding:24px;box-shadow:0 4px 18px #17274710}
+h2{font:30px Georgia,serif;color:var(--navy);margin:0 0 15px}
+h3{color:var(--navy);margin:8px 0}
+p{margin:8px 0}
+.lead{font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px}
+.card{border:1px solid #e9e3d8;border-radius:14px;overflow:hidden;background:#fffdf9}
+.card-body{padding:14px}
+.card h3{margin-top:0}
+.picture{
+width:100%;height:205px;object-fit:cover;display:block;background:#eee8dc
+}
+.picture.tall{height:290px}
+.picture.land{height:160px}
+figure{margin:0}
+figcaption{font-size:11px;color:var(--muted);padding:6px 9px;line-height:1.4}
+figcaption a{color:var(--blue)}
+.emoji{font-size:39px;line-height:1.3}
+.word{
+background:#fff6df;border:1px solid #f0dfb9;border-radius:12px;
+padding:12px;text-align:center
+}
+.word .symbol{font-size:35px;display:block}
+.word strong{font-size:18px;color:var(--navy)}
+.word small{display:block;color:var(--muted)}
+.note,.info,.warning{
+padding:14px 16px;border-radius:9px;margin:15px 0
+}
+.note{background:#fff5d9;border-left:5px solid var(--gold)}
+.info{background:#edf5fb;border-left:5px solid var(--blue)}
+.warning{background:#fff0ed;border-left:5px solid var(--red)}
+.pill{display:inline-block;background:#eaf0f7;padding:3px 9px;border-radius:15px;font-size:12px;margin:3px}
+#mapPoland,#mapPlaces{height:430px;border-radius:13px;border:1px solid #ddd;z-index:1}
+.map-img{width:100%;height:auto;border-radius:12px;border:1px solid #ddd}
+.map-caption{font-size:12px;color:var(--muted)}
+.map-links{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.map-links a{color:var(--navy);background:#edf2f7;padding:7px 10px;border-radius:8px;text-decoration:none;font-size:13px}
+.region{border-top:4px solid var(--gold)}
+.region .card-body{padding:15px}
+.region h3{font-size:19px}
+ul{padding-left:22px}
+.timeline{border-left:3px solid var(--gold);padding-left:20px;margin-left:8px}
+.event{position:relative;margin:16px 0}
+.event:before{content:"";position:absolute;left:-27px;top:7px;width:11px;height:11px;background:var(--red);border-radius:50%}
+button{
+border:0;background:var(--navy);color:white;padding:10px 15px;
+border-radius:9px;cursor:pointer;font-weight:bold;margin:5px 3px
+}
+button:hover{background:#49688d}
+button.red{background:var(--red)}
+button.light{background:#e9edf3;color:var(--navy)}
+input[type=text],textarea{
+width:100%;padding:11px;border:1px solid #cbd2dc;border-radius:8px;font:inherit;margin:5px 0
+}
+textarea{min-height:115px}
+.question{padding:13px 0;border-bottom:1px solid #eee}
+.question label{display:block;padding:4px;cursor:pointer}
+.result{font-weight:bold;margin-top:12px}
+.flash-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.flash{min-height:120px;perspective:800px;cursor:pointer}
+.flip-inner{display:block;position:relative;width:100%;min-height:120px;transition:transform .5s;transform-style:preserve-3d}
+.flash.flipped .flip-inner{transform:rotateY(180deg)}
+.face{
+position:absolute;inset:0;min-height:120px;border-radius:12px;
+display:flex;align-items:center;justify-content:center;text-align:center;
+padding:12px;background:#fff5df;border:1px solid #ead8b2;
+backface-visibility:hidden;font-weight:bold;color:var(--navy)
+}
+.face.back{transform:rotateY(180deg);background:#edf5fb}
+.match-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px}
+.match-grid button{min-height:70px;background:#f1f4f7;color:var(--navy);border:1px solid #dce2e9}
+.match-grid button.selected{background:#fbe7e8;border-color:var(--red)}
+.match-grid button.done{background:#e4f3e9;border-color:var(--green)}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:13px}
+a{overflow-wrap:anywhere}
+@media(max-width:600px){
+section{padding:16px}nav{position:static}
+#mapPoland,#mapPlaces{height:340px}
+.picture{height:190px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="hero">
+<div class="flag">🇵🇱</div>
+<div class="tag">JĘZYK POLSKI JAKO OBCY</div>
+<div class="tag">POZIOM A1</div>
+<div class="tag">POLSKA I POLSKA KULTURA</div>
+<h1>POLSKA – MÓJ KRAJ</h1>
+<p>🌊 Morze · 🏔️ Góry · 🏰 Miasta · 🎨 Kultura · 🍲 Jedzenie</p>
+<p><b>Poznaj Polskę! Zobacz, posłuchaj, przeczytaj i ćwicz.</b></p>
+</div>
+</header>
+
+<nav>
+<a href="#start">START</a>
+<a href="#geografia">GEOGRAFIA</a>
+<a href="#mapy">MAPY</a>
+<a href="#miasta">MIASTA</a>
+<a href="#miejsca">MIEJSCA</a>
+<a href="#regiony">REGIONY</a>
+<a href="#symbole">SYMBOLE</a>
+<a href="#jedzenie">JEDZENIE</a>
+<a href="#kultura">KULTURA</a>
+<a href="#tradycje">TRADYCJE</a>
+<a href="#slawni">POLACY</a>
+<a href="#legendy">LEGENDY</a>
+<a href="#fiszki">SŁOWA</a>
+<a href="#quiz">QUIZ</a>
+</nav>
+
+<main>
+
+<section id="start">
+<h2>👋 1. Witaj w Polsce!</h2>
+<p class="lead">To jest Polska. Polska leży w Europie. Stolicą Polski jest Warszawa.</p>
+<div class="grid">
+<div class="word"><span class="symbol">🇵🇱</span><strong>Polska</strong><small>państwo</small></div>
+<div class="word"><span class="symbol">🗣️</span><strong>język polski</strong><small>język</small></div>
+<div class="word"><span class="symbol">🏙️</span><strong>Warszawa</strong><small>stolica</small></div>
+<div class="word"><span class="symbol">👥</span><strong>Polacy</strong><small>ludzie</small></div>
+</div>
+<div class="note">
+<b>Powiedz:</b><br>
+To jest Polska.<br>
+Mieszkam w Polsce.<br>
+Uczę się języka polskiego.<br>
+Chcę poznać Polskę.
+</div>
+<h3>Proste pytania</h3>
+<ul>
+<li>Jak nazywa się ten kraj? – Polska.</li>
+<li>Jaka jest stolica Polski? – Warszawa.</li>
+<li>W jakim języku mówimy? – Po polsku.</li>
+</ul>
+</section>
+
+<section id="geografia">
+<h2>🌍 2. Geografia Polski</h2>
+<p>Polska jest krajem w Europie Środkowej. Na północy ma Morze Bałtyckie. Na południu są góry.</p>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Baltic_Sea_in_Gdansk.jpg" alt="Morze Bałtyckie"></figure><div class="card-body"><h3>🌊 Morze Bałtyckie</h3><p>Na północy Polski jest morze. Są tam plaże i porty.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tatry_-_panorama.jpg" alt="Tatry"></figure><div class="card-body"><h3>🏔️ Góry</h3><p>Na południu są Tatry, Beskidy i Sudety.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Masurian_Lake_District.jpg" alt="Mazury"></figure><div class="card-body"><h3>🛶 Jeziora</h3><p>Na północnym wschodzie są Mazury. Jest tam dużo jezior.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vistula_River_in_Cracow.jpg" alt="Wisła"></figure><div class="card-body"><h3>🏞️ Rzeki</h3><p>Najdłuższa rzeka Polski to Wisła. Płynie między innymi przez Kraków i Warszawę.</p></div></div>
+</div>
+<h3>Ważne informacje</h3>
+<table>
+<tr><th>Pytanie</th><th>Odpowiedź</th></tr>
+<tr><td>Gdzie leży Polska?</td><td>W Europie Środkowej.</td></tr>
+<tr><td>Jakie morze jest w Polsce?</td><td>Morze Bałtyckie.</td></tr>
+<tr><td>Jaka jest najdłuższa rzeka?</td><td>Wisła.</td></tr>
+<tr><td>Jakie są góry?</td><td>Tatry, Beskidy i Sudety.</td></tr>
+<tr><td>Jaki jest najwyższy szczyt?</td><td>Rysy – 2499 m n.p.m.</td></tr>
+<tr><td>Jakie jest duże jezioro?</td><td>Śniardwy.</td></tr>
+</table>
+<div class="info">Polska ma cztery pory roku: 🌸 wiosnę, ☀️ lato, 🍂 jesień i ❄️ zimę.</div>
+<div class="grid">
+<div class="word"><span class="symbol">🌸</span><strong>wiosna</strong><small>Jest ciepło. Kwitną kwiaty.</small></div>
+<div class="word"><span class="symbol">☀️</span><strong>lato</strong><small>Jest gorąco. Są wakacje.</small></div>
+<div class="word"><span class="symbol">🍂</span><strong>jesień</strong><small>Liście są kolorowe.</small></div>
+<div class="word"><span class="symbol">❄️</span><strong>zima</strong><small>Jest zimno. Czasem pada śnieg.</small></div>
+</div>
+</section>
+
+<section id="mapy">
+<h2>🗺️ 3. Prawdziwe mapy Polski</h2>
+<h3>Mapa interaktywna – Polska i sąsiedzi</h3>
+<p>Przybliż mapę. Zobacz granice Polski, morze i miasta. Kliknij punkt na mapie.</p>
+<div id="mapPoland"></div>
+<div class="map-links">
+<a href="https://www.openstreetmap.org/#map=6/52.1/19.4" target="_blank">Otwórz mapę Polski</a>
+<a href="https://www.google.com/maps/place/Polska/" target="_blank">Zobacz Polskę na mapie Google</a>
+</div>
+<h3>Mapa administracyjna – 16 województw</h3>
+<p>Polska jest podzielona na 16 województw. Mapa pochodzi z Głównego Urzędu Statystycznego.</p>
+<figure>
+<img class="map-img" src="https://statystykaregionalna.new.stat.gov.pl/sites/default/files/2026-10/Mapa%20administracyjna%20Polski%202026_2.png" alt="Mapa administracyjna Polski z podziałem na województwa i powiaty">
+<figcaption>Mapa administracyjna Polski – stan na 1 stycznia 2026 r. Źródło: Główny Urząd Statystyczny.</figcaption>
+</figure>
+<div class="note"><b>Uwaga:</b> Województwo to duży region administracyjny. Polska ma 16 województw.</div>
+<h3>Mapa turystyczna – ciekawe miejsca</h3>
+<p>Na mapie znajdziesz wybrane miasta i atrakcje turystyczne.</p>
+<div id="mapPlaces"></div>
+</section>
+
+<section id="miasta">
+<h2>🏙️ 4. Najważniejsze miasta Polski</h2>
+<p>W Polsce jest wiele ciekawych miast. Każde miasto ma swoją historię.</p>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Warsaw_old_town_market_square.jpg" alt="Warszawa"></figure><div class="card-body"><h3>🏙️ Warszawa</h3><p>Warszawa jest stolicą Polski. Jest tu Stare Miasto, Zamek Królewski i Pałac Kultury i Nauki.</p><span class="pill">Mazowieckie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow_Rynek_Glowny.jpg" alt="Kraków"></figure><div class="card-body"><h3>🏰 Kraków</h3><p>Kraków ma piękny rynek i Zamek na Wawelu. Dawniej był stolicą Polski.</p><span class="pill">Małopolskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gdansk_old_town_Motlawa.jpg" alt="Gdańsk"></figure><div class="card-body"><h3>⚓ Gdańsk</h3><p>Gdańsk leży nad Morzem Bałtyckim. Jest tu port, plaża i piękne Stare Miasto.</p><span class="pill">Pomorskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wroclaw_Rynek.jpg" alt="Wrocław"></figure><div class="card-body"><h3>🌉 Wrocław</h3><p>Wrocław ma piękny rynek i dużo mostów. W mieście są małe krasnale.</p><span class="pill">Dolnośląskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Poznan_old_market_square.jpg" alt="Poznań"></figure><div class="card-body"><h3>🐐 Poznań</h3><p>W Poznaniu na ratuszu są słynne koziołki. Miasto jest znane z rogali świętomarcińskich.</p><span class="pill">Wielkopolskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lodz_Piotrkowska_street.jpg" alt="Łódź"></figure><div class="card-body"><h3>🎬 Łódź</h3><p>Łódź jest znana z filmu, sztuki i ulicy Piotrkowskiej.</p><span class="pill">Łódzkie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Katowice_Spodek.jpg" alt="Katowice"></figure><div class="card-body"><h3>🎸 Katowice</h3><p>Katowice leżą na Śląsku. To ważne miasto muzyki, kultury i przemysłu.</p><span class="pill">Śląskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lublin_old_town.jpg" alt="Lublin"></figure><div class="card-body"><h3>🏛️ Lublin</h3><p>Lublin ma piękne Stare Miasto i bogatą historię.</p><span class="pill">Lubelskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Torun_old_town.jpg" alt="Toruń"></figure><div class="card-body"><h3>🪐 Toruń</h3><p>Toruń to miasto Mikołaja Kopernika i pierników.</p><span class="pill">Kujawsko-pomorskie</span></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Szczecin_Waly_Chrobrego.jpg" alt="Szczecin"></figure><div class="card-body"><h3>🚢 Szczecin</h3><p>Szczecin leży w północno-zachodniej Polsce. Ma duży port.</p><span class="pill">Zachodniopomorskie</span></div></div>
+</div>
+</section>
+
+<section id="miejsca">
+<h2>📸 5. Miejsca, które warto zobaczyć</h2>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Malbork_Castle_-_Poland.jpg" alt="Zamek w Malborku"></figure><div class="card-body"><h3>🏰 Zamek w Malborku</h3><p>To bardzo duży średniowieczny zamek z cegły.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wieliczka_Salt_Mine.jpg" alt="Kopalnia soli w Wieliczce"></figure><div class="card-body"><h3>🧂 Kopalnia soli w Wieliczce</h3><p>Pod ziemią są korytarze, komory i kaplica z soli.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Morskie_Oko_Tatry.jpg" alt="Morskie Oko"></figure><div class="card-body"><h3>🏔️ Morskie Oko</h3><p>To piękne jezioro w Tatrach.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bialowieza_Forest.jpg" alt="Puszcza Białowieska"></figure><div class="card-body"><h3>🌳 Puszcza Białowieska</h3><p>To stary las. Żyją tu żubry.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Slowinski_National_Park_dunes.jpg" alt="Ruchome wydmy"></figure><div class="card-body"><h3>🏖️ Ruchome wydmy</h3><p>W Słowińskim Parku Narodowym są wielkie wydmy z piasku.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zamosc_market_square.jpg" alt="Zamość"></figure><div class="card-body"><h3>🏛️ Zamość</h3><p>To miasto z pięknym renesansowym rynkiem.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bieszczady_mountains_Poland.jpg" alt="Bieszczady"></figure><div class="card-body"><h3>🌄 Bieszczady</h3><p>To góry, lasy i piękne widoki.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krzywy_Las_Gryfino.jpg" alt="Krzywy Las"></figure><div class="card-body"><h3>🌲 Krzywy Las</h3><p>W tym lesie rosną drzewa o dziwnych, zakrzywionych pniach.</p></div></div>
+</div>
+<div class="info">W Polsce są miejsca z listy światowego dziedzictwa UNESCO, na przykład historyczne centrum Krakowa, Zamek w Malborku i Kopalnia Soli w Wieliczce.</div>
+</section>
+
+<section id="regiony">
+<h2>🧭 6. Regiony Polski i ciekawostki</h2>
+<p>Polska ma wiele regionów. Każdy region ma swoje tradycje, stroje, jedzenie i muzykę.</p>
+<div class="grid">
+<div class="card region"><div class="card-body"><div class="emoji">🌊</div><h3>Pomorze</h3><p>Morze, plaże, ryby, porty i bursztyn.</p><p><b>Miasta:</b> Gdańsk, Gdynia, Sopot.</p><p><b>Ciekawostka:</b> Gdańsk jest znany z bursztynu.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">⛵</div><h3>Mazury</h3><p>Jeziora, lasy, żaglówki i kajaki.</p><p><b>Miasta:</b> Giżycko, Mikołajki, Olsztyn.</p><p><b>Ciekawostka:</b> Mazury nazywamy Krainą Wielkich Jezior.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🏰</div><h3>Wielkopolska</h3><p>Historia początków państwa polskiego.</p><p><b>Miasta:</b> Poznań, Gniezno.</p><p><b>Ciekawostka:</b> Gniezno jest ważnym miejscem w historii Polski.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🏔️</div><h3>Małopolska</h3><p>Kraków, góry, zamki i tradycje.</p><p><b>Miasta:</b> Kraków, Tarnów, Zakopane.</p><p><b>Ciekawostka:</b> W Krakowie jest smok wawelski.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🎻</div><h3>Śląsk</h3><p>Górnicy, kopalnie, muzyka i tradycje.</p><p><b>Miasta:</b> Katowice, Gliwice, Zabrze.</p><p><b>Ciekawostka:</b> Tradycyjne danie to rolada, kluski i modra kapusta.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🌲</div><h3>Podlasie</h3><p>Lasy, przyroda, wielokulturowość.</p><p><b>Miasta:</b> Białystok, Suwałki.</p><p><b>Ciekawostka:</b> W Puszczy Białowieskiej żyją żubry.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🌾</div><h3>Lubelszczyzna</h3><p>Pola, stare miasta i piękna przyroda.</p><p><b>Miasta:</b> Lublin, Zamość, Kazimierz Dolny.</p><p><b>Ciekawostka:</b> Zamość ma piękny renesansowy rynek.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">⛰️</div><h3>Podhale</h3><p>Góry, górale, owce i oscypek.</p><p><b>Miasto:</b> Zakopane.</p><p><b>Ciekawostka:</b> Górale mają charakterystyczne stroje i muzykę.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🌳</div><h3>Kujawy</h3><p>Jeziora, pola i tradycyjne potrawy.</p><p><b>Miasta:</b> Toruń, Bydgoszcz, Włocławek.</p><p><b>Ciekawostka:</b> Toruń słynie z pierników.</p></div></div>
+<div class="card region"><div class="card-body"><div class="emoji">🏞️</div><h3>Podkarpacie</h3><p>Bieszczady, lasy i drewniane cerkwie.</p><p><b>Miasta:</b> Rzeszów, Przemyśl.</p><p><b>Ciekawostka:</b> W Bieszczadach można zobaczyć połoniny.</p></div></div>
+</div>
+
+<h3>Wszystkie 16 województw</h3>
+<div class="grid">
+<div class="word"><strong>1. dolnośląskie</strong><small>Wrocław</small></div>
+<div class="word"><strong>2. kujawsko-pomorskie</strong><small>Bydgoszcz i Toruń</small></div>
+<div class="word"><strong>3. lubelskie</strong><small>Lublin</small></div>
+<div class="word"><strong>4. lubuskie</strong><small>Gorzów Wielkopolski i Zielona Góra</small></div>
+<div class="word"><strong>5. łódzkie</strong><small>Łódź</small></div>
+<div class="word"><strong>6. małopolskie</strong><small>Kraków</small></div>
+<div class="word"><strong>7. mazowieckie</strong><small>Warszawa</small></div>
+<div class="word"><strong>8. opolskie</strong><small>Opole</small></div>
+<div class="word"><strong>9. podkarpackie</strong><small>Rzeszów</small></div>
+<div class="word"><strong>10. podlaskie</strong><small>Białystok</small></div>
+<div class="word"><strong>11. pomorskie</strong><small>Gdańsk</small></div>
+<div class="word"><strong>12. śląskie</strong><small>Katowice</small></div>
+<div class="word"><strong>13. świętokrzyskie</strong><small>Kielce</small></div>
+<div class="word"><strong>14. warmińsko-mazurskie</strong><small>Olsztyn</small></div>
+<div class="word"><strong>15. wielkopolskie</strong><small>Poznań</small></div>
+<div class="word"><strong>16. zachodniopomorskie</strong><small>Szczecin</small></div>
+</div>
+</section>
+
+<section id="symbole">
+<h2>🇵🇱 7. Symbole narodowe Polski</h2>
+<div class="grid">
+<div class="card"><div class="card-body"><div class="emoji">🇵🇱</div><h3>Flaga</h3><p>Flaga Polski ma dwa kolory: biały i czerwony. Biały jest na górze, czerwony na dole.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Herb_Polski.svg" alt="Godło Polski"></figure><div class="card-body"><h3>🦅 Godło</h3><p>Godło Polski to biały orzeł w koronie na czerwonym tle.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🎵</div><h3>Hymn</h3><p>Hymn Polski to „Mazurek Dąbrowskiego”. Zaczyna się od słów: „Jeszcze Polska nie zginęła”.</p></div></div>
+</div>
+<div class="note"><b>Ważne święta państwowe:</b><br>2 maja – Dzień Flagi Rzeczypospolitej Polskiej.<br>3 maja – Święto Konstytucji 3 Maja.<br>11 listopada – Narodowe Święto Niepodległości.</div>
+</section>
+
+<section id="jedzenie">
+<h2>🍲 8. Polskie jedzenie</h2>
+<p>Polska kuchnia jest różnorodna. Są zupy, pierogi, mięso, ziemniaki i słodkie ciasta.</p>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pierogi_z_miesem.jpg" alt="Pierogi"></figure><div class="card-body"><h3>🥟 Pierogi</h3><p>Ciasto z farszem. Są pierogi z serem, mięsem, kapustą lub owocami.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bigos.jpg" alt="Bigos"></figure><div class="card-body"><h3>🥘 Bigos</h3><p>Danie z kapusty i mięsa.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Polish_zurek.jpg" alt="Żurek"></figure><div class="card-body"><h3>🍲 Żurek</h3><p>Kwaśna zupa. Często jest z jajkiem i kiełbasą.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rosol.jpg" alt="Rosół"></figure><div class="card-body"><h3>🍜 Rosół</h3><p>Tradycyjna zupa z makaronem.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oscypek.jpg" alt="Oscypek"></figure><div class="card-body"><h3>🧀 Oscypek</h3><p>Wędzony ser owczy z Podhala.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Poznan_rogal_swietomarcinski.jpg" alt="Rogal świętomarciński"></figure><div class="card-body"><h3>🥐 Rogal świętomarciński</h3><p>Słodki rogal z Poznania.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Polish_paczki.jpg" alt="Pączki"></figure><div class="card-body"><h3>🍩 Pączki</h3><p>Słodkie ciasto z nadzieniem. Jemy je między innymi w tłusty czwartek.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sernik.jpg" alt="Sernik"></figure><div class="card-body"><h3>🍰 Sernik</h3><p>Ciasto z twarogu.</p></div></div>
+</div>
+<h3>Co lubisz jeść?</h3>
+<p>Uzupełnij zdania:</p>
+<p>Lubię jeść __________________________.</p>
+<p>Nie lubię __________________________.</p>
+<p>Moje ulubione polskie danie to __________________________.</p>
+</section>
+
+<section>
+<h2>👗 9. Polskie stroje ludowe</h2>
+<p>W Polsce są różne stroje ludowe. Kolory i wzory zależą od regionu.</p>
+<div class="grid">
+<div class="card"><figure><img class="picture tall" src="https://commons.wikimedia.org/wiki/Special:FilePath/Polish_folk_costume_Lowicz.jpg" alt="Strój łowicki"></figure><div class="card-body"><h3>🌈 Strój łowicki</h3><p>Kolorowe pasy, kwiaty i hafty. Region: Łowicz.</p></div></div>
+<div class="card"><figure><img class="picture tall" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gorals_folk_costumes.jpg" alt="Strój góralski"></figure><div class="card-body"><h3>🏔️ Strój góralski</h3><p>Kapelusz, kierpce, hafty i ozdoby. Region: Podhale.</p></div></div>
+<div class="card"><figure><img class="picture tall" src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow_folk_costume.jpg" alt="Strój krakowski"></figure><div class="card-body"><h3>🦚 Strój krakowski</h3><p>Kolorowy gorset, spódnica i pawie pióra.</p></div></div>
+<div class="card"><figure><img class="picture tall" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kaszuby_folk_costume.jpg" alt="Strój kaszubski"></figure><div class="card-body"><h3>🌼 Strój kaszubski</h3><p>Hafty z motywami roślinnymi i kwiatami.</p></div></div>
+</div>
+</section>
+
+<section id="kultura">
+<h2>🎨 10. Muzyka, sztuka i kultura</h2>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fryderyk_Chopin.jpg" alt="Fryderyk Chopin"></figure><div class="card-body"><h3>🎹 Fryderyk Chopin</h3><p>Kompozytor i pianista. Pisał piękną muzykę na fortepian.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Matejko_self-portrait.jpg" alt="Jan Matejko"></figure><div class="card-body"><h3>🎨 Jan Matejko</h3><p>Malarz. Malował ważne wydarzenia z historii Polski.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stanis%C5%82aw_Wyspia%C5%84ski.jpg" alt="Stanisław Wyspiański"></figure><div class="card-body"><h3>🖼️ Stanisław Wyspiański</h3><p>Artysta, malarz i pisarz. Projektował też witraże.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Witold_Gombrowicz.jpg" alt="Witold Gombrowicz"></figure><div class="card-body"><h3>📚 Witold Gombrowicz</h3><p>Znany polski pisarz.</p></div></div>
+</div>
+<h3>Polska muzyka tradycyjna</h3>
+<div class="grid">
+<div class="word"><span class="symbol">💃</span><strong>polonez</strong><small>uroczysty taniec</small></div>
+<div class="word"><span class="symbol">🎻</span><strong>mazur</strong><small>taniec ludowy</small></div>
+<div class="word"><span class="symbol">🎶</span><strong>oberek</strong><small>szybki taniec</small></div>
+<div class="word"><span class="symbol">🪗</span><strong>muzyka ludowa</strong><small>muzyka tradycyjna</small></div>
+</div>
+<div class="info">Polonez jest wpisany na listę niematerialnego dziedzictwa kulturowego UNESCO.</div>
+</section>
+
+<section>
+<h2>🏅 11. Sławni Polacy i polscy nobliści</h2>
+<p>Poznaj znanych ludzi z Polski.</p>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maria_Sklodowska-Curie_c1920.jpg" alt="Maria Skłodowska-Curie"></figure><div class="card-body"><h3>🔬 Maria Skłodowska-Curie</h3><p>Naukowczyni. Otrzymała dwie Nagrody Nobla.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lech_Walesa_2009.jpg" alt="Lech Wałęsa"></figure><div class="card-body"><h3>✊ Lech Wałęsa</h3><p>Działacz „Solidarności”. Otrzymał Pokojową Nagrodę Nobla.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wislawa_Szymborska_2009.jpg" alt="Wisława Szymborska"></figure><div class="card-body"><h3>📖 Wisława Szymborska</h3><p>Poetka. Otrzymała Literacką Nagrodę Nobla.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Olga_Tokarczuk_2018.jpg" alt="Olga Tokarczuk"></figure><div class="card-body"><h3>📚 Olga Tokarczuk</h3><p>Pisarka. Otrzymała Literacką Nagrodę Nobla za rok 2018.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nicolaus_Copernicus_portrait.jpg" alt="Mikołaj Kopernik"></figure><div class="card-body"><h3>🪐 Mikołaj Kopernik</h3><p>Astronom. Badał Słońce, planety i kosmos.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Robert_Lewandowski_2018.jpg" alt="Robert Lewandowski"></figure><div class="card-body"><h3>⚽ Robert Lewandowski</h3><p>Piłkarz. Jest znany na całym świecie.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jan_Pawe%C5%82_II.jpg" alt="Jan Paweł II"></figure><div class="card-body"><h3>⛪ Jan Paweł II</h3><p>Papież z Polski. Nazywał się Karol Wojtyła.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fryderyk_Chopin.jpg" alt="Fryderyk Chopin"></figure><div class="card-body"><h3>🎹 Fryderyk Chopin</h3><p>Kompozytor, jeden z najbardziej znanych polskich muzyków.</p></div></div>
+</div>
+<div class="note"><b>Polscy nobliści:</b> Maria Skłodowska-Curie, Henryk Sienkiewicz, Władysław Reymont, Czesław Miłosz, Wisława Szymborska, Olga Tokarczuk, Lech Wałęsa i inni. Maria Skłodowska-Curie otrzymała Nobla w dwóch dziedzinach: fizyce i chemii.</div>
+</section>
+
+<section id="tradycje">
+<h2>🎄 12. Polskie tradycje i zwyczaje</h2>
+<div class="grid">
+<div class="card"><div class="card-body"><div class="emoji">🎄</div><h3>Boże Narodzenie</h3><p>Ubieramy choinkę. Dzielimy się opłatkiem. Jemy kolację wigilijną.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🥚</div><h3>Wielkanoc</h3><p>Malujemy pisanki. Święcimy koszyczek. Jemy świąteczne śniadanie.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">💦</div><h3>Śmigus-dyngus</h3><p>W Poniedziałek Wielkanocny ludzie polewają się wodą.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🎭</div><h3>Andrzejki</h3><p>Pod koniec listopada ludzie organizują zabawy i wróżby.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🌸</div><h3>Topienie marzanny</h3><p>To dawny zwyczaj związany z pożegnaniem zimy.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🎁</div><h3>Mikołajki</h3><p>6 grudnia dzieci często dostają małe prezenty.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🌺</div><h3>Boże Ciało</h3><p>W wielu miejscach odbywają się procesje. W niektórych miejscowościach powstają kolorowe dywany z kwiatów.</p></div></div>
+<div class="card"><div class="card-body"><div class="emoji">🎉</div><h3>Wesele</h3><p>Na polskim weselu są muzyka, taniec i wspólna zabawa.</p></div></div>
+</div>
+<div class="info">Tradycje są różne w różnych regionach Polski. Nie każdy człowiek obchodzi wszystkie święta i zwyczaje.</div>
+</section>
+
+<section id="legendy">
+<h2>🐉 13. Polskie legendy</h2>
+<div class="grid">
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wawel_Dragon.jpg" alt="Smok wawelski"></figure><div class="card-body"><h3>🐉 Smok wawelski</h3><p>W Krakowie mieszkał straszny smok. Jadł zwierzęta i bał się go cały gród. Sprytny szewczyk dał smokowi owcę z siarką. Smok wypił dużo wody z Wisły i pękł.</p><p><b>Miejsce:</b> Kraków.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Warsaw_Syrenka.jpg" alt="Warszawska Syrenka"></figure><div class="card-body"><h3>🧜‍♀️ Warszawska Syrenka</h3><p>Syrenka przypłynęła Wisłą do Warszawy. Chciała zostać w tym miejscu. Obiecała bronić miasta. Dlatego ma tarczę i miecz.</p><p><b>Miejsce:</b> Warszawa.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lech_Czech_Rus.jpg" alt="Legenda o Lechu Czechu i Rusie"></figure><div class="card-body"><h3>🦅 Legenda o Lechu</h3><p>Lech zobaczył białego orła na drzewie. Postanowił zostać w tym miejscu. Założył gród i nazwał go Gniezno.</p><p><b>Miejsce:</b> Gniezno.</p></div></div>
+<div class="card"><figure><img class="picture" src="https://commons.wikimedia.org/wiki/Special:FilePath/Poznan_koziolek.jpg" alt="Poznańskie koziołki"></figure><div class="card-body"><h3>🐐 Poznańskie koziołki</h3><p>Dwa koziołki uciekły z kuchni i weszły na wieżę ratusza. Dziś dwa mechaniczne koziołki pokazują się na wieży w południe.</p><p><b>Miejsce:</b> Poznań.</p></div></div>
+</div>
+<div class="note">Legendy to opowieści. Nie wszystkie wydarzenia w legendach są prawdziwe.</div>
+</section>
+
+<section>
+<h2>🗣️ 14. Mówimy po polsku – przydatne zdania</h2>
+<div class="grid">
+<div class="word"><span class="symbol">👋</span><strong>Dzień dobry!</strong><small>Powitanie</small></div>
+<div class="word"><span class="symbol">🙏</span><strong>Dziękuję!</strong><small>Podziękowanie</small></div>
+<div class="word"><span class="symbol">😊</span><strong>Proszę!</strong><small>Uprzejme słowo</small></div>
+<div class="word"><span class="symbol">❓</span><strong>Gdzie jest…?</strong><small>Pytanie o miejsce</small></div>
+<div class="word"><span class="symbol">❤️</span><strong>Lubię Polskę.</strong><small>Moja opinia</small></div>
+<div class="word"><span class="symbol">🧭</span><strong>Chcę zobaczyć…</strong><small>Moje plany</small></div>
+</div>
+<h3>Krótki dialog</h3>
+<div class="note">
+<b>A:</b> Dzień dobry! Skąd jesteś?<br>
+<b>B:</b> Jestem z Hiszpanii. A ty?<br>
+<b>A:</b> Jestem z Polski. Czy lubisz Polskę?<br>
+<b>B:</b> Tak! Bardzo lubię Polskę. Lubię Kraków i góry.<br>
+<b>A:</b> Zapraszam do Polski!
+</div>
+</section>
+
+<section id="fiszki">
+<h2>🧩 15. Obrazkowe fiszki</h2>
+<p>Kliknij kartę. Zobaczysz słowo.</p>
+<div class="flash-wrap" id="flashcards"></div>
+</section>
+
+<section>
+<h2>🎯 16. Połącz obrazek ze słowem</h2>
+<p>Wybierz obrazek, a potem pasujące słowo.</p>
+<div id="matchGame" class="match-grid"></div>
+<div id="matchResult" class="result"></div>
+<button class="light" onclick="resetMatch()">Nowa gra</button>
+</section>
+
+<section>
+<h2>✏️ 17. Uzupełnij zdania</h2>
+<p>Wpisz brakujące słowa.</p>
+<div class="question">1. Stolicą Polski jest <input type="text" id="fill1" placeholder="Miasto"></div>
+<div class="question">2. Najdłuższa rzeka Polski to <input type="text" id="fill2" placeholder="Rzeka"></div>
+<div class="question">3. Na północy Polski jest Morze <input type="text" id="fill3" placeholder="Nazwa morza"></div>
+<div class="question">4. W górach jest <input type="text" id="fill4" placeholder="Nazwa jeziora">.</div>
+<div class="question">5. Polska flaga ma kolor biały i <input type="text" id="fill5" placeholder="Kolor"></div>
+<button onclick="checkFill()">Sprawdź</button>
+<div id="fillResult" class="result"></div>
+</section>
+
+<section id="quiz">
+<h2>🧠 18. Quiz – co wiesz o Polsce?</h2>
+<p>Wybierz jedną odpowiedź.</p>
+<div id="quizQuestions"></div>
+<button class="red" onclick="checkQuiz()">Sprawdź wynik</button>
+<button class="light" onclick="resetQuiz()">Spróbuj jeszcze raz</button>
+<div id="quizResult" class="result"></div>
+</section>
+
+<section>
+<h2>✍️ 19. Moja pocztówka z Polski</h2>
+<p>Napisz krótką pocztówkę. Możesz skorzystać z podanych zdań.</p>
+<div class="info">
+Cześć!<br>
+Jestem w __________________.<br>
+To miasto jest __________________.<br>
+Lubię __________________.<br>
+Pozdrawiam!
+</div>
+<textarea id="postcard" placeholder="Cześć! Jestem w Krakowie..."></textarea>
+<button onclick="downloadPostcard()">Zapisz pocztówkę</button>
+</section>
+
+<section>
+<h2>📚 20. Źródła i dodatkowe mapy</h2>
+<ul>
+<li><a href="https://statystykaregionalna.new.stat.gov.pl/jednostki-terytorialne/podzial-administracyjny-polski" target="_blank">Główny Urząd Statystyczny – podział administracyjny Polski</a></li>
+<li><a href="https://www.poland.travel/pl/" target="_blank">Polska Organizacja Turystyczna – Polska</a></li>
+<li><a href="https://whc.unesco.org/en/statesparties/pl" target="_blank">UNESCO – miejsca światowego dziedzictwa w Polsce</a></li>
+<li><a href="https://ich.unesco.org/en/state/poland-PL" target="_blank">UNESCO – tradycje i dziedzictwo niematerialne Polski</a></li>
+<li><a href="https://www.nobelprize.org/" target="_blank">Oficjalna strona Nagrody Nobla</a></li>
+<li><a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons – zdjęcia i ilustracje</a></li>
+<li><a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap – mapy</a></li>
+</ul>
+<p class="small">Zdjęcia pochodzą z zewnętrznych zasobów Wikimedia Commons. Poszczególne pliki mogą mieć różne licencje. Mapy korzystają z OpenStreetMap. Do wyświetlania zdjęć i map potrzebny jest internet.</p>
+</section>
+
+</main>
+<footer>🇵🇱 POLSKA – MÓJ KRAJ · JĘZYK POLSKI A1 · POLISH CULTURE LAB</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const places=[
+["Warszawa",52.2297,21.0122,"Stolica Polski"],
+["Kraków",50.0647,19.9450,"Rynek i Wawel"],
+["Gdańsk",54.3520,18.6466,"Morze i stare miasto"],
+["Wrocław",51.1079,17.0385,"Mosty i krasnale"],
+["Poznań",52.4064,16.9252,"Koziołki i rogale"],
+["Łódź",51.7592,19.4550,"Ulica Piotrkowska"],
+["Katowice",50.2649,19.0238,"Śląsk"],
+["Lublin",51.2465,22.5684,"Stare Miasto"],
+["Toruń",53.0138,18.5984,"Pierniki"],
+["Szczecin",53.4285,14.5528,"Port"],
+["Malbork",54.0359,19.0266,"Zamek"],
+["Zakopane",49.2992,19.9496,"Tatry"],
+["Morskie Oko",49.1995,20.0703,"Jezioro w Tatrach"],
+["Gniezno",52.5348,17.5826,"Pierwsza stolica Polski"],
+["Białowieża",52.7000,23.8667,"Puszcza Białowieska"],
+["Zamość",50.7231,23.2519,"Renesansowe miasto"]
+];
+if(typeof L!=="undefined"){
+ const map=L.map("mapPoland").setView([52.1,19.4],6);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+ attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+ maxZoom:18
+ }).addTo(map);
+ L.marker([52.1,19.4]).addTo(map).bindPopup("<b>Polska</b><br>Europa Środkowa").openPopup();
+ L.marker([54.5,18.7]).addTo(map).bindPopup("Morze Bałtyckie");
+ L.marker([49.2,19.9]).addTo(map).bindPopup("Tatry – góry na południu Polski");
+ const tourist=L.map("mapPlaces").setView([52.1,19.4],6);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+ attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+ maxZoom:18
+ }).addTo(tourist);
+ places.forEach(p=>{
+  L.marker([p[1],p[2]]).addTo(tourist).bindPopup("<b>"+p[0]+"</b><br>"+p[3]);
+ });
+}else{
+ document.getElementById("mapPoland").innerHTML="Mapa wymaga połączenia z internetem.";
+ document.getElementById("mapPlaces").innerHTML="Mapa wymaga połączenia z internetem.";
+}
+const words=[
+["🇵🇱","Polska"],["🏙️","Warszawa"],["🌊","morze"],
+["🏔️","góry"],["🌳","las"],["🏞️","rzeka"],
+["🥟","pierogi"],["🍲","żurek"],["🧀","oscypek"],
+["🏰","zamek"],["🐉","smok"],["🎹","fortepian"],
+["🦅","orzeł"],["🎄","choinka"],["🥚","pisanka"],
+["🛶","jezioro"],["⚓","port"],["🎨","malarstwo"]
+];
+words.forEach(([pic,word])=>{
+ const d=document.createElement("div");d.className="flash";
+ d.innerHTML='<div class="flip-inner"><div class="face"><span style="font-size:34px">'+pic+'</span></div><div class="face back">'+word+'</div></div>';
+ d.onclick=()=>d.classList.toggle("flipped");
+ document.getElementById("flashcards").appendChild(d);
+});
+const matchPairs=[
+["🇵🇱","Polska"],["🏰","zamek"],["🌊","morze"],["🥟","pierogi"],
+["🏔️","góry"],["🎹","muzyka"],["🦅","orzeł"],["🌳","las"]
+];
+let first=null,matched=0;
+function resetMatch(){
+ first=null;matched=0;
+ const root=document.getElementById("matchGame");root.innerHTML="";
+ document.getElementById("matchResult").textContent="";
+ let items=[];
+ matchPairs.forEach((p,i)=>{items.push({id:i,text:p[0]});items.push({id:i,text:p[1]});});
+ items.sort(()=>Math.random()-.5);
+ items.forEach(item=>{
+  const b=document.createElement("button");
+  b.textContent=item.text;b.dataset.id=item.id;
+  b.onclick=()=>{
+   if(b.classList.contains("done")||b===first)return;
+   if(!first){first=b;b.classList.add("selected");return;}
+   if(first.dataset.id===b.dataset.id){
+    first.classList.remove("selected");first.classList.add("done");b.classList.add("done");matched++;
+    first=null;
+    if(matched===matchPairs.length)document.getElementById("matchResult").textContent="Brawo! Wszystkie pary są poprawne! 🎉";
+   }else{
+    const old=first;old.classList.remove("selected");first=null;
+    document.getElementById("matchResult").textContent="Spróbuj jeszcze raz.";
+   }
+  };
+  root.appendChild(b);
+ });
+}
+resetMatch();
+function checkFill(){
+ const answers=["warszawa","wisła","bałtyckie","morskie oko","czerwony"];
+ let score=0;
+ answers.forEach((a,i)=>{
+  const v=document.getElementById("fill"+(i+1)).value.trim().toLowerCase();
+  if(v===a)score++;
+ });
+ document.getElementById("fillResult").textContent="Poprawne odpowiedzi: "+score+" / 5.";
+}
+const questions=[
+{q:"Jaka jest stolica Polski?",a:["Kraków","Warszawa","Gdańsk"],c:1},
+{q:"Jakie morze leży na północy Polski?",a:["Morze Czarne","Morze Śródziemne","Morze Bałtyckie"],c:2},
+{q:"Jaka jest najdłuższa rzeka Polski?",a:["Wisła","Odra","Warta"],c:0},
+{q:"W jakim mieście jest smok wawelski?",a:["Poznań","Kraków","Lublin"],c:1},
+{q:"Z czego słynie Toruń?",a:["Pierniki","Oscypki","Bigos"],c:0},
+{q:"Jakie zwierzę jest w godle Polski?",a:["Lew","Orzeł","Niedźwiedź"],c:1},
+{q:"Ile województw ma Polska?",a:["12","16","20"],c:1},
+{q:"Gdzie są Tatry?",a:["Na północy","Na południu","Na zachodzie"],c:1},
+{q:"Kto napisał muzykę na fortepian?",a:["Fryderyk Chopin","Mikołaj Kopernik","Jan Matejko"],c:0},
+{q:"Jakie miasto jest znane z koziołków?",a:["Poznań","Szczecin","Łódź"],c:0},
+{q:"Co to jest oscypek?",a:["Zupa","Ser","Ciasto"],c:1},
+{q:"Kto był astronomem?",a:["Mikołaj Kopernik","Robert Lewandowski","Jan Matejko"],c:0},
+{q:"Jakie kolory ma flaga Polski?",a:["Zielony i biały","Biały i czerwony","Niebieski i czerwony"],c:1},
+{q:"Gdzie jest Puszcza Białowieska?",a:["Na Podlasiu","Na Śląsku","Na Pomorzu"],c:0},
+{q:"Jak nazywa się polski hymn?",a:["Mazurek Dąbrowskiego","Polonez","Hej, sokoły"],c:0}
+];
+const quizRoot=document.getElementById("quizQuestions");
+questions.forEach((q,i)=>{
+ const d=document.createElement("div");d.className="question";
+ let html="<b>"+(i+1)+". "+q.q+"</b>";
+ q.a.forEach((a,j)=>html+='<label><input type="radio" name="quiz'+i+'" value="'+j+'"> '+a+'</label>');
+ d.innerHTML=html;quizRoot.appendChild(d);
+});
+function checkQuiz(){
+ let score=0,answered=0;
+ questions.forEach((q,i)=>{
+ const v=document.querySelector('input[name="quiz'+i+'"]:checked');
+ if(v){answered++;if(+v.value===q.c)score++;}
+ });
+ const percent=Math.round(score/questions.length*100);
+ document.getElementById("quizResult").textContent=
+ "Twój wynik: "+score+" / "+questions.length+" ("+percent+"%). Odpowiedzi: "+answered+" / "+questions.length+". "+
+ (percent>=90?"Świetnie! 🌟":percent>=70?"Bardzo dobrze! 👏":percent>=50?"Dobrze! Ćwicz dalej! 🙂":"Spróbuj jeszcze raz! 💪");
+}
+function resetQuiz(){
+ document.querySelectorAll('#quizQuestions input').forEach(x=>x.checked=false);
+ document.getElementById("quizResult").textContent="";
+}
+function downloadPostcard(){
+ const text=document.getElementById("postcard").value.trim();
+ if(!text){alert("Najpierw napisz pocztówkę.");return;}
+ const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");
+ a.href=url;a.download="moja-pocztowka-z-Polski.txt";
+ document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

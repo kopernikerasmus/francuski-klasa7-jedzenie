@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Commonwealth of Nations – English Culture Lab</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--red:#dc2626;--gold:#f5c451;--ink:#253047}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f5f9;color:var(--ink);font-family:Arial,sans-serif;line-height:1.6}
+header{background:linear-gradient(120deg,#172554,#2563eb 65%,#dc2626);color:white;text-align:center;padding:48px 18px}
+header h1{font-size:clamp(2rem,5vw,3.4rem);margin:8px 0}
+header p{max-width:780px;margin:8px auto}
+.flag{font-size:2.5rem;letter-spacing:7px}
+nav{position:sticky;top:0;z-index:5;background:white;display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:10px;box-shadow:0 2px 10px #0002}
+nav a{color:#1e3a8a;text-decoration:none;font-weight:bold;padding:6px 9px;border-radius:20px;font-size:.88rem}
+nav a:hover{background:#dbeafe}
+main{max-width:1100px;margin:auto;padding:18px}
+section{background:white;border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 5px 20px #1725540c}
+h2{color:#1e3a8a;margin-top:0}
+h3{color:#1d4ed8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:white}
+.card .emoji{font-size:2.1rem}
+.card h3{margin:4px 0}
+.card p{margin:5px 0}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-size:.78rem;font-weight:bold}
+.tag.red{background:#fee2e2;color:#991b1b}
+.tag.green{background:#dcfce7;color:#166534}
+.tag.gold{background:#fef3c7;color:#92400e}
+.note{background:#eff6ff;border-left:5px solid #2563eb;padding:14px 17px;border-radius:9px;margin:14px 0}
+.warning{background:#fff7ed;border-left:5px solid #f59e0b;padding:14px 17px;border-radius:9px;margin:14px 0}
+.mapbox{background:linear-gradient(135deg,#dbeafe,#fef3c7);border-radius:15px;padding:20px;text-align:center}
+.mapicons{font-size:clamp(2rem,7vw,4rem);line-height:1.6}
+.small{font-size:.9rem;color:#64748b}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0}
+th{background:#eff6ff;color:#1e3a8a}
+.flashgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px}
+.flip-card{height:145px;width:100%;border:0;background:transparent;padding:0;cursor:pointer;perspective:1000px}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-front{background:linear-gradient(135deg,#1e40af,#3b82f6);color:white}
+.flip-back{background:#fff7ed;color:#7c2d12;border:2px solid #fed7aa;transform:rotateY(180deg)}
+.flip-front strong,.flip-back strong{font-size:1.08rem}
+.flip-front span{font-size:2rem}
+.quiz-q{border:1px solid #dbeafe;border-radius:12px;padding:14px;margin:13px 0}
+.quiz-q label{display:block;padding:5px;cursor:pointer}
+button{border:0;border-radius:9px;background:#2563eb;color:white;padding:11px 16px;font-weight:bold;cursor:pointer;margin:4px}
+button:hover{filter:brightness(.92)}
+button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
+footer{text-align:center;padding:28px;color:#64748b}
+.country-list{columns:2;column-gap:30px}
+.country-list li{break-inside:avoid;padding:3px 0}
+@media(max-width:600px){main{padding:9px}section{padding:17px}nav a{font-size:.76rem}.country-list{columns:1}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="flag">🌍 🇬🇧 🤝</div>
+ <h1>The Commonwealth of Nations</h1>
+ <h2 style="color:white">Wspólnota Narodów</h2>
+ <p>56 independent countries. One international family. Many cultures, languages and traditions!</p>
+ <p>English Culture Lab · A1–A2 · Grades 7–8</p>
+</header>
+
+<nav>
+<a href="#intro">Start</a><a href="#history">History</a><a href="#members">Members</a>
+<a href="#realms">The King</a><a href="#values">Values</a><a href="#sports">Sports</a>
+<a href="#vocab">Vocabulary</a><a href="#reading">Reading</a><a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="intro">
+<h2>🌍 1. What is the Commonwealth?</h2>
+<p class="lead"><strong>The Commonwealth of Nations</strong> is a voluntary association of 56 independent countries.</p>
+<p>Po polsku: Wspólnota Narodów to dobrowolne stowarzyszenie 56 niezależnych państw, które współpracują ze sobą.</p>
+<div class="mapbox">
+ <div class="mapicons">🌍 🌎 🌏</div>
+ <h3>56 independent countries</h3>
+ <p>About 2.7 billion people</p>
+ <p>5 geographical regions</p>
+</div>
+<div class="note">
+<strong>Remember!</strong>
+<ul>
+<li>Commonwealth members are independent countries.</li>
+<li>They are equal members of the organisation.</li>
+<li>They work together on common goals.</li>
+<li>They are not ruled by the British government.</li>
+</ul>
+</div>
+<div class="warning">
+<strong>Important:</strong> The Commonwealth is NOT the British Empire. It is a voluntary association of independent countries.
+</div>
+</section>
+
+<section id="history">
+<h2>📜 2. A little history</h2>
+<p>The modern Commonwealth began in <strong>1949</strong>, with the London Declaration.</p>
+<div class="grid">
+ <div class="card"><div class="emoji">🏛️</div><h3>The British Empire</h3><p>W przeszłości Wielka Brytania posiadała imperium kolonialne. Wiele dzisiejszych państw Commonwealth było kiedyś częścią tego imperium.</p></div>
+ <div class="card"><div class="emoji">🕊️</div><h3>Independence</h3><p>Państwa stopniowo uzyskiwały niepodległość i zaczęły samodzielnie decydować o swojej przyszłości.</p></div>
+ <div class="card"><div class="emoji">🤝</div><h3>1949 – a new beginning</h3><p>London Declaration stworzyła podstawy nowoczesnej Wspólnoty. Republiki mogły pozostać jej członkami.</p></div>
+ <div class="card"><div class="emoji">🌍</div><h3>Today</h3><p>Wspólnota zrzesza 56 niezależnych państw z różnych kontynentów i kultur.</p></div>
+</div>
+<div class="note">
+<strong>Interesting fact:</strong> India became independent in 1947. It wanted to become a republic and still remain in the Commonwealth. The 1949 London Declaration made this possible.
+</div>
+</section>
+
+<section id="members">
+<h2>🗺️ 3. The 56 member countries</h2>
+<p>Państwa członkowskie znajdują się w pięciu regionach świata. Poniżej znajdziesz pełną listę członków według oficjalnego podziału Commonwealth.</p>
+
+<h3>🌍 Africa – Afryka (21)</h3>
+<div class="grid">
+<div class="card"><div class="emoji">🇧🇼</div><h3>Botswana</h3><p>Capital: Gaborone</p></div>
+<div class="card"><div class="emoji">🇨🇲</div><h3>Cameroon</h3><p>Capital: Yaoundé</p></div>
+<div class="card"><div class="emoji">🇬🇦</div><h3>Gabon</h3><p>Capital: Libreville</p></div>
+<div class="card"><div class="emoji">🇬🇲</div><h3>The Gambia</h3><p>Capital: Banjul</p></div>
+<div class="card"><div class="emoji">🇬🇭</div><h3>Ghana</h3><p>Capital: Accra</p></div>
+<div class="card"><div class="emoji">🇸🇿</div><h3>Eswatini</h3><p>Capital: Mbabane and Lobamba</p></div>
+<div class="card"><div class="emoji">🇰🇪</div><h3>Kenya</h3><p>Capital: Nairobi</p></div>
+<div class="card"><div class="emoji">🇱🇸</div><h3>Lesotho</h3><p>Capital: Maseru</p></div>
+<div class="card"><div class="emoji">🇲🇼</div><h3>Malawi</h3><p>Capital: Lilongwe</p></div>
+<div class="card"><div class="emoji">🇲🇺</div><h3>Mauritius</h3><p>Capital: Port Louis</p></div>
+<div class="card"><div class="emoji">🇲🇿</div><h3>Mozambique</h3><p>Capital: Maputo</p></div>
+<div class="card"><div class="emoji">🇳🇦</div><h3>Namibia</h3><p>Capital: Windhoek</p></div>
+<div class="card"><div class="emoji">🇳🇬</div><h3>Nigeria</h3><p>Capital: Abuja</p></div>
+<div class="card"><div class="emoji">🇷🇼</div><h3>Rwanda</h3><p>Capital: Kigali</p></div>
+<div class="card"><div class="emoji">🇸🇨</div><h3>Seychelles</h3><p>Capital: Victoria</p></div>
+<div class="card"><div class="emoji">🇸🇱</div><h3>Sierra Leone</h3><p>Capital: Freetown</p></div>
+<div class="card"><div class="emoji">🇿🇦</div><h3>South Africa</h3><p>Capitals: Pretoria, Cape Town and Bloemfontein</p></div>
+<div class="card"><div class="emoji">🇹🇬</div><h3>Togo</h3><p>Capital: Lomé</p></div>
+<div class="card"><div class="emoji">🇺🇬</div><h3>Uganda</h3><p>Capital: Kampala</p></div>
+<div class="card"><div class="emoji">🇹🇿</div><h3>Tanzania</h3><p>Capital: Dodoma</p></div>
+<div class="card"><div class="emoji">🇿🇲</div><h3>Zambia</h3><p>Capital: Lusaka</p></div>
+</div>
+
+<h3>🌏 Asia – Azja (8)</h3>
+<div class="grid">
+<div class="card"><div class="emoji">🇧🇩</div><h3>Bangladesh</h3><p>Capital: Dhaka</p></div>
+<div class="card"><div class="emoji">🇧🇳</div><h3>Brunei Darussalam</h3><p>Capital: Bandar Seri Begawan</p></div>
+<div class="card"><div class="emoji">🇮🇳</div><h3>India</h3><p>Capital: New Delhi</p></div>
+<div class="card"><div class="emoji">🇲🇾</div><h3>Malaysia</h3><p>Capital: Kuala Lumpur</p></div>
+<div class="card"><div class="emoji">🇲🇻</div><h3>Maldives</h3><p>Capital: Malé</p></div>
+<div class="card"><div class="emoji">🇵🇰</div><h3>Pakistan</h3><p>Capital: Islamabad</p></div>
+<div class="card"><div class="emoji">🇸🇬</div><h3>Singapore</h3><p>Capital: Singapore</p></div>
+<div class="card"><div class="emoji">🇱🇰</div><h3>Sri Lanka</h3><p>Capital: Sri Jayawardenepura Kotte</p></div>
+</div>
+
+<h3>🌎 Caribbean and Americas – Karaiby i Ameryki (13)</h3>
+<div class="grid">
+<div class="card"><div class="emoji">🇦🇬</div><h3>Antigua and Barbuda</h3><p>Capital: St John's</p></div>
+<div class="card"><div class="emoji">🇧🇸</div><h3>The Bahamas</h3><p>Capital: Nassau</p></div>
+<div class="card"><div class="emoji">🇧🇧</div><h3>Barbados</h3><p>Capital: Bridgetown</p></div>
+<div class="card"><div class="emoji">🇧🇿</div><h3>Belize</h3><p>Capital: Belmopan</p></div>
+<div class="card"><div class="emoji">🇨🇦</div><h3>Canada</h3><p>Capital: Ottawa</p></div>
+<div class="card"><div class="emoji">🇩🇲</div><h3>Dominica</h3><p>Capital: Roseau</p></div>
+<div class="card"><div class="emoji">🇬🇩</div><h3>Grenada</h3><p>Capital: St George's</p></div>
+<div class="card"><div class="emoji">🇬🇾</div><h3>Guyana</h3><p>Capital: Georgetown</p></div>
+<div class="card"><div class="emoji">🇯🇲</div><h3>Jamaica</h3><p>Capital: Kingston</p></div>
+<div class="card"><div class="emoji">🇱🇨</div><h3>Saint Lucia</h3><p>Capital: Castries</p></div>
+<div class="card"><div class="emoji">🇰🇳</div><h3>Saint Kitts and Nevis</h3><p>Capital: Basseterre</p></div>
+<div class="card"><div class="emoji">🇻🇨</div><h3>Saint Vincent and the Grenadines</h3><p>Capital: Kingstown</p></div>
+<div class="card"><div class="emoji">🇹🇹</div><h3>Trinidad and Tobago</h3><p>Capital: Port of Spain</p></div>
+</div>
+
+<h3>🇪🇺 Europe – Europa (3)</h3>
+<div class="grid">
+<div class="card"><div class="emoji">🇨🇾</div><h3>Cyprus</h3><p>Capital: Nicosia</p></div>
+<div class="card"><div class="emoji">🇲🇹</div><h3>Malta</h3><p>Capital: Valletta</p></div>
+<div class="card"><div class="emoji">🇬🇧</div><h3>United Kingdom</h3><p>Capital: London</p></div>
+</div>
+
+<h3>🌊 Pacific – Pacyfik (11)</h3>
+<div class="grid">
+<div class="card"><div class="emoji">🇦🇺</div><h3>Australia</h3><p>Capital: Canberra</p></div>
+<div class="card"><div class="emoji">🇫🇯</div><h3>Fiji</h3><p>Capital: Suva</p></div>
+<div class="card"><div class="emoji">🇰🇮</div><h3>Kiribati</h3><p>Capital: South Tarawa</p></div>
+<div class="card"><div class="emoji">🇳🇷</div><h3>Nauru</h3><p>Capital: Yaren (government offices)</p></div>
+<div class="card"><div class="emoji">🇳🇿</div><h3>New Zealand</h3><p>Capital: Wellington</p></div>
+<div class="card"><div class="emoji">🇵🇬</div><h3>Papua New Guinea</h3><p>Capital: Port Moresby</p></div>
+<div class="card"><div class="emoji">🇼🇸</div><h3>Samoa</h3><p>Capital: Apia</p></div>
+<div class="card"><div class="emoji">🇸🇧</div><h3>Solomon Islands</h3><p>Capital: Honiara</p></div>
+<div class="card"><div class="emoji">🇹🇴</div><h3>Tonga</h3><p>Capital: Nuku'alofa</p></div>
+<div class="card"><div class="emoji">🇹🇻</div><h3>Tuvalu</h3><p>Capital: Funafuti</p></div>
+<div class="card"><div class="emoji">🇻🇺</div><h3>Vanuatu</h3><p>Capital: Port Vila</p></div>
+</div>
+
+<div class="warning">
+<strong>Important:</strong> Commonwealth membership does not mean that English is the only language in a country. Members have many different languages, religions, cultures and political systems.
+</div>
+</section>
+
+<section id="realms">
+<h2>👑 4. The King and the Commonwealth</h2>
+<p>King Charles III is the <strong>Head of the Commonwealth</strong>. To rola symboliczna, która podkreśla jedność organizacji.</p>
+<div class="grid">
+<div class="card"><div class="emoji">👑</div><h3>Head of the Commonwealth</h3><p>Król Karol III pełni symboliczną funkcję głowy Wspólnoty.</p></div>
+<div class="card"><div class="emoji">🏛️</div><h3>Independent governments</h3><p>Każde państwo członkowskie ma własny rząd i podejmuje własne decyzje.</p></div>
+<div class="card"><div class="emoji">🗳️</div><h3>Republics and monarchies</h3><p>Wspólnota obejmuje zarówno republiki, jak i monarchie.</p></div>
+</div>
+<div class="warning">
+<strong>Do not confuse these terms!</strong>
+<ul>
+<li><strong>Head of the Commonwealth</strong> – symboliczna funkcja króla w całej organizacji.</li>
+<li><strong>Head of State</strong> – głowa państwa. W wielu członkach Commonwealth jest nią prezydent.</li>
+<li><strong>Commonwealth realm</strong> – niezależne państwo, w którym brytyjski monarcha jest również głową państwa.</li>
+</ul>
+</div>
+<h3>What is a Commonwealth realm?</h3>
+<p>Niektóre państwa Commonwealth mają króla Karola III jako głowę państwa. Inne są republikami i mają własnych prezydentów.</p>
+<div class="note">
+<strong>Example:</strong> India is a republic. The President of India is its head of state. India is still a member of the Commonwealth.
+</div>
+</section>
+
+<section id="values">
+<h2>🤝 5. What does the Commonwealth do?</h2>
+<p>Państwa współpracują w wielu dziedzinach. Wspólne wartości i cele są opisane m.in. w Commonwealth Charter.</p>
+<div class="grid">
+<div class="card"><div class="emoji">🕊️</div><h3>Peace</h3><p>Pokój i współpraca między państwami.</p></div>
+<div class="card"><div class="emoji">🗳️</div><h3>Democracy</h3><p>Demokracja i udział obywateli w życiu publicznym.</p></div>
+<div class="card"><div class="emoji">⚖️</div><h3>Human rights</h3><p>Prawa człowieka i równość.</p></div>
+<div class="card"><div class="emoji">🌱</div><h3>Development</h3><p>Rozwój społeczny i gospodarczy.</p></div>
+<div class="card"><div class="emoji">🌳</div><h3>Climate action</h3><p>Współpraca w sprawach klimatu i ochrony środowiska.</p></div>
+<div class="card"><div class="emoji">📚</div><h3>Education</h3><p>Edukacja, młodzież i wymiana doświadczeń.</p></div>
+</div>
+</section>
+
+<section id="sports">
+<h2>🏅 6. The Commonwealth Games</h2>
+<p><strong>The Commonwealth Games</strong> to międzynarodowe zawody sportowe, w których uczestniczą sportowcy z krajów i terytoriów Commonwealth.</p>
+<div class="grid">
+<div class="card"><div class="emoji">🏃</div><h3>Athletics</h3><p>Lekkoatletyka – biegi, skoki i rzuty.</p></div>
+<div class="card"><div class="emoji">🏊</div><h3>Swimming</h3><p>Pływanie.</p></div>
+<div class="card"><div class="emoji">🏑</div><h3>Hockey</h3><p>Hokej na trawie.</p></div>
+<div class="card"><div class="emoji">🏋️</div><h3>Weightlifting</h3><p>Podnoszenie ciężarów.</p></div>
+</div>
+<div class="note">
+<strong>Fun fact:</strong> The first British Empire Games took place in Hamilton, Canada, in 1930. Today they are called the Commonwealth Games.
+</div>
+</section>
+
+<section>
+<h2>🌟 7. Famous Commonwealth countries and their symbols</h2>
+<div class="grid">
+<div class="card"><div class="emoji">🇮🇳</div><h3>India</h3><p>🐅 Tiger · 🪷 Lotus</p><p>Bollywood, colourful festivals and the Taj Mahal.</p></div>
+<div class="card"><div class="emoji">🇦🇺</div><h3>Australia</h3><p>🦘 Kangaroo · 🐨 Koala</p><p>Great Barrier Reef and the Sydney Opera House.</p></div>
+<div class="card"><div class="emoji">🇨🇦</div><h3>Canada</h3><p>🍁 Maple leaf · 🦫 Beaver</p><p>Rocky Mountains, forests and ice hockey.</p></div>
+<div class="card"><div class="emoji">🇿🇦</div><h3>South Africa</h3><p>🦁 Lion · 🦏 Rhino</p><p>Table Mountain and a rich cultural heritage.</p></div>
+<div class="card"><div class="emoji">🇯🇲</div><h3>Jamaica</h3><p>🎵 Reggae · 🏃 Sprinting</p><p>Bob Marley and famous athletes.</p></div>
+<div class="card"><div class="emoji">🇳🇿</div><h3>New Zealand</h3><p>🥝 Kiwi bird · 🌿 Silver fern</p><p>Maori culture and spectacular landscapes.</p></div>
+</div>
+</section>
+
+<section>
+<h2>🧠 8. Did you know?</h2>
+<div class="grid">
+<div class="card"><div class="emoji">🌍</div><h3>Not only former British colonies</h3><p>Mozambique, Rwanda, Gabon and Togo joined the Commonwealth despite having no historical constitutional link with the British Empire.</p></div>
+<div class="card"><div class="emoji">🇮🇳</div><h3>India is the largest</h3><p>India is the most populous member country of the Commonwealth.</p></div>
+<div class="card"><div class="emoji">🏝️</div><h3>Many small island states</h3><p>There are many small island countries in the Caribbean and Pacific.</p></div>
+<div class="card"><div class="emoji">🗣️</div><h3>Many languages</h3><p>English is important in the organisation, but members speak hundreds of languages.</p></div>
+<div class="card"><div class="emoji">🕊️</div><h3>Voluntary membership</h3><p>Countries choose to be members. The Commonwealth is not a colonial government.</p></div>
+<div class="card"><div class="emoji">📅</div><h3>Commonwealth Day</h3><p>Commonwealth Day is celebrated every year in March.</p></div>
+</div>
+</section>
+
+<section id="vocab">
+<h2>🗣️ 9. Vocabulary – słownictwo</h2>
+<p>Kliknij kartę, aby zobaczyć tłumaczenie.</p>
+<div class="flashgrid" id="flashcards"></div>
+</section>
+
+<section id="reading">
+<h2>📖 10. Reading – read the text (A2)</h2>
+<h3>A family of independent countries</h3>
+<div class="note" style="background:#fffaf0;border-color:#dc2626">
+<p>Hello! My name is Sophie. I am learning about the Commonwealth.</p>
+<p>The Commonwealth is a group of 56 independent countries. They are in Africa, Asia, Europe, the Caribbean and the Pacific.</p>
+<p>Many members were once connected with the British Empire. However, the modern Commonwealth is not an empire. Its members are independent and equal.</p>
+<p>King Charles III is the Head of the Commonwealth. His role is symbolic. He does not govern the member countries.</p>
+<p>Some members are republics, like India. Other members are monarchies. They work together on education, sport, democracy, human rights and climate change.</p>
+<p>The Commonwealth Games bring athletes together. Commonwealth Day is celebrated in March.</p>
+<p>I think the Commonwealth is an interesting example of international cooperation!</p>
+</div>
+<h3>Reading comprehension</h3>
+<div class="quiz-q"><p>1. How many member countries are there?</p>
+<label><input type="radio" name="r1" value="a"> 46</label><label><input type="radio" name="r1" value="b"> 56</label><label><input type="radio" name="r1" value="c"> 66</label></div>
+<div class="quiz-q"><p>2. Is the Commonwealth an empire?</p>
+<label><input type="radio" name="r2" value="a"> Yes</label><label><input type="radio" name="r2" value="b"> No</label></div>
+<div class="quiz-q"><p>3. What is the King's role?</p>
+<label><input type="radio" name="r3" value="a"> He governs all countries.</label><label><input type="radio" name="r3" value="b"> His role is symbolic.</label></div>
+<div class="quiz-q"><p>4. What happens at the Commonwealth Games?</p>
+<label><input type="radio" name="r4" value="a"> Athletes compete in sport.</label><label><input type="radio" name="r4" value="b"> Leaders elect a king.</label></div>
+<button onclick="checkReading()">Check answers</button>
+<p id="readingResult"></p>
+</section>
+
+<section id="quiz">
+<h2>🏆 11. Grand Quiz – test your knowledge!</h2>
+<p>12 questions. Choose the correct answer.</p>
+<form id="quizForm">
+<div class="quiz-q"><p><strong>1. What is the Commonwealth?</strong></p>
+<label><input type="radio" name="q1" value="a"> A voluntary association of independent countries</label>
+<label><input type="radio" name="q1" value="b"> A part of the British government</label>
+<label><input type="radio" name="q1" value="c"> A military empire</label></div>
+
+<div class="quiz-q"><p><strong>2. How many member countries are there?</strong></p>
+<label><input type="radio" name="q2" value="a"> 14</label>
+<label><input type="radio" name="q2" value="b"> 56</label>
+<label><input type="radio" name="q2" value="c"> 100</label></div>
+
+<div class="quiz-q"><p><strong>3. In which year did the modern Commonwealth begin?</strong></p>
+<label><input type="radio" name="q3" value="a"> 1949</label>
+<label><input type="radio" name="q3" value="b"> 1900</label>
+<label><input type="radio" name="q3" value="c"> 2000</label></div>
+
+<div class="quiz-q"><p><strong>4. Who is the Head of the Commonwealth?</strong></p>
+<label><input type="radio" name="q4" value="a"> The President of India</label>
+<label><input type="radio" name="q4" value="b"> King Charles III</label>
+<label><input type="radio" name="q4" value="c"> The Prime Minister of Canada</label></div>
+
+<div class="quiz-q"><p><strong>5. Does the King govern all Commonwealth countries?</strong></p>
+<label><input type="radio" name="q5" value="a"> Yes</label>
+<label><input type="radio" name="q5" value="b"> No</label></div>
+
+<div class="quiz-q"><p><strong>6. Which country is in Asia?</strong></p>
+<label><input type="radio" name="q6" value="a"> India</label>
+<label><input type="radio" name="q6" value="b"> Jamaica</label>
+<label><input type="radio" name="q6" value="c"> Canada</label></div>
+
+<div class="quiz-q"><p><strong>7. What is the capital of Australia?</strong></p>
+<label><input type="radio" name="q7" value="a"> Sydney</label>
+<label><input type="radio" name="q7" value="b"> Melbourne</label>
+<label><input type="radio" name="q7" value="c"> Canberra</label></div>
+
+<div class="quiz-q"><p><strong>8. Which country is famous for reggae music?</strong></p>
+<label><input type="radio" name="q8" value="a"> Jamaica</label>
+<label><input type="radio" name="q8" value="b"> Malta</label>
+<label><input type="radio" name="q8" value="c"> Botswana</label></div>
+
+<div class="quiz-q"><p><strong>9. What are the Commonwealth Games?</strong></p>
+<label><input type="radio" name="q9" value="a"> International sports competitions</label>
+<label><input type="radio" name="q9" value="b"> A music festival</label>
+<label><input type="radio" name="q9" value="c"> A meeting of kings</label></div>
+
+<div class="quiz-q"><p><strong>10. Which country is a republic and a Commonwealth member?</strong></p>
+<label><input type="radio" name="q10" value="a"> India</label>
+<label><input type="radio" name="q10" value="b"> The United Kingdom</label>
+<label><input type="radio" name="q10" value="c"> None of them</label></div>
+
+<div class="quiz-q"><p><strong>11. When is Commonwealth Day celebrated?</strong></p>
+<label><input type="radio" name="q11" value="a"> In March</label>
+<label><input type="radio" name="q11" value="b"> In December</label>
+<label><input type="radio" name="q11" value="c"> In August</label></div>
+
+<div class="quiz-q"><p><strong>12. Which statement is correct?</strong></p>
+<label><input type="radio" name="q12" value="a"> All members have the same language and government.</label>
+<label><input type="radio" name="q12" value="b"> All members are ruled by the British monarch.</label>
+<label><input type="radio" name="q12" value="c"> Members are independent countries with different cultures and systems.</label></div>
+
+<button type="button" onclick="checkQuiz()">Check my score</button>
+<button type="reset" style="background:#64748b">Reset</button>
+</form>
+<div id="quizResult"></div>
+</section>
+
+<section>
+<h2>✍️ 12. Writing challenge – my Commonwealth country</h2>
+<p>Wybierz jeden kraj Commonwealth i napisz o nim krótką notatkę po angielsku.</p>
+<div class="note">
+<strong>Useful phrases:</strong><br>
+My country is… – Mój kraj to…<br>
+It is in… – Znajduje się w…<br>
+The capital is… – Stolicą jest…<br>
+People speak… – Ludzie mówią…<br>
+It is famous for… – Słynie z…<br>
+I would like to visit it because… – Chciałbym/chciałabym go odwiedzić, ponieważ…
+</div>
+<label for="writing"><strong>My country profile:</strong></label>
+<textarea id="writing" rows="7" placeholder="My country is Australia. It is in the Pacific region..."></textarea>
+<p><label for="studentName">Your name:</label><input type="text" id="studentName" placeholder="Your name"></p>
+<button onclick="saveText()">💾 Save as TXT</button>
+<p id="saveMessage" class="small"></p>
+</section>
+
+<section>
+<h2>🌟 13. Remember!</h2>
+<ul>
+<li>The Commonwealth is a voluntary association of 56 independent countries.</li>
+<li>The modern Commonwealth began in 1949.</li>
+<li>King Charles III is its symbolic Head.</li>
+<li>Members are independent and equal.</li>
+<li>The Commonwealth includes republics and monarchies.</li>
+<li>Members cooperate on democracy, education, sport, human rights and development.</li>
+<li>The Commonwealth is not the British Empire.</li>
+</ul>
+</section>
+
+<section>
+<h2>🔎 Sources – reliable information</h2>
+<ul>
+<li><a href="https://thecommonwealth.org/about-us" target="_blank" rel="noopener">The Commonwealth – About us</a></li>
+<li><a href="https://thecommonwealth.org/our-member-countries" target="_blank" rel="noopener">The Commonwealth – Member countries</a></li>
+<li><a href="https://thecommonwealth.org/history" target="_blank" rel="noopener">The Commonwealth – History</a></li>
+<li><a href="https://thecommonwealth.org/about/facts" target="_blank" rel="noopener">The Commonwealth – Facts</a></li>
+<li><a href="https://www.royal.uk/the-commonwealth" target="_blank" rel="noopener">The Royal Family – The Commonwealth</a></li>
+</ul>
+<p class="small">Liczba członków i lista państw zgodnie z oficjalnymi informacjami Commonwealth. Materiał edukacyjny – statusy i członkostwo mogą się zmieniać.</p>
+</section>
+
+</main>
+
+<footer>
+<p>🌍 The Commonwealth of Nations · English Culture Lab · Grades 7–8</p>
+<p>Different countries. Shared values. One Commonwealth! 🤝</p>
+</footer>
+
+<script>
+const words=[
+["🌍","the Commonwealth","Wspólnota Narodów"],
+["🤝","cooperation","współpraca"],
+["🏛️","an organisation","organizacja"],
+["🕊️","peace","pokój"],
+["🗳️","democracy","demokracja"],
+["⚖️","human rights","prawa człowieka"],
+["👑","a monarch","monarcha"],
+["🏳️","independent","niezależny"],
+["📜","a declaration","deklaracja"],
+["🌱","development","rozwój"],
+["🌳","the environment","środowisko"],
+["🏅","a competition","zawody"],
+["🏃","an athlete","sportowiec"],
+["🗣️","a language","język"],
+["🏙️","a capital city","stolica"],
+["👥","a member","członek"],
+["🌎","a country","państwo"],
+["📅","an anniversary","rocznica"]
+];
+const flash=document.getElementById("flashcards");
+words.forEach(w=>{
+ const b=document.createElement("button");
+ b.type="button";b.className="flip-card";b.setAttribute("aria-pressed","false");
+ b.innerHTML='<span class="flip-inner"><span class="flip-front"><span>'+w[0]+'</span><strong>'+w[1]+'</strong><small>Click to flip</small></span><span class="flip-back"><strong>'+w[2]+'</strong><small>'+w[1]+'</small></span></span>';
+ b.addEventListener("click",()=>{
+  b.classList.toggle("flipped");
+  b.setAttribute("aria-pressed",b.classList.contains("flipped")?"true":"false");
+ });
+ flash.appendChild(b);
+});
+function checkReading(){
+ const answers={r1:"b",r2:"b",r3:"b",r4:"a"};
+ let score=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(v&&v.value===answers[k])score++;
+ });
+ document.getElementById("readingResult").textContent="Your score: "+score+"/4 "+(score===4?"Excellent! 🎉":"Good try! Read the text again and try once more.");
+}
+function checkQuiz(){
+ const answers={q1:"a",q2:"b",q3:"a",q4:"b",q5:"b",q6:"a",q7:"c",q8:"a",q9:"a",q10:"a",q11:"a",q12:"c"};
+ let score=0,missing=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(!v)missing++;
+  else if(v.value===answers[k])score++;
+ });
+ let message=score<4?"Keep learning! 💪":score<7?"Good work! 🌱":score<10?"Very good! ⭐":"Excellent! You are a Commonwealth expert! 🏆";
+ document.getElementById("quizResult").innerHTML="Your score: <strong>"+score+"/12</strong><br>"+message+(missing?"<br>Unanswered questions: "+missing+".":"");
+}
+function saveText(){
+ const content=document.getElementById("writing").value.trim();
+ const name=document.getElementById("studentName").value.trim()||"Student";
+ if(!content){document.getElementById("saveMessage").textContent="Write your country profile first!";return;}
+ const blob=new Blob(["My Commonwealth country profile\nStudent: "+name+"\n\n"+content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="my-commonwealth-country.txt";a.click();
+ URL.revokeObjectURL(url);
+ document.getElementById("saveMessage").textContent="Your text is ready to save. Well done!";
+}
+</script>
+</body>
+</html>

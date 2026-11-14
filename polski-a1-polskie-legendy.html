@@ -30,8 +30,8 @@ h3{color:var(--red);margin:8px 0}
 .legend-head{display:flex;align-items:center;gap:14px}
 .legend-head .emoji{font-size:3.5rem}
 .legend-head h2{margin:0}
-.scene{min-height:150px;border-radius:16px;background:linear-gradient(145deg,#dbeaf4,#fff1d4);display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,28px);font-size:clamp(2.8rem,7vw,5rem);margin:14px 0;padding:18px;position:relative;overflow:hidden}
-.scene:after{content:"";position:absolute;bottom:0;left:0;right:0;height:18px;background:#6f9b72;opacity:.45}
+.scene{margin:14px 0;border-radius:16px;overflow:hidden;background:#edf2f8;border:1px solid #dce3ed}
+.scene img{display:block;width:100%;max-height:430px;object-fit:contain;background:#edf2f8}
 .story{font-size:1.06rem;max-width:900px}
 .story strong{color:#9d2e3b}
 .vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:12px 0 18px}
@@ -55,6 +55,7 @@ button:hover{filter:brightness(1.1)}
 .match{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center}
 .match select{width:100%;padding:8px;border:1px solid #ccd5e2;border-radius:8px}
 footer{text-align:center;padding:25px;color:#657187}
+.small{font-size:.88rem;color:#667}
 @media(max-width:600px){nav{justify-content:flex-start}.match{grid-template-columns:1fr}.legend-head{align-items:flex-start}}
 </style>
 </head>
@@ -96,12 +97,14 @@ footer{text-align:center;padding:25px;color:#657187}
 <div id="lessons"></div>
 </main>
 
-<footer>Polskie legendy • Interaktywna lekcja języka polskiego A1</footer>
+<footer>Polskie legendy • Interaktywna lekcja języka polskiego A1 • Ilustracje autorskie</footer>
 
 <script>
 const lessons = [
 {
-id:"piast",title:"O Piaście Kołodzieju",icon:"🛞",scene:["🛞","🪵","🏡","👨‍👩‍👦","👑"],
+id:"piast",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-piast.png",
+title:"O Piaście Kołodzieju",icon:"🛞",
 words:[["🛞","koło","okrągła część wozu"],["🪚","kołodziej","rzemieślnik, który robi koła i wozy"],["🏡","chata","mały dom"],["🍞","gość","osoba, która przychodzi do domu"],["👑","książę","władca, syn lub członek rodziny królewskiej"],["🤝","gościnność","miłe przyjęcie gości"]],
 story:`Dawno temu żył Piast. Był <strong>kołodziejem</strong> – robił koła do wozów. Mieszkał w małej chacie z żoną Rzepichą i synem. Pewnego dnia do domu Piasta przyszli dwaj nieznajomi goście. Piast i jego żona przyjęli ich bardzo dobrze. Dali im jedzenie i picie. Goście byli zadowoleni. Okazało się, że byli to ważni wędrowcy. Zobaczyli, że Piast jest dobrym i uczciwym człowiekiem. Później ludzie wybrali Piasta na władcę. Tak zaczęła się dynastia Piastów – pierwsza dynastia władców Polski.`,
 q:[{t:"Kim był Piast?",o:["Rybakiem","Kołodziejem","Rycerzem"],a:1},{t:"Z kim mieszkał Piast?",o:["Z żoną i synem","Z królem","Sam"],a:0}],
@@ -111,7 +114,9 @@ order:["Piast przyjął gości.","Piast robił koła do wozów.","Ludzie wybrali
 fill:{t:"Piast był ______. (kołodziejem / smokiem)",a:"kołodziejem"}
 },
 {
-id:"popiel",title:"O Popielu, co go myszy zjadły",icon:"🐭",scene:["🏰","👑","🍗","🐭","🌊"],
+id:"popiel",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-popiel.png",
+title:"O Popielu, co go myszy zjadły",icon:"🐭",
 words:[["👑","król","władca państwa"],["😠","okrutny","zły dla innych ludzi"],["🍗","uczta","duże przyjęcie z jedzeniem"],["🐭","mysz","małe zwierzę"],["🏰","wieża","wysoka część zamku"],["🌊","jezioro","duży zbiornik wody"]],
 story:`Dawno temu żył książę Popiel. Mieszkał w zamku z żoną. Popiel był złym władcą. Nie pomagał ludziom i myślał tylko o sobie. Pewnego dnia zaprosił gości na wielką ucztę. Potem, według legendy, kazał zabić swoich krewnych, aby nikt nie zabrał mu władzy. Ludzie byli przerażeni. Wkrótce w zamku pojawiło się bardzo dużo myszy. Myszy weszły do komnat i goniły Popiela. Książę uciekł na wyspę i schował się w wysokiej wieży. Myszy znalazły go także tam. Legenda mówi, że zjadły złego władcę.`,
 q:[{t:"Jaki był Popiel?",o:["Dobry i pomocny","Okrutny i samolubny","Wesoły i hojny"],a:1},{t:"Gdzie schował się Popiel?",o:["W lesie","W wieży","W chacie"],a:1}],
@@ -121,7 +126,9 @@ order:["Popiel uciekł do wieży.","Popiel urządził ucztę.","Myszy pojawiły 
 fill:{t:"Popiel schował się w wysokiej ______. (wieży / rzece)",a:"wieży"}
 },
 {
-id:"lech",title:"O Lechu, Czechu i Rusie",icon:"🦅",scene:["👨‍👦‍👦","🌲","🦅","🥚","🏙️"],
+id:"lech",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-lech.png",
+title:"O Lechu, Czechu i Rusie",icon:"🦅",
 words:[["👨‍👦‍👦","bracia","synowie tych samych rodziców"],["🌲","las","miejsce z wieloma drzewami"],["🦅","orzeł","duży ptak drapieżny"],["🥚","gniazdo","dom ptaków"],["🏙️","gród","dawne, małe miasto"],["⚪","biały","kolor śniegu i mleka"]],
 story:`Dawno temu trzej bracia – Lech, Czech i Rus – wyruszyli w drogę. Szukali miejsca na nowy dom. Szli przez lasy, pola i rzeki. W końcu dotarli na piękną równinę. Lech zobaczył wielkiego białego orła. Ptak siedział w gnieździe na wysokim drzewie. Nad nim było czerwone niebo zachodzącego słońca. Lech uznał, że to dobry znak. Postanowił zostać w tym miejscu i zbudować gród. Nazwał go Gnieznem – od słowa „gniazdo”. Orzeł stał się symbolem Polski. Czech i Rus poszli dalej i według legendy dali początek swoim narodom.`,
 q:[{t:"Jak mieli na imię trzej bracia?",o:["Lech, Czech i Rus","Wars, Krak i Popiel","Piast, Lech i Smok"],a:0},{t:"Co zobaczył Lech?",o:["Złotą rybę","Białego orła","Smoka"],a:1}],
@@ -131,7 +138,9 @@ order:["Lech zobaczył białego orła.","Bracia wyruszyli w drogę.","Lech zbudo
 fill:{t:"Lech zobaczył białego ______. (orła / smoka)",a:"orła"}
 },
 {
-id:"wars",title:"O Warsie i Sawie",icon:"🌊",scene:["🎣","🌊","🧜‍♀️","🏡","🏙️"],
+id:"wars",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-wars-sawa.png",
+title:"O Warsie i Sawie",icon:"🌊",
 words:[["🎣","rybak","człowiek, który łowi ryby"],["🌊","rzeka","płynąca woda"],["🧜‍♀️","syrena","postać: kobieta i ryba"],["🏡","chata","mały dom"],["❤️","zakochać się","poczuć miłość"],["🏙️","miasto","duża miejscowość"]],
 story:`Dawno temu nad rzeką Wisłą mieszkał rybak Wars. Pewnego dnia usłyszał piękny śpiew. Zobaczył w wodzie niezwykłą kobietę – syrenę Sawę. Wars i Sawa szybko się zaprzyjaźnili, a potem zakochali. Sawa postanowiła zostać z Warsem na brzegu rzeki. Razem zbudowali dom. Wkrótce w tym miejscu powstała mała osada. Przybywało coraz więcej ludzi i domów. Osada zmieniła się w duże miasto. Legenda mówi, że nazwa Warszawa pochodzi od imion Wars i Sawa. Dziś Warszawa jest stolicą Polski.`,
 q:[{t:"Kim był Wars?",o:["Rybakiem","Królem","Kupcem"],a:0},{t:"Gdzie mieszkał Wars?",o:["Nad Wisłą","W górach","Nad morzem"],a:0}],
@@ -141,7 +150,9 @@ order:["Wars spotkał Sawę.","Razem zbudowali dom.","W tym miejscu powstała os
 fill:{t:"Wars był ______. (rybakiem / księciem)",a:"rybakiem"}
 },
 {
-id:"smok",title:"O Wawelskim Smoku",icon:"🐉",scene:["🏰","🐉","🔥","🐑","👟"],
+id:"smok",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-smok.png",
+title:"O Wawelskim Smoku",icon:"🐉",
 words:[["🐉","smok","duże, legendarne zwierzę"],["🏰","zamek","duży, dawny dom władcy"],["🔥","ogień","płomienie, które dają ciepło"],["🐑","owca","zwierzę, które daje wełnę"],["🧠","sprytny","mądry i pomysłowy"],["👑","król","władca państwa"]],
 story:`Dawno temu w Krakowie, pod Wawelem, mieszkał straszny smok. Smok bał się ludzi, ale ludzie bali się jego. Zwierzę zjadało owce i niszczyło okolicę. Król obiecał nagrodę temu, kto pokona smoka. Wielu rycerzy próbowało, ale nikt nie wygrał. W końcu młody szewczyk wymyślił plan. Wziął owczą skórę i włożył do niej siarkę. Zostawił taką „owcę” przed jaskinią smoka. Smok zjadł ją i poczuł wielkie pragnienie. Pobiegł do Wisły i pił wodę. Pił tak dużo, że pękł. Kraków był wolny od smoka.`,
 q:[{t:"Gdzie mieszkał smok?",o:["Pod Wawelem","W Warszawie","W lesie"],a:0},{t:"Kto wymyślił plan?",o:["Król","Szewczyk","Rybak"],a:1}],
@@ -151,7 +162,9 @@ order:["Szewczyk przygotował owczą skórę z siarką.","Smok zjadł przynętę
 fill:{t:"Smok mieszkał pod ______. (Wawelem / morzem)",a:"Wawelem"}
 },
 {
-id:"wanda",title:"O Wandzie, co nie chciała Niemca",icon:"👑",scene:["👸","🏰","🤴","🌊","🌸"],
+id:"wanda",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-wanda.png",
+title:"O Wandzie, co nie chciała Niemca",icon:"👑",
 words:[["👸","księżniczka","córka króla lub władcy"],["🤴","książę","mężczyzna z rodziny królewskiej"],["💍","małżeństwo","związek dwóch osób"],["⚔️","wojna","walka między państwami"],["🌊","Wisła","największa rzeka Polski"],["🌸","odważna","taka, która się nie boi"]],
 story:`Dawno temu w Krakowie żyła księżniczka Wanda. Była piękna i odważna. Po śmierci ojca została władczynią. Do Krakowa przyjechał niemiecki książę Rytgier. Chciał poślubić Wandę, ale ona nie chciała tego małżeństwa. Książę się rozgniewał i zagroził wojną. Wanda nie chciała, aby jej ludzie cierpieli. Według jednej wersji legendy poszła nad Wisłę i skoczyła do rzeki. Wolała umrzeć, niż zgodzić się na małżeństwo. Ludzie długo pamiętali jej odwagę. Kopiec Wandy w Krakowie przypomina o tej opowieści.`,
 q:[{t:"Kim była Wanda?",o:["Księżniczką","Rybaczką","Smoczycą"],a:0},{t:"Czego chciał książę Rytgier?",o:["Zbudować most","Poślubić Wandę","Zostać rybakiem"],a:1}],
@@ -161,7 +174,9 @@ order:["Rytgier przyjechał do Krakowa.","Wanda odmówiła małżeństwa.","Ksi�
 fill:{t:"Wanda była ______. (odważna / przestraszona)",a:"odważna"}
 },
 {
-id:"syrenka",title:"O Syrence warszawskiej",icon:"🧜‍♀️",scene:["🌊","🧜‍♀️","🎣","🛡️","🏙️"],
+id:"syrenka",
+image:"https://raw.githubusercontent.com/kopernikerasmus/francuski-klasa7-jedzenie/main/obrazy/legenda-syrenka.png",
+title:"O Syrence warszawskiej",icon:"🧜‍♀️",
 words:[["🧜‍♀️","syrena","postać: kobieta i ryba"],["🎣","rybak","człowiek, który łowi ryby"],["🪢","sieć","przedmiot do łowienia ryb"],["🛡️","tarcza","ochrona w czasie walki"],["⚔️","miecz","broń z metalu"],["🏙️","Warszawa","stolica Polski"]],
 story:`Dawno temu w Wiśle pływała piękna syrena. Pewnego dnia rybacy zobaczyli ją w wodzie. Byli zachwyceni jej śpiewem. Jeden z kupców złapał syrenę i zamknął ją w szopie. Syrena płakała i śpiewała smutne pieśni. Usłyszał ją młody rybak. Pomógł jej uciec. Syrena była bardzo wdzięczna. Obiecała, że będzie opiekować się ludźmi i bronić miasta. Dlatego na wielu obrazach syrenka trzyma tarczę i miecz. Dziś Syrenka Warszawska jest symbolem stolicy Polski. Jej pomnik stoi nad Wisłą.`,
 q:[{t:"Gdzie mieszkała syrena?",o:["W Wiśle","W górach","W zamku"],a:0},{t:"Co trzyma Syrenka Warszawska?",o:["Książkę i pióro","Tarczę i miecz","Koło i młotek"],a:1}],
@@ -176,7 +191,10 @@ const letters=["A","B","C","D"];
 
 function renderLesson(L,i){
 const vocab=L.words.map(w=>`
-<div class="flip" tabindex="0" role="button" aria-label="Odwróć fiszkę: ${w[1]}" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
+<div class="flip" tabindex="0" role="button"
+aria-label="Odwróć fiszkę: ${w[1]}"
+onclick="this.classList.toggle('flipped')"
+onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped')}">
 <div class="flip-inner">
 <div class="face front"><span>${w[0]}</span><b>${w[1]}</b></div>
 <div class="face back"><b>${w[1]}</b><span>${w[2]}</span><small>↻ odwróć</small></div>
@@ -205,13 +223,12 @@ const ordering=L.order.map((t,j)=>`
 <input type="number" min="1" max="${L.order.length}" id="${L.id}-order${j}" style="width:55px;padding:6px">
 ${t}</label></div>`).join("");
 
-return `
-<section class="legend" id="${L.id}">
+return `<section class="legend" id="${L.id}">
 <div class="legend-head"><span class="emoji">${L.icon}</span><h2>${i+1}. ${L.title}</h2></div>
 <h3>🃏 Słowniczek obrazkowy – odwracane fiszki</h3>
 <p class="hint">Kliknij kartę lub naciśnij Enter, aby zobaczyć znaczenie słowa.</p>
 <div class="vocab">${vocab}</div>
-<div class="scene" role="img" aria-label="Ilustracja do legendy">${L.scene.map(x=>`<span>${x}</span>`).join("")}</div>
+<div class="scene"><img src="${L.image}" alt="Ilustracja: ${L.title}" loading="lazy"></div>
 <h3>📖 Przeczytaj legendę</h3>
 <p class="story">${L.story}</p>
 <div class="quiz">
@@ -230,8 +247,7 @@ ${ordering}
 </div>
 <button class="check" onclick="check('${L.id}')">Sprawdź quiz</button>
 <p class="result" id="${L.id}-result" aria-live="polite"></p>
-</div>
-</section>`;
+</div></section>`;
 }
 
 document.getElementById("lessons").innerHTML=lessons.map(renderLesson).join("");
@@ -273,7 +289,8 @@ else if(!f)missing++;
 const out=document.getElementById(id+"-result");
 out.textContent=missing
 ?`Masz ${score} / ${total} punktów. Uzupełnij jeszcze ${missing} ${missing===1?"odpowiedź":"odpowiedzi"}.`
-:`Twój wynik: ${score} / ${total} punktów. `+(score===total
+:`Twój wynik: ${score} / ${total} punktów. `+
+(score===total
 ?"Świetnie! Wszystkie odpowiedzi są poprawne! 🎉"
 :score>=total*.7
 ?"Bardzo dobrze! Przeczytaj jeszcze raz trudniejsze fragmenty."

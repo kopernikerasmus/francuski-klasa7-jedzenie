@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les territoires d’outre-mer – Francja zamorska</title>
+<style>
+:root{
+ --blue:#173b78;--red:#d92e45;--cream:#fffaf2;
+ --ink:#20283a;--muted:#647084;--gold:#f3c65e;
+ --green:#287b62;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f3f5fa;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+header{background:linear-gradient(120deg,#173b78 0 33%,#fff 33% 66%,#d92e45 66%);padding:12px 18px 0}
+.hero{max-width:1100px;margin:auto;padding:55px 22px;text-align:center;background:rgba(255,255,255,.95);border-radius:22px 22px 0 0}
+.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:8px 0;color:var(--blue)}
+.hero p{font-size:1.1rem;margin:8px auto;max-width:760px}
+.flag{font-size:2rem;letter-spacing:8px}
+.tag{display:inline-block;background:#e9eefb;color:var(--blue);padding:6px 14px;border-radius:30px;font-weight:bold;font-size:.85rem}
+nav{background:var(--blue);position:sticky;top:0;z-index:10;display:flex;gap:7px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{color:white;text-decoration:none;padding:7px 12px;border-radius:20px;font-size:.9rem}
+nav a:hover{background:#ffffff30}
+main{max-width:1100px;margin:25px auto;padding:0 18px}
+section{background:white;border-radius:18px;padding:25px;margin:22px 0;box-shadow:0 5px 22px #1d31500c}
+h2{color:var(--blue);font-size:1.8rem;margin-top:0}
+h3{color:var(--red)}
+.lead{font-size:1.08rem}
+.note,.blue-note{padding:13px 16px;border-radius:9px;margin:15px 0}
+.note{background:#fff6dc;border-left:5px solid var(--gold)}
+.blue-note{background:#edf3ff;border-left:5px solid var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{border:1px solid #e7eaf1;border-radius:15px;overflow:hidden;background:white}
+.card img{width:100%;height:175px;object-fit:cover;display:block}
+.card-content{padding:15px}
+.card h3{margin:0 0 6px}
+.small{font-size:.9rem;color:var(--muted)}
+.pill{display:inline-block;background:#edf1fa;color:var(--blue);border-radius:20px;padding:4px 10px;font-size:.82rem;margin:3px}
+.fact{font-size:2rem}
+.map{width:100%;max-height:420px;object-fit:contain;background:#f5f6fa;border-radius:12px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border-bottom:1px solid #e5e8ef;text-align:left;vertical-align:top}
+th{background:#edf2fb;color:var(--blue)}
+.flash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:13px}
+.flip-card{display:block;position:relative;width:100%;height:155px;perspective:1000px;cursor:pointer;border:0;background:transparent;padding:0;text-align:center;color:var(--ink);font:inherit;-webkit-tap-highlight-color:transparent}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);-webkit-transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:12px;border-radius:14px;border:2px solid #e4e9f3;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.flip-front{background:#edf3ff;color:var(--blue);font-weight:bold}
+.flip-front strong{font-size:1.5rem}
+.flip-front small,.flip-back small{font-size:.78rem;font-weight:normal}
+.flip-back{background:#fff1f1;border-color:#f3c5cb;transform:rotateY(180deg);-webkit-transform:rotateY(180deg)}
+.flip-back strong{font-size:1.1rem;color:var(--red)}
+.flip-card:focus-visible{outline:3px solid orange;outline-offset:4px;border-radius:14px}
+button{border:0;border-radius:10px;padding:11px 17px;background:var(--blue);color:white;font-weight:bold;cursor:pointer;font-size:1rem}
+button:hover{filter:brightness(1.12)}
+button.secondary{background:#e9edf6;color:var(--blue)}
+.activity{background:#f7f8fc;padding:17px;border-radius:13px;margin:15px 0}
+.question{padding:12px 0;border-bottom:1px solid #e2e6ef}
+.question label{display:block;padding:5px;cursor:pointer}
+.feedback{font-weight:bold;margin-top:8px}
+.correct{color:var(--green)}.wrong{color:var(--red)}
+textarea{width:100%;min-height:120px;padding:12px;border:1px solid #cbd2df;border-radius:9px;font:inherit}
+.score{font-size:1.2rem;font-weight:bold;color:var(--blue)}
+.reading{background:#fffaf2;border-radius:12px;padding:18px;font-size:1.08rem}
+footer{text-align:center;padding:30px;color:var(--muted)}
+@media(max-width:600px){section{padding:18px}nav{position:relative}.flip-card{height:145px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="hero">
+ <div class="flag">🔵 ⚪ 🔴</div>
+ <span class="tag">FRENCH CULTURE LAB • A1</span>
+ <h1>La France partout dans le monde !</h1>
+ <p><strong>Francja na całym świecie!</strong></p>
+ <p>Poznaj francuskie terytoria zamorskie, ich wyspy, oceany, krajobrazy, zwierzęta i kulturę.</p>
+ <p>🌴 Klasy 7–8 | Poziom językowy A1</p>
+</div>
+</header>
+
+<nav>
+<a href="#start">Start</a>
+<a href="#pojecia">Pojęcia</a>
+<a href="#drom">DROM</a>
+<a href="#com">COM</a>
+<a href="#nowa">Nowa Kaledonia</a>
+<a href="#przyroda">Przyroda</a>
+<a href="#fiszki">Fiszki</a>
+<a href="#czytanie">Czytanie</a>
+<a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="start">
+<h2>🌍 1. Czy Francja leży tylko w Europie?</h2>
+<p class="lead">Nie! Francja to nie tylko Paryż, Alpy i Lazurowe Wybrzeże. Republika Francuska posiada również terytoria położone tysiące kilometrów od Europy – na Oceanie Atlantyckim, Indyjskim i Spokojnym.</p>
+<div class="grid">
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Tropikalny ocean">
+  <div class="card-content"><h3>Les océans</h3><p>Oceany – terytoria Francji są rozproszone w różnych częściach świata.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Tropikalna wyspa">
+  <div class="card-content"><h3>Les îles</h3><p>Wyspy – niektóre są tropikalne, inne chłodne i skaliste.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=80" alt="Ocean i fale">
+  <div class="card-content"><h3>La nature</h3><p>Przyroda – rafy koralowe, lasy tropikalne, wulkany i lodowe krajobrazy.</p></div>
+ </div>
+</div>
+<div class="note"><strong>Ważne!</strong> Terytoria zamorskie są częścią Republiki Francuskiej, ale nie wszystkie mają taki sam status administracyjny. Niektóre są bardzo podobne do regionów Francji europejskiej, a inne mają szeroką autonomię.</div>
+</section>
+
+<section id="pojecia">
+<h2>📚 2. Dwa ważne pojęcia: DROM i COM</h2>
+<div class="grid">
+ <div class="card"><div class="card-content">
+  <div class="fact">🏝️</div><h3>DROM</h3>
+  <p><strong>Départements et régions d’outre-mer</strong></p>
+  <p>Departamenty i regiony zamorskie. Są częścią Republiki Francuskiej, a zasady prawne są w dużej mierze podobne do tych we Francji europejskiej.</p>
+  <span class="pill">5 terytoriów w szkolnym podziale</span>
+ </div></div>
+ <div class="card"><div class="card-content">
+  <div class="fact">🌺</div><h3>COM</h3>
+  <p><strong>Collectivités d’outre-mer</strong></p>
+  <p>Wspólnoty zamorskie. Mają własne rozwiązania administracyjne i większą samodzielność w wielu sprawach.</p>
+  <span class="pill">różne statusy i kompetencje</span>
+ </div></div>
+</div>
+<h3>Jak to zapamiętać?</h3>
+<table>
+<tr><th>Skrót</th><th>Pełna nazwa</th><th>Znaczenie po polsku</th></tr>
+<tr><td>DROM</td><td>Départements et régions d’outre-mer</td><td>Departamenty i regiony zamorskie</td></tr>
+<tr><td>COM</td><td>Collectivités d’outre-mer</td><td>Wspólnoty zamorskie</td></tr>
+<tr><td>Outre-mer</td><td>Territoires d’outre-mer</td><td>Terytoria zamorskie</td></tr>
+<tr><td>Métropole</td><td>France métropolitaine</td><td>Francja europejska</td></tr>
+</table>
+<div class="blue-note"><strong>Uwaga dla dociekliwych:</strong> w uproszczonym podziale szkolnym mówi się o pięciu DROM. W praktyce organizacja instytucjonalna jest bardziej szczegółowa: Martynika, Gujana Francuska i Majotta mają formę tzw. wspólnoty jedynej (collectivité unique). Dlatego nie wszystkie pięć obszarów ma identyczną strukturę lokalnych władz.</div>
+</section>
+
+<section id="drom">
+<h2>🌴 3. Pięć obszarów zaliczanych do DROM</h2>
+<p>Pięć terytoriów związanych z art. 73 francuskiej konstytucji to Gwadelupa, Martynika, Gujana Francuska, Reunion i Majotta. <a href="https://www.insee.fr/en/metadonnees/definition/c2316" target="_blank" rel="noopener">Źródło: INSEE</a>.</p>
+
+<div class="grid">
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Morze Karaibskie">
+  <div class="card-content">
+   <h3>🇬🇵 La Guadeloupe – Gwadelupa</h3>
+   <p>Archipelag na Morzu Karaibskim. Dwie główne wyspy mają kształt przypominający motyla. Znajduje się tu wulkan La Soufrière.</p>
+   <p><strong>Główne miasto:</strong> Basse-Terre.</p>
+   <span class="pill">les plages – plaże</span><span class="pill">le volcan – wulkan</span>
+  </div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Tropikalna plaża">
+  <div class="card-content">
+   <h3>🇲🇶 La Martinique – Martynika</h3>
+   <p>Wyspa na Karaibach. Słynie z tropikalnej przyrody, plaż i wulkanu Montagne Pelée.</p>
+   <p><strong>Główne miasto:</strong> Fort-de-France.</p>
+   <span class="pill">la montagne – góra</span><span class="pill">la mer – morze</span>
+  </div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80" alt="Las tropikalny">
+  <div class="card-content">
+   <h3>🇬🇫 La Guyane – Gujana Francuska</h3>
+   <p>Obszar w Ameryce Południowej. Większość jego powierzchni pokrywa las deszczowy Amazonii. Znajduje się tu europejski kosmodrom w Kourou.</p>
+   <p><strong>Główne miasto:</strong> Cayenne.</p>
+   <span class="pill">la forêt – las</span><span class="pill">l’espace – kosmos</span>
+  </div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Wulkaniczny krajobraz">
+  <div class="card-content">
+   <h3>🇷🇪 La Réunion – Reunion</h3>
+   <p>Wyspa na Oceanie Indyjskim. Znana z wulkanów, gór i niezwykłych dolin. Znajduje się tu aktywny wulkan Piton de la Fournaise.</p>
+   <p><strong>Główne miasto:</strong> Saint-Denis.</p>
+   <span class="pill">le volcan – wulkan</span><span class="pill">les montagnes – góry</span>
+  </div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Plaża i ocean">
+  <div class="card-content">
+   <h3>🇾🇹 Mayotte – Majotta</h3>
+   <p>Archipelag w Kanale Mozambickim, między Madagaskarem a wybrzeżem Afryki. Słynie z laguny i rafy koralowej.</p>
+   <p><strong>Główne miasto:</strong> Mamoudzou.</p>
+   <span class="pill">le lagon – laguna</span><span class="pill">le récif – rafa</span>
+  </div>
+ </div>
+</div>
+
+<div class="note"><strong>Zapamiętaj:</strong> Gwadelupa i Martynika leżą na Karaibach, Gujana Francuska w Ameryce Południowej, Reunion na Oceanie Indyjskim, a Majotta w pobliżu Madagaskaru.</div>
+</section>
+
+<section id="com">
+<h2>🌺 4. Wspólnoty zamorskie – COM</h2>
+<p>Niektóre terytoria Francji mają status COM. Każde ma własną historię i szczególną organizację lokalnych władz.</p>
+<div class="grid">
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Ocean">
+  <div class="card-content"><h3>🇵🇫 La Polynésie française</h3><p><strong>Polinezja Francuska</strong> – wiele wysp i atoli na Oceanie Spokojnym. Słynie z lagun, raf koralowych i wyspy Tahiti.</p><p>Główne miasto: Papeete.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" alt="Wyspa tropikalna">
+  <div class="card-content"><h3>🇧🇱 Saint-Barthélemy</h3><p><strong>Saint-Barthélemy</strong> – niewielka karaibska wyspa, znana z plaż i turystyki.</p><p>Główna miejscowość: Gustavia.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Plaża">
+  <div class="card-content"><h3>🇲🇫 Saint-Martin</h3><p><strong>Saint-Martin</strong> – francuska część wyspy na Karaibach. Druga część wyspy należy do Królestwa Niderlandów i nazywa się Sint Maarten.</p><p>Główna miejscowość: Marigot.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Wyspa">
+  <div class="card-content"><h3>🇵🇲 Saint-Pierre-et-Miquelon</h3><p><strong>Saint-Pierre i Miquelon</strong> – mały archipelag na Atlantyku, niedaleko Kanady. Klimat jest znacznie chłodniejszy niż na Karaibach.</p><p>Główna miejscowość: Saint-Pierre.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Ocean Spokojny">
+  <div class="card-content"><h3>🇼🇫 Wallis-et-Futuna</h3><p><strong>Wallis i Futuna</strong> – wyspy na Oceanie Spokojnym. Ważną rolę odgrywają tam tradycyjne zwyczaje i lokalne społeczności.</p><p>Główna miejscowość: Mata-Utu.</p></div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="Ocean i lód">
+  <div class="card-content"><h3>❄️ Les TAAF</h3><p><strong>Francuskie Terytoria Południowe i Antarktyczne</strong> – odległe wyspy i obszary na południu Oceanu Indyjskiego oraz Ziemia Adeli. Nie mają stałej ludności cywilnej.</p></div>
+ </div>
+</div>
+<div class="blue-note">COM nie oznacza jednego identycznego modelu. Każde terytorium ma własny status, a zakres jego samodzielności jest różny.</div>
+</section>
+
+<section id="nowa">
+<h2>🗺️ 5. A co z Nową Kaledonią?</h2>
+<div class="grid">
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Ocean Spokojny">
+  <div class="card-content">
+   <h3>🇳🇨 La Nouvelle-Calédonie</h3>
+   <p><strong>Nowa Kaledonia</strong> leży na Oceanie Spokojnym, na wschód od Australii. Jej główne miasto to Nouméa.</p>
+   <p>Jest szczególną wspólnotą francuską o statusie <em>sui generis</em>, czyli odrębnym, szczególnym statusie konstytucyjnym. Nie jest zwykłym DROM ani COM.</p>
+  </div>
+ </div>
+ <div class="card">
+  <img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80" alt="Zielona przyroda">
+  <div class="card-content">
+   <h3>La nature</h3>
+   <p>Nowa Kaledonia słynie z niezwykłej przyrody, lagun, raf koralowych i endemicznych gatunków roślin i zwierząt.</p>
+  </div>
+ </div>
+</div>
+<div class="note"><strong>Jeszcze jedno miejsce:</strong> Wyspa Clipperton na Oceanie Spokojnym jest pod bezpośrednią administracją państwa francuskiego. Nie należy do typowej listy 12 głównych terytoriów zamorskich.</div>
+</section>
+
+<section id="oceany">
+<h2>🌊 6. Francja zamorska i trzy oceany</h2>
+<div class="grid">
+ <div class="card"><div class="card-content"><div class="fact">🌅</div><h3>L’océan Atlantique</h3><p>Ocean Atlantycki – między innymi Gwadelupa, Martynika, Saint-Martin i Saint-Pierre-et-Miquelon.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🐠</div><h3>L’océan Indien</h3><p>Ocean Indyjski – Reunion, Majotta i część francuskich terytoriów południowych.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🌺</div><h3>L’océan Pacifique</h3><p>Ocean Spokojny – Polinezja Francuska, Wallis i Futuna oraz Nowa Kaledonia.</p></div></div>
+</div>
+<h3>Gdzie leżą wybrane terytoria?</h3>
+<table>
+<tr><th>Terytorium</th><th>Ocean / region</th></tr>
+<tr><td>Guadeloupe</td><td>Atlantyk / Karaiby</td></tr>
+<tr><td>Martinique</td><td>Atlantyk / Karaiby</td></tr>
+<tr><td>Guyane</td><td>Atlantyk / Ameryka Południowa</td></tr>
+<tr><td>La Réunion</td><td>Ocean Indyjski</td></tr>
+<tr><td>Mayotte</td><td>Ocean Indyjski / Kanał Mozambicki</td></tr>
+<tr><td>Polynésie française</td><td>Ocean Spokojny</td></tr>
+<tr><td>Nouvelle-Calédonie</td><td>Ocean Spokojny</td></tr>
+<tr><td>Wallis-et-Futuna</td><td>Ocean Spokojny</td></tr>
+<tr><td>Saint-Pierre-et-Miquelon</td><td>Atlantyk / blisko Kanady</td></tr>
+</table>
+</section>
+
+<section id="przyroda">
+<h2>🐢 7. Niezwykła przyroda</h2>
+<div class="grid">
+ <div class="card"><div class="card-content"><div class="fact">🐢</div><h3>Les tortues marines</h3><p>Żółwie morskie – można je spotkać w ciepłych wodach i przy plażach niektórych wysp zamorskich.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🐠</div><h3>Les poissons tropicaux</h3><p>Tropikalne ryby – żyją między innymi w rafach koralowych.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🌋</div><h3>Les volcans</h3><p>Wulkany – na przykład Piton de la Fournaise na Reunion i La Soufrière na Gwadelupie.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🌳</div><h3>La forêt tropicale</h3><p>Las tropikalny – rozległe lasy deszczowe znajdują się w Gujanie Francuskiej.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🪸</div><h3>Les récifs coralliens</h3><p>Rafy koralowe – ważne środowisko życia wielu morskich organizmów.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🐧</div><h3>Les manchots</h3><p>Pingwiny – żyją w chłodnych rejonach południowych, w tym w pobliżu niektórych obszarów TAAF.</p></div></div>
+</div>
+</section>
+
+<section id="kultura">
+<h2>🎉 8. Języki, kultura i codzienne życie</h2>
+<p>Francuski jest językiem urzędowym Republiki Francuskiej. W terytoriach zamorskich ludzie używają również wielu języków lokalnych i regionalnych.</p>
+<div class="grid">
+ <div class="card"><div class="card-content"><div class="fact">🗣️</div><h3>Le français</h3><p>Francuski – język używany w administracji, edukacji i życiu publicznym.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🎶</div><h3>La musique</h3><p>Muzyka – na wyspach karaibskich i Pacyfiku spotykamy różne tradycje muzyczne.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🍍</div><h3>Les fruits tropicaux</h3><p>Owoce tropikalne – ananasy, mango, banany i kokosy.</p></div></div>
+ <div class="card"><div class="card-content"><div class="fact">🥁</div><h3>La danse</h3><p>Taniec – ważna część wielu lokalnych świąt i tradycji.</p></div></div>
+</div>
+<div class="note">Kultura terytoriów zamorskich jest bardzo różnorodna. Wpływają na nią tradycje europejskie, afrykańskie, karaibskie, indiańskie, melanezyjskie i polinezyjskie.</div>
+</section>
+
+<section id="fiszki">
+<h2>🗣️ 9. Francuskie słówka – interaktywne fiszki</h2>
+<p>Kliknij kartę, aby ją odwrócić i zobaczyć polskie tłumaczenie. Kliknij ponownie, aby wrócić do francuskiego słowa.</p>
+<div class="blue-note">💡 Spróbuj najpierw odgadnąć znaczenie, zanim odwrócisz kartę!</div>
+<div class="flash-grid" id="flashcards"></div>
+<p id="flashStatus" class="small" aria-live="polite">Fiszki gotowe do nauki. Kliknij dowolną kartę.</p>
+<h3>Przydatne zwroty</h3>
+<table>
+<tr><th>Francuski</th><th>Polski</th></tr>
+<tr><td>Bonjour !</td><td>Dzień dobry!</td></tr>
+<tr><td>Où est la Guadeloupe ?</td><td>Gdzie leży Gwadelupa?</td></tr>
+<tr><td>La Guadeloupe est dans les Caraïbes.</td><td>Gwadelupa leży na Karaibach.</td></tr>
+<tr><td>J’aime les îles.</td><td>Lubię wyspy.</td></tr>
+<tr><td>Il fait chaud.</td><td>Jest gorąco.</td></tr>
+<tr><td>La mer est bleue.</td><td>Morze jest niebieskie.</td></tr>
+<tr><td>Merci beaucoup !</td><td>Dziękuję bardzo!</td></tr>
+<tr><td>Au revoir !</td><td>Do widzenia!</td></tr>
+</table>
+</section>
+
+<section id="czytanie">
+<h2>📖 10. Czytanie ze zrozumieniem – poziom A1</h2>
+<p>Przeczytaj tekst. Zwróć uwagę na nazwy miejsc i proste informacje.</p>
+<div class="reading">
+<h3>Un voyage dans les îles françaises</h3>
+<p>Bonjour ! Je m’appelle Lucas. J’aime voyager. Aujourd’hui, je découvre les territoires français d’outre-mer.</p>
+<p>La Guadeloupe est dans les Caraïbes. Il fait chaud et les plages sont magnifiques. La Réunion est dans l’océan Indien. Il y a des montagnes et un volcan.</p>
+<p>La Polynésie française est dans l’océan Pacifique. Il y a beaucoup d’îles et de belles lagunes. J’aime la nature et la mer !</p>
+<p>La France est vraiment partout dans le monde !</p>
+</div>
+<h3>Słowniczek</h3>
+<table>
+<tr><td>aujourd’hui</td><td>dzisiaj</td></tr>
+<tr><td>je découvre</td><td>odkrywam / poznaję</td></tr>
+<tr><td>il fait chaud</td><td>jest gorąco</td></tr>
+<tr><td>les plages</td><td>plaże</td></tr>
+<tr><td>les montagnes</td><td>góry</td></tr>
+<tr><td>beaucoup de</td><td>dużo</td></tr>
+<tr><td>la nature</td><td>przyroda</td></tr>
+<tr><td>la mer</td><td>morze</td></tr>
+</table>
+<div class="activity">
+<h3>Sprawdź, czy rozumiesz tekst</h3>
+<div class="question"><p>1. Où est la Guadeloupe ?</p>
+<label><input type="radio" name="r1" value="a"> Dans les Caraïbes.</label>
+<label><input type="radio" name="r1" value="b"> En Europe.</label>
+<label><input type="radio" name="r1" value="c"> En Afrique.</label>
+<div id="rf1" class="feedback"></div></div>
+<div class="question"><p>2. Où est La Réunion ?</p>
+<label><input type="radio" name="r2" value="a"> Dans l’océan Atlantique.</label>
+<label><input type="radio" name="r2" value="b"> Dans l’océan Indien.</label>
+<label><input type="radio" name="r2" value="c"> Dans l’océan Pacifique.</label>
+<div id="rf2" class="feedback"></div></div>
+<div class="question"><p>3. Qu’est-ce qu’il y a à La Réunion ?</p>
+<label><input type="radio" name="r3" value="a"> Des déserts.</label>
+<label><input type="radio" name="r3" value="b"> Des glaciers.</label>
+<label><input type="radio" name="r3" value="c"> Des montagnes et un volcan.</label>
+<div id="rf3" class="feedback"></div></div>
+<button type="button" onclick="checkReading()">Sprawdź odpowiedzi</button>
+<p id="readingScore" class="score" aria-live="polite"></p>
+</div>
+</section>
+
+<section id="quiz">
+<h2>🏆 11. Wielki quiz – Francja zamorska</h2>
+<p>Wybierz jedną odpowiedź w każdym pytaniu. Na końcu sprawdź swój wynik!</p>
+<form id="quizForm">
+<div id="quizQuestions"></div>
+<button type="button" onclick="checkQuiz()">Sprawdź mój wynik</button>
+<button type="reset" class="secondary" onclick="resetQuiz()">Wyczyść odpowiedzi</button>
+</form>
+<div id="quizResult" class="activity" aria-live="polite"></div>
+</section>
+
+<section id="zadanie">
+<h2>✍️ 12. Moja pocztówka z wyspy</h2>
+<p>Wyobraź sobie, że jesteś na jednym z francuskich terytoriów zamorskich. Napisz krótką pocztówkę po francusku.</p>
+<div class="blue-note">
+<strong>Możesz użyć zdań:</strong><br>
+Bonjour ! – Dzień dobry!<br>
+Je suis en Guadeloupe. – Jestem na Gwadelupie.<br>
+Il fait chaud. – Jest gorąco.<br>
+La mer est bleue. – Morze jest niebieskie.<br>
+J’aime la nature. – Lubię przyrodę.<br>
+À bientôt ! – Do zobaczenia!
+</div>
+<textarea id="postcard" placeholder="Bonjour ! Je suis en..."></textarea>
+<p><button type="button" onclick="savePostcard()">Zapisz pocztówkę jako plik TXT</button></p>
+<p class="small" id="saveMessage" aria-live="polite"></p>
+</section>
+
+<section>
+<h2>🎯 13. Co już umiesz?</h2>
+<p>Zaznacz wykonane zadania.</p>
+<label><input type="checkbox"> Wiem, co oznacza słowo outre-mer.</label><br>
+<label><input type="checkbox"> Potrafię wyjaśnić różnicę między DROM i COM.</label><br>
+<label><input type="checkbox"> Znam pięć obszarów zaliczanych do DROM.</label><br>
+<label><input type="checkbox"> Potrafię wskazać trzy oceany.</label><br>
+<label><input type="checkbox"> Znam kilka francuskich słów związanych z wyspami.</label><br>
+<label><input type="checkbox"> Przeczytałem / przeczytałam tekst A1.</label><br>
+<label><input type="checkbox"> Rozwiązałem / rozwiązałam quiz.</label><br>
+<div class="note"><strong>Bravo !</strong> Świetna robota! Poznałeś / poznałaś Francję, która rozciąga się na wiele oceanów i kontynentów.</div>
+</section>
+
+<section>
+<h2>🔎 14. Źródła i dalsze poznawanie</h2>
+<ul>
+<li><a href="https://www.insee.fr/en/metadonnees/definition/c2316" target="_blank" rel="noopener">INSEE – definicje DROM i COM</a></li>
+<li><a href="https://eduscol.education.gouv.fr/4806/territoires-ultramarins" target="_blank" rel="noopener">Éduscol – terytoria zamorskie Francji</a></li>
+<li><a href="https://www.senat.fr/connaitre-le-senat/role-et-fonctionnement/les-collectivites-doutre-mer.html" target="_blank" rel="noopener">Senat Francji – wspólnoty zamorskie</a></li>
+<li><a href="https://formation-civique.interieur.gouv.fr/fiches-par-journ%C3%A9e/journ%C3%A9e-2/histoire/atlas-de-la-france/le-territoire-de-la-france/" target="_blank" rel="noopener">Ministerstwo Spraw Wewnętrznych – terytorium Francji</a></li>
+</ul>
+<p class="small">Materiał edukacyjny. Statusy administracyjne przedstawiono w uproszczeniu odpowiednim do poziomu szkolnego; szczegóły mogą być bardziej złożone.</p>
+</section>
+
+</main>
+
+<footer>
+🇫🇷 French Culture Lab • Les territoires d’outre-mer • Klasy 7–8 • A1
+</footer>
+
+<script>
+"use strict";
+
+/* FISZKI */
+const words=[
+["outre-mer","terytoria zamorskie","🌍"],
+["la France","Francja","🇫🇷"],
+["un département","departament","🏛️"],
+["une région","region","🗺️"],
+["une collectivité","wspólnota / jednostka terytorialna","🏝️"],
+["une île","wyspa","🏝️"],
+["un océan","ocean","🌊"],
+["la mer","morze","🌊"],
+["la plage","plaża","🏖️"],
+["le volcan","wulkan","🌋"],
+["la forêt","las","🌳"],
+["la montagne","góra","🏔️"],
+["la tortue","żółw","🐢"],
+["un poisson","ryba","🐠"],
+["le lagon","laguna","🪸"],
+["la nature","przyroda","🌿"],
+["la chaleur","ciepło","☀️"],
+["la capitale","stolica","🏙️"],
+["les Caraïbes","Karaiby","🌴"],
+["l’océan Indien","Ocean Indyjski","🌊"],
+["l’océan Pacifique","Ocean Spokojny","🌊"],
+["l’océan Atlantique","Ocean Atlantycki","🌊"],
+["la Guadeloupe","Gwadelupa","🇬🇵"],
+["la Martinique","Martynika","🇲🇶"],
+["la Guyane","Gujana Francuska","🇬🇫"],
+["La Réunion","Reunion","🇷🇪"],
+["Mayotte","Majotta","🇾🇹"],
+["la Polynésie française","Polinezja Francuska","🇵🇫"],
+["la Nouvelle-Calédonie","Nowa Kaledonia","🇳🇨"],
+["un territoire","terytorium","🗺️"]
+];
+
+const flashContainer=document.getElementById("flashcards");
+const flashStatus=document.getElementById("flashStatus");
+
+words.forEach((word,index)=>{
+ const button=document.createElement("button");
+ button.type="button";
+ button.className="flip-card";
+ button.setAttribute("aria-pressed","false");
+ button.setAttribute("aria-label","Fiszka "+(index+1)+": "+word[0]+". Kliknij, aby zobaczyć tłumaczenie.");
+
+ const inner=document.createElement("span");
+ inner.className="flip-inner";
+
+ const front=document.createElement("span");
+ front.className="flip-front";
+ const emoji=document.createElement("strong");
+ emoji.textContent=word[2];
+ const term=document.createElement("span");
+ term.textContent=word[0];
+ const hint=document.createElement("small");
+ hint.textContent="Kliknij, aby odkryć";
+ front.append(emoji,term,hint);
+
+ const back=document.createElement("span");
+ back.className="flip-back";
+ const translation=document.createElement("strong");
+ translation.textContent=word[1];
+ const original=document.createElement("small");
+ original.textContent=word[0];
+ back.append(translation,original);
+
+ inner.append(front,back);
+ button.append(inner);
+
+ button.addEventListener("click",()=>{
+  const flipped=button.classList.toggle("flipped");
+  button.setAttribute("aria-pressed",String(flipped));
+  flashStatus.textContent=flipped
+   ?"Odkryto: "+word[0]+" – "+word[1]
+   :"Ukryto tłumaczenie: "+word[0];
+ });
+
+ flashContainer.append(button);
+});
+
+/* CZYTANIE */
+function checkReading(){
+ const answers={r1:"a",r2:"b",r3:"c"};
+ let score=0;
+ Object.keys(answers).forEach((name,index)=>{
+  const chosen=document.querySelector('input[name="'+name+'"]:checked');
+  const feedback=document.getElementById("rf"+(index+1));
+  if(chosen && chosen.value===answers[name]){
+   score++;
+   feedback.textContent="✓ Dobrze!";
+   feedback.className="feedback correct";
+  }else{
+   feedback.textContent="✗ Spróbuj jeszcze raz.";
+   feedback.className="feedback wrong";
+  }
+ });
+ document.getElementById("readingScore").textContent="Twój wynik: "+score+"/3";
+}
+
+/* QUIZ */
+const questions=[
+["Co oznacza słowo outre-mer?",["Francja europejska","Terytoria zamorskie","Stolica Francji"],"b"],
+["Co oznacza skrót DROM?",["Departamenty i regiony zamorskie","Wyspy na Pacyfiku","Miasta Francji"],"a"],
+["Co oznacza skrót COM?",["Kontynentalne obszary Francji","Wspólnoty zamorskie","Francuskie oceany"],"b"],
+["Które terytorium leży na Karaibach?",["Gwadelupa","Reunion","Nowa Kaledonia"],"a"],
+["Gdzie znajduje się Gujana Francuska?",["W Europie","W Ameryce Południowej","W Azji"],"b"],
+["Na którym oceanie leży Reunion?",["Atlantyckim","Spokojnym","Indyjskim"],"c"],
+["Które terytorium leży w pobliżu Madagaskaru?",["Majotta","Saint-Pierre-et-Miquelon","Saint-Barthélemy"],"a"],
+["Jak nazywa się główne miasto Polinezji Francuskiej?",["Cayenne","Papeete","Nouméa"],"b"],
+["Co jest charakterystyczne dla Gujany Francuskiej?",["Pustynie lodowe","Las amazoński","Fiordy"],"b"],
+["Jaki wulkan znajduje się na Reunion?",["Piton de la Fournaise","Mont Blanc","Etna"],"a"],
+["Gdzie leży Saint-Pierre-et-Miquelon?",["Blisko Kanady","Na Pacyfiku","Na Morzu Śródziemnym"],"a"],
+["Które terytorium ma szczególny status sui generis?",["Martynika","Nowa Kaledonia","Gwadelupa"],"b"],
+["Jak nazywa się francuska część wyspy podzielonej z Sint Maarten?",["Saint-Martin","Mayotte","Wallis"],"a"],
+["Ile oceanów otacza francuskie terytoria zamorskie?",["Jeden","Dwa","Trzy"],"c"],
+["Co oznacza la plage?",["Góra","Plaża","Las"],"b"],
+["Co oznacza le volcan?",["Wulkan","Wyspa","Rzeka"],"a"],
+["Które terytorium słynie z lagun i wysp Pacyfiku?",["Polinezja Francuska","Gujana Francuska","Saint-Pierre-et-Miquelon"],"a"],
+["Które terytorium leży w Kanale Mozambickim?",["Majotta","Gwadelupa","Nowa Kaledonia"],"a"],
+["Czy wszystkie terytoria zamorskie mają taki sam status?",["Tak","Nie"],"b"],
+["Co oznacza la nature?",["Przyroda","Miasto","Lotnisko"],"a"]
+];
+
+const quizContainer=document.getElementById("quizQuestions");
+questions.forEach((question,index)=>{
+ const div=document.createElement("div");
+ div.className="question";
+ let html="<p><strong>"+(index+1)+". "+question[0]+"</strong></p>";
+ question[1].forEach((answer,answerIndex)=>{
+  const letter=["a","b","c"][answerIndex];
+  html+='<label><input type="radio" name="q'+(index+1)+'" value="'+letter+'"> '+answer+'</label>';
+ });
+ div.innerHTML=html;
+ quizContainer.append(div);
+});
+
+function checkQuiz(){
+ let score=0;
+ let answered=0;
+ questions.forEach((question,index)=>{
+  const chosen=document.querySelector('input[name="q'+(index+1)+'"]:checked');
+  if(chosen){
+   answered++;
+   if(chosen.value===question[2])score++;
+  }
+ });
+ let message="";
+ if(score>=18)message="🏆 Excellent ! Znakomicie znasz Francję zamorską!";
+ else if(score>=15)message="🌟 Très bien ! Bardzo dobry wynik!";
+ else if(score>=11)message="👏 Bien ! Dobra robota!";
+ else if(score>=7)message="🙂 Pas mal ! Powtórz jeszcze kilka informacji.";
+ else message="💪 Courage ! Wróć do lekcji i spróbuj ponownie!";
+ const result=document.getElementById("quizResult");
+ result.innerHTML="<p class='score'>Twój wynik: "+score+"/20 punktów</p><p>Udzielono odpowiedzi na "+answered+" z 20 pytań.</p><h3>"+message+"</h3><p>"+(score===20?"Félicitations ! Wszystkie odpowiedzi są poprawne!":"Możesz poprawić wynik, powtarzając materiał.")+"</p>";
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function resetQuiz(){
+ document.getElementById("quizResult").innerHTML="";
+}
+
+/* POCZTÓWKA */
+function savePostcard(){
+ const content=document.getElementById("postcard").value.trim();
+ const message=document.getElementById("saveMessage");
+ if(!content){
+  message.textContent="Najpierw napisz swoją pocztówkę.";
+  return;
+ }
+ const blob=new Blob([content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const link=document.createElement("a");
+ link.href=url;
+ link.download="ma-carte-postale-outre-mer.txt";
+ document.body.append(link);
+ link.click();
+ link.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+ message.textContent="Gotowe! Pocztówka została zapisana.";
+}
+</script>
+</body>
+</html>

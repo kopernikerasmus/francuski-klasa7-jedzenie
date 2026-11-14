@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le monde francophone – Francuskojęzyczny świat</title>
+<style>
+:root{
+  --navy:#172554;--blue:#2563eb;--red:#e63946;--cream:#fffaf0;
+  --gold:#f5c451;--ink:#243047;--green:#16866b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f5fb;color:var(--ink);font-family:Arial,sans-serif;line-height:1.6}
+header{
+ background:linear-gradient(125deg,#172554,#2563eb 65%,#e63946);
+ color:white;text-align:center;padding:55px 20px 45px;
+}
+header .flag{font-size:2.5rem;letter-spacing:8px}
+header h1{font-size:clamp(2rem,5vw,3.5rem);margin:8px 0}
+header p{font-size:1.15rem;max-width:750px;margin:auto}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 9px #0002;padding:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+nav a{color:#1e3a8a;text-decoration:none;font-weight:bold;font-size:.9rem;padding:7px 10px;border-radius:20px}
+nav a:hover{background:#dbeafe}
+main{max-width:1100px;margin:auto;padding:20px}
+section{background:white;margin:22px 0;padding:26px;border-radius:20px;box-shadow:0 5px 20px #1725540c}
+h2{color:#1e3a8a;margin-top:0;font-size:1.7rem}
+h3{color:#1d4ed8}
+.lead{font-size:1.12rem}
+.note{background:#eff6ff;border-left:5px solid var(--blue);padding:15px 18px;border-radius:10px;margin:16px 0}
+.warning{background:#fff7ed;border-left:5px solid #f59e0b;padding:15px 18px;border-radius:10px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{border:1px solid #e2e8f0;border-radius:15px;padding:16px;background:#fff}
+.card .emoji{font-size:2.3rem}
+.card h3{margin:5px 0}
+.tag{display:inline-block;padding:4px 9px;border-radius:20px;font-size:.78rem;font-weight:bold;background:#dbeafe;color:#1e40af}
+.tag.green{background:#dcfce7;color:#166534}
+.tag.orange{background:#ffedd5;color:#9a3412}
+.tag.purple{background:#ede9fe;color:#5b21b6}
+.country{display:flex;gap:12px;align-items:flex-start}
+.country .emoji{font-size:2rem}
+.country p{margin:3px 0}
+.country strong{color:#172554}
+.mapbox{background:linear-gradient(135deg,#dbeafe,#fef3c7);border-radius:18px;padding:18px;text-align:center}
+.worldmap{font-size:clamp(2rem,7vw,4rem);line-height:1.7;letter-spacing:4px}
+.mapcaption{font-size:.9rem;color:#475569}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border-bottom:1px solid #e2e8f0;text-align:left}
+th{background:#eff6ff;color:#1e3a8a}
+.flashgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.flip-card{height:155px;perspective:1000px;cursor:pointer;border:0;background:transparent;padding:0;width:100%;text-align:center}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 3px 12px #0001}
+.flip-front{background:linear-gradient(135deg,#1e40af,#3b82f6);color:white}
+.flip-back{background:#fff7ed;color:#7c2d12;transform:rotateY(180deg);border:2px solid #fed7aa}
+.flip-front .big{font-size:2.5rem}
+.flip-back strong{font-size:1.05rem}
+button,.btn{border:0;border-radius:10px;padding:11px 17px;background:#2563eb;color:white;font-weight:bold;cursor:pointer}
+button:hover,.btn:hover{filter:brightness(.92)}
+button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.quiz-q{padding:15px;margin:14px 0;border:1px solid #dbeafe;border-radius:12px}
+.quiz-q label{display:block;padding:5px;cursor:pointer}
+#quizResult{font-size:1.2rem;font-weight:bold;margin-top:15px}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}
+footer{text-align:center;padding:30px;color:#64748b}
+.small{font-size:.9rem;color:#64748b}
+.country-img{width:100%;height:125px;object-fit:cover;border-radius:10px;margin:8px 0}
+@media(max-width:600px){main{padding:10px}section{padding:18px}nav a{font-size:.8rem;padding:5px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="flag">🇫🇷 🌍 🇫🇷</div>
+ <h1>Le monde francophone</h1>
+ <p>Francuskojęzyczny świat – poznaj kraje, ludzi, języki i kultury na czterech kontynentach!</p>
+ <p style="margin-top:15px">🇫🇷 Français A1 · Klasy 7–8 · Culture Lab</p>
+</header>
+
+<nav>
+ <a href="#intro">Start</a>
+ <a href="#map">Świat</a>
+ <a href="#europe">Europa</a>
+ <a href="#africa">Afryka</a>
+ <a href="#americas">Ameryki</a>
+ <a href="#oceania">Oceania</a>
+ <a href="#vocab">Słówka</a>
+ <a href="#reading">Czytanie</a>
+ <a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="intro">
+<h2>🌍 1. Co to jest le monde francophone?</h2>
+<p class="lead"><strong>Le monde francophone</strong> to kraje i społeczności, w których używa się języka francuskiego.</p>
+<p>Francuski nie należy tylko do Francji! Można go usłyszeć w Europie, Afryce, Ameryce Północnej, na Karaibach i na wyspach Oceanii.</p>
+<div class="note">
+<strong>Zapamiętaj!</strong><br>
+🇫🇷 <em>francophone</em> – francuskojęzyczny<br>
+🗣️ <em>parler français</em> – mówić po francusku<br>
+🌎 <em>un pays</em> – kraj<br>
+🏛️ <em>une langue officielle</em> – język urzędowy
+</div>
+<div class="warning">
+<strong>Ważne rozróżnienie:</strong>
+<ul>
+<li><strong>Język urzędowy</strong> – ma formalny status w państwie, np. w administracji lub prawie.</li>
+<li><strong>Język szeroko używany</strong> – wiele osób posługuje się nim w szkole, pracy, mediach lub w kontaktach międzynarodowych, ale nie musi być językiem urzędowym.</li>
+<li>Nie oznacza to, że wszyscy mieszkańcy danego kraju mówią po francusku. W wielu państwach używa się również wielu języków lokalnych.</li>
+</ul>
+</div>
+</section>
+
+<section id="map">
+<h2>🗺️ 2. Francuski na świecie</h2>
+<div class="mapbox">
+ <div class="worldmap">🌎 🌍 🌏</div>
+ <p><strong>4 kontynenty i wiele kultur!</strong></p>
+ <p>Europa · Afryka · Ameryki · Oceania</p>
+ <div class="mapcaption">Symbole kontynentów – przejdź do sekcji poniżej, aby poznać kraje.</div>
+</div>
+<p>Wśród państw, w których francuski ma status języka urzędowego lub współurzędowego, szczególnie dużo znajduje się w Afryce.</p>
+<div class="grid">
+ <div class="card"><div class="emoji">🇪🇺</div><h3>Europe</h3><p>Belgia, Szwajcaria, Luksemburg, Monako</p></div>
+ <div class="card"><div class="emoji">🌍</div><h3>Afrique</h3><p>Wiele państw Afryki Zachodniej, Środkowej i wysp Oceanu Indyjskiego</p></div>
+ <div class="card"><div class="emoji">🌎</div><h3>Amériques</h3><p>Kanada, Haiti</p></div>
+ <div class="card"><div class="emoji">🏝️</div><h3>Océanie</h3><p>Vanuatu</p></div>
+</div>
+</section>
+
+<section id="europe">
+<h2>🇪🇺 3. L’Europe – Europa</h2>
+<p>W Europie francuski jest jednym z języków urzędowych w kilku niezależnych państwach.</p>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🇧🇪</div><h3>La Belgique</h3><span class="tag">Belgia</span>
+  <p><strong>Capitale:</strong> Bruxelles</p>
+  <p>Francuski jest jednym z języków urzędowych. Używa się także niderlandzkiego i niemieckiego.</p>
+  <p>💡 Bruksela jest ważnym centrum instytucji europejskich.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇨🇭</div><h3>La Suisse</h3><span class="tag">Szwajcaria</span>
+  <p><strong>Capitale fédérale:</strong> Berne</p>
+  <p>Francuski jest jednym z czterech języków narodowych obok niemieckiego, włoskiego i romansz.</p>
+  <p>💡 W Genewie znajduje się wiele organizacji międzynarodowych.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇱🇺</div><h3>Le Luxembourg</h3><span class="tag">Luksemburg</span>
+  <p><strong>Capitale:</strong> Luxembourg</p>
+  <p>Używa się tu luksemburskiego, francuskiego i niemieckiego.</p>
+  <p>💡 To małe państwo w samym sercu Europy.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇲🇨</div><h3>Monaco</h3><span class="tag">Monako</span>
+  <p><strong>Capitale:</strong> Monaco</p>
+  <p>Francuski jest językiem urzędowym.</p>
+  <p>💡 Monako słynie z portu, kasyna w Monte-Carlo i wyścigu Formuły 1.</p>
+ </div>
+</div>
+</section>
+
+<section id="africa">
+<h2>🌍 4. L’Afrique – Afryka</h2>
+<p>Afryka jest niezwykle ważną częścią świata francuskojęzycznego. Francuski współistnieje tu z wieloma językami afrykańskimi.</p>
+<div class="note"><strong>Nie tylko francuski!</strong> W wielu krajach mieszkańcy używają na co dzień języków takich jak wolof, bambara, lingala, suahili, ewe, fon czy kinyarwanda.</div>
+<h3>Afryka Zachodnia</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇸🇳</div><h3>Le Sénégal</h3><span class="tag">Senegal</span><p><strong>Capitale:</strong> Dakar</p><p>Francuski jest językiem urzędowym. Ważnym językiem narodowym jest wolof.</p><p>🥁 Muzyka, taniec i wybrzeże Atlantyku.</p></div>
+ <div class="card"><div class="emoji">🇨🇮</div><h3>La Côte d’Ivoire</h3><span class="tag">Wybrzeże Kości Słoniowej</span><p><strong>Capitale:</strong> Yamoussoukro</p><p>Francuski jest językiem urzędowym. Abidżan to największe miasto kraju.</p><p>🍫 Kraj jest jednym z największych producentów kakao na świecie.</p></div>
+ <div class="card"><div class="emoji">🇧🇯</div><h3>Le Bénin</h3><span class="tag">Benin</span><p><strong>Capitale:</strong> Porto-Novo</p><p>Francuski jest językiem urzędowym. Używa się też m.in. fon i joruba.</p><p>🎭 Kraj jest ważnym ośrodkiem kultury vodun.</p></div>
+ <div class="card"><div class="emoji">🇹🇬</div><h3>Le Togo</h3><span class="tag">Togo</span><p><strong>Capitale:</strong> Lomé</p><p>Francuski jest językiem urzędowym. Używa się również języków ewe i kabiyé.</p><p>🌴 Kraj leży nad Zatoką Gwinejską.</p></div>
+ <div class="card"><div class="emoji">🇬🇳</div><h3>La Guinée</h3><span class="tag">Gwinea</span><p><strong>Capitale:</strong> Conakry</p><p>Francuski jest językiem urzędowym. W kraju używa się też wielu języków lokalnych.</p><p>⛰️ Znajdują się tu źródła ważnych afrykańskich rzek.</p></div>
+ <div class="card"><div class="emoji">🇬🇦</div><h3>Le Gabon</h3><span class="tag">Gabon</span><p><strong>Capitale:</strong> Libreville</p><p>Francuski jest językiem urzędowym.</p><p>🦍 Dużą część kraju pokrywają lasy równikowe.</p></div>
+</div>
+<h3>Afryka Środkowa</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇨🇩</div><h3>La République démocratique du Congo</h3><span class="tag">Demokratyczna Republika Konga</span><p><strong>Capitale:</strong> Kinshasa</p><p>Francuski jest językiem urzędowym. Lingala, kikongo, tshiluba i suahili należą do ważnych języków narodowych.</p><p>🌳 Znajduje się tu ogromny obszar lasów Kotliny Konga.</p></div>
+ <div class="card"><div class="emoji">🇨🇬</div><h3>La République du Congo</h3><span class="tag">Republika Konga</span><p><strong>Capitale:</strong> Brazzaville</p><p>Francuski jest językiem urzędowym, obok ważnych języków narodowych, m.in. lingala i kituba.</p><p>🌿 Część kraju leży w dorzeczu rzeki Kongo.</p></div>
+ <div class="card"><div class="emoji">🇨🇲</div><h3>Le Cameroun</h3><span class="tag">Kamerun</span><p><strong>Capitale:</strong> Yaoundé</p><p>Francuski i angielski są językami urzędowymi. Używa się wielu języków lokalnych.</p><p>🌋 Kamerun nazywany jest Afryką w miniaturze ze względu na różnorodność krajobrazów.</p></div>
+ <div class="card"><div class="emoji">🇹🇩</div><h3>Le Tchad</h3><span class="tag">Czad</span><p><strong>Capitale:</strong> N'Djamena</p><p>Francuski i arabski są językami urzędowymi.</p><p>🏜️ Na północy znajduje się Sahara.</p></div>
+ <div class="card"><div class="emoji">🇨🇫</div><h3>La République centrafricaine</h3><span class="tag">Republika Środkowoafrykańska</span><p><strong>Capitale:</strong> Bangui</p><p>Francuski i sango są językami urzędowymi.</p><p>🌳 Kraj leży w Afryce Środkowej.</p></div>
+ <div class="card"><div class="emoji">🇬🇶</div><h3>La Guinée équatoriale</h3><span class="tag">Gwinea Równikowa</span><p><strong>Capitale:</strong> Malabo</p><p>Francuski jest jednym z języków urzędowych obok hiszpańskiego i portugalskiego.</p><p>🌴 To jedyne państwo Afryki, w którym hiszpański jest językiem urzędowym.</p></div>
+</div>
+<h3>Afryka Wschodnia i Ocean Indyjski</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇩🇯</div><h3>Djibouti</h3><span class="tag">Dżibuti</span><p><strong>Capitale:</strong> Djibouti</p><p>Francuski i arabski są językami urzędowymi. Ważne są też somalijski i afar.</p><p>🌋 Kraj leży w rejonie Wielkich Rowów Afrykańskich.</p></div>
+ <div class="card"><div class="emoji">🇲🇬</div><h3>Madagascar</h3><span class="tag">Madagaskar</span><p><strong>Capitale:</strong> Antananarivo</p><p>Francuski i malgaski są językami urzędowymi.</p><p>🦎 Wyspa słynie z lemurów i wyjątkowej przyrody.</p></div>
+ <div class="card"><div class="emoji">🇰🇲</div><h3>Les Comores</h3><span class="tag">Komory</span><p><strong>Capitale:</strong> Moroni</p><p>Francuski, arabski i komoryjski są językami urzędowymi.</p><p>🌺 Archipelag leży na Oceanie Indyjskim.</p></div>
+ <div class="card"><div class="emoji">🇧🇮</div><h3>Le Burundi</h3><span class="tag">Burundi</span><p><strong>Capitale politique:</strong> Gitega</p><p>Francuski, kirundi i angielski mają status języków urzędowych; suahili jest także używany.</p><p>🥁 Kraj słynie z tradycji bębniarskich.</p></div>
+ <div class="card"><div class="emoji">🇷🇼</div><h3>Le Rwanda</h3><span class="tag">Rwanda</span><p><strong>Capitale:</strong> Kigali</p><p>Francuski jest jednym z języków urzędowych obok kinyarwanda, angielskiego i suahili.</p><p>🦍 Można tu spotkać goryle górskie.</p></div>
+ <div class="card"><div class="emoji">🇸🇨</div><h3>Les Seychelles</h3><span class="tag">Seszele</span><p><strong>Capitale:</strong> Victoria</p><p>Francuski, angielski i kreolski seszelski są językami urzędowymi.</p><p>🐢 Wyspy słyną z plaż i żółwi olbrzymich.</p></div>
+</div>
+</section>
+
+<section id="americas">
+<h2>🌎 5. Les Amériques – Ameryki</h2>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🇨🇦</div><h3>Le Canada</h3><span class="tag">Kanada</span>
+  <p><strong>Capitale:</strong> Ottawa</p>
+  <p>Angielski i francuski są językami urzędowymi na poziomie federalnym.</p>
+  <p>🍁 Francuski jest szczególnie ważny w Quebecu, ale używa się go także w innych częściach kraju.</p>
+  <p>🏒 Hokej na lodzie jest jednym z najpopularniejszych sportów.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇭🇹</div><h3>Haïti</h3><span class="tag">Haiti</span>
+  <p><strong>Capitale:</strong> Port-au-Prince</p>
+  <p>Francuski i kreolski haitański są językami urzędowymi.</p>
+  <p>🎨 Haiti ma bogate tradycje muzyczne, artystyczne i historyczne.</p>
+  <p>🏛️ W 1804 roku Haiti ogłosiło niepodległość – było pierwszą niepodległą republiką czarnych mieszkańców w historii.</p>
+ </div>
+</div>
+<div class="note">
+<strong>Uwaga o Kanadzie:</strong> Kanada jest państwem dwujęzycznym na poziomie federalnym, ale francuski nie jest językiem większości mieszkańców całego kraju. W Quebecu jest językiem dominującym i urzędowym.
+</div>
+</section>
+
+<section id="oceania">
+<h2>🏝️ 6. L’Océanie – Oceania</h2>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🇻🇺</div><h3>Le Vanuatu</h3><span class="tag">Vanuatu</span>
+  <p><strong>Capitale:</strong> Port-Vila</p>
+  <p>Francuski, angielski i bislama są językami urzędowymi.</p>
+  <p>🌋 Vanuatu to archipelag wysp na Pacyfiku, z aktywnymi wulkanami.</p>
+  <p>🌺 Kraj ma bardzo dużą różnorodność językową.</p>
+ </div>
+</div>
+</section>
+
+<section>
+<h2>🧭 7. A co z krajami, gdzie francuski jest bardzo popularny, ale nie urzędowy?</h2>
+<p>Francuski może być ważnym językiem szkoły, biznesu, mediów lub kontaktów międzynarodowych, nawet jeśli nie ma statusu języka urzędowego.</p>
+<div class="grid">
+ <div class="card"><div class="emoji">🇲🇦</div><h3>Le Maroc – Maroko</h3><p>Języki urzędowe: arabski i tamazight. Francuski jest szeroko używany m.in. w biznesie, edukacji i administracji.</p></div>
+ <div class="card"><div class="emoji">🇩🇿</div><h3>L’Algérie – Algieria</h3><p>Języki urzędowe: arabski i tamazight. Francuski jest powszechnie używany w części edukacji, mediów i życia zawodowego.</p></div>
+ <div class="card"><div class="emoji">🇹🇳</div><h3>La Tunisie – Tunezja</h3><p>Językiem urzędowym jest arabski. Francuski jest obecny w edukacji, biznesie i mediach.</p></div>
+ <div class="card"><div class="emoji">🇱🇧</div><h3>Le Liban – Liban</h3><p>Językiem urzędowym jest arabski. Francuski jest używany w części szkół, instytucji i życia publicznego.</p></div>
+ <div class="card"><div class="emoji">🇲🇺</div><h3>L’île Maurice – Mauritius</h3><p>Angielski jest językiem urzędowym parlamentu, a francuski i kreolski maurytyjski są szeroko obecne w życiu społecznym i mediach.</p></div>
+</div>
+<div class="warning">
+<strong>Ważne:</strong> Te kraje są częścią szerszego świata frankofońskiego, ale nie należy automatycznie oznaczać francuskiego jako ich języka urzędowego.
+</div>
+</section>
+
+<section>
+<h2>📌 8. Ważna aktualizacja – trzy kraje Sahelu</h2>
+<p>W starszych podręcznikach i zestawieniach można znaleźć Mali, Burkina Faso i Niger na liście państw z francuskim jako językiem urzędowym. W ostatnich latach ich status prawny uległ zmianie.</p>
+<div class="grid">
+ <div class="card"><div class="emoji">🇲🇱</div><h3>Le Mali</h3><p><strong>Capitale:</strong> Bamako</p><p>Języki narodowe mają status urzędowy, a francuski jest językiem pracy.</p></div>
+ <div class="card"><div class="emoji">🇧🇫</div><h3>Le Burkina Faso</h3><p><strong>Capitale:</strong> Ouagadougou</p><p>Języki narodowe mają status urzędowy, a francuski jest językiem pracy.</p></div>
+ <div class="card"><div class="emoji">🇳🇪</div><h3>Le Niger</h3><p><strong>Capitale:</strong> Niamey</p><p>Francuski utracił status języka urzędowego; jest używany jako język pracy.</p></div>
+</div>
+</section>
+
+<section id="vocab">
+<h2>🗣️ 9. Vocabulaire – słownictwo</h2>
+<p>Kliknij kartę, aby zobaczyć polskie tłumaczenie.</p>
+<div class="flashgrid" id="flashcards"></div>
+</section>
+
+<section id="reading">
+<h2>📖 10. Lis le texte – przeczytaj tekst A1</h2>
+<h3>Le français dans le monde</h3>
+<div class="note" style="background:#fffaf0;border-color:#e63946">
+<p><strong>Bonjour !</strong></p>
+<p>Je m’appelle Emma. J’aime apprendre les langues. Le français est parlé dans beaucoup de pays.</p>
+<p>En Europe, on parle français en Belgique, en Suisse et au Luxembourg.</p>
+<p>En Afrique, le français est utilisé au Sénégal, au Cameroun et en Côte d’Ivoire. Mais les habitants parlent aussi beaucoup de langues locales.</p>
+<p>Au Canada, le français est une langue officielle avec l’anglais. Au Québec, beaucoup de personnes parlent français.</p>
+<p>En Haïti, on parle français et créole haïtien. Au Vanuatu, on parle français, anglais et bislama.</p>
+<p>J’aime le monde francophone parce qu’il est très diversifié !</p>
+<p><strong>Et toi ? Tu aimes le français ?</strong></p>
+</div>
+<h3>Sprawdź rozumienie</h3>
+<div class="quiz-q">
+<p>1. Où parle-t-on français en Europe ?</p>
+<label><input type="radio" name="read1" value="a"> En Belgique, en Suisse et au Luxembourg.</label>
+<label><input type="radio" name="read1" value="b"> En Espagne et en Italie.</label>
+</div>
+<div class="quiz-q">
+<p>2. Quelles langues parle-t-on au Canada au niveau fédéral ?</p>
+<label><input type="radio" name="read2" value="a"> Français et espagnol.</label>
+<label><input type="radio" name="read2" value="b"> Français et anglais.</label>
+</div>
+<div class="quiz-q">
+<p>3. Quelles langues parle-t-on en Haïti ?</p>
+<label><input type="radio" name="read3" value="a"> Français et créole haïtien.</label>
+<label><input type="radio" name="read3" value="b"> Français et allemand.</label>
+</div>
+<button onclick="checkReading()">Sprawdź odpowiedzi</button>
+<p id="readingResult"></p>
+</section>
+
+<section id="quiz">
+<h2>🏆 11. Grand Quiz – wielki quiz</h2>
+<p>10 pytań. Wybierz jedną odpowiedź. Powodzenia!</p>
+<form id="quizForm">
+<div class="quiz-q"><p><strong>1. W którym kraju francuski jest jednym z czterech języków narodowych?</strong></p>
+<label><input type="radio" name="q1" value="a"> Szwajcaria</label><label><input type="radio" name="q1" value="b"> Hiszpania</label><label><input type="radio" name="q1" value="c"> Portugalia</label></div>
+<div class="quiz-q"><p><strong>2. Jaka jest stolica Senegalu?</strong></p>
+<label><input type="radio" name="q2" value="a"> Dakar</label><label><input type="radio" name="q2" value="b"> Nairobi</label><label><input type="radio" name="q2" value="c"> Kair</label></div>
+<div class="quiz-q"><p><strong>3. W którym kraju francuski i angielski są językami urzędowymi na poziomie federalnym?</strong></p>
+<label><input type="radio" name="q3" value="a"> Haiti</label><label><input type="radio" name="q3" value="b"> Kanada</label><label><input type="radio" name="q3" value="c"> Monako</label></div>
+<div class="quiz-q"><p><strong>4. Jaka jest stolica Demokratycznej Republiki Konga?</strong></p>
+<label><input type="radio" name="q4" value="a"> Kinshasa</label><label><input type="radio" name="q4" value="b"> Dakar</label><label><input type="radio" name="q4" value="c"> Tunis</label></div>
+<div class="quiz-q"><p><strong>5. Który kraj leży w Oceanii?</strong></p>
+<label><input type="radio" name="q5" value="a"> Vanuatu</label><label><input type="radio" name="q5" value="b"> Benin</label><label><input type="radio" name="q5" value="c"> Belgia</label></div>
+<div class="quiz-q"><p><strong>6. Jak nazywa się kreolski język używany na Haiti?</strong></p>
+<label><input type="radio" name="q6" value="a"> Créole haïtien</label><label><input type="radio" name="q6" value="b"> Wolof</label><label><input type="radio" name="q6" value="c"> Lingala</label></div>
+<div class="quiz-q"><p><strong>7. Który kraj słynie z lemurów?</strong></p>
+<label><input type="radio" name="q7" value="a"> Madagaskar</label><label><input type="radio" name="q7" value="b"> Luksemburg</label><label><input type="radio" name="q7" value="c"> Kanada</label></div>
+<div class="quiz-q"><p><strong>8. Czy w każdym kraju frankofońskim wszyscy mówią po francusku?</strong></p>
+<label><input type="radio" name="q8" value="a"> Tak, wszyscy.</label><label><input type="radio" name="q8" value="b"> Nie, w wielu krajach używa się też innych języków.</label></div>
+<div class="quiz-q"><p><strong>9. Jaka jest stolica Belgii?</strong></p>
+<label><input type="radio" name="q9" value="a"> Bruxelles</label><label><input type="radio" name="q9" value="b"> Genève</label><label><input type="radio" name="q9" value="c"> Berne</label></div>
+<div class="quiz-q"><p><strong>10. Które zdanie jest prawdziwe?</strong></p>
+<label><input type="radio" name="q10" value="a"> Francuski jest używany tylko we Francji.</label><label><input type="radio" name="q10" value="b"> Francuski jest używany na kilku kontynentach.</label><label><input type="radio" name="q10" value="c"> Francuski jest językiem urzędowym każdego kraju Afryki.</label></div>
+<button type="button" onclick="checkQuiz()">Sprawdź mój wynik</button>
+<button type="reset" style="background:#64748b">Wyczyść odpowiedzi</button>
+</form>
+<div id="quizResult"></div>
+</section>
+
+<section>
+<h2>✍️ 12. À toi ! – twoja pocztówka</h2>
+<p>Wyobraź sobie, że odwiedzasz jeden z krajów francuskojęzycznych. Napisz krótką pocztówkę po francusku. Możesz skorzystać z podpowiedzi.</p>
+<div class="note">
+<strong>Przydatne zwroty:</strong><br>
+Bonjour ! – Dzień dobry!<br>
+Je suis au/en… – Jestem w…<br>
+Il fait beau. – Jest ładna pogoda.<br>
+Je visite… – Zwiedzam…<br>
+J’aime ce pays. – Lubię ten kraj.<br>
+À bientôt ! – Do zobaczenia!
+</div>
+<label for="postcard"><strong>Ma carte postale:</strong></label>
+<textarea id="postcard" rows="7" placeholder="Bonjour ! Je suis au Canada..."></textarea>
+<p><label for="studentName">Imię:</label><input type="text" id="studentName" placeholder="Wpisz swoje imię"></p>
+<button onclick="savePostcard()">💾 Zapisz pocztówkę jako plik TXT</button>
+<p id="saveMessage" class="small"></p>
+</section>
+
+<section>
+<h2>🌟 13. Co już wiesz?</h2>
+<ul>
+<li>Francuski jest używany na kilku kontynentach.</li>
+<li>Wiele państw afrykańskich należy do świata francuskojęzycznego.</li>
+<li>W krajach frankofońskich często używa się wielu języków jednocześnie.</li>
+<li>Status języka francuskiego może być różny: urzędowy, współurzędowy lub szeroko używany.</li>
+<li>Francuskojęzyczny świat to nie tylko język, ale także różnorodne kultury, tradycje i historie.</li>
+</ul>
+</section>
+
+<section>
+<h2>🔎 Źródła i dalsze odkrywanie</h2>
+<ul>
+<li><a href="https://www.francophonie.org/" target="_blank" rel="noopener">Organisation internationale de la Francophonie (OIF)</a> – organizacja współpracy frankofońskiej.</li>
+<li><a href="https://www.inalco.fr/" target="_blank" rel="noopener">INALCO</a> – informacje o językach i kulturach świata.</li>
+<li><a href="https://www.diplomatie.gouv.fr/" target="_blank" rel="noopener">France Diplomatie</a> – informacje o francuskim i współpracy międzynarodowej.</li>
+<li><a href="https://www.un.org/" target="_blank" rel="noopener">United Nations</a> – informacje o państwach i językach.</li>
+</ul>
+<p class="small">Uwaga dydaktyczna: status języków może zmieniać się wraz ze zmianami prawa. W lekcji rozróżniono języki urzędowe od języków szeroko używanych. Lista nie oznacza, że każdy mieszkaniec wymienionych państw mówi po francusku.</p>
+</section>
+
+</main>
+
+<footer>
+<p>🇫🇷 Le monde francophone · Francuski A1 · Klasy 7–8</p>
+<p>Apprendre une langue, c’est découvrir le monde ! 🌍</p>
+</footer>
+
+<script>
+const words=[
+["🌍","le monde","świat"],
+["🗣️","francophone","francuskojęzyczny"],
+["🏳️","un pays","kraj"],
+["🏛️","une capitale","stolica"],
+["💬","une langue","język"],
+["⭐","officiel / officielle","urzędowy / urzędowa"],
+["🌎","un continent","kontynent"],
+["👨‍👩‍👧‍👦","les habitants","mieszkańcy"],
+["🎶","la culture","kultura"],
+["🍽️","la cuisine","kuchnia"],
+["🏝️","une île","wyspa"],
+["🌳","la nature","przyroda"],
+["🗺️","une carte","mapa"],
+["🤝","parler","mówić"],
+["📚","apprendre","uczyć się"],
+["❤️","aimer","lubić / kochać"]
+];
+const flash=document.getElementById("flashcards");
+words.forEach((w)=>{
+ const b=document.createElement("button");
+ b.type="button";b.className="flip-card";b.setAttribute("aria-pressed","false");
+ b.innerHTML='<span class="flip-inner"><span class="flip-front"><span class="big">'+w[0]+'</span><strong>'+w[1]+'</strong><small>kliknij, aby odwrócić</small></span><span class="flip-back"><strong>'+w[2]+'</strong><small>'+w[1]+'</small></span></span>';
+ b.addEventListener("click",()=>{
+  b.classList.toggle("flipped");
+  b.setAttribute("aria-pressed",b.classList.contains("flipped")?"true":"false");
+ });
+ flash.appendChild(b);
+});
+
+function checkReading(){
+ const answers={read1:"a",read2:"b",read3:"a"};
+ let score=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(v&&v.value===answers[k])score++;
+ });
+ document.getElementById("readingResult").textContent="Twój wynik: "+score+"/3 "+(score===3?"Excellent ! 🎉":"Dobra próba! Spróbuj jeszcze raz.");
+}
+function checkQuiz(){
+ const answers={q1:"a",q2:"a",q3:"b",q4:"a",q5:"a",q6:"a",q7:"a",q8:"b",q9:"a",q10:"b"};
+ let score=0,missing=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(!v)missing++;
+  else if(v.value===answers[k])score++;
+ });
+ const messages=[
+  "Spróbuj jeszcze raz – każda podróż zaczyna się od pierwszego kroku! 💪",
+  "Dobra próba! Continue ! 🌱",
+  "Nieźle! Tu connais déjà le monde francophone ! 🌍",
+  "Très bien ! Świetny wynik! ⭐",
+  "Excellent ! Tu es un champion / une championne ! 🏆"
+ ];
+ let level=score<3?0:score<5?1:score<7?2:score<9?3:4;
+ document.getElementById("quizResult").innerHTML="Twój wynik: <strong>"+score+"/10</strong><br>"+messages[level]+(missing?"<br>Nie odpowiedziano na pytania: "+missing+".":"");
+}
+function savePostcard(){
+ const content=document.getElementById("postcard").value.trim();
+ const name=document.getElementById("studentName").value.trim()||"Élève";
+ if(!content){document.getElementById("saveMessage").textContent="Najpierw napisz pocztówkę!";return;}
+ const blob=new Blob(["Ma carte postale – Le monde francophone\nÉlève : "+name+"\n\n"+content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="ma-carte-postale-francophone.txt";a.click();
+ URL.revokeObjectURL(url);
+ document.getElementById("saveMessage").textContent="Pocztówka została przygotowana do zapisania. Merci !";
+}
+</script>
+</body>
+</html>

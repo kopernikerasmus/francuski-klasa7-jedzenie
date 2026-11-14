@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond the UK – British Overseas Territories</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--red:#dc2626;--gold:#f5c451;--ink:#253047}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f5f9;color:var(--ink);font-family:Arial,sans-serif;line-height:1.6}
+header{background:linear-gradient(120deg,#172554,#2563eb 65%,#dc2626);color:white;text-align:center;padding:48px 18px}
+header h1{font-size:clamp(2rem,5vw,3.4rem);margin:8px 0}
+header p{max-width:780px;margin:8px auto}
+.flag{font-size:2.5rem;letter-spacing:8px}
+nav{position:sticky;top:0;z-index:5;background:white;display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:10px;box-shadow:0 2px 10px #0002}
+nav a{color:#1e3a8a;text-decoration:none;font-weight:bold;padding:6px 9px;border-radius:20px;font-size:.9rem}
+nav a:hover{background:#dbeafe}
+main{max-width:1100px;margin:auto;padding:18px}
+section{background:white;border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 5px 20px #1725540c}
+h2{color:#1e3a8a;margin-top:0}
+h3{color:#1d4ed8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:white}
+.card .emoji{font-size:2.2rem}
+.card h3{margin:4px 0}
+.card p{margin:5px 0}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-size:.78rem;font-weight:bold}
+.tag.red{background:#fee2e2;color:#991b1b}
+.tag.green{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border-left:5px solid #2563eb;padding:14px 17px;border-radius:9px;margin:14px 0}
+.warning{background:#fff7ed;border-left:5px solid #f59e0b;padding:14px 17px;border-radius:9px;margin:14px 0}
+.mapbox{background:linear-gradient(135deg,#dbeafe,#fef3c7);border-radius:15px;padding:20px;text-align:center}
+.mapicons{font-size:clamp(2rem,7vw,4rem);line-height:1.6}
+.small{font-size:.9rem;color:#64748b}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0}
+th{background:#eff6ff;color:#1e3a8a}
+.flashgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px}
+.flip-card{height:145px;width:100%;border:0;background:transparent;padding:0;cursor:pointer;perspective:1000px}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-front{background:linear-gradient(135deg,#1e40af,#3b82f6);color:white}
+.flip-back{background:#fff7ed;color:#7c2d12;border:2px solid #fed7aa;transform:rotateY(180deg)}
+.flip-front strong,.flip-back strong{font-size:1.1rem}
+.flip-front span{font-size:2rem}
+.quiz-q{border:1px solid #dbeafe;border-radius:12px;padding:14px;margin:13px 0}
+.quiz-q label{display:block;padding:5px;cursor:pointer}
+button{border:0;border-radius:9px;background:#2563eb;color:white;padding:11px 16px;font-weight:bold;cursor:pointer;margin:4px}
+button:hover{filter:brightness(.92)}
+button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
+footer{text-align:center;padding:28px;color:#64748b}
+@media(max-width:600px){main{padding:9px}section{padding:17px}nav a{font-size:.78rem}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="flag">🇬🇧 👑 🌍</div>
+ <h1>Beyond the UK</h1>
+ <h2 style="color:white">British Overseas Territories & Crown Dependencies</h2>
+ <p>Nie tylko England, Scotland, Wales and Northern Ireland! Poznaj wyspy i terytoria związane z brytyjską Koroną na całym świecie.</p>
+ <p>English Culture Lab · A1–A2 · Grades 7–8</p>
+</header>
+
+<nav>
+<a href="#intro">Start</a><a href="#difference">Status</a><a href="#territories">Territories</a>
+<a href="#dependencies">Dependencies</a><a href="#special">Special places</a>
+<a href="#vocab">Vocabulary</a><a href="#reading">Reading</a><a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="intro">
+<h2>🌍 1. Is the UK the whole story?</h2>
+<p class="lead">The United Kingdom is not the same as all the territories connected with the British Crown.</p>
+<p>Zjednoczone Królestwo obejmuje cztery części:</p>
+<div class="grid">
+ <div class="card"><div class="emoji">🏴</div><h3>England</h3><p>Anglia</p></div>
+ <div class="card"><div class="emoji">🏴</div><h3>Scotland</h3><p>Szkocja</p></div>
+ <div class="card"><div class="emoji">🏴</div><h3>Wales</h3><p>Walia</p></div>
+ <div class="card"><div class="emoji">☘️</div><h3>Northern Ireland</h3><p>Irlandia Północna</p></div>
+</div>
+<div class="note">
+<strong>But there is more!</strong><br>
+The UK also has links with overseas territories and Crown Dependencies. They are not simply extra parts of the United Kingdom.
+</div>
+</section>
+
+<section id="difference">
+<h2>🧭 2. Three different categories</h2>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🇬🇧</div><h3>The United Kingdom</h3>
+  <span class="tag">UK</span>
+  <p>One sovereign state made up of four countries: England, Scotland, Wales and Northern Ireland.</p>
+  <p><strong>Polski:</strong> Zjednoczone Królestwo.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🌴</div><h3>British Overseas Territories</h3>
+  <span class="tag red">14 territories</span>
+  <p>Territories with a constitutional link to the UK. They have different levels of self-government.</p>
+  <p><strong>Polski:</strong> Brytyjskie terytoria zamorskie.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👑</div><h3>Crown Dependencies</h3>
+  <span class="tag green">3 dependencies</span>
+  <p>Self-governing islands connected directly with the Crown. They are not part of the UK.</p>
+  <p><strong>Polski:</strong> Dependencje Korony.</p>
+ </div>
+</div>
+<div class="warning">
+<strong>Remember!</strong> Crown Dependencies are NOT British Overseas Territories. They have a different historical and constitutional status.
+</div>
+</section>
+
+<section>
+<h2>🗺️ 3. Where are they?</h2>
+<div class="mapbox">
+ <div class="mapicons">🌎 🌍 🌏</div>
+ <h3>Across the world!</h3>
+ <p>Caribbean · Atlantic Ocean · Mediterranean Sea · Pacific Ocean · Antarctica</p>
+ <p class="small">Terytoria są rozproszone po całym świecie – nie tworzą jednego obszaru geograficznego.</p>
+</div>
+<p>Najwięcej terytoriów zamorskich znajduje się na Karaibach i w rejonie Atlantyku. Niektóre leżą bardzo daleko od Europy.</p>
+</section>
+
+<section id="territories">
+<h2>🏝️ 4. The 14 British Overseas Territories</h2>
+<p>Oto lista 14 brytyjskich terytoriów zamorskich. Każde ma własną historię, położenie i charakter.</p>
+
+<h3>🌴 The Caribbean – Karaiby</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇦🇮</div><h3>Anguilla</h3><span class="tag">Caribbean</span><p>Mała wyspa na Karaibach. Stolica: The Valley.</p><p>🏖️ Słynie z plaż i turystyki.</p></div>
+ <div class="card"><div class="emoji">🇻🇬</div><h3>British Virgin Islands</h3><span class="tag">Caribbean</span><p>Archipelag wielu wysp. Stolica: Road Town.</p><p>⛵ Popularne miejsce żeglarstwa i nurkowania.</p></div>
+ <div class="card"><div class="emoji">🇰🇾</div><h3>Cayman Islands</h3><span class="tag">Caribbean</span><p>Trzy wyspy. Stolica: George Town.</p><p>🐢 Znane z raf koralowych i życia morskiego.</p></div>
+ <div class="card"><div class="emoji">🇲🇸</div><h3>Montserrat</h3><span class="tag">Caribbean</span><p>Wyspa wulkaniczna. Stolica administracyjna: Brades.</p><p>🌋 Wulkan Soufrière Hills mocno zmienił życie wyspy.</p></div>
+ <div class="card"><div class="emoji">🇹🇨</div><h3>Turks and Caicos Islands</h3><span class="tag">Caribbean</span><p>Archipelag na Atlantyku, na południowy wschód od Bahamów. Stolica: Cockburn Town.</p><p>🐚 Piękne plaże i turkusowa woda.</p></div>
+</div>
+
+<h3>🌊 The Atlantic Ocean – Ocean Atlantycki</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇧🇲</div><h3>Bermuda</h3><span class="tag">North Atlantic</span><p>Stolica: Hamilton.</p><p>🌺 Wyspy na północnym Atlantyku. Bermuda nie leży na Karaibach!</p></div>
+ <div class="card"><div class="emoji">🇬🇸</div><h3>South Georgia and the South Sandwich Islands</h3><span class="tag">South Atlantic</span><p>Nie ma stałej ludności cywilnej.</p><p>🐧 Pingwiny, foki i niezwykła przyroda subantarktyczna.</p></div>
+ <div class="card"><div class="emoji">🇸🇭</div><h3>St Helena, Ascension and Tristan da Cunha</h3><span class="tag">South Atlantic</span><p>Grupa wysp na południowym Atlantyku. Główne centrum administracyjne: Jamestown na Saint Helena.</p><p>🌋 Tristan da Cunha jest jedną z najbardziej odległych zamieszkanych wysp świata.</p></div>
+ <div class="card"><div class="emoji">🇫🇰</div><h3>Falkland Islands</h3><span class="tag">South Atlantic</span><p>Stolica: Stanley.</p><p>🐑 Wyspy słyną z hodowli owiec i kolonii pingwinów. Ich suwerenność jest przedmiotem sporu z Argentyną.</p></div>
+</div>
+
+<h3>🌍 Europe and the Mediterranean – Europa i Morze Śródziemne</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🇬🇮</div><h3>Gibraltar</h3><span class="tag">Europe</span><p>Stolica: Gibraltar.</p><p>🪨 Słynie ze Skały Gibraltarskiej i małp berberyjskich – makaków.</p><p>Leży przy wejściu do Morza Śródziemnego.</p></div>
+ <div class="card"><div class="emoji">🇨🇾</div><h3>Akrotiri and Dhekelia</h3><span class="tag">Mediterranean</span><p>Brytyjskie Suwerenne Obszary Bazowe na Cyprze.</p><p>✈️ Są związane z obecnością brytyjskich baz wojskowych.</p></div>
+</div>
+
+<h3>🌏 The Pacific and other remote places</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🏝️</div><h3>Pitcairn Islands</h3><span class="tag">Pacific Ocean</span><p>Główna osada: Adamstown.</p><p>⛵ Wyspy są związane z historią HMS Bounty. To jedno z najmniej zaludnionych terytoriów świata.</p></div>
+ <div class="card"><div class="emoji">🧊</div><h3>British Antarctic Territory</h3><span class="tag">Antarctica</span><p>Nie ma stałej ludności. Działają tu stacje naukowe.</p><p>🐧 Obszar badań polarnych i lodowych krajobrazów.</p></div>
+ <div class="card"><div class="emoji">🌊</div><h3>British Indian Ocean Territory</h3><span class="tag">Indian Ocean</span><p>Archipelag na Oceanie Indyjskim, obejmujący m.in. atol Diego Garcia.</p><p>🪸 Terytorium ma skomplikowaną historię polityczną i prawną.</p></div>
+</div>
+
+<div class="warning">
+<strong>Uwaga do listy:</strong> British Indian Ocean Territory jest wymieniane w oficjalnych zestawieniach 14 Overseas Territories. Jego przyszły status wiąże się z porozumieniem dotyczącym Mauritiusa i Diego Garcia. Przed publikacją materiału warto sprawdzić najnowszy stan prawny.
+</div>
+</section>
+
+<section id="dependencies">
+<h2>👑 5. The Crown Dependencies</h2>
+<p>There are three Crown Dependencies. Są samorządne, mają własne parlamenty i systemy prawne, ale nie są suwerennymi państwami ani częścią UK.</p>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🇯🇪</div><h3>Jersey</h3><span class="tag green">Crown Dependency</span>
+  <p><strong>Capital:</strong> Saint Helier</p>
+  <p>Wyspa na kanale La Manche, blisko wybrzeża Francji.</p>
+  <p>🌼 Znana z pięknych plaż i łagodnego klimatu.</p>
+  <p>🗣️ Język angielski jest powszechnie używany; istnieje też język normandzki Jèrriais.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇬🇬</div><h3>Guernsey</h3><span class="tag green">Crown Dependency</span>
+  <p><strong>Capital:</strong> Saint Peter Port</p>
+  <p>Guernsey leży na Wyspach Normandzkich.</p>
+  <p>🏰 Ma malownicze wybrzeże i historyczne fortyfikacje.</p>
+  <p>W dependencji Guernsey znajdują się też m.in. Alderney i Sark.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🇮🇲</div><h3>Isle of Man</h3><span class="tag green">Crown Dependency</span>
+  <p><strong>Capital:</strong> Douglas</p>
+  <p>Wyspa na Morzu Irlandzkim, pomiędzy Wielką Brytanią a Irlandią.</p>
+  <p>🏍️ Słynie z wyścigu motocyklowego Isle of Man TT.</p>
+  <p>🗣️ Język manx jest językiem celtyckim i jest odradzany.</p>
+ </div>
+</div>
+<div class="note">
+<strong>Interesting fact:</strong> The Isle of Man has its own parliament called <em>Tynwald</em>. It is often described as one of the oldest continuous parliamentary institutions in the world.
+</div>
+</section>
+
+<section id="special">
+<h2>⭐ 6. Special places and interesting facts</h2>
+<div class="grid">
+ <div class="card"><div class="emoji">🐧</div><h3>Penguins in the South Atlantic</h3><p>Na Falkland Islands oraz South Georgia można obserwować duże kolonie pingwinów.</p></div>
+ <div class="card"><div class="emoji">🌋</div><h3>A volcanic island</h3><p>Montserrat jest znana z aktywnego wulkanu Soufrière Hills. Erupcje w latach 90. XX wieku doprowadziły do ewakuacji dużej części wyspy.</p></div>
+ <div class="card"><div class="emoji">🐒</div><h3>Monkeys in Gibraltar</h3><p>Na Skale Gibraltarskiej żyją makaki berberyjskie. To jedyne dziko żyjące małpy w Europie.</p></div>
+ <div class="card"><div class="emoji">🧊</div><h3>Antarctic science</h3><p>British Antarctic Territory jest ważnym miejscem badań naukowych. Nie ma tam stałej ludności cywilnej.</p></div>
+ <div class="card"><div class="emoji">⛵</div><h3>The story of Pitcairn</h3><p>Wyspa jest związana z buntem na statku HMS Bounty w 1789 roku. Część buntowników osiedliła się później na Pitcairn.</p></div>
+ <div class="card"><div class="emoji">🏝️</div><h3>Island life</h3><p>Wiele terytoriów ma małą populację, piękne wybrzeża, wyjątkową przyrodę i silną lokalną tożsamość.</p></div>
+</div>
+</section>
+
+<section>
+<h2>📊 7. Compare the categories</h2>
+<table>
+<tr><th>Category</th><th>Number</th><th>Part of the UK?</th><th>Self-government?</th></tr>
+<tr><td>United Kingdom</td><td>1 state</td><td>—</td><td>Yes, with devolved governments in some parts</td></tr>
+<tr><td>British Overseas Territories</td><td>14</td><td>No</td><td>Different levels</td></tr>
+<tr><td>Crown Dependencies</td><td>3</td><td>No</td><td>Yes, extensive internal self-government</td></tr>
+</table>
+<p class="small">The UK is responsible for defence and international relations of the Crown Dependencies. The arrangements for Overseas Territories differ from territory to territory.</p>
+</section>
+
+<section id="vocab">
+<h2>🗣️ 8. Vocabulary – słownictwo</h2>
+<p>Kliknij fiszkę, aby ją odwrócić.</p>
+<div class="flashgrid" id="flashcards"></div>
+</section>
+
+<section id="reading">
+<h2>📖 9. Reading – read the text (A2)</h2>
+<h3>Beyond the United Kingdom</h3>
+<div class="note" style="background:#fffaf0;border-color:#dc2626">
+<p>Hello! My name is Alex. I am learning about the United Kingdom and its overseas territories.</p>
+<p>The United Kingdom consists of four countries: England, Scotland, Wales and Northern Ireland. But the British Crown is also connected with other places around the world.</p>
+<p>There are fourteen British Overseas Territories. Some are in the Caribbean, like Anguilla and the Cayman Islands. Others are in the Atlantic Ocean, like Bermuda and the Falkland Islands. Gibraltar is in Europe, near the Mediterranean Sea.</p>
+<p>There are also three Crown Dependencies: Jersey, Guernsey and the Isle of Man. They are self-governing islands. They are not part of the UK and they are not Overseas Territories.</p>
+<p>These places are very different. Some have tropical beaches, some have mountains and some are covered with ice. They have their own history, culture and traditions.</p>
+<p>I think the world beyond the UK is fascinating!</p>
+</div>
+<h3>Reading comprehension</h3>
+<div class="quiz-q"><p>1. How many countries make up the UK?</p>
+<label><input type="radio" name="r1" value="a"> Three</label><label><input type="radio" name="r1" value="b"> Four</label><label><input type="radio" name="r1" value="c"> Five</label></div>
+<div class="quiz-q"><p>2. How many British Overseas Territories are there?</p>
+<label><input type="radio" name="r2" value="a"> 3</label><label><input type="radio" name="r2" value="b"> 10</label><label><input type="radio" name="r2" value="c"> 14</label></div>
+<div class="quiz-q"><p>3. Where is Gibraltar?</p>
+<label><input type="radio" name="r3" value="a"> In Europe</label><label><input type="radio" name="r3" value="b"> In the Pacific</label></div>
+<div class="quiz-q"><p>4. Are Crown Dependencies part of the UK?</p>
+<label><input type="radio" name="r4" value="a"> Yes</label><label><input type="radio" name="r4" value="b"> No</label></div>
+<button onclick="checkReading()">Check answers</button>
+<p id="readingResult"></p>
+</section>
+
+<section id="quiz">
+<h2>🏆 10. Grand Quiz – test your knowledge!</h2>
+<p>12 questions. Choose the correct answer.</p>
+<form id="quizForm">
+<div class="quiz-q"><p><strong>1. How many countries make up the UK?</strong></p>
+<label><input type="radio" name="q1" value="a"> Four</label><label><input type="radio" name="q1" value="b"> Three</label><label><input type="radio" name="q1" value="c"> Six</label></div>
+<div class="quiz-q"><p><strong>2. How many British Overseas Territories are there?</strong></p>
+<label><input type="radio" name="q2" value="a"> 12</label><label><input type="radio" name="q2" value="b"> 14</label><label><input type="radio" name="q2" value="c"> 20</label></div>
+<div class="quiz-q"><p><strong>3. Which one is a Crown Dependency?</strong></p>
+<label><input type="radio" name="q3" value="a"> Bermuda</label><label><input type="radio" name="q3" value="b"> Jersey</label><label><input type="radio" name="q3" value="c"> Gibraltar</label></div>
+<div class="quiz-q"><p><strong>4. What is the capital of Gibraltar?</strong></p>
+<label><input type="radio" name="q4" value="a"> Gibraltar</label><label><input type="radio" name="q4" value="b"> Hamilton</label><label><input type="radio" name="q4" value="c"> Douglas</label></div>
+<div class="quiz-q"><p><strong>5. Where is Bermuda?</strong></p>
+<label><input type="radio" name="q5" value="a"> In the North Atlantic</label><label><input type="radio" name="q5" value="b"> In the Mediterranean</label><label><input type="radio" name="q5" value="c"> In the Pacific</label></div>
+<div class="quiz-q"><p><strong>6. Which territory is famous for the Soufrière Hills volcano?</strong></p>
+<label><input type="radio" name="q6" value="a"> Montserrat</label><label><input type="radio" name="q6" value="b"> Jersey</label><label><input type="radio" name="q6" value="c"> Bermuda</label></div>
+<div class="quiz-q"><p><strong>7. What is the capital of the Isle of Man?</strong></p>
+<label><input type="radio" name="q7" value="a"> Douglas</label><label><input type="radio" name="q7" value="b"> Stanley</label><label><input type="radio" name="q7" value="c"> Road Town</label></div>
+<div class="quiz-q"><p><strong>8. Which territory is connected with the story of HMS Bounty?</strong></p>
+<label><input type="radio" name="q8" value="a"> Pitcairn Islands</label><label><input type="radio" name="q8" value="b"> Cayman Islands</label><label><input type="radio" name="q8" value="c"> Anguilla</label></div>
+<div class="quiz-q"><p><strong>9. Which place is in Antarctica?</strong></p>
+<label><input type="radio" name="q9" value="a"> British Antarctic Territory</label><label><input type="radio" name="q9" value="b"> Gibraltar</label><label><input type="radio" name="q9" value="c"> Guernsey</label></div>
+<div class="quiz-q"><p><strong>10. Are Crown Dependencies part of the UK?</strong></p>
+<label><input type="radio" name="q10" value="a"> Yes</label><label><input type="radio" name="q10" value="b"> No</label></div>
+<div class="quiz-q"><p><strong>11. Which territory is famous for the Isle of Man TT motorcycle race?</strong></p>
+<label><input type="radio" name="q11" value="a"> Isle of Man</label><label><input type="radio" name="q11" value="b"> Montserrat</label><label><input type="radio" name="q11" value="c"> Falkland Islands</label></div>
+<div class="quiz-q"><p><strong>12. Which statement is correct?</strong></p>
+<label><input type="radio" name="q12" value="a"> All territories are part of the UK.</label>
+<label><input type="radio" name="q12" value="b"> All territories have the same political status.</label>
+<label><input type="radio" name="q12" value="c"> Overseas Territories and Crown Dependencies have different statuses.</label></div>
+<button type="button" onclick="checkQuiz()">Check my score</button>
+<button type="reset" style="background:#64748b">Reset</button>
+</form>
+<div id="quizResult"></div>
+</section>
+
+<section>
+<h2>✍️ 11. Writing challenge – choose an island!</h2>
+<p>Wyobraź sobie, że odwiedzasz jedno z tych miejsc. Napisz krótką wiadomość po angielsku.</p>
+<div class="note">
+<strong>Useful phrases:</strong><br>
+I am visiting… – Odwiedzam…<br>
+It is located in… – Znajduje się w…<br>
+The capital is… – Stolicą jest…<br>
+The island is famous for… – Wyspa słynie z…<br>
+The weather is… – Pogoda jest…<br>
+I like this place because… – Lubię to miejsce, ponieważ…
+</div>
+<label for="postcard">My travel message:</label>
+<textarea id="postcard" rows="7" placeholder="Hello! I am visiting Bermuda. It is in the North Atlantic..."></textarea>
+<p><label for="studentName">Your name:</label><input type="text" id="studentName" placeholder="Your name"></p>
+<button onclick="saveText()">💾 Save as TXT</button>
+<p id="saveMessage" class="small"></p>
+</section>
+
+<section>
+<h2>🌟 12. Remember!</h2>
+<ul>
+<li>The UK consists of England, Scotland, Wales and Northern Ireland.</li>
+<li>There are 14 British Overseas Territories.</li>
+<li>There are 3 Crown Dependencies: Jersey, Guernsey and the Isle of Man.</li>
+<li>Crown Dependencies are not part of the UK.</li>
+<li>Overseas Territories are not simply extra parts of the UK.</li>
+<li>Each place has its own identity, history and level of self-government.</li>
+</ul>
+</section>
+
+<section>
+<h2>🔎 Sources – reliable information</h2>
+<ul>
+<li><a href="https://www.gov.uk/government/publications/the-overseas-territories" target="_blank" rel="noopener">UK Government – Overseas Territories</a></li>
+<li><a href="https://commonslibrary.parliament.uk/research-briefings/cbp-9706/" target="_blank" rel="noopener">UK Parliament – The Overseas Territories</a></li>
+<li><a href="https://commonslibrary.parliament.uk/research-briefings/cbp-8611/" target="_blank" rel="noopener">UK Parliament – The Crown Dependencies</a></li>
+<li><a href="https://www.gov.uk/world/organisations/british-antarctic-territory" target="_blank" rel="noopener">British Antarctic Territory – GOV.UK</a></li>
+<li><a href="https://www.royal.uk/crown-dependencies" target="_blank" rel="noopener">The Royal Family – Crown Dependencies</a></li>
+</ul>
+<p class="small">Materiał edukacyjny. Informacje o statusie terytoriów i ich administracji mogą się zmieniać. W szczególności status British Indian Ocean Territory wymaga śledzenia aktualnych ustaleń prawnych i międzynarodowych.</p>
+</section>
+
+</main>
+
+<footer>
+<p>🇬🇧 Beyond the UK · English Culture Lab · Grades 7–8</p>
+<p>Explore the world. Discover new cultures! 🌍</p>
+</footer>
+
+<script>
+const words=[
+["👑","the Crown","Korona (monarchia)"],
+["🌍","overseas","zamorski"],
+["🏝️","an island","wyspa"],
+["🧭","a territory","terytorium"],
+["🏛️","self-government","samorządność"],
+["📜","a constitution","konstytucja"],
+["⚖️","a legal system","system prawny"],
+["🏙️","a capital","stolica"],
+["👥","a population","ludność"],
+["🌊","an ocean","ocean"],
+["🌋","a volcano","wulkan"],
+["🐧","a penguin","pingwin"],
+["🏖️","a beach","plaża"],
+["🗺️","a map","mapa"],
+["⛵","a harbour","port"],
+["🏰","a castle","zamek"],
+["🧊","ice","lód"],
+["🗣️","a language","język"]
+];
+const flash=document.getElementById("flashcards");
+words.forEach(w=>{
+ const b=document.createElement("button");
+ b.type="button";b.className="flip-card";b.setAttribute("aria-pressed","false");
+ b.innerHTML='<span class="flip-inner"><span class="flip-front"><span>'+w[0]+'</span><strong>'+w[1]+'</strong><small>Click to flip</small></span><span class="flip-back"><strong>'+w[2]+'</strong><small>'+w[1]+'</small></span></span>';
+ b.addEventListener("click",()=>{
+  b.classList.toggle("flipped");
+  b.setAttribute("aria-pressed",b.classList.contains("flipped")?"true":"false");
+ });
+ flash.appendChild(b);
+});
+
+function checkReading(){
+ const answers={r1:"b",r2:"c",r3:"a",r4:"b"};
+ let score=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(v&&v.value===answers[k])score++;
+ });
+ document.getElementById("readingResult").textContent="Your score: "+score+"/4 "+(score===4?"Excellent! 🎉":"Good try! Read the text again and try once more.");
+}
+function checkQuiz(){
+ const answers={q1:"a",q2:"b",q3:"b",q4:"a",q5:"a",q6:"a",q7:"a",q8:"a",q9:"a",q10:"b",q11:"a",q12:"c"};
+ let score=0,missing=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(!v)missing++;
+  else if(v.value===answers[k])score++;
+ });
+ let message=score<4?"Keep learning! 💪":score<7?"Good work! 🌱":score<10?"Very good! ⭐":"Excellent! You are a geography star! 🏆";
+ document.getElementById("quizResult").innerHTML="Your score: <strong>"+score+"/12</strong><br>"+message+(missing?"<br>Unanswered questions: "+missing+".":"");
+}
+function saveText(){
+ const content=document.getElementById("postcard").value.trim();
+ const name=document.getElementById("studentName").value.trim()||"Student";
+ if(!content){document.getElementById("saveMessage").textContent="Write your message first!";return;}
+ const blob=new Blob(["Beyond the UK – Travel message\nStudent: "+name+"\n\n"+content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="my-beyond-the-uk-message.txt";a.click();
+ URL.revokeObjectURL(url);
+ document.getElementById("saveMessage").textContent="Your text is ready to save. Well done!";
+}
+</script>
+</body>
+</html>

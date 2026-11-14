@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The British Monarchy – Kings, Queens and Dynasties</title>
+<style>
+:root{--navy:#172554;--blue:#2563eb;--red:#b91c1c;--gold:#d6a83e;--ink:#253047}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f5f9;color:var(--ink);font-family:Arial,sans-serif;line-height:1.65}
+header{background:linear-gradient(125deg,#172554,#263b80 60%,#991b1b);color:white;text-align:center;padding:48px 18px}
+header h1{font-size:clamp(2rem,5vw,3.5rem);margin:8px 0}
+header p{max-width:800px;margin:8px auto}
+.crown{font-size:3rem}
+nav{position:sticky;top:0;z-index:5;background:white;display:flex;justify-content:center;flex-wrap:wrap;gap:5px;padding:10px;box-shadow:0 2px 10px #0002}
+nav a{color:#1e3a8a;text-decoration:none;font-weight:bold;padding:6px 9px;border-radius:20px;font-size:.84rem}
+nav a:hover{background:#dbeafe}
+main{max-width:1120px;margin:auto;padding:18px}
+section{background:white;border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 5px 20px #1725540c}
+h2{color:#1e3a8a;margin-top:0}
+h3{color:#1d4ed8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{border:1px solid #e2e8f0;border-radius:14px;padding:15px;background:white}
+.card .emoji{font-size:2.2rem}
+.card h3{margin:4px 0}
+.card p{margin:5px 0}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-size:.78rem;font-weight:bold}
+.tag.red{background:#fee2e2;color:#991b1b}
+.tag.gold{background:#fef3c7;color:#92400e}
+.tag.green{background:#dcfce7;color:#166534}
+.note{background:#eff6ff;border-left:5px solid #2563eb;padding:14px 17px;border-radius:9px;margin:14px 0}
+.warning{background:#fff7ed;border-left:5px solid #f59e0b;padding:14px 17px;border-radius:9px;margin:14px 0}
+.history{border-left:4px solid #bfdbfe;margin:15px 0;padding-left:17px}
+.history-item{position:relative;margin:0 0 20px;padding:13px;background:#f8fafc;border-radius:10px}
+.history-item:before{content:"";position:absolute;left:-24px;top:18px;width:10px;height:10px;border-radius:50%;background:#2563eb}
+.history-item h3{margin:0 0 5px}
+.date{font-weight:bold;color:#991b1b}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0;vertical-align:top}
+th{background:#eff6ff;color:#1e3a8a}
+.small{font-size:.9rem;color:#64748b}
+.flashgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px}
+.flip-card{height:145px;width:100%;border:0;background:transparent;padding:0;cursor:pointer;perspective:1000px}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-front{background:linear-gradient(135deg,#1e40af,#3b82f6);color:white}
+.flip-back{background:#fff7ed;color:#7c2d12;border:2px solid #fed7aa;transform:rotateY(180deg)}
+.flip-front strong,.flip-back strong{font-size:1.05rem}
+.flip-front span{font-size:2rem}
+.quiz-q{border:1px solid #dbeafe;border-radius:12px;padding:14px;margin:13px 0}
+.quiz-q label{display:block;padding:5px;cursor:pointer}
+button{border:0;border-radius:9px;background:#2563eb;color:white;padding:11px 16px;font-weight:bold;cursor:pointer;margin:4px}
+button:hover{filter:brightness(.92)}
+button:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+textarea,input[type=text]{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
+footer{text-align:center;padding:28px;color:#64748b}
+.family-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.person{background:#eff6ff;border:1px solid #bfdbfe;padding:10px 13px;border-radius:12px;text-align:center;min-width:135px}
+.arrow{font-size:1.4rem;color:#64748b}
+@media(max-width:600px){main{padding:9px}section{padding:17px}nav a{font-size:.75rem}.family-line{flex-direction:column}.arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="crown">👑</div>
+ <h1>The British Monarchy</h1>
+ <h2 style="color:white">Kings, Queens and Royal Dynasties</h2>
+ <p>Od anglosaskich królów do króla Karola III – poznaj historię brytyjskiej monarchii i współczesną rodzinę królewską.</p>
+ <p>English Culture Lab · A1–A2 · Grades 7–8</p>
+</header>
+
+<nav>
+<a href="#intro">Start</a><a href="#today">Today</a><a href="#family">Royal Family</a>
+<a href="#succession">Succession</a><a href="#history">History</a><a href="#dynasties">Dynasties</a>
+<a href="#symbols">Symbols</a><a href="#vocab">Vocabulary</a><a href="#reading">Reading</a><a href="#quiz">Quiz</a>
+</nav>
+
+<main>
+
+<section id="intro">
+<h2>👑 1. What is a monarchy?</h2>
+<p class="lead"><strong>A monarchy</strong> is a form of government with a king or a queen as the head of state.</p>
+<p>Monarchia to forma ustroju, w której głową państwa jest monarcha – król lub królowa.</p>
+<div class="grid">
+ <div class="card"><div class="emoji">👑</div><h3>A king</h3><p>Król – mężczyzna, który jest monarchą.</p></div>
+ <div class="card"><div class="emoji">👸</div><h3>A queen</h3><p>Królowa – kobieta, która jest monarchą albo żoną króla, zależnie od tytułu i sytuacji.</p></div>
+ <div class="card"><div class="emoji">🏰</div><h3>A royal family</h3><p>Rodzina królewska.</p></div>
+ <div class="card"><div class="emoji">📜</div><h3>A dynasty</h3><p>Dynastia – ród, z którego pochodzą kolejni władcy.</p></div>
+</div>
+<div class="note">
+<strong>The United Kingdom is a constitutional monarchy.</strong><br>
+Wielka Brytania jest monarchią konstytucyjną. Król jest głową państwa, ale władzę ustawodawczą sprawuje wybierany parlament. Monarchia działa w ramach prawa i konstytucyjnych zasad.
+</div>
+</section>
+
+<section id="today">
+<h2>🇬🇧 2. The British monarchy today</h2>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">👑</div><h3>King Charles III</h3>
+  <span class="tag gold">The King</span>
+  <p>Karol III został królem 8 września 2022 roku, po śmierci swojej matki, królowej Elżbiety II.</p>
+  <p>Urodził się 14 listopada 1948 roku w Londynie.</p>
+  <p>Jego oficjalna koronacja odbyła się 6 maja 2023 roku w Westminster Abbey.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👑</div><h3>Queen Camilla</h3>
+  <span class="tag">The Queen</span>
+  <p>Camilla jest żoną króla Karola III i królową małżonką (Queen Consort). W oficjalnym użyciu jej tytułem jest obecnie The Queen.</p>
+  <p>Wspiera króla w obowiązkach publicznych i prowadzi własne działania społeczne.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🤴</div><h3>Prince William</h3>
+  <span class="tag green">Heir to the throne</span>
+  <p>Najstarszy syn Karola III i następca tronu.</p>
+  <p>Jego tytuł to The Prince of Wales.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👸</div><h3>Catherine, Princess of Wales</h3>
+  <span class="tag">The Princess of Wales</span>
+  <p>Żona księcia Williama. Wspiera działalność publiczną rodziny królewskiej, szczególnie w obszarach związanych z dziećmi, rodzinami i rozwojem we wczesnym dzieciństwie.</p>
+ </div>
+</div>
+<div class="note">
+<strong>Important:</strong> The monarch is the Head of State, but the Prime Minister leads the government. Król nie kieruje na co dzień rządem ani nie podejmuje samodzielnie decyzji politycznych.
+</div>
+</section>
+
+<section id="family">
+<h2>👨‍👩‍👧‍👦 3. The Royal Family – rodzina królewska</h2>
+<p>Poznaj najważniejszych członków współczesnej rodziny królewskiej. To nie jest pełna lista wszystkich krewnych, lecz przegląd osób szczególnie istotnych dla monarchii i jej historii.</p>
+
+<h3>King Charles III and his family</h3>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">👑</div><h3>King Charles III</h3>
+  <p>Syn królowej Elżbiety II i księcia Filipa.</p>
+  <p>Urodzony w 1948 roku. Król od 2022 roku.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👑</div><h3>Queen Camilla</h3>
+  <p>Żona Karola III. Pobrali się w 2005 roku.</p>
+  <p>Wspiera króla podczas oficjalnych wydarzeń i prowadzi działalność charytatywną.</p>
+ </div>
+</div>
+
+<h3>Prince William's family</h3>
+<div class="grid">
+ <div class="card"><div class="emoji">🤴</div><h3>Prince William</h3><p><strong>Title:</strong> Prince of Wales</p><p>Najstarszy syn Karola III. Pierwszy w kolejności do tronu.</p></div>
+ <div class="card"><div class="emoji">👸</div><h3>Catherine</h3><p><strong>Title:</strong> Princess of Wales</p><p>Żona Williama. Pobrali się 29 kwietnia 2011 roku.</p></div>
+ <div class="card"><div class="emoji">👦</div><h3>Prince George</h3><p>Urodzony 22 lipca 2013 roku. Najstarsze dziecko Williama i Catherine.</p></div>
+ <div class="card"><div class="emoji">👧</div><h3>Princess Charlotte</h3><p>Urodzona 2 maja 2015 roku. Drugie dziecko pary.</p></div>
+ <div class="card"><div class="emoji">👦</div><h3>Prince Louis</h3><p>Urodzony 23 kwietnia 2018 roku. Najmłodsze dziecko pary.</p></div>
+</div>
+
+<h3>Other children of King Charles III</h3>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">🤴</div><h3>Prince Harry</h3>
+  <p>Młodszy syn Karola III i Diany, Princess of Wales. Urodzony w 1984 roku.</p>
+  <p>W 2020 roku on i Meghan wycofali się z pełnienia funkcji starszych pracujących członków rodziny królewskiej. Mieszkają w Stanach Zjednoczonych.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👸</div><h3>Meghan, Duchess of Sussex</h3>
+  <p>Żona księcia Harry'ego. Pobrali się w 2018 roku.</p>
+  <p>Wspólnie wychowują dwoje dzieci.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👦</div><h3>Prince Archie</h3>
+  <p>Syn Harry'ego i Meghan, urodzony w 2019 roku.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👧</div><h3>Princess Lilibet</h3>
+  <p>Córka Harry'ego i Meghan, urodzona w 2021 roku.</p>
+ </div>
+</div>
+
+<h3>The King's siblings</h3>
+<div class="grid">
+ <div class="card">
+  <div class="emoji">👸</div><h3>Anne, The Princess Royal</h3>
+  <p>Jedyna córka Elżbiety II i księcia Filipa. Znana z licznych obowiązków publicznych i działalności charytatywnej.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">🤴</div><h3>Prince Edward, Duke of Edinburgh</h3>
+  <p>Najmłodszy brat Karola III. Jego żoną jest Sophie, Duchess of Edinburgh.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👸</div><h3>Sophie, Duchess of Edinburgh</h3>
+  <p>Żona księcia Edwarda. Wspiera wiele organizacji i działań społecznych.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👸</div><h3>Princess Beatrice</h3>
+  <p>Córka Andrew Mountbatten-Windsora i Sarah Ferguson.</p>
+ </div>
+ <div class="card">
+  <div class="emoji">👸</div><h3>Princess Eugenie</h3>
+  <p>Młodsza siostra księżniczki Beatrice. Obie są wnuczkami Elżbiety II.</p>
+ </div>
+</div>
+
+<div class="warning">
+<strong>Note about titles:</strong> Nie każda osoba spokrewniona z monarchą wykonuje obowiązki królewskie. Niektóre osoby mają tytuły królewskie, ale prowadzą prywatne życie zawodowe. Tytuł nie oznacza automatycznie, że ktoś pełni oficjalne funkcje.
+</div>
+</section>
+
+<section id="succession">
+<h2>➡️ 4. The line of succession – kolejność dziedziczenia tronu</h2>
+<p>Po śmierci monarchy tron przechodzi na następną osobę w kolejności sukcesji. Zasady są określone przez prawo.</p>
+<div class="family-line">
+ <div class="person"><strong>King Charles III</strong><br><small>Monarch</small></div>
+ <div class="arrow">↓</div>
+ <div class="person"><strong>Prince William</strong><br><small>1st in line</small></div>
+ <div class="arrow">↓</div>
+ <div class="person"><strong>Prince George</strong><br><small>2nd in line</small></div>
+ <div class="arrow">↓</div>
+ <div class="person"><strong>Princess Charlotte</strong><br><small>3rd in line</small></div>
+ <div class="arrow">↓</div>
+ <div class="person"><strong>Prince Louis</strong><br><small>4th in line</small></div>
+</div>
+<p class="small">Schemat pokazuje początek kolejności sukcesji według oficjalnych informacji dostępnych w 2026 roku. Dalej w kolejce znajduje się książę Harry i jego dzieci.</p>
+<div class="note">
+<strong>Modern rule:</strong> Dla osób urodzonych po 28 października 2011 roku starsze dziecko ma pierwszeństwo przed młodszym niezależnie od płci. Dlatego Charlotte jest przed Louisem.
+</div>
+<div class="warning">
+Sukcesja nie jest po prostu „najstarszy syn dziedziczy tron”. Jest regulowana przez ustawy parlamentarne. Wymagania dotyczące religii i małżeństwa również wynikają z prawa.
+</div>
+</section>
+
+<section id="history">
+<h2>📜 5. A journey through history – historia monarchii</h2>
+<p>Historia monarchii na Wyspach Brytyjskich jest bardzo długa. Przez wiele stuleci Anglia i Szkocja miały osobnych monarchów. Dopiero później ich korony znalazły się pod władzą jednej osoby, a następnie powstało Zjednoczone Królestwo.</p>
+
+<div class="history">
+ <div class="history-item">
+  <h3>🏰 Early Anglo-Saxon kingdoms</h3>
+  <p class="date">Before 871 – early medieval period</p>
+  <p>Po odejściu Rzymian na terenie dzisiejszej Anglii istniało kilka królestw anglosaskich. Nie było jeszcze jednego króla całej Anglii.</p>
+  <p><strong>Key names:</strong> Wessex, Mercia, Northumbria, East Anglia.</p>
+ </div>
+ <div class="history-item">
+  <h3>👑 House of Wessex</h3>
+  <p class="date">871–1016, restored 1042–1066</p>
+  <p>Alfred the Great był królem Wessexu i walczył z najazdami wikingów. Jego następcy stopniowo jednoczyli anglosaskie królestwa.</p>
+  <p><strong>Important monarch:</strong> Athelstan – często uznawany za pierwszego króla zjednoczonej Anglii.</p>
+ </div>
+ <div class="history-item">
+  <h3>⚔️ Danish kings</h3>
+  <p class="date">1016–1042</p>
+  <p>Anglią rządzili królowie z dynastii duńskiej. Najbardziej znany był Cnut (Canute), który stworzył potężne państwo obejmujące Anglię i część Skandynawii.</p>
+ </div>
+ <div class="history-item">
+  <h3>🏹 The Norman Conquest – House of Normandy</h3>
+  <p class="date">1066–1135</p>
+  <p>W 1066 roku William the Conqueror pokonał króla Harolda II w bitwie pod Hastings. Został królem Anglii i zapoczątkował rządy Normanów.</p>
+  <p>Normanowie budowali zamki, zmienili system feudalny i wprowadzili silne wpływy języka francuskiego.</p>
+ </div>
+ <div class="history-item">
+  <h3>👑 House of Blois</h3>
+  <p class="date">1135–1154</p>
+  <p>Stephen of Blois został królem po śmierci Henryka I. Jego panowanie przypadło na okres wojny domowej znanej jako The Anarchy.</p>
+ </div>
+ <div class="history-item">
+  <h3>🦁 The Angevins and Plantagenets</h3>
+  <p class="date">1154–1399</p>
+  <p>Henry II rozpoczął panowanie dynastii Plantagenetów. Był władcą rozległych ziem po obu stronach kanału La Manche.</p>
+  <p><strong>Famous monarchs:</strong> Richard I the Lionheart, John, Henry III, Edward I, Edward III, Richard II.</p>
+  <p>Ważne wydarzenia: Magna Carta (1215), rozwój parlamentu i wojna stuletnia.</p>
+ </div>
+ <div class="history-item">
+  <h3>🌹 House of Lancaster</h3>
+  <p class="date">1399–1461, briefly 1470–1471</p>
+  <p>Jedna z gałęzi rodu Plantagenetów. Jej symbolem była czerwona róża.</p>
+  <p><strong>Important monarchs:</strong> Henry IV, Henry V and Henry VI.</p>
+ </div>
+ <div class="history-item">
+  <h3>🌹 House of York</h3>
+  <p class="date">1461–1470 and 1471–1485</p>
+  <p>Druga gałąź Plantagenetów. Jej symbolem była biała róża. Rywalizacja Lancasterów i Yorków doprowadziła do Wars of the Roses.</p>
+  <p><strong>Important monarchs:</strong> Edward IV and Richard III.</p>
+ </div>
+ <div class="history-item">
+  <h3>🌹 The Tudors</h3>
+  <p class="date">1485–1603</p>
+  <p>Henry VII zwyciężył Ryszarda III w bitwie pod Bosworth Field. Jego małżeństwo z Elizabeth of York symbolicznie połączyło czerwony i biały symbol róży.</p>
+  <p><strong>Famous monarchs:</strong> Henry VII, Henry VIII, Edward VI, Mary I and Elizabeth I.</p>
+  <p>To czas reformacji, rozwoju angielskiej floty, teatru i epoki elżbietańskiej.</p>
+ </div>
+ <div class="history-item">
+  <h3>⚔️ The Stuarts</h3>
+  <p class="date">1603–1649 and 1660–1714</p>
+  <p>W 1603 roku James VI of Scotland został także James I of England. W ten sposób jedna osoba zaczęła rządzić obiema koronami.</p>
+  <p>Za Stuartów doszło do wojny domowej. Charles I został stracony w 1649 roku. Monarchia została zniesiona.</p>
+  <p>Po okresie republiki i rządów Olivera Cromwella monarchię przywrócono w 1660 roku.</p>
+  <p><strong>Important monarchs:</strong> James I, Charles I, Charles II, James II, William III, Mary II and Anne.</p>
+ </div>
+ <div class="history-item">
+  <h3>🏛️ The House of Hanover</h3>
+  <p class="date">1714–1901</p>
+  <p>Po śmierci królowej Anne tron objął George I z dynastii hanowerskiej.</p>
+  <p>W tym okresie rosła rola parlamentu i rządu. Wielka Brytania rozwijała się jako potęga przemysłowa i kolonialna.</p>
+  <p><strong>Important monarchs:</strong> George I, George II, George III, George IV, William IV and Victoria.</p>
+ </div>
+ <div class="history-item">
+  <h3>👑 House of Saxe-Coburg and Gotha</h3>
+  <p class="date">1901–1917</p>
+  <p>Po śmierci królowej Victorii tron objął jej syn Edward VII. Dynastia miała niemiecką nazwę pochodzącą od rodziny księcia Alberta, męża Victorii.</p>
+ </div>
+ <div class="history-item">
+  <h3>👑 House of Windsor</h3>
+  <p class="date">1917–today</p>
+  <p>W czasie I wojny światowej George V zmienił nazwę dynastii na Windsor, aby zastąpić niemiecką nazwę.</p>
+  <p><strong>Monarchs:</strong> George V, Edward VIII, George VI, Elizabeth II and Charles III.</p>
+  <p>To dynastia panująca obecnie.</p>
+ </div>
+</div>
+</section>
+
+<section id="dynasties">
+<h2>📚 6. The royal dynasties – przegląd dynastii</h2>
+<p>Ważne: nie wszystkie te rody były dynastiami panującymi nad całym Zjednoczonym Królestwem. Wcześniej istniały osobne korony Anglii i Szkocji.</p>
+
+<h3>English and later British monarchs</h3>
+<table>
+<tr><th>Dynasty / House</th><th>Dates</th><th>Important names</th></tr>
+<tr><td>House of Wessex</td><td>871–1016; 1042–1066</td><td>Alfred the Great, Edward the Confessor</td></tr>
+<tr><td>Danish House</td><td>1016–1042</td><td>Cnut, Harold Harefoot, Harthacnut</td></tr>
+<tr><td>House of Normandy</td><td>1066–1135</td><td>William I, William II, Henry I</td></tr>
+<tr><td>House of Blois</td><td>1135–1154</td><td>Stephen</td></tr>
+<tr><td>Angevin / Plantagenet</td><td>1154–1399</td><td>Henry II, Richard I, John, Edward I, Richard II</td></tr>
+<tr><td>House of Lancaster</td><td>1399–1461; 1470–1471</td><td>Henry IV, Henry V, Henry VI</td></tr>
+<tr><td>House of York</td><td>1461–1470; 1471–1485</td><td>Edward IV, Edward V, Richard III</td></tr>
+<tr><td>House of Tudor</td><td>1485–1603</td><td>Henry VII, Henry VIII, Elizabeth I</td></tr>
+<tr><td>House of Stuart</td><td>1603–1649; 1660–1714</td><td>James I, Charles I, Charles II, Anne</td></tr>
+<tr><td>House of Hanover</td><td>1714–1901</td><td>George I, George III, Victoria</td></tr>
+<tr><td>Saxe-Coburg and Gotha</td><td>1901–1917</td><td>Edward VII</td></tr>
+<tr><td>House of Windsor</td><td>1917–today</td><td>George V, George VI, Elizabeth II, Charles III</td></tr>
+</table>
+
+<h3>Scottish royal dynasties – przed 1603 rokiem</h3>
+<table>
+<tr><th>Dynasty / House</th><th>Approximate dates</th><th>Important names</th></tr>
+<tr><td>House of Alpin</td><td>9th–10th century</td><td>Kenneth I MacAlpin – traditionally associated with the early unification of Scotland</td></tr>
+<tr><td>House of Dunkeld</td><td>c. 1034–1290</td><td>Malcolm III, David I, Alexander III</td></tr>
+<tr><td>Balliol and Bruce claims</td><td>1292–1371</td><td>John Balliol, Robert the Bruce</td></tr>
+<tr><td>House of Stewart (Stuart)</td><td>1371–1603</td><td>Robert II, James IV, Mary, Queen of Scots, James VI</td></tr>
+</table>
+<div class="note">
+<strong>Why is Scotland important?</strong><br>
+James VI of Scotland became James I of England in 1603. The English and Scottish crowns then had the same monarch, but the two kingdoms remained politically separate until the Acts of Union in 1707.
+</div>
+<div class="warning">
+<strong>Historical detail:</strong> Podział na dynastie bywa uproszczeniem. Niektóre rody łączyły się przez małżeństwa, a nazwy takie jak Angevin i Plantagenet bywają stosowane w różny sposób przez historyków. W tabeli pokazano najczęściej używany szkolny podział.
+</div>
+</section>
+
+<section>
+<h2>⚔️ 7. Important events in royal history</h2>
+<div class="grid">
+ <div class="card"><div class="emoji">⚔️</div><h3>1066 – Battle of Hastings</h3><p>William the Conqueror defeated Harold II and became King of England.</p></div>
+ <div class="card"><div class="emoji">📜</div><h3>1215 – Magna Carta</h3><p>Król Jan bez Ziemi zaakceptował dokument ograniczający niektóre działania monarchy.</p></div>
+ <div class="card"><div class="emoji">🌹</div><h3>1455–1487 – Wars of the Roses</h3><p>Wojna o tron pomiędzy rodami Lancasterów i Yorków.</p></div>
+ <div class="card"><div class="emoji">⛪</div><h3>16th century – Reformation</h3><p>Henry VIII zerwał z Rzymem, a Kościół Anglii stał się niezależny od papieża.</p></div>
+ <div class="card"><div class="emoji">⚔️</div><h3>1642–1651 – Civil Wars</h3><p>Konflikt między zwolennikami króla a siłami parlamentu.</p></div>
+ <div class="card"><div class="emoji">👑</div><h3>1660 – Restoration</h3><p>Przywrócenie monarchii pod rządami Charlesa II.</p></div>
+ <div class="card"><div class="emoji">📜</div><h3>1689 – Bill of Rights</h3><p>Dokument umocnił rolę parlamentu i ograniczył władzę monarchy.</p></div>
+ <div class="card"><div class="emoji">🤝</div><h3>1707 – Acts of Union</h3><p>Anglia i Szkocja połączyły się w Królestwo Wielkiej Brytanii.</p></div>
+ <div class="card"><div class="emoji">🇬🇧</div><h3>1801 – United Kingdom</h3><p>W wyniku unii z Irlandią powstało Zjednoczone Królestwo Wielkiej Brytanii i Irlandii.</p></div>
+ <div class="card"><div class="emoji">📻</div><h3>1917 – House of Windsor</h3><p>George V przyjął nazwę Windsor dla brytyjskiej rodziny królewskiej.</p></div>
+ <div class="card"><div class="emoji">👑</div><h3>1952 – Elizabeth II</h3><p>Elizabeth II została królową. Jej panowanie trwało ponad 70 lat.</p></div>
+ <div class="card"><div class="emoji">👑</div><h3>2022 – Charles III</h3><p>Po śmierci Elżbiety II królem został Karol III.</p></div>
+</div>
+</section>
+
+<section id="symbols">
+<h2>🏰 8. Royal symbols and places</h2>
+<div class="grid">
+ <div class="card"><div class="emoji">👑</div><h3>The Crown</h3><p>Korona – symbol monarchii i władzy królewskiej.</p></div>
+ <div class="card"><div class="emoji">💍</div><h3>The Coronation</h3><p>Koronacja – uroczysta ceremonia objęcia i potwierdzenia królewskiej godności.</p></div>
+ <div class="card"><div class="emoji">🏰</div><h3>Buckingham Palace</h3><p>Oficjalna londyńska rezydencja monarchy i miejsce wielu uroczystości.</p></div>
+ <div class="card"><div class="emoji">🏰</div><h3>Windsor Castle</h3><p>Historyczny zamek królewski, jedna z najważniejszych rezydencji monarchii.</p></div>
+ <div class="card"><div class="emoji">⛪</div><h3>Westminster Abbey</h3><p>Miejsce koronacji wielu brytyjskich monarchów.</p></div>
+ <div class="card"><div class="emoji">🦁</div><h3>Royal coat of arms</h3><p>Herb królewski – symbole i znaki związane z monarchią.</p></div>
+ <div class="card"><div class="emoji">🎺</div><h3>Changing the Guard</h3><p>Zmiana warty – ceremonia przy królewskich rezydencjach.</p></div>
+ <div class="card"><div class="emoji">🎂</div><h3>Trooping the Colour</h3><p>Uroczysta parada wojskowa związana z oficjalnymi obchodami urodzin monarchy.</p></div>
+</div>
+</section>
+
+<section id="vocab">
+<h2>🗣️ 9. Vocabulary – słownictwo</h2>
+<p>Kliknij fiszkę, aby zobaczyć tłumaczenie.</p>
+<div class="flashgrid" id="flashcards"></div>
+</section>
+
+<section id="reading">
+<h2>📖 10. Reading – read the text (A2)</h2>
+<h3>The British Royal Family</h3>
+<div class="note" style="background:#fffaf0;border-color:#dc2626">
+<p>Hello! My name is Olivia. I am learning about the British monarchy.</p>
+<p>The United Kingdom is a constitutional monarchy. The King is the Head of State, but Parliament makes laws and the government runs the country.</p>
+<p>Today, the monarch is King Charles III. His wife is Queen Camilla. His elder son, Prince William, is the heir to the throne. William is married to Catherine, Princess of Wales. They have three children: George, Charlotte and Louis.</p>
+<p>The British monarchy has a long history. In 1066, William the Conqueror became King of England. Later, the Tudors ruled England. Henry VIII was a famous Tudor king. His daughter Elizabeth I was the last Tudor monarch.</p>
+<p>In 1603, James VI of Scotland also became James I of England. In 1707, England and Scotland united to form Great Britain.</p>
+<p>Today, the Royal Family takes part in ceremonies, supports charities and represents the country at official events.</p>
+<p>I think royal history is fascinating!</p>
+</div>
+<h3>Reading comprehension</h3>
+<div class="quiz-q"><p>1. Who is the King today?</p>
+<label><input type="radio" name="r1" value="a"> King Charles III</label><label><input type="radio" name="r1" value="b"> King William V</label></div>
+<div class="quiz-q"><p>2. Who is the heir to the throne?</p>
+<label><input type="radio" name="r2" value="a"> Prince Harry</label><label><input type="radio" name="r2" value="b"> Prince William</label></div>
+<div class="quiz-q"><p>3. Who became King of England in 1066?</p>
+<label><input type="radio" name="r3" value="a"> William the Conqueror</label><label><input type="radio" name="r3" value="b"> Henry VIII</label></div>
+<div class="quiz-q"><p>4. When did England and Scotland unite to form Great Britain?</p>
+<label><input type="radio" name="r4" value="a"> 1603</label><label><input type="radio" name="r4" value="b"> 1707</label></div>
+<button onclick="checkReading()">Check answers</button>
+<p id="readingResult"></p>
+</section>
+
+<section id="quiz">
+<h2>🏆 11. Grand Quiz – test your knowledge!</h2>
+<p>15 questions. Choose the correct answer.</p>
+<form id="quizForm">
+<div class="quiz-q"><p><strong>1. What is the UK?</strong></p>
+<label><input type="radio" name="q1" value="a"> A constitutional monarchy</label><label><input type="radio" name="q1" value="b"> An absolute monarchy</label><label><input type="radio" name="q1" value="c"> A republic</label></div>
+
+<div class="quiz-q"><p><strong>2. Who is the British monarch in 2026?</strong></p>
+<label><input type="radio" name="q2" value="a"> Charles III</label><label><input type="radio" name="q2" value="b"> William V</label><label><input type="radio" name="q2" value="c"> George VII</label></div>
+
+<div class="quiz-q"><p><strong>3. Who is first in line to the throne after Charles III?</strong></p>
+<label><input type="radio" name="q3" value="a"> Prince Harry</label><label><input type="radio" name="q3" value="b"> Prince William</label><label><input type="radio" name="q3" value="c"> Prince George</label></div>
+
+<div class="quiz-q"><p><strong>4. How many children do William and Catherine have?</strong></p>
+<label><input type="radio" name="q4" value="a"> Two</label><label><input type="radio" name="q4" value="b"> Three</label><label><input type="radio" name="q4" value="c"> Four</label></div>
+
+<div class="quiz-q"><p><strong>5. Who was the first Tudor king?</strong></p>
+<label><input type="radio" name="q5" value="a"> Henry VII</label><label><input type="radio" name="q5" value="b"> Henry VIII</label><label><input type="radio" name="q5" value="c"> Edward VI</label></div>
+
+<div class="quiz-q"><p><strong>6. Who was the last Tudor monarch?</strong></p>
+<label><input type="radio" name="q6" value="a"> Mary I</label><label><input type="radio" name="q6" value="b"> Elizabeth I</label><label><input type="radio" name="q6" value="c"> Victoria</label></div>
+
+<div class="quiz-q"><p><strong>7. What happened in 1066?</strong></p>
+<label><input type="radio" name="q7" value="a"> The Norman Conquest</label><label><input type="radio" name="q7" value="b"> The Great Fire of London</label><label><input type="radio" name="q7" value="c"> The Acts of Union</label></div>
+
+<div class="quiz-q"><p><strong>8. Which dynasty ruled after the Tudors?</strong></p>
+<label><input type="radio" name="q8" value="a"> Stuarts</label><label><input type="radio" name="q8" value="b"> Normans</label><label><input type="radio" name="q8" value="c"> Hanoverians</label></div>
+
+<div class="quiz-q"><p><strong>9. Which two families fought in the Wars of the Roses?</strong></p>
+<label><input type="radio" name="q9" value="a"> Tudor and Stuart</label><label><input type="radio" name="q9" value="b"> Lancaster and York</label><label><input type="radio" name="q9" value="c"> Windsor and Hanover</label></div>
+
+<div class="quiz-q"><p><strong>10. When did James VI of Scotland become James I of England?</strong></p>
+<label><input type="radio" name="q10" value="a"> 1066</label><label><input type="radio" name="q10" value="b"> 1603</label><label><input type="radio" name="q10" value="c"> 1707</label></div>
+
+<div class="quiz-q"><p><strong>11. When did England and Scotland unite to form Great Britain?</strong></p>
+<label><input type="radio" name="q11" value="a"> 1707</label><label><input type="radio" name="q11" value="b"> 1801</label><label><input type="radio" name="q11" value="c"> 1917</label></div>
+
+<div class="quiz-q"><p><strong>12. Which dynasty came after the House of Hanover?</strong></p>
+<label><input type="radio" name="q12" value="a"> Tudor</label><label><input type="radio" name="q12" value="b"> Saxe-Coburg and Gotha</label><label><input type="radio" name="q12" value="c"> Norman</label></div>
+
+<div class="quiz-q"><p><strong>13. When was the name House of Windsor adopted?</strong></p>
+<label><input type="radio" name="q13" value="a"> 1066</label><label><input type="radio" name="q13" value="b"> 1707</label><label><input type="radio" name="q13" value="c"> 1917</label></div>
+
+<div class="quiz-q"><p><strong>14. What is Westminster Abbey famous for?</strong></p>
+<label><input type="radio" name="q14" value="a"> Royal coronations</label><label><input type="radio" name="q14" value="b"> The royal stables</label><label><input type="radio" name="q14" value="c"> The Houses of Parliament only</label></div>
+
+<div class="quiz-q"><p><strong>15. Who makes laws in the UK?</strong></p>
+<label><input type="radio" name="q15" value="a"> The King alone</label><label><input type="radio" name="q15" value="b"> The elected Parliament</label><label><input type="radio" name="q15" value="c"> The Royal Family</label></div>
+
+<button type="button" onclick="checkQuiz()">Check my score</button>
+<button type="reset" style="background:#64748b">Reset</button>
+</form>
+<div id="quizResult"></div>
+</section>
+
+<section>
+<h2>✍️ 12. Writing challenge – a royal history profile</h2>
+<p>Wybierz jednego monarchę i napisz krótką notatkę po angielsku. Możesz wybrać Elizabeth I, Henry VIII, Victoria, Elizabeth II lub Charles III.</p>
+<div class="note">
+<strong>Useful phrases:</strong><br>
+He was King of… – Był królem…<br>
+She was Queen of… – Była królową…<br>
+He ruled from… to… – Panował od… do…<br>
+She was born in… – Urodziła się w…<br>
+He is famous for… – Jest znany z…<br>
+An important event was… – Ważnym wydarzeniem było…<br>
+I think… – Myślę, że…
+</div>
+<label for="writing"><strong>My royal history profile:</strong></label>
+<textarea id="writing" rows="7" placeholder="Queen Elizabeth I was Queen of England from 1558 to 1603..."></textarea>
+<p><label for="studentName">Your name:</label><input type="text" id="studentName" placeholder="Your name"></p>
+<button onclick="saveText()">💾 Save as TXT</button>
+<p id="saveMessage" class="small"></p>
+</section>
+
+<section>
+<h2>🌟 13. Remember!</h2>
+<ul>
+<li>The UK is a constitutional monarchy.</li>
+<li>King Charles III became monarch in 2022.</li>
+<li>Prince William is the heir to the throne.</li>
+<li>The monarchy has a history of more than a thousand years.</li>
+<li>England and Scotland had separate monarchies before 1603.</li>
+<li>The Tudors, Stuarts, Hanoverians and Windsors are important royal dynasties.</li>
+<li>The House of Windsor began in 1917.</li>
+<li>Parliament, not the monarch alone, makes laws.</li>
+</ul>
+</section>
+
+<section>
+<h2>🔎 14. Sources – reliable information</h2>
+<ul>
+<li><a href="https://www.royal.uk/" target="_blank" rel="noopener">The Royal Family – official website</a></li>
+<li><a href="https://www.royal.uk/the-role-of-the-monarchy" target="_blank" rel="noopener">The role of the Monarchy</a></li>
+<li><a href="https://www.royal.uk/encyclopedia/succession" target="_blank" rel="noopener">The line of succession</a></li>
+<li><a href="https://www.royal.uk/united-kingdom-monarchs-1603-present" target="_blank" rel="noopener">United Kingdom Monarchs, 1603–present</a></li>
+<li><a href="https://www.royal.uk/house-windsor" target="_blank" rel="noopener">The House of Windsor</a></li>
+<li><a href="https://www.npg.org.uk/collections/explore/kings-and-queens-a-family-tree.php" target="_blank" rel="noopener">National Portrait Gallery – Kings and Queens family tree</a></li>
+<li><a href="https://www.hrp.org.uk/kings-and-queens-of-england-and-britain/" target="_blank" rel="noopener">Historic Royal Palaces – Kings and Queens</a></li>
+</ul>
+<p class="small">Materiał edukacyjny. Informacje o współczesnej rodzinie i sukcesji odnoszą się do stanu na 2026 rok. Historia wczesnych dynastii jest uproszczona na potrzeby lekcji szkolnej.</p>
+</section>
+
+</main>
+
+<footer>
+<p>👑 The British Monarchy · English Culture Lab · Grades 7–8</p>
+<p>From Alfred the Great to Charles III – a thousand years of history!</p>
+</footer>
+
+<script>
+const words=[
+["👑","a monarch","monarcha"],
+["🤴","a king","król"],
+["👸","a queen","królowa"],
+["🏰","a royal family","rodzina królewska"],
+["📜","a dynasty","dynastia"],
+["➡️","the heir to the throne","następca tronu"],
+["👑","the crown","korona"],
+["💍","a coronation","koronacja"],
+["🏛️","a parliament","parlament"],
+["📜","a law","prawo / ustawa"],
+["⚖️","a constitutional monarchy","monarchia konstytucyjna"],
+["🏰","a palace","pałac"],
+["⚔️","a battle","bitwa"],
+["🌹","a rose","róża"],
+["👑","a reign","panowanie"],
+["📅","a succession","sukcesja"],
+["🎖️","a title","tytuł"],
+["🏛️","a royal residence","rezydencja królewska"]
+];
+const flash=document.getElementById("flashcards");
+words.forEach(w=>{
+ const b=document.createElement("button");
+ b.type="button";b.className="flip-card";b.setAttribute("aria-pressed","false");
+ b.innerHTML='<span class="flip-inner"><span class="flip-front"><span>'+w[0]+'</span><strong>'+w[1]+'</strong><small>Click to flip</small></span><span class="flip-back"><strong>'+w[2]+'</strong><small>'+w[1]+'</small></span></span>';
+ b.addEventListener("click",()=>{
+  b.classList.toggle("flipped");
+  b.setAttribute("aria-pressed",b.classList.contains("flipped")?"true":"false");
+ });
+ flash.appendChild(b);
+});
+function checkReading(){
+ const answers={r1:"a",r2:"b",r3:"a",r4:"b"};
+ let score=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(v&&v.value===answers[k])score++;
+ });
+ document.getElementById("readingResult").textContent="Your score: "+score+"/4 "+(score===4?"Excellent! 🎉":"Good try! Read the text again and try once more.");
+}
+function checkQuiz(){
+ const answers={q1:"a",q2:"a",q3:"b",q4:"b",q5:"a",q6:"b",q7:"a",q8:"a",q9:"b",q10:"b",q11:"a",q12:"b",q13:"c",q14:"a",q15:"b"};
+ let score=0,missing=0;
+ Object.keys(answers).forEach(k=>{
+  const v=document.querySelector('input[name="'+k+'"]:checked');
+  if(!v)missing++;
+  else if(v.value===answers[k])score++;
+ });
+ let message=score<5?"Keep learning! 💪":score<9?"Good work! 🌱":score<13?"Very good! ⭐":"Excellent! You are a royal history expert! 🏆";
+ document.getElementById("quizResult").innerHTML="Your score: <strong>"+score+"/15</strong><br>"+message+(missing?"<br>Unanswered questions: "+missing+".":"");
+}
+function saveText(){
+ const content=document.getElementById("writing").value.trim();
+ const name=document.getElementById("studentName").value.trim()||"Student";
+ if(!content){document.getElementById("saveMessage").textContent="Write your profile first!";return;}
+ const blob=new Blob(["My royal history profile\nStudent: "+name+"\n\n"+content],{type:"text/plain;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;a.download="my-royal-history-profile.txt";a.click();
+ URL.revokeObjectURL(url);
+ document.getElementById("saveMessage").textContent="Your text is ready to save. Well done!";
+}
+</script>
+</body>
+</html>

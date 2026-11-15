@@ -116,6 +116,7 @@ a:focus-visible{outline:3px solid orange}
 <article><span>Tyflopedagogika · klasa 6</span><h3>Misja: trening superzmysłów</h3><a href="misja-tyflopedagogika-kl6-trening-superzmyslow.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
 <article><span>Tyflopedagogika · klasa 6</span><h3>Misja 2: superzmysły na wyższym poziomie</h3><a href="misja-tyflopedagogika-kl6-superzmysly-poziom-zaawansowany.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
 <article><span>Tyflopedagogika · klasa 8</span><h3>Minecraft: Atlas Świata – misja geograficzna</h3><a href="misja-tyflopedagogika-kl8-minecraft-atlas-swiata.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
+<article><span>Afazja · Klasa 5</span><h3>Misja: Kosmiczna Stacja Ratunkowa</h3><a href="misja-rewalidacja-afazja-kl5-kosmiczna-stacja-ratunkowa.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
 </div>
 </section>
 
@@ -179,8 +180,28 @@ function describe(name){
 
  if(KNOWN[name])return KNOWN[name];
 
- // Automatyczne rozpoznawanie wszystkich wariantów nazw lekcji tyflopedagogicznych.
+ // Wspólny schemat dla wszystkich przyszłych materiałów rewalidacyjnych:
+ // misja-rewalidacja-[obszar]-kl[ numer ]-[temat].html
  const lower=name.toLocaleLowerCase('pl');
+ if(lower.startsWith('misja-rewalidacja-')){
+   const gradeMatch=lower.match(/kl(?:asa)?[-_ ]?([1-8])/);
+   const grade=gradeMatch ? 'Klasa '+gradeMatch[1] : 'Materiał rewalidacyjny';
+   let area='Rewalidacja';
+   if(lower.includes('afazja')) area='Afazja';
+   else if(lower.includes('tyflopedagogika')) area='Tyflopedagogika';
+   else if(lower.includes('surdopedagogika')) area='Surdopedagogika';
+   else if(lower.includes('koncentracja')) area='Funkcje poznawcze';
+   let title='Misja rewalidacyjna';
+   if(lower.includes('kosmiczna-stacja-ratunkowa')) title='Misja: Kosmiczna Stacja Ratunkowa';
+   else {
+     const stem=name.replace(/\\.html?$/i,'').replace(/^misja-rewalidacja-/i,'');
+     const cleaned=stem.replace(/-(afazja|tyflopedagogika|surdopedagogika|koncentracja)-?/i,'').replace(/-kl(?:asa)?[-_ ]?[1-8]/i,'').replace(/-/g,' ');
+     title='Misja: '+cleaned.replace(/\\b\\w/g,c=>c.toLocaleUpperCase('pl'));
+   }
+   return ['Rewalidacja',area+' · '+grade,title];
+ }
+ // Automatyczne rozpoznawanie wszystkich wariantów nazw lekcji tyflopedagogicznych.
+
  if(/tyflo|architekt[-_ ]?umyslu|superzmysl|minecraft.*atlas|atlas.*minecraft/.test(lower)){
    const grade=(/kl(?:asa)?[-_ ]?8|kl8|klasa8/.test(lower)||/architekt|minecraft|atlas/.test(lower))
      ? 'Tyflopedagogika · klasa 8' : 'Tyflopedagogika · klasa 6';

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misja: Kosmiczna Stacja Ratunkowa — afazja, klasa 5</title>
+<style>
+:root{--navy:#14213d;--blue:#2457a6;--sky:#dff3ff;--mint:#c9f3df;--yellow:#ffe28a;--ink:#18263b;--muted:#52647b;--white:#fff;--line:#d4dfec}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#d9efff,#f4f7ff 45%,#e8f7f1);color:var(--ink);font:18px/1.5 system-ui,Arial,sans-serif}
+header{padding:28px max(5vw,18px);background:linear-gradient(110deg,#14213d,#2457a6);color:white}
+header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin:8px 0}header p{max-width:780px;margin:8px 0}
+main{max-width:950px;margin:auto;padding:18px}.panel,.mission{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 8px 25px #18314a12}
+h2{margin:0 0 8px;color:#17427b}h3{margin:8px 0}.muted{color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;background:#d9f4e6;color:#15583b;border-radius:99px;padding:4px 12px;font-size:.82rem;font-weight:700;margin-right:5px}
+.progress{height:13px;background:#e8eef6;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;background:#36a879;width:0;transition:width .3s}
+.big{font-size:1.25rem;font-weight:700}.scene{font-size:3rem;text-align:center;padding:8px}
+.prompt{background:#edf6ff;border:2px solid #c7e2fa;border-radius:16px;padding:16px;margin:12px 0}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin:12px 0}
+.pick{background:#fff;border:2px solid #b9cbe0;border-radius:15px;padding:14px 10px;font:inherit;font-weight:700;color:#18314a;cursor:pointer;min-height:92px}
+.pick .emoji{display:block;font-size:2.2rem;margin-bottom:4px}.pick:hover,.pick:focus{border-color:#2457a6;outline:3px solid #b9d9ff}
+button.action{background:#2457a6;color:white;border:0;border-radius:12px;padding:12px 18px;font:inherit;font-weight:750;cursor:pointer;margin:5px 5px 5px 0}
+button.alt{background:#e8f1fb;color:#17427b;border:1px solid #b8cce2}
+input[type=text]{font:inherit;padding:12px;border:2px solid #b9cbe0;border-radius:10px;width:100%;max-width:550px}
+.feedback{min-height:30px;font-weight:750;margin-top:8px}.ok{color:#167449}.try{color:#a34a18}
+.task{display:none}.task.active{display:block}.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.stars{font-size:1.4rem;color:#9a6900}.notice{background:#fff7d9;border-left:5px solid #edc34d;padding:12px 15px;border-radius:10px}
+footer{text-align:center;color:#52647b;padding:20px;font-size:.9rem}
+@media(max-width:600px){body{font-size:17px}.panel,.mission{padding:15px}.pick{min-height:80px}}
+</style></head>
+<body>
+<header>
+<div><span class="tag">REWALIDACJA · AFAZJA</span><span class="tag">KLASA 5</span><span class="tag">MISJA PRZYGODOWA</span></div>
+<h1>🚀 MISJA: KOSMICZNA STACJA RATUNKOWA</h1>
+<p>Alarm! Na stacji Orion coś przestało działać. Zostań członkiem ekipy ratunkowej: rozpoznawaj symbole, wybieraj potrzebne przedmioty, układaj zdarzenia i przekazuj krótkie komunikaty.</p>
+</header>
+<main>
+<section class="panel">
+<h2>🧑‍🚀 Twoja misja</h2>
+<p class="big">Małe kroki. Jedno zadanie naraz. Każdy ukończony etap przywraca zasilanie stacji!</p>
+<p class="muted">Możesz odpowiadać przez kliknięcie, wskazanie, gest lub słowo — zgodnie z możliwościami uczennicy. Nie trzeba się spieszyć. Jeśli zadanie jest trudne, można je powtórzyć albo skorzystać z podpowiedzi.</p>
+<div class="stars" id="stars">☆ ☆ ☆ ☆ ☆ ☆</div>
+<div class="progress"><span id="bar"></span></div>
+<p id="status" class="muted">Etap 1 z 6 · Zasilanie awaryjne</p>
+<div class="controls"><button class="action alt" onclick="readCurrent()">🔊 Przeczytaj polecenie</button><button class="action alt" onclick="toggleHelp()">💡 Pokaż podpowiedź</button><button class="action alt" onclick="fontUp()">A+ Większy tekst</button></div>
+</section>
+
+<section class="mission">
+<div class="task active" id="t1">
+<div class="scene">🔋 🛰️</div><h2>Etap 1. Uruchom zasilanie</h2>
+<div class="prompt"><p class="big">Stacja potrzebuje energii. Wybierz to, co daje prąd.</p></div>
+<div class="options">
+<button class="pick" onclick="answer(1,0)"><span class="emoji">🔋</span>bateria</button>
+<button class="pick" onclick="answer(1,1)"><span class="emoji">🍎</span>jabłko</button>
+<button class="pick" onclick="answer(1,1)"><span class="emoji">🧤</span>rękawica</button>
+</div><div class="feedback" id="f1"></div>
+</div>
+
+<div class="task" id="t2">
+<div class="scene">🧰 🛠️</div><h2>Etap 2. Napraw robota</h2>
+<div class="prompt"><p class="big">Robot ma poluzowaną śrubę. Czego potrzebuje?</p></div>
+<div class="options">
+<button class="pick" onclick="answer(2,0)"><span class="emoji">🔧</span>klucz</button>
+<button class="pick" onclick="answer(2,1)"><span class="emoji">🥣</span>miska</button>
+<button class="pick" onclick="answer(2,1)"><span class="emoji">🧸</span>miś</button>
+</div><div class="feedback" id="f2"></div>
+</div>
+
+<div class="task" id="t3">
+<div class="scene">🌡️ ❄️</div><h2>Etap 3. Sprawdź temperaturę</h2>
+<div class="prompt"><p class="big">W śluzie jest bardzo zimno. Co pomoże astronaucie?</p></div>
+<div class="options">
+<button class="pick" onclick="answer(3,0)"><span class="emoji">🧣</span>szalik</button>
+<button class="pick" onclick="answer(3,0)"><span class="emoji">🩴</span>klapki</button>
+<button class="pick" onclick="answer(3,1)"><span class="emoji">🧊</span>lód</button>
+</div><div class="feedback" id="f3"></div>
+</div>
+
+<div class="task" id="t4">
+<div class="scene">📡 🗣️</div><h2>Etap 4. Wyślij komunikat</h2>
+<div class="prompt"><p class="big">Wybierz komunikat, który pasuje do obrazka.</p><div class="scene">🚪🔒</div><p class="muted">Drzwi są zamknięte.</p></div>
+<div class="options">
+<button class="pick" onclick="answer(4,0)">„Drzwi są zamknięte.”</button>
+<button class="pick" onclick="answer(4,1)">„Kot je zupę.”</button>
+<button class="pick" onclick="answer(4,1)">„Pada deszcz.”</button>
+</div><div class="feedback" id="f4"></div>
+</div>
+
+<div class="task" id="t5">
+<div class="scene">🧩 🪐</div><h2>Etap 5. Ułóż plan</h2>
+<div class="prompt"><p class="big">Co robimy najpierw, żeby wysłać rakietę?</p><p class="muted">Wybierz pierwszy krok.</p></div>
+<div class="options">
+<button class="pick" onclick="answer(5,1)"><span class="emoji">🚀</span>start rakiety</button>
+<button class="pick" onclick="answer(5,0)"><span class="emoji">✅</span>sprawdź, czy wszystko działa</button>
+<button class="pick" onclick="answer(5,1)"><span class="emoji">🎉</span>świętuj sukces</button>
+</div><div class="feedback" id="f5"></div>
+</div>
+
+<div class="task" id="t6">
+<div class="scene">🏆 🌍</div><h2>Etap 6. Wielki finał</h2>
+<div class="prompt"><p class="big">Stacja jest już prawie uratowana. Wybierz, co powiesz ekipie.</p></div>
+<div class="options">
+<button class="pick" onclick="answer(6,0)">„Udało się! Stacja działa.”</button>
+<button class="pick" onclick="answer(6,1)">„Nie ma stacji.”</button>
+<button class="pick" onclick="answer(6,1)">„Zgubiłem kanapkę.”</button>
+</div>
+<div class="feedback" id="f6"></div>
+<p id="finish" class="big" style="display:none;color:#167449">🎉 MISJA WYKONANA! Jesteś bohaterką stacji Orion!</p>
+</div>
+<div class="controls"><button class="action" id="next" onclick="nextTask()" style="display:none">Dalej ➜</button><button class="action alt" onclick="repeatTask()">🔁 Spróbuj jeszcze raz</button></div>
+<div id="hint" class="notice" style="display:none;margin-top:12px">Podpowiedź: przeczytaj polecenie jeszcze raz i przyjrzyj się obrazkom. Możesz też wskazać odpowiedź zamiast ją mówić.</div>
+</section>
+
+<section class="panel">
+<h2>⭐ Dyplom za misję</h2>
+<p id="certificate">Ukończ etapy, aby odebrać odznakę ratowniczki kosmicznej.</p>
+<button class="action alt" onclick="window.print()">🖨️ Drukuj dyplom</button>
+</section>
+<section class="panel">
+<h2>Wskazówka dla prowadzącego</h2>
+<p class="muted">To interaktywna pomoc dydaktyczna, nie diagnoza ani terapia zastępująca indywidualny program logopedyczny. Dostosuj tempo, liczbę bodźców i sposób odpowiedzi do profilu afazji oraz zaleceń specjalistów. Akceptuj wskazanie, wybór obrazka, gest lub odpowiedź ustną. W razie potrzeby wykonuj jedną rundę i wracaj do kolejnych etapów na następnych zajęciach.</p>
+</section>
+</main><footer>Misja: Kosmiczna Stacja Ratunkowa · materiał rewalidacyjny · klasa 5</footer>
+<script>
+let current=1,completed=new Set(),font=18;
+const prompts={1:'Stacja potrzebuje energii. Wybierz to, co daje prąd.',2:'Robot ma poluzowaną śrubę. Czego potrzebuje?',3:'W śluzie jest bardzo zimno. Co pomoże astronaucie?',4:'Wybierz komunikat, który pasuje do obrazka. Drzwi są zamknięte.',5:'Co robimy najpierw, żeby wysłać rakietę?',6:'Stacja jest już prawie uratowana. Wybierz, co powiesz ekipie.'};
+function answer(n,wrong){let f=document.getElementById('f'+n);if(wrong===0){f.textContent='Świetnie! Dobra odpowiedź! ⭐';f.className='feedback ok';completed.add(n);document.getElementById('next').style.display='inline-block';update();if(n===6){document.getElementById('finish').style.display='block';document.getElementById('certificate').textContent='Dyplom: Kosmiczna Ratowniczka Stacji Orion! Ukończono '+completed.size+' z 6 etapów.';}}else{f.textContent='Spróbuj jeszcze raz. Spokojnie — dasz radę!';f.className='feedback try';}}
+function update(){document.getElementById('bar').style.width=(completed.size/6*100)+'%';document.getElementById('stars').textContent=Array.from({length:6},(_,i)=>completed.has(i+1)?'★':'☆').join(' ');document.getElementById('status').textContent='Etap '+current+' z 6 · '+completed.size+' ukończonych';}
+function nextTask(){if(current<6){document.getElementById('t'+current).classList.remove('active');current++;document.getElementById('t'+current).classList.add('active');document.getElementById('next').style.display='none';document.getElementById('hint').style.display='none';update();}}
+function repeatTask(){let f=document.getElementById('f'+current);f.textContent='Wybierz ponownie. Możesz skorzystać z podpowiedzi.';f.className='feedback';document.getElementById('next').style.display='none';}
+function toggleHelp(){let h=document.getElementById('hint');h.style.display=h.style.display==='none'?'block':'none';}
+function readCurrent(){if(!('speechSynthesis'in window)){alert(prompts[current]);return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(prompts[current]);u.lang='pl-PL';u.rate=.85;speechSynthesis.speak(u);}
+function fontUp(){font=Math.min(font+1,25);document.body.style.fontSize=font+'px';}
+update();
+</script></body></html>

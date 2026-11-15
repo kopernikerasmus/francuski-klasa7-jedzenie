@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misja Rewalidacja: Tajemnica Parku Dinozaurów — afazja, klasa 5</title>
+<style>
+:root{--ink:#18253b;--navy:#182d50;--blue:#2860a8;--sky:#e9f5ff;--green:#23845b;--gold:#f6c84c;--line:#d5e1ed}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e4f5ff,#f7f8ff 55%,#e8f6eb);color:var(--ink);font:18px/1.5 system-ui,Arial,sans-serif}
+header{background:linear-gradient(110deg,#193b56,#347a65);color:#fff;padding:28px max(5vw,18px)}
+header h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;margin:8px 0}
+main{max-width:960px;margin:auto;padding:18px}
+.panel,.stage{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 8px 24px #19314a12}
+h2{color:#204c78;margin:0 0 8px}.muted{color:#53657a;font-size:.94rem}
+.tag{display:inline-block;background:#d8f4e6;color:#175a3c;border-radius:99px;padding:4px 11px;font-size:.82rem;font-weight:750;margin:2px 5px 2px 0}
+.scene{text-align:center;font-size:3.2rem;padding:8px}
+.prompt{background:#edf6ff;border:2px solid #c8e1f6;border-radius:16px;padding:15px;margin:12px 0}
+.big{font-size:1.2rem;font-weight:750}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin:12px 0}
+.pick{background:#fff;border:2px solid #b9cde0;border-radius:15px;padding:12px 9px;font:inherit;font-weight:700;color:#1b3450;cursor:pointer;min-height:95px}
+.pick .emoji{display:block;font-size:2.25rem}.pick:hover,.pick:focus{border-color:#2860a8;outline:3px solid #c4e0ff}
+button.action{background:#2860a8;color:white;border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:750;cursor:pointer;margin:5px 5px 5px 0}
+button.soft{background:#eaf2fb;color:#204c78;border:1px solid #bfd0e2}
+.feedback{min-height:32px;font-weight:750;margin-top:8px}.ok{color:#187449}.retry{color:#a24d16}
+.stage{display:none}.stage.active{display:block}
+.progress{height:13px;background:#e8eef6;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:#31a675;transition:width .25s}
+.word{display:inline-block;background:#e7f1ff;border:1px solid #b7d1ec;border-radius:10px;padding:7px 12px;margin:4px;font-weight:700}
+input[type=text]{font:inherit;padding:11px;border:2px solid #b9cde0;border-radius:10px;width:100%;max-width:500px}
+.notice{background:#fff7d9;border-left:5px solid #e8bd3d;padding:12px 14px;border-radius:10px}
+footer{text-align:center;color:#586b7d;padding:20px;font-size:.9rem}
+@media(max-width:600px){body{font-size:17px}.panel,.stage{padding:15px}.pick{min-height:85px}}
+</style></head>
+<body>
+<header>
+<div><span class="tag">REWALIDACJA</span><span class="tag">AFAZJA · KLASA 5</span><span class="tag">KRÓTKIE MISJE</span></div>
+<h1>🦕 MISJA: TAJEMNICA PARKU DINOZAURÓW</h1>
+<p>W parku zgasły światła, zaginęła mapa i dinozaury pomieszały swoje tropy. Zostań tropicielką! Rozwiązuj krótkie zagadki, wybieraj obrazki i pomóż ekipie przywrócić porządek.</p>
+</header>
+<main>
+<section class="panel">
+<h2>🎒 Ekwipunek tropicielki</h2>
+<p class="big">Każda zagadka to jeden krok do odkrycia tajemnicy.</p>
+<p class="muted">Możesz odpowiadać kliknięciem, wskazaniem obrazka, gestem lub słowem. Nie ma limitu czasu. W razie potrzeby posłuchaj polecenia ponownie.</p>
+<div id="badges" style="font-size:1.45rem">🔎　🔎　🔎　🔎　🔎　🔎</div>
+<div class="progress"><span id="bar"></span></div>
+<p id="status" class="muted">Zagadka 1 z 6</p>
+<div><button class="action soft" onclick="speak()">🔊 Posłuchaj polecenia</button><button class="action soft" onclick="hint()">💡 Podpowiedź</button><button class="action soft" onclick="bigger()">A+ Większy tekst</button></div>
+</section>
+
+<section class="stage active" id="s1">
+<div class="scene">🦖 🥾 🌿</div><h2>1. Czyj to trop?</h2>
+<div class="prompt"><p class="big">Dinozaur zostawił wielkie ślady. Kto mógł je zostawić?</p><p class="muted">Wybierz największego dinozaura.</p></div>
+<div class="options">
+<button class="pick" onclick="pick(1,1)"><span class="emoji">🦕</span>zauropod</button>
+<button class="pick" onclick="pick(1,0)"><span class="emoji">🐸</span>żaba</button>
+<button class="pick" onclick="pick(1,0)"><span class="emoji">🐦</span>ptak</button>
+</div><div id="f1" class="feedback"></div>
+</section>
+
+<section class="stage" id="s2">
+<div class="scene">🧺 🍎 🥕 🧸</div><h2>2. Co pasuje do koszyka?</h2>
+<div class="prompt"><p class="big">Przygotuj koszyk z jedzeniem dla ekipy.</p><p class="muted">Wybierz dwa produkty, które można zjeść.</p></div>
+<div class="options">
+<button class="pick" onclick="multi(2,0,this)"><span class="emoji">🍎</span>jabłko</button>
+<button class="pick" onclick="multi(2,1,this)"><span class="emoji">🧸</span>miś</button>
+<button class="pick" onclick="multi(2,0,this)"><span class="emoji">🥕</span>marchewka</button>
+<button class="pick" onclick="multi(2,1,this)"><span class="emoji">🪨</span>kamień</button>
+</div><p class="muted" id="count2">Wybrano: 0 z 2</p><button class="action" onclick="checkMulti()">Zatwierdź koszyk</button><div id="f2" class="feedback"></div>
+</section>
+
+<section class="stage" id="s3">
+<div class="scene">🦕 💧</div><h2>3. Czego potrzebuje dinozaur?</h2>
+<div class="prompt"><p class="big">Dinozaur jest spragniony. Co mu podasz?</p></div>
+<div class="options">
+<button class="pick" onclick="pick(3,0)"><span class="emoji">💧</span>wodę</button>
+<button class="pick" onclick="pick(3,1)"><span class="emoji">🧱</span>cegłę</button>
+<button class="pick" onclick="pick(3,1)"><span class="emoji">🧦</span>skarpetkę</button>
+</div><div id="f3" class="feedback"></div>
+</section>
+
+<section class="stage" id="s4">
+<div class="scene">🗺️ 🧭 🏕️</div><h2>4. Ułóż wyprawę</h2>
+<div class="prompt"><p class="big">Ekipa chce rozbić obóz. Co trzeba zrobić najpierw?</p></div>
+<div class="options">
+<button class="pick" onclick="pick(4,1)"><span class="emoji">🔥</span>rozpalić ognisko</button>
+<button class="pick" onclick="pick(4,0)"><span class="emoji">🗺️</span>znaleźć bezpieczne miejsce</button>
+<button class="pick" onclick="pick(4,1)"><span class="emoji">🎂</span>zjeść tort</button>
+</div><div id="f4" class="feedback"></div>
+</section>
+
+<section class="stage" id="s5">
+<div class="scene">🚪 🦖 🧑‍🔬</div><h2>5. Co powiesz opiekunowi?</h2>
+<div class="prompt"><p class="big">Dinozaur stoi przy bramie. Trzeba ostrzec opiekuna.</p><p class="muted">Wybierz ważny komunikat.</p></div>
+<div class="options">
+<button class="pick" onclick="pick(5,0)">„Dinozaur jest przy bramie.”</button>
+<button class="pick" onclick="pick(5,1)">„Lubię naleśniki.”</button>
+<button class="pick" onclick="pick(5,1)">„Mam niebieski plecak.”</button>
+</div><div id="f5" class="feedback"></div>
+</section>
+
+<section class="stage" id="s6">
+<div class="scene">🦖 🤝 🏅</div><h2>6. Wielki finał – wybierz zakończenie</h2>
+<div class="prompt"><p class="big">Wszystkie dinozaury są już bezpieczne. Co pasuje na koniec przygody?</p></div>
+<div class="options">
+<button class="pick" onclick="pick(6,0)">„Udało się! Park jest bezpieczny.”</button>
+<button class="pick" onclick="pick(6,1)">„Zgubiłam mapę.”</button>
+<button class="pick" onclick="pick(6,1)">„Pada śnieg w kuchni.”</button>
+</div><div id="f6" class="feedback"></div>
+<p id="finish" class="big" style="display:none;color:#187449">🏆 BRAWO, TROPIELICIELKO! Tajemnica rozwiązana!</p>
+</section>
+
+<section class="panel">
+<h2>🏅 Odznaka tropicielki</h2><p id="award">Rozwiąż zagadki, aby zdobyć tytuł Mistrzyni Parku Dinozaurów.</p>
+<button class="action soft" onclick="window.print()">🖨️ Drukuj odznakę</button>
+</section>
+<section class="panel">
+<h2>Notatka dla osoby prowadzącej</h2>
+<p class="muted">Materiał ma charakter wspierający i wymaga dostosowania do indywidualnego profilu afazji. Uczennica może odpowiadać przez wskazanie, gest, wybór obrazka lub słowo. Nie wymagaj powtarzania ani wypowiedzi ustnej, jeśli jest to dla niej obciążające. W zadaniu 2 można zaznaczać po jednym obrazku, a następnie zatwierdzić dwa wybory. W razie trudności ogranicz liczbę opcji do dwóch i modeluj odpowiedź. To pomoc dydaktyczna, nie zamiennik terapii logopedycznej.</p>
+</section>
+</main><footer>Misja Rewalidacja · Afazja · klasa 5</footer>
+<script>
+let current=1,done=new Set(),chosen=[],font=18;
+const prompts={1:'Dinozaur zostawił wielkie ślady. Wybierz największego dinozaura.',2:'Przygotuj koszyk z jedzeniem dla ekipy. Wybierz dwa produkty, które można zjeść.',3:'Dinozaur jest spragniony. Co mu podasz?',4:'Ekipa chce rozbić obóz. Co trzeba zrobić najpierw?',5:'Dinozaur stoi przy bramie. Wybierz ważny komunikat dla opiekuna.',6:'Wszystkie dinozaury są bezpieczne. Wybierz pasujące zakończenie.'};
+function showFeedback(n,ok,msg){let e=document.getElementById('f'+n);e.textContent=msg;e.className='feedback '+(ok?'ok':'retry');}
+function pick(n,bad){if(bad===0){done.add(n);showFeedback(n,true,'Świetnie! Trop odnaleziony! ⭐');document.getElementById('nextBtn')?.remove();let b=document.createElement('button');b.className='action';b.id='nextBtn';b.textContent=n===6?'Zobacz odznakę 🏅':'Następna zagadka ➜';b.onclick=next;b.style.marginTop='10px';document.getElementById('f'+n).after(b);update();if(n===6){document.getElementById('finish').style.display='block';document.getElementById('award').textContent='Odznaka: Mistrzyni Parku Dinozaurów! Ukończono 6 zagadek.';}}else showFeedback(n,false,'Jeszcze raz! Przyjrzyj się obrazkom. Możesz posłuchać polecenia.');}
+function multi(n,bad,el){if(el.dataset.selected==='1'){el.dataset.selected='0';el.style.background='white';chosen=chosen.filter(x=>x!==el); }else if(chosen.length<2){el.dataset.selected='1';el.style.background='#dff4e8';chosen.push(el);}document.getElementById('count2').textContent='Wybrano: '+chosen.length+' z 2';}
+function checkMulti(){if(chosen.length!==2){showFeedback(2,false,'Wybierz dwa obrazki.');return}let ok=chosen.every(x=>x.textContent.includes('jabłko')||x.textContent.includes('marchewka'));if(ok){done.add(2);showFeedback(2,true,'Świetnie! Koszyk jest gotowy! ⭐');let b=document.createElement('button');b.className='action';b.textContent='Następna zagadka ➜';b.onclick=next;document.getElementById('f2').after(b);update();}else{showFeedback(2,false,'W koszyku mają być dwa produkty do jedzenia. Spróbuj jeszcze raz.');chosen.forEach(x=>{x.dataset.selected='0';x.style.background='white'});chosen=[];document.getElementById('count2').textContent='Wybrano: 0 z 2';}}
+function next(){if(current<6){document.getElementById('s'+current).classList.remove('active');current++;document.getElementById('s'+current).classList.add('active');update();}else{document.getElementById('award').scrollIntoView({behavior:'smooth'});}}
+function update(){document.getElementById('bar').style.width=(done.size/6*100)+'%';document.getElementById('badges').textContent=Array.from({length:6},(_,i)=>done.has(i+1)?'⭐':'🔎').join('　');document.getElementById('status').textContent='Zagadka '+current+' z 6 · ukończono '+done.size+'/6';}
+function speak(){if(!('speechSynthesis'in window)){alert(prompts[current]);return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(prompts[current]);u.lang='pl-PL';u.rate=.82;speechSynthesis.speak(u);}
+function hint(){alert('Podpowiedź: popatrz na obrazki. Pomyśl, który pasuje do sytuacji. Możesz wskazać odpowiedź zamiast mówić.');}
+function bigger(){font=Math.min(font+1,25);document.body.style.fontSize=font+'px';}
+update();
+</script></body></html>

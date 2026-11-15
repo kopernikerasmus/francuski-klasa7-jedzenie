@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misja Rewalidacja: Team Play — relacje i emocje, klasa 5</title>
+<style>
+:root{--ink:#18263b;--navy:#152b4d;--blue:#315fa8;--purple:#6651a3;--bg:#f1f2ff;--mint:#dff5eb;--line:#d6dced;--muted:#52647a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e9eaff,#f7f8ff 48%,#e7f7f1);color:var(--ink);font:18px/1.55 system-ui,Arial,sans-serif}
+header{background:linear-gradient(110deg,#18294b,#57458e);color:white;padding:28px max(5vw,18px)}
+header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.04;margin:8px 0}main{max-width:980px;margin:auto;padding:18px}
+.panel,.stage{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 8px 24px #1b285012}
+h2{color:#2c4f88;margin:0 0 8px}.muted{color:var(--muted);font-size:.94rem}
+.tag{display:inline-block;background:#e6e1ff;color:#493b83;border-radius:99px;padding:4px 11px;font-size:.82rem;font-weight:750;margin:2px 5px 2px 0}
+.scene{text-align:center;font-size:3rem;padding:7px}.prompt{background:#eff3ff;border:2px solid #d3dcfa;border-radius:16px;padding:15px;margin:12px 0}
+.big{font-size:1.2rem;font-weight:750}.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:12px 0}
+.pick{background:white;border:2px solid #c5cfe3;border-radius:15px;padding:13px 11px;font:inherit;color:#1b3450;cursor:pointer;min-height:105px;text-align:left}
+.pick b{display:block;margin-bottom:4px}.pick .emoji{font-size:2rem;display:block}.pick:hover,.pick:focus{border-color:#315fa8;outline:3px solid #d4e3ff}
+button.action{background:#315fa8;color:white;border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:750;cursor:pointer;margin:5px 5px 5px 0}
+button.soft{background:#edf0fb;color:#2c4f88;border:1px solid #cbd4ea}
+.feedback{min-height:34px;font-weight:700;margin-top:8px}.ok{color:#17744b}.retry{color:#9a531c}
+.stage{display:none}.stage.active{display:block}.progress{height:13px;background:#e8edf5;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:#41a779;transition:width .25s}
+.notice{background:#fff7dc;border-left:5px solid #e8bd45;padding:12px 15px;border-radius:10px;margin:12px 0}
+textarea{width:100%;min-height:85px;padding:11px;border:2px solid #c5cfe3;border-radius:11px;font:inherit}
+footer{text-align:center;color:#586b7d;padding:20px;font-size:.9rem}
+@media(max-width:600px){body{font-size:17px}.panel,.stage{padding:15px}.pick{min-height:90px}}
+</style></head>
+<body>
+<header>
+<div><span class="tag">REWALIDACJA</span><span class="tag">SPEKTRUM AUTYZMU · KLASA 5</span><span class="tag">TRYB TEAM PLAY</span></div>
+<h1>🎮 MISJA: TEAM PLAY</h1>
+<p>Gra zespołowa to nie tylko zdobywanie punktów. To także odczytywanie sytuacji, zauważanie emocji, pytanie innych o ich potrzeby i wybieranie reakcji, która pomaga całej drużynie.</p>
+</header>
+<main>
+<section class="panel">
+<h2>🕹️ Ekran gracza</h2>
+<p class="big">Twoim celem jest zbudować drużynę, w której każdy czuje się zauważony i szanowany.</p>
+<p class="muted">Nie musisz zgadywać, co ktoś czuje. Zwracaj uwagę na wskazówki, ale pamiętaj: najlepiej zapytać, jeśli nie masz pewności. Ludzie mogą przeżywać tę samą sytuację na różne sposoby.</p>
+<div id="tokens" style="font-size:1.45rem">🎮　🎮　🎮　🎮　🎮　🎮</div>
+<div class="progress"><span id="bar"></span></div>
+<p id="status" class="muted">Poziom 1 z 6</p>
+<button class="action soft" onclick="readPrompt()">🔊 Odczytaj polecenie</button>
+<button class="action soft" onclick="showHint()">💡 Podpowiedź</button>
+<button class="action soft" onclick="bigger()">A+ Większy tekst</button>
+</section>
+
+<section class="stage active" id="s1">
+<div class="scene">🏆 🎮</div><h2>Poziom 1. Co widać na ekranie?</h2>
+<div class="prompt"><p class="big">Kuba przegrywa rundę. Odkłada telefon, marszczy brwi i mówi: „To nie fair!”. Co możesz zauważyć?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(1,0)"><span class="emoji">😠</span><b>Może być zły lub sfrustrowany.</b>Przegrana mogła być dla niego trudna.</button>
+<button class="pick" onclick="choose(1,1)"><span class="emoji">😴</span><b>Na pewno jest śpiący.</b>To jedyne możliwe wyjaśnienie.</button>
+<button class="pick" onclick="choose(1,1)"><span class="emoji">🤩</span><b>Na pewno jest zachwycony.</b>Nie ma żadnych innych możliwości.</button>
+</div><div id="f1" class="feedback"></div>
+</section>
+
+<section class="stage" id="s2">
+<div class="scene">💬 👀</div><h2>Poziom 2. Nie zgaduj — sprawdź</h2>
+<div class="prompt"><p class="big">Ola siedzi cicho na przerwie i patrzy w okno. Nie wiesz, czy chce rozmawiać. Co będzie najlepszym pierwszym krokiem?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(2,0)"><span class="emoji">💬</span><b>Zapytaj spokojnie:</b>„Chcesz pogadać czy wolisz teraz pobyć sama?”</button>
+<button class="pick" onclick="choose(2,1)"><span class="emoji">📢</span><b>Powiedz głośno:</b>„Wiem, że jesteś smutna!”</button>
+<button class="pick" onclick="choose(2,1)"><span class="emoji">🏃</span><b>Odejdź bez słowa.</b>Nie próbuj sprawdzić, czego potrzebuje.</button>
+</div><div id="f2" class="feedback"></div>
+</section>
+
+<section class="stage" id="s3">
+<div class="scene">🎧 🔊</div><h2>Poziom 3. Drużyna ma różne potrzeby</h2>
+<div class="prompt"><p class="big">Podczas gry Bartek mówi: „Za głośno! Muszę chwilę odpocząć”. Co pomoże mu i drużynie?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(3,0)"><span class="emoji">🤝</span><b>Uszanuj prośbę.</b>Ścisz dźwięk lub zróbcie krótką przerwę.</button>
+<button class="pick" onclick="choose(3,1)"><span class="emoji">🙉</span><b>Powiedz: „Nie przesadzaj”.</b>Każdy musi wytrzymać.</button>
+<button class="pick" onclick="choose(3,1)"><span class="emoji">📣</span><b>Podgłośnij grę.</b>Niech się przyzwyczai.</button>
+</div><div id="f3" class="feedback"></div>
+</section>
+
+<section class="stage" id="s4">
+<div class="scene">💔 ➜ 💚</div><h2>Poziom 4. Ktoś poczuł się pominięty</h2>
+<div class="prompt"><p class="big">Wybieracie osoby do drużyny. Michał zostaje bez pary i mówi: „Nikt mnie nie wybiera”. Jak możesz zareagować?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(4,0)"><span class="emoji">🫶</span><b>Zaproś go i zapytaj.</b>„Chcesz być z nami? Możemy razem wybrać rolę”.</button>
+<button class="pick" onclick="choose(4,1)"><span class="emoji">😂</span><b>Zażartuj z niego.</b>To pewnie go rozweseli.</button>
+<button class="pick" onclick="choose(4,1)"><span class="emoji">🚫</span><b>Powiedz, że to jego problem.</b>Nie reaguj.</button>
+</div><div id="f4" class="feedback"></div>
+</section>
+
+<section class="stage" id="s5">
+<div class="scene">⚡ 🗯️</div><h2>Poziom 5. Konflikt w drużynie</h2>
+<div class="prompt"><p class="big">Kolega przypadkiem usuwa twój zapis gry. Czujesz złość. Co możesz zrobić, żeby rozwiązać problem bez ranienia drugiej osoby?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(5,0)"><span class="emoji">🧘</span><b>Zatrzymaj się i powiedz:</b>„Jestem zły, bo straciłem zapis. Czy pomożesz mi go odzyskać?”</button>
+<button class="pick" onclick="choose(5,1)"><span class="emoji">💥</span><b>Obraź kolegę.</b>Niech poczuje to samo.</button>
+<button class="pick" onclick="choose(5,1)"><span class="emoji">📱</span><b>Rzuć telefonem.</b>To rozwiąże problem.</button>
+</div><div id="f5" class="feedback"></div>
+</section>
+
+<section class="stage" id="s6">
+<div class="scene">🌟 🏅</div><h2>Poziom 6. Mistrz drużyny</h2>
+<div class="prompt"><p class="big">Koleżanka mówi: „Dzisiaj nie chcę grać. Wolę popatrzeć”. Jaka odpowiedź najlepiej pokazuje szacunek?</p></div>
+<div class="options">
+<button class="pick" onclick="choose(6,0)"><span class="emoji">👍</span><b>„Jasne. Możesz popatrzeć albo dołączyć później”.</b></button>
+<button class="pick" onclick="choose(6,1)"><span class="emoji">😤</span><b>„Musisz grać, bo psujesz zabawę”.</b></button>
+<button class="pick" onclick="choose(6,1)"><span class="emoji">🙄</span><b>„To dziwne. Każdy chce grać”.</b></button>
+</div><div id="f6" class="feedback"></div>
+<p id="finish" class="big" style="display:none;color:#17744b">🏆 GRATULACJE! Zdobywasz rangę: MISTRZ DRUŻYNY!</p>
+</section>
+
+<section class="panel">
+<h2>🧠 Bonus: wybierz własną strategię</h2>
+<p>Co możesz powiedzieć, gdy nie wiesz, jak czuje się druga osoba?</p>
+<div class="options">
+<button class="pick" onclick="bonus(true)">„Widzę, że coś się dzieje. Chcesz mi powiedzieć, jak się czujesz?”</button>
+<button class="pick" onclick="bonus(false)">„Wiem lepiej od ciebie, co czujesz”.</button>
+</div><div id="bonusFeedback" class="feedback"></div>
+</section>
+
+<section class="panel">
+<h2>🏅 Raport gracza</h2>
+<p id="report">Ukończ poziomy, aby zdobyć rangę Mistrza Drużyny.</p>
+<button class="action soft" onclick="window.print()">🖨️ Drukuj raport</button>
+</section>
+
+<section class="panel">
+<h2>Notatka dla prowadzącego</h2>
+<p class="muted">Lekcja ćwiczy perspektywę drugiej osoby, ostrożne wnioskowanie o emocjach, pytanie o potrzeby, empatyczne reagowanie, respektowanie odmowy i rozwiązywanie konfliktu. Nie uczymy, że z pojedynczej miny można na pewno odczytać emocję — wskazówki są niejednoznaczne, dlatego warto sprawdzać je pytaniem. Omów z uczniem, że nie musi czuć tego samego co druga osoba, aby potraktować jej emocje poważnie. Dostosuj przykłady do jego zainteresowań i doświadczeń; zaakceptuj różne sformułowania odpowiedzi. Materiał wspiera ćwiczenia, nie zastępuje indywidualnej pracy specjalistycznej.</p>
+</section>
+</main><footer>Misja Rewalidacja · kompetencje społeczne · klasa 5</footer>
+<script>
+let current=1,done=new Set(),font=18;
+const prompts={1:'Kuba przegrywa rundę. Odkłada telefon, marszczy brwi i mówi: To nie fair. Co możesz zauważyć?',2:'Ola siedzi cicho na przerwie i patrzy w okno. Nie wiesz, czy chce rozmawiać. Co będzie najlepszym pierwszym krokiem?',3:'Bartek mówi: Za głośno. Muszę chwilę odpocząć. Co pomoże jemu i drużynie?',4:'Michał zostaje bez pary i mówi: Nikt mnie nie wybiera. Jak możesz zareagować?',5:'Kolega przypadkiem usuwa twój zapis gry. Czujesz złość. Co możesz zrobić, żeby rozwiązać problem?',6:'Koleżanka mówi: Dzisiaj nie chcę grać. Wolę popatrzeć. Jaka odpowiedź pokazuje szacunek?'};
+function choose(n,bad){let e=document.getElementById('f'+n);if(bad===0){e.textContent='Dobra decyzja! Zauważasz sytuację i szanujesz drugą osobę. ⭐';e.className='feedback ok';done.add(n);update();let old=document.getElementById('next'+n);if(!old){let b=document.createElement('button');b.id='next'+n;b.className='action';b.textContent=n===6?'Zobacz raport 🏅':'Następny poziom ➜';b.onclick=next;b.style.marginTop='10px';e.after(b);}if(n===6){document.getElementById('finish').style.display='block';document.getElementById('report').textContent='Ukończono '+done.size+' z 6 poziomów. Ranga: Mistrz Drużyny!';}}else{e.textContent='Zatrzymaj się i pomyśl: jak ta reakcja może wpłynąć na drugą osobę? Spróbuj ponownie.';e.className='feedback retry';}}
+function next(){if(current<6){document.getElementById('s'+current).classList.remove('active');current++;document.getElementById('s'+current).classList.add('active');update();}else document.getElementById('report').scrollIntoView({behavior:'smooth'});}
+function update(){document.getElementById('bar').style.width=(done.size/6*100)+'%';document.getElementById('tokens').textContent=Array.from({length:6},(_,i)=>done.has(i+1)?'⭐':'🎮').join('　');document.getElementById('status').textContent='Poziom '+current+' z 6 · ukończono '+done.size+'/6';}
+function readPrompt(){if(!('speechSynthesis'in window)){alert(prompts[current]);return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(prompts[current]);u.lang='pl-PL';u.rate=.88;speechSynthesis.speak(u);}
+function showHint(){alert('Podpowiedź: pomyśl, co druga osoba może przeżywać i czego może potrzebować. Jeśli nie wiesz — zapytaj spokojnie. Szanuj odpowiedź i granice drugiej osoby.');}
+function bigger(){font=Math.min(font+1,25);document.body.style.fontSize=font+'px';}
+function bonus(ok){let e=document.getElementById('bonusFeedback');e.textContent=ok?'Świetnie! Pytasz zamiast zakładać, że wiesz.':'Spróbuj ponownie. Druga osoba najlepiej wie, co czuje.';e.className='feedback '+(ok?'ok':'retry');}
+update();
+</script></body></html>

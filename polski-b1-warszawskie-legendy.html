@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warszawskie legendy – język polski B1</title>
+<style>
+:root{--navy:#173b5b;--blue:#24658b;--gold:#d6a84f;--cream:#fffaf0;--ink:#243344;--muted:#667789;--line:#d9e2e9;--pale:#eef5f8;--green:#3c806a}
+*{box-sizing:border-box}body{margin:0;background:#f2f5f7;color:var(--ink);font:16px/1.6 "Segoe UI",Arial,sans-serif}
+header{background:linear-gradient(120deg,#102e49,#245e7c);color:white;padding:30px 18px 24px;text-align:center;position:relative;overflow:hidden}
+header:before,header:after{content:"";position:absolute;border:1px solid #ffffff30;border-radius:50%;width:260px;height:260px;top:-150px}
+header:before{left:-55px}header:after{right:-55px}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:.76rem;color:#f3d38e;font-weight:700}
+h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:8px 0}
+header p{margin:8px auto 0;max-width:760px;color:#e4edf3}
+nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 3px 14px #102e4918;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:9px}
+nav button{border:0;background:transparent;color:var(--navy);padding:9px 13px;border-radius:20px;font-weight:700;cursor:pointer}
+nav button:hover,nav button.active{background:var(--navy);color:#fff}
+main{max-width:1120px;margin:25px auto;padding:0 16px 55px}
+section{scroll-margin-top:80px;margin-bottom:25px}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 5px 18px #183a5010}
+h2{font:700 1.7rem Georgia,serif;color:var(--navy);margin:0 0 12px}
+h3{color:var(--navy);margin:0 0 9px}
+.lead{font-size:1.05rem;color:#42566a}
+.intro-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:stretch}
+.city-art{background:linear-gradient(#eaf5fb,#fff8e8);border-radius:14px;min-height:220px;display:grid;place-items:center;padding:8px}
+.fact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.fact{background:var(--pale);padding:12px;border-radius:12px}
+.fact b{display:block;color:var(--navy)}
+.legend-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.legend-card{border:1px solid var(--line);background:#fff;border-radius:15px;padding:10px;text-align:left;cursor:pointer;transition:.2s;color:var(--ink)}
+.legend-card:hover{transform:translateY(-3px);box-shadow:0 7px 18px #173b5b20;border-color:var(--gold)}
+.legend-card .thumb{height:100px;display:grid;place-items:center;background:#f7fafb;border-radius:10px;margin-bottom:8px}
+.legend-card strong{display:block;color:var(--navy)}
+.legend-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
+.story-head{display:flex;gap:16px;align-items:center;margin-bottom:12px}
+.story-head .art{width:150px;min-width:130px;height:135px;background:#f7fafb;border-radius:14px;display:grid;place-items:center}
+.story-text{background:var(--cream);border-left:4px solid var(--gold);padding:17px 19px;border-radius:5px 13px 13px 5px}
+.story-text p{margin:0 0 10px}.story-text p:last-child{margin:0}
+.meta{font-size:.84rem;color:var(--muted);margin-top:7px}
+.word-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}
+.flip{height:104px;perspective:700px;cursor:pointer}
+.flip-inner{height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid #cbdbe5;border-radius:12px;display:grid;place-items:center;text-align:center;padding:8px}
+.front{background:#f1f7fa;color:var(--navy);font-weight:700}.back{background:#fff5df;transform:rotateY(180deg);font-size:.9rem}
+.face small{display:block;font-weight:400;color:var(--muted)}
+.task{border:1px solid var(--line);border-radius:13px;padding:14px;margin:12px 0;background:#fff}
+.task-title{font-weight:800;color:var(--navy);margin-bottom:8px}
+.options{display:grid;gap:7px}
+.option{display:flex;gap:8px;align-items:flex-start;background:#f7fafb;border:1px solid #e3ebf0;border-radius:9px;padding:8px;cursor:pointer}
+.option:has(input:checked){border-color:var(--blue);background:#edf6fb}
+input[type=text],textarea{width:100%;border:1px solid #cbd8e0;border-radius:9px;padding:10px;font:inherit}
+textarea{min-height:75px;resize:vertical}
+.action{border:0;background:var(--navy);color:white;padding:9px 15px;border-radius:20px;font-weight:700;cursor:pointer;margin:7px 5px 0 0}
+.action.secondary{background:#eaf1f5;color:var(--navy)}
+.feedback{font-weight:700;margin-top:8px;min-height:24px}.correct{color:var(--green)}.wrong{color:#a34b3f}
+details{background:#f7fafb;border-radius:10px;padding:9px 12px;margin-top:9px}summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.pill{display:inline-block;border-radius:20px;background:#fff0cc;color:#76551b;padding:3px 9px;font-size:.78rem;font-weight:700}
+.progress-wrap{height:8px;background:#e2e9ee;border-radius:20px;overflow:hidden;margin:8px 0 16px}.progress{height:100%;width:0;background:linear-gradient(90deg,#2b718d,#d6a84f);transition:width .3s}
+.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
+svg{max-width:100%;height:auto}
+@media(max-width:780px){.intro-grid,.legend-layout{grid-template-columns:1fr}.legend-nav{grid-template-columns:repeat(2,1fr)}.word-cards{grid-template-columns:repeat(2,1fr)}.story-head{align-items:flex-start}.story-head .art{width:110px;height:110px;min-width:110px}.final-grid{grid-template-columns:1fr}}
+@media(max-width:420px){nav{justify-content:flex-start;overflow:auto;flex-wrap:nowrap}nav button{white-space:nowrap}.panel{padding:15px}.word-cards{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="kicker">Język polski jako obcy • poziom B1</div>
+ <h1>Warszawskie legendy</h1>
+ <p>Cztery niezwykłe opowieści o miłości, odwadze, chciwości i tajemnicach dawnej Warszawy</p>
+</header>
+<nav>
+ <button class="active" onclick="go('wstep',this)">Warszawa</button>
+ <button onclick="go('wybor',this)">Cztery legendy</button>
+ <button onclick="go('wars',this)">Wars i Sawa</button>
+ <button onclick="go('syrenka',this)">Syrenka</button>
+ <button onclick="go('kaczka',this)">Złota kaczka</button>
+ <button onclick="go('bazyliszek',this)">Bazyliszek</button>
+ <button onclick="go('final',this)">Quiz końcowy</button>
+</nav>
+<main>
+<section id="wstep" class="panel">
+ <h2>Warszawa – poznaj stolicę Polski</h2>
+ <div class="intro-grid">
+  <div>
+   <p class="lead">Warszawa leży w środkowo-wschodniej Polsce, nad Wisłą. Jest największym miastem kraju i od 1596 roku pełni funkcję jego stolicy.</p>
+   <p>Jej początki sięgają średniowiecza. Na terenie dzisiejszego miasta istniały niewielkie osady, a ważnym ośrodkiem stał się gród książąt mazowieckich. Z czasem Warszawa rozwijała się dzięki położeniu nad rzeką i dogodnym szlakom handlowym. W 1596 roku król Zygmunt III Waza przeniósł tu dwór królewski z Krakowa. Warszawa stała się ważnym centrum politycznym i administracyjnym Rzeczypospolitej.</p>
+   <p>Miasto zostało bardzo zniszczone podczas II wojny światowej, szczególnie w 1944 roku. Po wojnie jego mieszkańcy odbudowali wiele zabytków, w tym Stare Miasto. Dziś Warszawa jest siedzibą najważniejszych władz państwowych: prezydenta, parlamentu i rządu.</p>
+  </div>
+  <div class="city-art">
+   <svg viewBox="0 0 420 230" role="img" aria-label="Ilustracja panoramy Warszawy nad Wisłą">
+    <rect width="420" height="230" rx="14" fill="#eaf4fa"/>
+    <circle cx="340" cy="42" r="22" fill="#f4d68d"/>
+    <path d="M0 165 Q80 145 150 164 T300 160 T420 164 V230 H0Z" fill="#a8c9d4"/>
+    <path d="M0 184 Q80 172 160 188 T320 184 T420 188" fill="none" stroke="#fff" stroke-width="4"/>
+    <g fill="#f4e5c6" stroke="#36536a" stroke-width="2">
+     <path d="M25 154V92H76V154Z M20 92L50 68L81 92Z"/><path d="M88 154V75H138V154Z M82 75L113 48L144 75Z"/>
+     <path d="M151 154V104H205V154Z M146 104L178 83L210 104Z"/>
+     <path d="M235 154V62H273V154Z M229 62L254 35L279 62Z"/>
+     <path d="M290 154V98H335V154Z M285 98L312 78L340 98Z"/>
+    </g>
+    <g fill="#41677d"><path d="M44 110h12v17H44zM105 91h12v18h-12zM169 119h12v15h-12zM247 83h12v20h-12zM305 111h12v15h-12z"/></g>
+    <path d="M0 165L420 165" stroke="#36536a" stroke-width="3"/>
+    <path d="M0 200Q110 184 210 202T420 198" fill="none" stroke="#fff" stroke-width="3"/>
+    <text x="210" y="220" text-anchor="middle" font-size="12" fill="#173b5b">Wisła • Stare Miasto • panorama stolicy</text>
+   </svg>
+  </div>
+ </div>
+ <div class="fact-grid">
+  <div class="fact"><b>Położenie</b>Środkowo-wschodnia Polska, nad Wisłą.</div>
+  <div class="fact"><b>Stolica</b>Od 1596 roku – po przeniesieniu dworu królewskiego.</div>
+  <div class="fact"><b>Symbole</b>Syrenka w herbie Warszawy i flaga miasta w żółto-czerwonych barwach.</div>
+  <div class="fact"><b>Ważne miejsca</b>Stare Miasto, Zamek Królewski, Pałac Kultury i Nauki, Łazienki.</div>
+ </div>
+ <details><summary>Sprawdź, czy pamiętasz</summary><ol><li>Nad jaką rzeką leży Warszawa?</li><li>W którym roku dwór królewski przeniesiono do Warszawy?</li><li>Jakie stworzenie znajduje się w herbie miasta?</li></ol></details>
+</section>
+
+<section id="wybor" class="panel">
+ <h2>Poznaj cztery warszawskie legendy</h2>
+ <p>Wybierz opowieść. Przeczytaj tekst, poznaj słownictwo i wykonaj zadania.</p>
+ <div class="legend-nav">
+  <button class="legend-card" onclick="go('wars')"><div class="thumb"><svg viewBox="0 0 150 90" width="140"><path d="M8 72Q75 62 142 72" fill="none" stroke="#4385a0" stroke-width="4"/><circle cx="47" cy="25" r="13" fill="#e8c69a"/><path d="M30 62Q31 40 47 39Q65 40 66 62" fill="#52758b"/><circle cx="98" cy="28" r="13" fill="#e8c69a"/><path d="M79 62Q81 42 98 42Q116 42 118 62" fill="#bd8b58"/><path d="M85 45Q100 4 120 22" fill="none" stroke="#bd8b58" stroke-width="4"/></svg></div><strong>1. Wars i Sawa</strong><small>Miłość i początki miasta</small></button>
+  <button class="legend-card" onclick="go('syrenka')"><div class="thumb"><svg viewBox="0 0 150 90" width="140"><path d="M75 42Q45 58 28 78Q67 88 85 63Q106 84 130 70Q106 47 88 45" fill="#6ca4b6" stroke="#315d75" stroke-width="2"/><circle cx="75" cy="22" r="12" fill="#e8c69a"/><path d="M64 20Q67 0 87 12L85 29" fill="#b98255"/><path d="M70 37L54 54M82 37L99 50" stroke="#e8c69a" stroke-width="7" stroke-linecap="round"/><path d="M52 54L45 40M99 50L108 35" stroke="#b98255" stroke-width="5"/></svg></div><strong>2. Syrenka warszawska</strong><small>Odwaga i obrona miasta</small></button>
+  <button class="legend-card" onclick="go('kaczka')"><div class="thumb"><svg viewBox="0 0 150 90" width="140"><ellipse cx="74" cy="51" rx="37" ry="20" fill="#e7c35f" stroke="#8b6a22" stroke-width="2"/><circle cx="105" cy="30" r="13" fill="#e7c35f" stroke="#8b6a22" stroke-width="2"/><path d="M116 30L137 36L116 41Z" fill="#d98c38"/><path d="M48 50Q75 22 91 51" fill="#f8e6a0" stroke="#8b6a22" stroke-width="2"/><circle cx="108" cy="27" r="2" fill="#222"/><g fill="#e7c35f" stroke="#8b6a22"><circle cx="38" cy="75" r="6"/><circle cx="56" cy="79" r="5"/><circle cx="92" cy="78" r="6"/></g></svg></div><strong>3. Złota kaczka</strong><small>Skarb i prawdziwe szczęście</small></button>
+  <button class="legend-card" onclick="go('bazyliszek')"><div class="thumb"><svg viewBox="0 0 150 90" width="140"><path d="M22 68Q10 48 35 35L52 22L70 35L93 26L112 45L125 68L103 76L77 67L52 79Z" fill="#78918b" stroke="#304d49" stroke-width="2"/><path d="M38 35L28 12L55 28M88 31L109 9L108 39" fill="#78918b" stroke="#304d49" stroke-width="2"/><circle cx="55" cy="43" r="5" fill="#f4d36f"/><circle cx="96" cy="42" r="5" fill="#f4d36f"/><path d="M52 61Q77 72 104 59" fill="none" stroke="#304d49" stroke-width="3"/></svg></div><strong>4. Bazyliszek</strong><small>Potwór i tajemnica spojrzenia</small></button>
+ </div>
+</section>
+
+<div id="legendy"></div>
+<section id="wars" class="panel legend-section">
+ <div class="story-head"><div class="art"><svg viewBox="0 0 150 130" width="140"><path d="M5 108Q70 98 145 108" stroke="#5b9bb0" stroke-width="5" fill="none"/><path d="M15 94Q42 75 64 94L75 107H15Z" fill="#8b6b4b"/><circle cx="44" cy="32" r="14" fill="#edc99e"/><path d="M29 30Q30 7 55 18L56 37" fill="#59483b"/><path d="M25 83Q27 49 45 48Q67 49 68 83" fill="#4b728a"/><circle cx="102" cy="34" r="13" fill="#edc99e"/><path d="M88 33Q92 9 113 22L116 39" fill="#a77b50"/><path d="M81 91Q82 51 102 50Q124 52 128 91" fill="#c58f60"/><path d="M89 55Q108 73 125 53" stroke="#a77b50" stroke-width="5" fill="none"/></svg></div><div><span class="pill">Legenda 1</span><h2>Wars i Sawa</h2><p class="lead">Jak miłość rybaka i syreny dała początek nazwie Warszawa?</p></div></div>
+ <div class="legend-layout">
+  <div>
+   <h3>Legenda – przeczytaj tekst</h3>
+   <div class="story-text">
+    <p>Dawno temu nad Wisłą mieszkał ubogi, ale pracowity rybak o imieniu Wars. Każdego dnia wypływał łodzią na rzekę, aby łowić ryby i utrzymać się z pracy. Pewnego wieczoru, gdy wrócił na brzeg, usłyszał niezwykły śpiew. Zainteresowany dźwiękiem poszedł wzdłuż rzeki i zobaczył piękną syrenę. Miała długie włosy, kobiecą postać i rybi ogon. Nazywała się Sawa.</p>
+    <p>Wars i Sawa szybko się zaprzyjaźnili, a z czasem zakochali się w sobie. Syrena postanowiła pozostać z rybakiem na lądzie. Razem zbudowali dom niedaleko Wisły. Ich gościnność i życzliwość przyciągały kolejnych mieszkańców: rybaków, rzemieślników i kupców. Wokół domu powstała osada, która stopniowo się rozrastała.</p>
+    <p>Według legendy od imion Warsa i Sawy pochodzi nazwa Warszawa. Opowieść nie jest historycznym dokumentem, lecz symboliczną próbą wyjaśnienia nazwy miasta. Przypomina o znaczeniu miłości, współpracy i otwartości na innych. Dziś Wars i Sawa są bohaterami jednej z najbardziej znanych opowieści o początkach stolicy.</p>
+   </div>
+   <h3 style="margin-top:15px">Fiszki – kliknij, aby odwrócić</h3>
+   <div class="word-cards">
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">rybak<small>Kim jest?</small></div><div class="face back">Osoba, która łowi ryby.</div></div></div>
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">osada<small>Co to jest?</small></div><div class="face back">Mała miejscowość, w której mieszkają ludzie.</div></div></div>
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">brzeg<small>Gdzie?</small></div><div class="face back">Pas lądu przy rzece, jeziorze lub morzu.</div></div></div>
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">rozrastać się<small>Co robić?</small></div><div class="face back">Stawać się większym, rozwijać się.</div></div></div>
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">gościnność<small>Jaka cecha?</small></div><div class="face back">Życzliwe przyjmowanie i traktowanie gości.</div></div></div>
+    <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">pochodzić od<small>Co znaczy?</small></div><div class="face back">Mieć źródło w czymś; wywodzić się z czegoś.</div></div></div>
+   </div>
+  </div>
+  <div>
+   <h3>Zadania do legendy</h3>
+   <div class="task" data-quiz="wars1"><div class="task-title">1. Wybierz poprawną odpowiedź</div>
+    <p>Kim był Wars?</p><div class="options"><label class="option"><input type="radio" name="wars1" value="a"> Księciem</label><label class="option"><input type="radio" name="wars1" value="b"> Rybakiem</label><label class="option"><input type="radio" name="wars1" value="c"> Kupcem</label></div>
+    <p>Kim była Sawa?</p><div class="options"><label class="option"><input type="radio" name="wars2" value="a"> Syreną</label><label class="option"><input type="radio" name="wars2" value="b"> Królową</label><label class="option"><input type="radio" name="wars2" value="c"> Rybaczką</label></div>
+    <button class="action" onclick="checkRadios(['wars1:b','wars2:a'],'fb-wars1')">Sprawdź</button><div id="fb-wars1" class="feedback"></div>
+   </div>
+   <div class="task"><div class="task-title">2. Prawda czy fałsz?</div>
+    <label class="option"><input type="checkbox" id="wf1"> Wars mieszkał nad Wisłą.</label><label class="option"><input type="checkbox" id="wf2"> Sawa była córką króla.</label><label class="option"><input type="checkbox" id="wf3"> Wokół domu powstała osada.</label>
+    <button class="action" onclick="truth('fb-wars2',[['wf1',true],['wf2',false],['wf3',true]])">Sprawdź</button><div id="fb-wars2" class="feedback"></div>
+   </div>
+   <div class="task"><div class="task-title">3. Uzupełnij zdania</div>
+    <p>Wars był <input type="text" id="wfill1" placeholder="zawód">, który mieszkał nad <input type="text" id="wfill2" placeholder="rzeka">. Z czasem wokół ich domu powstała <input type="text" id="wfill3" placeholder="co?">.</p>
+    <button class="action" onclick="fill(['wfill1:rybakiem:rybak','wfill2:wisłą','wfill3:osada'],'fb-wars3')">Sprawdź</button><div id="fb-wars3" class="feedback"></div>
+   </div>
+   <div class="task"><div class="task-title">4. Pytanie otwarte</div><p>Jakie wartości, Twoim zdaniem, przekazuje legenda o Warsie i Sawie?</p><textarea placeholder="Napisz 2–3 zdania..."></textarea></div>
+  </div>
+ </div>
+</section>
+
+<section id="syrenka" class="panel legend-section">
+ <div class="story-head"><div class="art"><svg viewBox="0 0 150 130" width="140"><path d="M18 104Q48 80 73 101Q105 77 137 102" fill="none" stroke="#5b9bb0" stroke-width="7"/><circle cx="75" cy="25" r="14" fill="#edc99e"/><path d="M61 26Q59 2 87 13L88 37Q78 47 61 26" fill="#9a6947"/><path d="M66 41L54 69L76 83L94 62L84 41" fill="#e7c89b" stroke="#a47a53"/><path d="M76 82Q47 99 28 115Q69 119 85 96Q108 117 131 105Q106 81 86 81" fill="#6b9ead" stroke="#315d75" stroke-width="2"/><path d="M58 48L42 67M88 47L107 64" stroke="#edc99e" stroke-width="7" stroke-linecap="round"/><path d="M42 67L34 49M107 64L117 44" stroke="#a47a53" stroke-width="5"/></svg></div><div><span class="pill">Legenda 2</span><h2>Syrenka warszawska</h2><p class="lead">Dlaczego syrenka trzyma miecz i tarczę?</p></div></div>
+ <div class="legend-layout"><div>
+  <h3>Legenda – przeczytaj tekst</h3><div class="story-text">
+   <p>Według jednej z warszawskich legend dawno temu Wisłą płynęła syrena. Zmęczona podróżą zatrzymała się przy brzegu, w miejscu, gdzie dziś znajduje się Warszawa. Spodobała jej się okolica: szeroka rzeka, zielone brzegi i spokojna przyroda. Postanowiła więc odpocząć w tym miejscu na dłużej.</p>
+   <p>Wkrótce odkryli ją miejscowi rybacy. Początkowo byli zdziwieni, ponieważ zauważyli, że ktoś uwalnia ryby z ich sieci. Kiedy jednak usłyszeli piękny śpiew syreny, przestali się na nią gniewać. Zrozumieli, że nie chce nikomu zrobić krzywdy. Z czasem mieszkańcy polubili niezwykłą przybyszkę.</p>
+   <p>Pewnego dnia bogaty kupiec postanowił schwytać syrenę i pokazywać ją ludziom za pieniądze. Uwięził ją, ale jej płacz usłyszał młody mieszkaniec, który pomógł jej odzyskać wolność. Syrena obiecała, że w razie niebezpieczeństwa będzie bronić ludzi i ich miasta. Dlatego przedstawia się ją z mieczem i tarczą. Dziś Syrenka znajduje się w herbie Warszawy i jest jednym z najważniejszych symboli stolicy. Przypomina o odwadze, wolności i wdzięczności.</p>
+  </div>
+  <h3 style="margin-top:15px">Fiszki – kliknij, aby odwrócić</h3><div class="word-cards">
+   <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">uwolnić<small>Co zrobić?</small></div><div class="face back">Sprawić, że ktoś przestaje być więziony.</div></div></div>
+   <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">schwytać<small>Co zrobić?</small></div><div class="face back">Złapać kogoś lub coś.</div></div></div>
+   <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">wdzięczność<small>Jakie uczucie?</small></div><div class="face back">Uczucie, gdy doceniamy czyjąś pomoc.</div></div></div>
+   <div class="flip" onclick="flip(this)"><div class="face front">tarcza<small>Co to jest?</small></div><div class="face back">Przedmiot służący do ochrony w walce.</div></div>
+   <div class="flip" onclick="flip(this)"><div class="face front">przybysz<small>Kto to?</small></div><div class="face back">Osoba, która przybyła z innego miejsca.</div></div>
+   <div class="flip" onclick="flip(this)"><div class="face front">bronić<small>Co robić?</small></div><div class="face back">Chronić kogoś lub coś przed atakiem.</div></div>
+  </div></div>
+  <div><h3>Zadania do legendy</h3>
+   <div class="task"><div class="task-title">1. Wybierz poprawną odpowiedź</div><p>Dlaczego rybacy początkowo byli zdziwieni?</p><div class="options"><label class="option"><input type="radio" name="s1" value="a"> Syrena uwalniała ryby z sieci.</label><label class="option"><input type="radio" name="s1" value="b"> Syrena zabrała ich łódź.</label><label class="option"><input type="radio" name="s1" value="c"> Syrena zniszczyła ich domy.</label></div><p>Co obiecała syrena?</p><div class="options"><label class="option"><input type="radio" name="s2" value="a"> Że zostanie królową.</label><label class="option"><input type="radio" name="s2" value="b"> Że będzie bronić miasta.</label><label class="option"><input type="radio" name="s2" value="c"> Że opuści Wisłę.</label></div><button class="action" onclick="checkRadios(['s1:a','s2:b'],'fb-s1')">Sprawdź</button><div id="fb-s1" class="feedback"></div></div>
+   <div class="task"><div class="task-title">2. Prawda czy fałsz?</div><label class="option"><input type="checkbox" id="sT1"> Syrena zatrzymała się nad Wisłą.</label><label class="option"><input type="checkbox" id="sT2"> Kupiec chciał ją uwolnić.</label><label class="option"><input type="checkbox" id="sT3"> Syrena jest symbolem Warszawy.</label><button class="action" onclick="truth('fb-s2',[['sT1',true],['sT2',false],['sT3',true]])">Sprawdź</button><div id="fb-s2" class="feedback"></div></div>
+   <div class="task"><div class="task-title">3. Uzupełnij zdanie</div><p>Syrena obiecała, że będzie <input id="sfill" type="text" placeholder="czasownik"> mieszkańców i miasta.</p><button class="action" onclick="fill(['sfill:bronić'],'fb-s3')">Sprawdź</button><div id="fb-s3" class="feedback"></div></div>
+   <div class="task"><div class="task-title">4. Pomyśl i odpowiedz</div><p>Jakie znaczenie mają miecz i tarcza w herbie Warszawy?</p><textarea placeholder="Napisz pełnymi zdaniami..."></textarea></div>
+  </div>
+ </div>
+</section>
+
+<section id="kaczka" class="panel legend-section">
+ <div class="story-head"><div class="art"><svg viewBox="0 0 150 130" width="140"><ellipse cx="70" cy="68" rx="40" ry="24" fill="#e6bd50" stroke="#987327" stroke-width="2"/><circle cx="105" cy="42" r="16" fill="#e6bd50" stroke="#987327" stroke-width="2"/><path d="M118 42L143 49L118 55Z" fill="#d88b3e"/><path d="M42 64Q68 32 92 63Q72 84 42 64" fill="#fff0b6" stroke="#987327" stroke-width="2"/><circle cx="109" cy="37" r="2.5" fill="#222"/><path d="M53 88L49 105M83 88L87 105" stroke="#987327" stroke-width="4"/><path d="M44 106h15M81 106h15" stroke="#987327" stroke-width="3"/><g fill="#e8c75f" stroke="#987327"><circle cx="28" cy="105" r="6"/><circle cx="112" cy="112" r="6"/><circle cx="127" cy="98" r="5"/></g></svg></div><div><span class="pill">Legenda 3</span><h2>Złota kaczka</h2><p class="lead">Czy bogactwo może dać człowiekowi szczęście?</p></div></div>
+ <div class="legend-layout"><div><h3>Legenda – przeczytaj tekst</h3><div class="story-text">
+  <p>W podziemiach starego zamku Ostrogskich w Warszawie miała mieszkać zaczarowana złota kaczka. Według opowieści była to księżniczka, którą zły czar zamienił w ptaka. Kaczka pilnowała skarbu i pokazywała się tylko tym, którzy odważyli się zejść do tajemniczych lochów.</p>
+  <p>Pewnego dnia ubogi szewczyk imieniem Lutek usłyszał o niezwykłym skarbie. Postanowił odnaleźć kaczkę, ponieważ marzył o życiu bez biedy. W ciemnych podziemiach spotkał złotą kaczkę, a ona obiecała mu wielkie bogactwo pod jednym warunkiem: musiał wydać otrzymane pieniądze w ciągu jednego dnia, ale nie wolno mu było podzielić się nimi z nikim.</p>
+  <p>Lutek dostał kosztowne ubranie i sakiewkę pełną złotych monet. Zaczął kupować jedzenie, piękne przedmioty i rozrywki. Kiedy jednak zobaczył biednego człowieka proszącego o pomoc, nie potrafił przejść obok niego obojętnie. Podzielił się z nim pieniędzmi. W tej samej chwili czar prysł, a skarb zniknął. Lutek znów stał się biedny, ale zrozumiał, że ważniejsze od bogactwa są dobroć i uczciwość. Legenda przypomina, że prawdziwe szczęście nie polega na posiadaniu pieniędzy, lecz na relacjach z ludźmi i zdolności pomagania.</p>
+ </div><h3 style="margin-top:15px">Fiszki – kliknij, aby odwrócić</h3><div class="word-cards">
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">podziemia<small>Gdzie?</small></div><div class="face back">Pomieszczenia znajdujące się pod ziemią.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">skarb<small>Co to jest?</small></div><div class="face back">Cenne przedmioty lub bogactwo.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="face front">sakiewka<small>Co to jest?</small></div><div class="face back">Mały woreczek na pieniądze.</div></div>
+  <div class="flip" onclick="flip(this)"><div class="face front">czar prysł<small>Co się stało?</small></div><div class="face back">Magia przestała działać; zaklęcie zniknęło.</div></div>
+  <div class="flip" onclick="flip(this)"><div class="face front">podzielić się<small>Co zrobić?</small></div><div class="face back">Dać komuś część tego, co się ma.</div></div>
+  <div class="flip" onclick="flip(this)"><div class="face front">uczciwość<small>Jaka cecha?</small></div><div class="face back">Postępowanie zgodne z prawdą i zasadami.</div></div>
+ </div></div>
+ <div><h3>Zadania do legendy</h3>
+  <div class="task"><div class="task-title">1. Wybierz poprawną odpowiedź</div><p>Kim był Lutek?</p><div class="options"><label class="option"><input type="radio" name="k1" value="a"> Szewczykiem</label><label class="option"><input type="radio" name="k1" value="b"> Księciem</label><label class="option"><input type="radio" name="k1" value="c"> Kupcem</label></div><p>Jaki był warunek kaczki?</p><div class="options"><label class="option"><input type="radio" name="k2" value="a"> Nie wolno mu było wydawać pieniędzy.</label><label class="option"><input type="radio" name="k2" value="b"> Musiał wydać pieniądze w jeden dzień i nikomu ich nie dawać.</label><label class="option"><input type="radio" name="k2" value="c"> Musiał oddać skarb królowi.</label></div><button class="action" onclick="checkRadios(['k1:a','k2:b'],'fb-k1')">Sprawdź</button><div id="fb-k1" class="feedback"></div></div>
+  <div class="task"><div class="task-title">2. Prawda czy fałsz?</div><label class="option"><input type="checkbox" id="kT1"> Złota kaczka mieszkała w podziemiach zamku.</label><label class="option"><input type="checkbox" id="kT2"> Lutek nie pomógł biednemu człowiekowi.</label><label class="option"><input type="checkbox" id="kT3"> Po podzieleniu się pieniędzmi czar prysł.</label><button class="action" onclick="truth('fb-k2',[['kT1',true],['kT2',false],['kT3',true]])">Sprawdź</button><div id="fb-k2" class="feedback"></div></div>
+  <div class="task"><div class="task-title">3. Uzupełnij</div><p>Lutek był ubogim <input id="kfill1" type="text" placeholder="zawód">. Kiedy podzielił się pieniędzmi, <input id="kfill2" type="text" placeholder="co się stało?">.</p><button class="action" onclick="fill(['kfill1:szewczykiem:szewczyk','kfill2:czar prysł'],'fb-k3')">Sprawdź</button><div id="fb-k3" class="feedback"></div></div>
+  <div class="task"><div class="task-title">4. Pytanie do dyskusji</div><p>Czy Lutek postąpił słusznie, łamiąc warunek kaczki? Uzasadnij swoją opinię.</p><textarea placeholder="Napisz 3–4 zdania..."></textarea></div>
+ </div>
+ </div>
+</section>
+
+<section id="bazyliszek" class="panel legend-section">
+ <div class="story-head"><div class="art"><svg viewBox="0 0 150 130" width="140"><path d="M18 95Q10 73 31 58L47 38L66 52L89 39L112 57L132 92L107 107L77 96L48 111Z" fill="#80958c" stroke="#36564c" stroke-width="2"/><path d="M40 57L26 22L61 46M91 46L119 17L115 61" fill="#80958c" stroke="#36564c" stroke-width="2"/><path d="M40 81Q72 101 109 79" fill="none" stroke="#36564c" stroke-width="4"/><circle cx="54" cy="62" r="6" fill="#f4d46d"/><circle cx="98" cy="61" r="6" fill="#f4d46d"/><circle cx="54" cy="62" r="2" fill="#222"/><circle cx="98" cy="61" r="2" fill="#222"/><path d="M71 72L82 78L92 71" fill="none" stroke="#36564c" stroke-width="3"/></svg></div><div><span class="pill">Legenda 4</span><h2>Bazyliszek</h2><p class="lead">Co kryje się w piwnicach warszawskiej Starówki?</p></div></div>
+ <div class="legend-layout"><div><h3>Legenda – przeczytaj tekst</h3><div class="story-text">
+  <p>W dawnych czasach mieszkańcy Warszawy opowiadali o strasznym potworze, który mieszkał w podziemiach jednej z kamienic na Starym Mieście. Nazywano go bazyliszkiem. Miał ciało podobne do koguta, ogon węża, skrzydła nietoperza i wielkie, groźne oczy. Według legendy każdy, kto spojrzał mu prosto w oczy, natychmiast zamieniał się w kamień.</p>
+  <p>Wielu śmiałków próbowało pokonać potwora, ale nikt nie wracał z podziemi. Pewnego dnia zaginęło kilku chłopców, którzy weszli do piwnic, aby sprawdzić, czy opowieści o bazyliszku są prawdziwe. Ich bliscy byli zrozpaczeni. Nikt nie miał odwagi zejść na dół i ich uratować.</p>
+  <p>W końcu pojawił się odważny młody człowiek. Zamiast patrzeć potworowi w oczy, zabrał ze sobą wypolerowaną tarczę. Kiedy bazyliszek zobaczył własne odbicie w lśniącej powierzchni, jego zabójcze spojrzenie zadziałało na niego samego. Potwór skamieniał, a chłopcy zostali uratowani. Od tej pory mieszkańcy mogli znów spokojnie poruszać się po okolicy. Legenda uczy, że odwaga połączona z pomysłowością pomaga pokonywać trudności. Nie zawsze siła jest najlepszym rozwiązaniem – czasem ważniejsze są spryt i rozsądek.</p>
+ </div><h3 style="margin-top:15px">Fiszki – kliknij, aby odwrócić</h3><div class="word-cards">
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">podziemia<small>Gdzie?</small></div><div class="face back">Pomieszczenia znajdujące się pod budynkiem.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">śmiałek<small>Kto to?</small></div><div class="face back">Osoba odważna, gotowa podjąć ryzyko.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="face front">odbicie<small>Co widzisz?</small></div><div class="face back">Obraz osoby lub rzeczy w lustrze albo wodzie.</div></div>
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">wypolerowany<small>Jaki?</small></div><div class="face back">Wygładzony i błyszczący po czyszczeniu.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">skamienieć<small>Co się stało?</small></div><div class="face back">Zamienić się w kamień.</div></div></div>
+  <div class="flip" onclick="flip(this)"><div class="flip-inner"><div class="face front">pomysłowość<small>Jaka cecha?</small></div><div class="face back">Umiejętność znajdowania nowych, sprytnych rozwiązań.</div></div></div>
+ </div></div>
+ <div><h3>Zadania do legendy</h3>
+  <div class="task"><div class="task-title">1. Wybierz poprawną odpowiedź</div><p>Co działo się z osobą, która spojrzała bazyliszkowi w oczy?</p><div class="options"><label class="option"><input type="radio" name="b1" value="a"> Zasypiała.</label><label class="option"><input type="radio" name="b1" value="b"> Zamieniała się w kamień.</label><label class="option"><input type="radio" name="b1" value="c"> Znikała.</label></div><p>Jak pokonano bazyliszka?</p><div class="options"><label class="option"><input type="radio" name="b2" value="a"> Za pomocą wypolerowanej tarczy.</label><label class="option"><input type="radio" name="b2" value="b"> Za pomocą miecza.</label><label class="option"><input type="radio" name="b2" value="c"> Dzięki magicznej pieśni.</label></div><button class="action" onclick="checkRadios(['b1:b','b2:a'],'fb-b1')">Sprawdź</button><div id="fb-b1" class="feedback"></div></div>
+  <div class="task"><div class="task-title">2. Prawda czy fałsz?</div><label class="option"><input type="checkbox" id="bT1"> Bazyliszek mieszkał w podziemiach.</label><label class="option"><input type="checkbox" id="bT2"> Młody człowiek patrzył potworowi prosto w oczy.</label><label class="option"><input type="checkbox" id="bT3"> Potwór zobaczył własne odbicie.</label><button class="action" onclick="truth('fb-b2',[['bT1',true],['bT2',false],['bT3',true]])">Sprawdź</button><div id="fb-b2" class="feedback"></div></div>
+  <div class="task"><div class="task-title">3. Uzupełnij zdanie</div><p>Młody człowiek użył <input id="bfill" type="text" placeholder="czego?">, aby pokonać bazyliszka.</p><button class="action" onclick="fill(['bfill:tarczy:tarcza'],'fb-b3')">Sprawdź</button><div id="fb-b3" class="feedback"></div></div>
+  <div class="task"><div class="task-title">4. Zinterpretuj legendę</div><p>Dlaczego pomysłowość okazała się ważniejsza niż siła? Podaj przykład z życia.</p><textarea placeholder="Napisz 3–4 zdania..."></textarea></div>
+ </div></div>
+</section>
+
+<section id="final" class="panel">
+ <h2>Quiz końcowy – sprawdź, co pamiętasz</h2>
+ <p>Odpowiedz na pytania dotyczące wszystkich czterech legend. Za każdą poprawną odpowiedź otrzymasz jeden punkt.</p>
+ <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+ <div class="final-grid">
+  <div class="task"><b>1. Kto był rybakiem?</b><div class="options"><label class="option"><input type="radio" name="f1" value="a"> Wars</label><label class="option"><input type="radio" name="f1" value="b"> Lutek</label><label class="option"><input type="radio" name="f1" value="c"> Bazyliszek</label></div></div>
+  <div class="task"><b>2. Co trzyma Syrenka w herbie?</b><div class="options"><label class="option"><input type="radio" name="f2" value="a"> Księgę i pióro</label><label class="option"><input type="radio" name="f2" value="b"> Miecz i tarczę</label><label class="option"><input type="radio" name="f2" value="c"> Rybę i sieć</label></div></div>
+  <div class="task"><b>3. Jaki warunek postawiła złota kaczka?</b><div class="options"><label class="option"><input type="radio" name="f3" value="a"> Lutek nie mógł nikomu dać pieniędzy.</label><label class="option"><input type="radio" name="f3" value="b"> Lutek musiał wyjechać z Warszawy.</label><label class="option"><input type="radio" name="f3" value="c"> Lutek musiał oddać skarb.</label></div></div>
+  <div class="task"><b>4. Jak pokonano bazyliszka?</b><div class="options"><label class="option"><input type="radio" name="f4" value="a"> Odbiciem w tarczy</label><label class="option"><input type="radio" name="f4" value="b"> Wodą z Wisły</label><label class="option"><input type="radio" name="f4" value="c"> Złotą monetą</label></div></div>
+  <div class="task"><b>5. Nad jaką rzeką leży Warszawa?</b><div class="options"><label class="option"><input type="radio" name="f5" value="a"> Odrą</label><label class="option"><input type="radio" name="f5" value="b"> Wisłą</label><label class="option"><input type="radio" name="f5" value="c"> Wartą</label></div></div>
+  <div class="task"><b>6. Od którego roku Warszawa jest stolicą?</b><div class="options"><label class="option"><input type="radio" name="f6" value="a"> 966</label><label class="option"><input type="radio" name="f6" value="b"> 1410</label><label class="option"><input type="radio" name="f6" value="c"> 1596</label></div></div>
+ </div>
+ <button class="action" onclick="finalQuiz()">Zakończ quiz</button><button class="action secondary" onclick="resetFinal()">Spróbuj ponownie</button>
+ <div id="final-result" class="feedback" aria-live="polite"></div>
+ <div class="task"><div class="task-title">Zadanie na zakończenie – Twoja opinia</div><p>Która legenda podobała Ci się najbardziej? Uzasadnij wybór. Czy znasz podobną legendę ze swojego kraju?</p><textarea placeholder="Napisz 5–6 zdań..."></textarea></div>
+</section>
+<footer>Warszawskie legendy • materiał dydaktyczny • język polski B1</footer>
+</main>
+<script>
+function go(id,btn){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
+function flip(el){el.classList.toggle('flipped')}
+function checkRadios(keys,id){let ok=0,missing=0;keys.forEach(k=>{let [name,val]=k.split(':');let chosen=document.querySelector('input[name="'+name+'"]:checked');if(!chosen)missing++;else if(chosen.value===val)ok++});let box=document.getElementById(id);box.className='feedback '+(ok===keys.length?'correct':'wrong');box.textContent=missing?'Zaznacz odpowiedzi we wszystkich pytaniach.':`Wynik: ${ok}/${keys.length}. `+(ok===keys.length?'Świetnie!':'Spróbuj jeszcze raz.')}
+function truth(id,answers){let ok=0;answers.forEach(([key,val])=>{if(document.getElementById(key).checked===val)ok++});let box=document.getElementById(id);box.className='feedback '+(ok===answers.length?'correct':'wrong');box.textContent=`Poprawne odpowiedzi: ${ok}/${answers.length}. `+(ok===answers.length?'Doskonale!':'Przeczytaj tekst jeszcze raz i popraw zaznaczenia.')}
+function norm(s){return s.toLowerCase().trim().replace(/[.,!?;:]/g,'').replace(/ą/g,'a').replace(/ć/g,'c').replace(/ę/g,'e').replace(/ł/g,'l').replace(/ń/g,'n').replace(/ó/g,'o').replace(/ś/g,'s').replace(/ź/g,'z').replace(/ż/g,'z')}
+function fill(items,id){let ok=0;items.forEach(item=>{let [key,...answers]=item.split(':');let v=norm(document.getElementById(key).value);if(answers.some(a=>norm(a)===v))ok++});let box=document.getElementById(id);box.className='feedback '+(ok===items.length?'correct':'wrong');box.textContent=`Poprawne odpowiedzi: ${ok}/${items.length}. `+(ok===items.length?'Bardzo dobrze!':'Sprawdź formę gramatyczną i spróbuj ponownie.')}
+function finalQuiz(){let ans={f1:'a',f2:'b',f3:'a',f4:'a',f5:'b',f6:'c'},score=0,done=0;Object.keys(ans).forEach(k=>{let c=document.querySelector('input[name="'+k+'"]:checked');if(c){done++;if(c.value===ans[k])score++}});let el=document.getElementById('final-result');if(done<6){el.className='feedback wrong';el.textContent=`Odpowiedz na wszystkie pytania. Masz ${done}/6 odpowiedzi.`;return}el.className='feedback correct';el.textContent=`Twój wynik: ${score}/6 punktów. `+(score===6?'Perfekcyjnie!':score>=4?'Bardzo dobrze!': 'Warto powtórzyć legendy i spróbować ponownie.');document.getElementById('progress').style.width=(score/6*100)+'%'}
+function resetFinal(){document.querySelectorAll('#final input[type=radio]').forEach(x=>x.checked=false);document.getElementById('final-result').textContent='';document.getElementById('progress').style.width='0%'}
+</script>
+</body>
+</html>

@@ -179,6 +179,19 @@ function describe(name){
 
  if(KNOWN[name])return KNOWN[name];
 
+ // Automatyczne rozpoznawanie wszystkich wariantów nazw lekcji tyflopedagogicznych.
+ const lower=name.toLocaleLowerCase('pl');
+ if(/tyflo|architekt[-_ ]?umyslu|superzmysl|minecraft.*atlas|atlas.*minecraft/.test(lower)){
+   const grade=(/kl(?:asa)?[-_ ]?8|kl8|klasa8/.test(lower)||/architekt|minecraft|atlas/.test(lower))
+     ? 'Tyflopedagogika · klasa 8' : 'Tyflopedagogika · klasa 6';
+   let title='Lekcja tyflopedagogiczna';
+   if(/architekt/.test(lower)) title='Misja: Architekt Umysłu';
+   else if(/minecraft|atlas/.test(lower)) title='Minecraft: Atlas Świata – misja geograficzna';
+   else if(/poziom[-_ ]?zaawansowany|misja[-_ ]?2|misja2/.test(lower)) title='Misja 2: superzmysły na wyższym poziomie';
+   else if(/trening[-_ ]?superzmyslow|superzmyslow/.test(lower)) title='Misja: trening superzmysłów';
+   return ['Rewalidacja',grade,title];
+ }
+
  let n=name.replace(/\.html?$/i,'');
 
  const groups={
@@ -258,8 +271,12 @@ function render(files){
 
  const grouped=new Map();
 
+ const seen=new Set();
  for(const file of files){
   const [group,grade,title]=describe(file);
+  const uniqueKey=[group,grade,title].join('|').toLocaleLowerCase('pl');
+  if(seen.has(uniqueKey))continue;
+  seen.add(uniqueKey);
 
   if(!grouped.has(group))grouped.set(group,[]);
 

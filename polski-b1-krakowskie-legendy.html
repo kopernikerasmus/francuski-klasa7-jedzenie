@@ -3,96 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>polski-b1-krakowskie-legendy</title>
+<title>Krakowskie legendy – język polski B1</title>
+
 <style>
-:root{--ink:#263746;--navy:#24445b;--teal:#397b80;--gold:#c59a4a;--paper:#fffdf8;--mist:#edf3f3;--line:#d8e1e2;--muted:#667781}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f1f4f3;color:var(--ink);font:16px/1.65 "Segoe UI",Arial,sans-serif}
-header{background:linear-gradient(125deg,#203d52,#397b80);color:#fff;padding:42px 18px 35px;text-align:center}
-.kicker{text-transform:uppercase;letter-spacing:3px;color:#f2d69e;font-weight:700;font-size:.76rem}
-h1{font:clamp(2.2rem,5vw,3.5rem)/1.08 Georgia,serif;margin:10px 0}
-header p{max-width:760px;margin:12px auto 0;color:#e5eff0}
-nav{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 3px 14px #1e394b18;display:flex;gap:5px;justify-content:center;flex-wrap:wrap;padding:9px}
-nav button{border:0;background:transparent;color:var(--navy);padding:9px 13px;border-radius:22px;font-weight:700;cursor:pointer}
-nav button:hover,nav button.active{background:var(--navy);color:#fff}
-main{max-width:1120px;margin:25px auto;padding:0 16px 55px}
-section{scroll-margin-top:82px;margin-bottom:24px}
-.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 5px 18px #203d5210}
-h2{font:700 1.8rem Georgia,serif;color:var(--navy);margin:0 0 12px}
-h3{color:var(--navy);margin:0 0 9px}
-.lead{font-size:1.05rem;color:#4c626d}
-.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}
-.city{background:linear-gradient(#edf6f5,#fff8e9);border-radius:14px;padding:10px;display:grid;place-items:center;min-height:220px}
-.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
-.fact{background:var(--mist);border-radius:12px;padding:12px}
-.fact b{display:block;color:var(--navy)}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.legend-card{border:1px solid var(--line);background:white;border-radius:14px;padding:10px;text-align:left;cursor:pointer;color:var(--ink);transition:.2s}
-.legend-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 16px #1e394b18}
-.thumb{height:105px;background:#f4f7f6;border-radius:10px;display:grid;place-items:center;margin-bottom:8px}
-.legend-card strong{display:block;color:var(--navy)}
-.story-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-.art{width:190px;min-width:150px;height:150px;border-radius:14px;background:#f2f7f6;display:grid;place-items:center;padding:0;overflow:hidden}
-.art img{width:100%;height:100%;object-fit:cover;display:block}
-.city img{width:100%;height:100%;max-height:260px;object-fit:cover;border-radius:10px;display:block}
-.pill{display:inline-block;background:#fff0d2;color:#76551d;border-radius:20px;padding:3px 10px;font-size:.78rem;font-weight:700}
-.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}
-.story{background:var(--paper);border-left:4px solid var(--gold);padding:17px 19px;border-radius:4px 13px 13px 4px}
-.story p{margin:0 0 11px}.story p:last-child{margin:0}
-.words{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}
-.flip{height:100px;perspective:700px;cursor:pointer}
-.inner{height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s}
-.flip.on .inner{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid #cbdcdd;border-radius:11px;display:grid;place-items:center;text-align:center;padding:8px}
-.front{background:#eff6f5;color:var(--navy);font-weight:800}
-.front small{display:block;font-weight:400;color:var(--muted)}
-.back{background:#fff4df;transform:rotateY(180deg);font-size:.9rem}
-.task{border:1px solid var(--line);border-radius:13px;padding:13px;margin:11px 0;background:#fff}
-.task-title{font-weight:800;color:var(--navy);margin-bottom:7px}
-.options{display:grid;gap:6px}
-.option{display:flex;gap:8px;align-items:flex-start;background:#f6f9f8;border:1px solid #e4ebea;border-radius:9px;padding:8px;cursor:pointer}
-.option:has(input:checked){background:#edf5f5;border-color:var(--teal)}
-input[type=text],textarea{width:100%;border:1px solid #cbd8d8;border-radius:9px;padding:9px;font:inherit}
-textarea{min-height:78px;resize:vertical}
-.action{border:0;border-radius:22px;background:var(--navy);color:#fff;padding:9px 15px;font-weight:700;cursor:pointer;margin:7px 5px 0 0}
-.action.light{background:#eaf1f1;color:var(--navy)}
-.feedback{font-weight:700;min-height:22px;margin-top:7px}
-.good{color:#287354}.bad{color:#a4473b}
-details{background:#f5f8f7;border-radius:10px;padding:10px 13px;margin-top:10px}
-summary{font-weight:700;color:var(--navy);cursor:pointer}
-.progress-wrap{height:8px;background:#e4ebea;border-radius:10px;overflow:hidden;margin:12px 0}
-.progress{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .3s}
-footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
-@media(max-width:780px){
-.intro,.layout{grid-template-columns:1fr}
-.cards{grid-template-columns:repeat(2,1fr)}
-.story-head{align-items:flex-start}
-.art{width:130px;height:130px;min-width:130px}
-.words{grid-template-columns:repeat(2,1fr)}
+:root{
+  --navy:#203f55;
+  --teal:#397b80;
+  --gold:#d5a653;
+  --cream:#fffaf0;
+  --paper:#fff;
+  --ink:#293943;
+  --muted:#687982;
+  --line:#dce5e4;
 }
-@media(max-width:430px){
-nav{justify-content:flex-start;flex-wrap:nowrap;overflow:auto}
-nav button{white-space:nowrap}
-.panel{padding:15px}
-.cards{gap:8px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#edf2f0;color:var(--ink);
+  font:16px/1.65 "Segoe UI",Arial,sans-serif
+}
+header{
+  background:linear-gradient(120deg,#18374d,#397b80);
+  color:white;text-align:center;padding:55px 20px 45px
+}
+.kicker{color:#f5d99f;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;font-weight:bold}
+h1{font:clamp(2.5rem,6vw,4rem)/1.1 Georgia,serif;margin:12px 0}
+header p{max-width:750px;margin:auto;color:#e5eeee}
+nav{
+  position:sticky;top:0;z-index:10;background:#fff;
+  display:flex;justify-content:center;gap:5px;flex-wrap:wrap;
+  padding:10px;box-shadow:0 3px 15px #18374d18
+}
+nav button{
+  border:0;background:transparent;color:var(--navy);
+  padding:9px 13px;border-radius:22px;font-weight:bold;cursor:pointer
+}
+nav button:hover,nav button.active{background:var(--navy);color:white}
+main{max-width:1150px;margin:25px auto;padding:0 16px 50px}
+section{scroll-margin-top:90px;margin-bottom:24px}
+.panel{
+  background:white;border:1px solid var(--line);border-radius:18px;
+  padding:24px;box-shadow:0 5px 18px #203d520c
+}
+h2{font:700 1.9rem Georgia,serif;color:var(--navy);margin:0 0 14px}
+h3{color:var(--navy);margin:0 0 10px}
+.lead{font-size:1.08rem;color:#526873}
+.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+.intro img{width:100%;height:290px;object-fit:cover;border-radius:15px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.fact{background:#edf5f3;padding:13px;border-radius:12px}
+.fact b{display:block;color:var(--navy)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.legend-card{
+  border:1px solid var(--line);border-radius:15px;overflow:hidden;
+  background:white;text-align:left;padding:0;cursor:pointer;color:var(--ink);
+  transition:.2s
+}
+.legend-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px #203d5220}
+.legend-card img{width:100%;height:170px;object-fit:cover;display:block}
+.legend-card div{padding:13px}
+.legend-card strong{display:block;color:var(--navy);font-size:1.05rem}
+.legend-card small{color:var(--muted)}
+.story-head{display:flex;align-items:center;gap:20px;margin-bottom:18px}
+.story-head img{width:210px;height:160px;object-fit:cover;border-radius:14px}
+.pill{background:#fff0d2;color:#77551d;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:bold}
+.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.story{background:var(--cream);border-left:4px solid var(--gold);padding:18px 20px;border-radius:5px 13px 13px 5px}
+.story p{margin:0 0 12px}.story p:last-child{margin:0}
+.words{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.flip{height:155px;perspective:900px;cursor:pointer}
+.inner{height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s}
+.flip.on .inner{transform:rotateY(180deg)}
+.face{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border:1px solid var(--line);border-radius:13px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:12px
+}
+.front{background:#edf5f3;color:var(--navy)}
+.front .emoji{font-size:2.6rem;line-height:1.3}
+.front strong{font-size:1.05rem;margin-top:7px}
+.front small{color:var(--muted)}
+.back{background:#fff3dc;transform:rotateY(180deg);font-size:.92rem}
+.back b{color:var(--navy);font-size:1rem;margin-bottom:5px}
+.task{border:1px solid var(--line);border-radius:13px;padding:14px;margin:12px 0}
+.task-title{font-weight:bold;color:var(--navy);margin-bottom:8px}
+.options{display:grid;gap:7px}
+.option{display:flex;gap:8px;background:#f5f8f7;padding:9px;border-radius:9px;cursor:pointer}
+.option:has(input:checked){background:#e9f3f1}
+.action{
+  background:var(--navy);color:white;border:0;border-radius:22px;
+  padding:10px 17px;font-weight:bold;cursor:pointer;margin:7px 5px 0 0
+}
+.action.light{background:#eaf1f1;color:var(--navy)}
+.feedback{font-weight:bold;min-height:22px;margin-top:8px}
+.good{color:#287354}.bad{color:#a4473b}
+textarea,input[type=text]{
+  width:100%;border:1px solid #cbd8d8;border-radius:9px;
+  padding:10px;font:inherit
+}
+textarea{min-height:85px}
+details{background:#f2f7f5;padding:12px;border-radius:10px;margin-top:12px}
+summary{cursor:pointer;font-weight:bold;color:var(--navy)}
+.progress-wrap{height:9px;background:#e4ebea;border-radius:10px;overflow:hidden;margin:15px 0}
+.progress{height:100%;width:0;background:var(--teal);transition:.3s}
+footer{text-align:center;color:var(--muted);padding:25px;font-size:.85rem}
+@media(max-width:800px){
+ .intro,.layout{grid-template-columns:1fr}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .facts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+ nav{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto}
+ nav button{white-space:nowrap}
+ .panel{padding:15px}
+ .story-head{align-items:flex-start}
+ .story-head img{width:115px;height:115px}
+ .words{grid-template-columns:repeat(2,1fr)}
+ .flip{height:145px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="kicker">Język polski jako obcy • poziom B1</div>
-<h1>Krakowskie legendy</h1>
-<p>Cztery opowieści o dawnym Krakowie: o smoku, który terroryzował miasto, melodii rozbrzmiewającej z wieży, nierównych wieżach kościoła i barwnym pochodzie Lajkonika.</p>
+ <div class="kicker">Język polski jako obcy • poziom B1</div>
+ <h1>Krakowskie legendy</h1>
+ <p>Cztery opowieści o dawnym Krakowie. Poznaj historię smoka, hejnału, wież kościoła Mariackiego i barwnego Lajkonika.</p>
 </header>
 
 <nav>
-<button class="active" onclick="go('wstep',this)">Kraków</button>
-<button onclick="go('wybor',this)">Cztery legendy</button>
-<button onclick="go('smok',this)">Smok Wawelski</button>
-<button onclick="go('hejnał',this)">Hejnał</button>
-<button onclick="go('wieze',this)">Wieże Mariackie</button>
-<button onclick="go('lajkonik',this)">Lajkonik</button>
-<button onclick="go('koniec',this)">Quiz końcowy</button>
+ <button class="active" onclick="go('wstep',this)">Kraków</button>
+ <button onclick="go('wybor',this)">Legendy</button>
+ <button onclick="go('smok',this)">Smok</button>
+ <button onclick="go('hejnal',this)">Hejnał</button>
+ <button onclick="go('wieze',this)">Wieże</button>
+ <button onclick="go('lajkonik',this)">Lajkonik</button>
+ <button onclick="go('koniec',this)">Quiz</button>
 </nav>
 
 <main>
@@ -101,94 +149,57 @@ nav button{white-space:nowrap}
 <h2>Kraków – dawna stolica Polski</h2>
 <div class="intro">
 <div>
-<p class="lead">Kraków leży w południowej Polsce, nad Wisłą, u podnóża Wyżyny Krakowsko-Częstochowskiej i niedaleko Karpat. To jedno z najstarszych i najważniejszych historycznie polskich miast.</p>
-<p>Osadnictwo na wzgórzu wawelskim rozwijało się już we wczesnym średniowieczu. Kraków był ważnym ośrodkiem handlu i władzy. Od XI wieku był główną siedzibą polskich władców, a w 1320 roku odbyła się tu koronacja Władysława Łokietka. Przez kolejne stulecia na Wawelu koronowano i chowano królów. Kraków był stolicą Polski do 1596 roku, kiedy król Zygmunt III Waza przeniósł dwór królewski do Warszawy. Miasto nie straciło jednak znaczenia – pozostało ważnym centrum nauki, kultury i pamięci historycznej.</p>
-<p>Do najbardziej znanych miejsc należą Wawel, Rynek Główny, kościół Mariacki, Sukiennice i Barbakan. Kraków słynie również z tradycji, rzemiosła, muzyki i legend, które łączą historię z wyobraźnią mieszkańców.</p>
+<p class="lead">Kraków leży w południowej Polsce, nad Wisłą. Jest jednym z najstarszych i najważniejszych historycznie polskich miast.</p>
+<p>Osadnictwo na wzgórzu wawelskim rozwijało się już we wczesnym średniowieczu. Kraków był ważnym ośrodkiem handlu i władzy. Przez wiele stuleci był siedzibą polskich władców. Na Wawelu odbywały się koronacje i pogrzeby królów.</p>
+<p>Kraków był stolicą Polski do 1596 roku. Wtedy król Zygmunt III Waza przeniósł dwór królewski do Warszawy. Miasto pozostało jednak ważnym centrum nauki, kultury i historii.</p>
+<p>Do najbardziej znanych miejsc należą Wawel, Rynek Główny, kościół Mariacki, Sukiennice i Barbakan. Kraków słynie także z tradycji i legend.</p>
 </div>
-<div class="city">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow%20-%20St.Mary%20Basilica%20-%20top%20of%20towers.jpg" alt="Kościół Mariacki na Rynku Głównym w Krakowie" loading="lazy">
-</div>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow%20-%20St.Mary%20Basilica%20-%20top%20of%20towers.jpg" alt="Kościół Mariacki w Krakowie">
 </div>
 <div class="facts">
 <div class="fact"><b>Położenie</b>Południowa Polska, nad Wisłą.</div>
-<div class="fact"><b>Dawna stolica</b>Do 1596 roku; wtedy dwór królewski przeniesiono do Warszawy.</div>
-<div class="fact"><b>Najważniejsze miejsca</b>Wawel, Rynek Główny, kościół Mariacki, Sukiennice.</div>
-<div class="fact"><b>Dziedzictwo</b>Tradycje, zabytki, legendy i kultura.</div>
+<div class="fact"><b>Dawna stolica</b>Do 1596 roku.</div>
+<div class="fact"><b>Zabytki</b>Wawel, Rynek, Sukiennice.</div>
+<div class="fact"><b>UNESCO</b>Historyczne centrum od 1978 roku.</div>
 </div>
-<p class="meta">W 1978 roku historyczne centrum Krakowa wpisano na Listę Światowego Dziedzictwa UNESCO. <a href="https://whc.unesco.org/en/list/29" target="_blank" rel="noopener">Źródło: UNESCO</a> · <a href="https://fortresskrakow.pl/homepage/265997%2Cartykul%2Cabout-krakow.html" target="_blank" rel="noopener">Informacje miejskie o Krakowie</a>.</p>
-<details>
-<summary>Sprawdź, czy pamiętasz</summary>
+<details><summary>Sprawdź, czy pamiętasz</summary>
 <ol>
-<li>Przez jakie miasto przepływa Wisła?</li>
-<li>Gdzie odbywały się koronacje polskich królów?</li>
-<li>W którym roku dwór królewski przeniesiono do Warszawy?</li>
+<li>W której części Polski leży Kraków?</li>
+<li>Nad jaką rzeką leży miasto?</li>
+<li>Do którego roku Kraków był stolicą Polski?</li>
 </ol>
 </details>
 </section>
 
 <section id="wybor" class="panel">
 <h2>Poznaj cztery krakowskie legendy</h2>
-<p>Wybierz opowieść. Przeczytaj tekst, odwróć fiszki i rozwiąż zadania.</p>
+<p>Kliknij zdjęcie, aby przejść do wybranej opowieści.</p>
 <div class="cards">
-
 <button class="legend-card" onclick="go('smok')">
-<div class="thumb">
-<svg viewBox="0 0 150 95" width="140">
-<path d="M20 72Q25 48 50 48L68 32L90 40L110 30L130 54L118 80H45Z" fill="#80988d" stroke="#3e5d55" stroke-width="2"/>
-<path d="M50 48L35 13L75 38M95 42L122 12L115 53" fill="#80988d" stroke="#3e5d55" stroke-width="2"/>
-<circle cx="83" cy="49" r="4" fill="#f1d16e"/>
-<path d="M116 58Q142 66 130 83" stroke="#3e5d55" stroke-width="4" fill="none"/>
-</svg>
-</div>
-<strong>1. Smok Wawelski</strong><small>Spryt zwycięża siłę</small>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wawel%20Dragon%20monument.%20Krakow%2C%20Poland.jpg" alt="Smok Wawelski">
+<div><strong>1. Smok Wawelski</strong><small>Spryt zwycięża siłę</small></div>
 </button>
-
-<button class="legend-card" onclick="go('hejnał')">
-<div class="thumb">
-<svg viewBox="0 0 150 95" width="140">
-<path d="M42 85V20H105V85Z" fill="#e9ddc5" stroke="#465e6b" stroke-width="2"/>
-<path d="M38 20L74 4L109 20Z" fill="#c8a66c" stroke="#465e6b" stroke-width="2"/>
-<path d="M60 38H90V56H60Z" fill="#54798a"/>
-<path d="M77 42L115 28" stroke="#9b7440" stroke-width="5"/>
-<path d="M116 28L130 22" stroke="#9b7440" stroke-width="3"/>
-</svg>
-</div>
-<strong>2. Hejnał mariacki</strong><small>Melodia przerwana w połowie</small>
+<button class="legend-card" onclick="go('hejnal')">
+<img src="https://bi.im-g.pl/im/1c/a9/19/z26906908IBR,Jeden-z-krakowskich-hejnalistow.jpg" alt="Hejnał mariacki">
+<div><strong>2. Hejnał mariacki</strong><small>Melodia przerwana w połowie</small></div>
 </button>
-
 <button class="legend-card" onclick="go('wieze')">
-<div class="thumb">
-<svg viewBox="0 0 150 95" width="140">
-<path d="M20 85V40H62V85Z M88 85V20H130V85Z" fill="#e9ddc5" stroke="#465e6b" stroke-width="2"/>
-<path d="M16 40L41 10L66 40Z M84 20L109 1L134 20Z" fill="#a98552" stroke="#465e6b" stroke-width="2"/>
-<path d="M32 55h16v18H32zM101 37h16v18h-16z" fill="#52798b"/>
-</svg>
-</div>
-<strong>3. Wieże kościoła Mariackiego</strong><small>Braterska rywalizacja</small>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow%20-%20St.Mary%20Basilica%20-%20top%20of%20towers.jpg" alt="Wieże kościoła Mariackiego">
+<div><strong>3. Wieże Mariackie</strong><small>Historia dwóch braci</small></div>
 </button>
-
 <button class="legend-card" onclick="go('lajkonik')">
-<div class="thumb">
-<svg viewBox="0 0 150 95" width="140">
-<path d="M45 75Q40 50 70 44L91 53L100 78Z" fill="#fff" stroke="#465e6b" stroke-width="2"/>
-<path d="M72 44L82 14L105 20L112 46" fill="#d7b46b" stroke="#465e6b" stroke-width="2"/>
-<path d="M82 16L70 4L91 9L101 1L108 20" fill="#b64c3e"/>
-<path d="M50 50L25 33M95 56L122 36" stroke="#465e6b" stroke-width="5"/>
-</svg>
-</div>
-<strong>4. Lajkonik</strong><small>Pochód i krakowska tradycja</small>
+<img src="https://frce8xp4ye4n.compat.objectstorage.eu-frankfurt-1.oraclecloud.com/blog-assets/thumbnail/0f975e279fb1fa95e31819021fbb72f0/lajkonik-w-krakowie-gdzie-sie-zatrzymuje-pelna-trasa-i-godziny.webp" alt="Lajkonik">
+<div><strong>4. Lajkonik</strong><small>Krakowska tradycja</small></div>
 </button>
 </div>
 </section>
 
+<!-- SMOK -->
 <section id="smok" class="panel">
 <div class="story-head">
-<div class="art">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wawel%20Dragon%20monument.%20Krakow%2C%20Poland.jpg" alt="Smok Wawelski – fotografia" loading="lazy">
-</div>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wawel%20Dragon%20monument.%20Krakow%2C%20Poland.jpg" alt="Pomnik Smoka Wawelskiego">
 <div><span class="pill">Legenda 1</span><h2>Smok Wawelski</h2><p class="lead">Jak szewczyk Skuba pokonał potwora?</p></div>
 </div>
-
 <div class="layout">
 <div>
 <h3>Legenda – przeczytaj tekst</h3>
@@ -197,20 +208,18 @@ nav button{white-space:nowrap}
 <p>W końcu zgłosił się Skuba, ubogi szewczyk. Nie miał zbroi ani miecza, dlatego postanowił wykorzystać spryt. Przygotował barana wypchanego siarką i zostawił go przed smoczą jaskinią. Smok połknął przynętę, a po chwili poczuł ogromne pragnienie. Pobiegł nad Wisłę i zaczął pić wodę. Pił tak długo, aż według legendy pękł.</p>
 <p>Mieszkańcy odetchnęli z ulgą, a Skuba został bohaterem. Opowieść ma różne wersje, ale w wielu z nich zwycięża nie siła, lecz pomysłowość. Dziś przed wejściem do Smoczej Jamy stoi pomnik Smoka Wawelskiego, który przypomina o jednej z najsłynniejszych krakowskich legend.</p>
 </div>
-
-<h3 style="margin-top:14px">Fiszki – kliknij, aby odwrócić</h3>
+<h3>Fiszki obrazkowe</h3>
 <div class="words">
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">u podnóża<small>Gdzie?</small></div><div class="face back">U dołu góry lub wzgórza, przy jego podstawie.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">kryjówka<small>Co to?</small></div><div class="face back">Ukryte miejsce, w którym ktoś lub coś przebywa.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">przynęta<small>Do czego służy?</small></div><div class="face back">Coś, co ma zwabić lub skusić.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">siarka<small>Co to?</small></div><div class="face back">Żółty pierwiastek chemiczny; w legendzie wypełniała sztucznego barana.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">spryt<small>Jaka cecha?</small></div><div class="face back">Umiejętność szybkiego znajdowania pomysłowych rozwiązań.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">odetchnąć z ulgą<small>Co poczuć?</small></div><div class="face back">Poczuć spokój po zakończeniu niebezpieczeństwa lub stresu.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🐉</span><strong>smok</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>smok</b>Mityczne stworzenie, często ogromne i ziejące ogniem.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🪨</span><strong>jaskinia</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>jaskinia</b>Naturalna pieczara w skale lub pod ziemią.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🐑</span><strong>baran</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>baran</b>Samiec owcy.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🟡</span><strong>siarka</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>siarka</b>Żółty pierwiastek chemiczny.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">💡</span><strong>spryt</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>spryt</b>Umiejętność znajdowania pomysłowych rozwiązań.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🏆</span><strong>pokonać</strong><small>Kliknij, aby poznać znaczenie</small></div><div class="face back"><b>pokonać</b>Zwyciężyć; poradzić sobie z kimś lub czymś.</div></div></div>
 </div>
 </div>
-
 <div>
-<h3>Zadania do legendy</h3>
+<h3>Zadania</h3>
 <div class="task">
 <div class="task-title">1. Wybierz poprawną odpowiedź</div>
 <p>Kto pokonał smoka?</p>
@@ -225,28 +234,19 @@ nav button{white-space:nowrap}
 <label class="option"><input type="radio" name="sm2" value="b"> Złoto</label>
 <label class="option"><input type="radio" name="sm2" value="c"> Woda</label>
 </div>
-<button class="action" onclick="radios(['sm1:b','sm2:a'],'smf1')">Sprawdź</button>
-<div id="smf1" class="feedback"></div>
+<button class="action" onclick="checkRadios(['sm1:b','sm2:a'],'smf')">Sprawdź</button>
+<div id="smf" class="feedback"></div>
 </div>
-
 <div class="task">
 <div class="task-title">2. Prawda czy fałsz?</div>
-<label class="option"><input type="checkbox" id="smT1"> Smok mieszkał w jaskini nad Wisłą.</label>
-<label class="option"><input type="checkbox" id="smT2"> Skuba pokonał smoka mieczem.</label>
-<label class="option"><input type="checkbox" id="smT3"> Smok połykał wodę z Wisły.</label>
-<button class="action" onclick="truth('smf2',[['smT1',true],['smT2',false],['smT3',true]])">Sprawdź</button>
-<div id="smf2" class="feedback"></div>
+<label class="option"><input type="checkbox" id="st1"> Smok mieszkał w jaskini nad Wisłą.</label>
+<label class="option"><input type="checkbox" id="st2"> Skuba pokonał smoka mieczem.</label>
+<label class="option"><input type="checkbox" id="st3"> Smok pił wodę z Wisły.</label>
+<button class="action" onclick="checkTruth('stf',[['st1',true],['st2',false],['st3',true]])">Sprawdź</button>
+<div id="stf" class="feedback"></div>
 </div>
-
 <div class="task">
-<div class="task-title">3. Uzupełnij zdanie</div>
-<p>Skuba przygotował barana wypchanego <input id="smfill" type="text" placeholder="czym?">, aby zwabić smoka.</p>
-<button class="action" onclick="fill(['smfill:siarką:siarka'],'smf3')">Sprawdź</button>
-<div id="smf3" class="feedback"></div>
-</div>
-
-<div class="task">
-<div class="task-title">4. Pytanie otwarte</div>
+<div class="task-title">3. Pytanie otwarte</div>
 <p>Dlaczego spryt Skuby okazał się skuteczniejszy niż siła rycerzy?</p>
 <textarea placeholder="Napisz 3–4 zdania..."></textarea>
 </div>
@@ -254,34 +254,32 @@ nav button{white-space:nowrap}
 </div>
 </section>
 
-<section id="hejnał" class="panel">
+<!-- HEJNAŁ -->
+<section id="hejnal" class="panel">
 <div class="story-head">
-<div class="art"><img src="https://bi.im-g.pl/im/1c/a9/19/z26906908IBR%2CJeden-z-krakowskich-hejnalistow.jpg" alt="Hejnał mariacki – fotografia" loading="lazy"></div>
+<img src="https://bi.im-g.pl/im/1c/a9/19/z26906908IBR,Jeden-z-krakowskich-hejnalistow.jpg" alt="Trębacz grający hejnał">
 <div><span class="pill">Legenda 2</span><h2>Hejnał mariacki</h2><p class="lead">Dlaczego melodia urywa się nagle?</p></div>
 </div>
-
 <div class="layout">
 <div>
 <h3>Legenda – przeczytaj tekst</h3>
 <div class="story">
 <p>Z wieży kościoła Mariackiego na krakowskim Rynku Głównym każdego dnia rozbrzmiewa hejnał. Melodia jest grana na trąbce cztery razy, w czterech kierunkach świata. Można ją usłyszeć między innymi w południe, kiedy transmituje ją Polskie Radio. Jej najbardziej charakterystyczną cechą jest nagłe przerwanie melodii.</p>
 <p>Legenda wyjaśnia, że dawno temu strażnik stojący na wieży obserwował okolicę i ostrzegał mieszkańców przed niebezpieczeństwem. Pewnego dnia zauważył zbliżające się wojska tatarskie. Zaczął grać na trąbce, aby zaalarmować miasto i zamknąć bramy. Dzięki jego sygnałowi mieszkańcy zdążyli przygotować się do obrony. Jednak w trakcie grania strażnik został trafiony strzałą. Melodia urwała się, ponieważ trębacz nie mógł jej dokończyć.</p>
-<p>Od tamtej pory hejnał ma przypominać o jego odwadze i poświęceniu. To piękna opowieść, ale nie jest potwierdzonym wyjaśnieniem historycznego pochodzenia melodii. Hejnał stał się jednym z najbardziej rozpoznawalnych symboli Krakowa. Dla mieszkańców i turystów jest znakiem ciągłości tradycji oraz wyjątkowej atmosfery miasta.</p>
+<p>Od tamtej pory hejnał ma przypominać o jego odwadze i poświęceniu. To piękna opowieść, ale nie jest potwierdzonym wyjaśnieniem historycznego pochodzenia melodii. Hejnał stał się jednym z najbardziej rozpoznawalnych symboli Krakowa.</p>
 </div>
-
-<h3 style="margin-top:14px">Fiszki – kliknij, aby odwrócić</h3>
+<h3>Fiszki obrazkowe</h3>
 <div class="words">
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">rozbrzmiewać<small>Co robić?</small></div><div class="face back">Być słyszalnym; wydawać dźwięk, który się niesie.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">hejnał<small>Co to?</small></div><div class="face back">Uroczysta melodia grana na trąbce, często jako sygnał.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">zaalarmować<small>Co zrobić?</small></div><div class="face back">Ostrzec ludzi przed zagrożeniem.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">urwał się<small>Co się stało?</small></div><div class="face back">Zakończył się nagle, niespodziewanie.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">poświęcenie<small>Jaka postawa?</small></div><div class="face back">Gotowość do rezygnacji z własnej korzyści dla innych.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">trębacz<small>Kto to?</small></div><div class="face back">Muzyk grający na trąbce.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🎺</span><strong>hejnał</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>hejnał</b>Uroczysta melodia grana na trąbce jako sygnał.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🗼</span><strong>wieża</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>wieża</b>Wysoka część budynku, widoczna z daleka.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🚨</span><strong>zaalarmować</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>zaalarmować</b>Ostrzec ludzi przed zagrożeniem.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🏹</span><strong>strzała</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>strzała</b>Ostry pocisk wystrzeliwany z łuku.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">❤️</span><strong>poświęcenie</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>poświęcenie</b>Gotowość do rezygnacji z własnej korzyści dla innych.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🎶</span><strong>rozbrzmiewać</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>rozbrzmiewać</b>Być słyszalnym; wydawać dźwięk, który się niesie.</div></div></div>
 </div>
 </div>
-
 <div>
-<h3>Zadania do legendy</h3>
+<h3>Zadania</h3>
 <div class="task">
 <div class="task-title">1. Wybierz poprawną odpowiedź</div>
 <p>Skąd rozbrzmiewa hejnał?</p>
@@ -290,47 +288,38 @@ nav button{white-space:nowrap}
 <label class="option"><input type="radio" name="he1" value="b"> Z Wawelu</label>
 <label class="option"><input type="radio" name="he1" value="c"> Z Sukiennic</label>
 </div>
-<p>Dlaczego według legendy melodia się urywa?</p>
+<p>Dlaczego melodia się urywa?</p>
 <div class="options">
-<label class="option"><input type="radio" name="he2" value="a"> Trębacz zgubił instrument.</label>
-<label class="option"><input type="radio" name="he2" value="b"> Strażnik został trafiony strzałą.</label>
-<label class="option"><input type="radio" name="he2" value="c"> Zabrakło czasu.</label>
+<label class="option"><input type="radio" name="he2" value="a"> Trębacz został trafiony strzałą.</label>
+<label class="option"><input type="radio" name="he2" value="b"> Zabrakło mu powietrza.</label>
+<label class="option"><input type="radio" name="he2" value="c"> Zgubił instrument.</label>
 </div>
-<button class="action" onclick="radios(['he1:a','he2:b'],'hef1')">Sprawdź</button>
-<div id="hef1" class="feedback"></div>
+<button class="action" onclick="checkRadios(['he1:a','he2:a'],'hef')">Sprawdź</button>
+<div id="hef" class="feedback"></div>
 </div>
-
 <div class="task">
 <div class="task-title">2. Prawda czy fałsz?</div>
-<label class="option"><input type="checkbox" id="heT1"> Hejnał gra się w czterech kierunkach świata.</label>
-<label class="option"><input type="checkbox" id="heT2"> Legenda mówi o strażniku ostrzegającym miasto.</label>
-<label class="option"><input type="checkbox" id="heT3"> Tekst przedstawia legendę jako fakt historycznie potwierdzony.</label>
-<button class="action" onclick="truth('hef2',[['heT1',true],['heT2',true],['heT3',false]])">Sprawdź</button>
-<div id="hef2" class="feedback"></div>
+<label class="option"><input type="checkbox" id="ht1"> Hejnał gra się w czterech kierunkach świata.</label>
+<label class="option"><input type="checkbox" id="ht2"> Według legendy strażnik ostrzegał miasto.</label>
+<label class="option"><input type="checkbox" id="ht3"> Legenda jest potwierdzonym dokumentem historycznym.</label>
+<button class="action" onclick="checkTruth('htf',[['ht1',true],['ht2',true],['ht3',false]])">Sprawdź</button>
+<div id="htf" class="feedback"></div>
 </div>
-
 <div class="task">
-<div class="task-title">3. Uzupełnij</div>
-<p>Strażnik chciał <input id="hefill" type="text" placeholder="ostrzec kogo?"> mieszkańców przed niebezpieczeństwem.</p>
-<button class="action" onclick="fill(['hefill:zaalarmować:ostrzec'],'hef3')">Sprawdź</button>
-<div id="hef3" class="feedback"></div>
-</div>
-
-<div class="task">
-<div class="task-title">4. Porozmawiaj</div>
-<p>Dlaczego miasta pielęgnują dawne melodie i tradycje? Podaj przykład z własnego kraju.</p>
+<div class="task-title">3. Pytanie otwarte</div>
+<p>Dlaczego miasta pielęgnują dawne melodie i tradycje?</p>
 <textarea placeholder="Napisz 3–4 zdania..."></textarea>
 </div>
 </div>
 </div>
 </section>
 
+<!-- WIEŻE -->
 <section id="wieze" class="panel">
 <div class="story-head">
-<div class="art"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow%20-%20St.Mary%20Basilica%20-%20top%20of%20towers.jpg" alt="Wieże kościoła Mariackiego – fotografia" loading="lazy"></div>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Krakow%20-%20St.Mary%20Basilica%20-%20top%20of%20towers.jpg" alt="Dwie wieże kościoła Mariackiego">
 <div><span class="pill">Legenda 3</span><h2>Wieże kościoła Mariackiego</h2><p class="lead">Dlaczego dwie wieże są różnej wysokości?</p></div>
 </div>
-
 <div class="layout">
 <div>
 <h3>Legenda – przeczytaj tekst</h3>
@@ -339,56 +328,45 @@ nav button{white-space:nowrap}
 <p>Według opowieści dawno temu dwaj bracia otrzymali zadanie zbudowania wież kościoła. Początkowo pracowali zgodnie i wspólnie planowali kolejne etapy budowy. Z czasem jednak między braćmi pojawiła się rywalizacja. Każdy chciał udowodnić, że jest lepszym budowniczym i potrafi wznieść wyższą wieżę. Starszy brat szybciej zakończył swoją pracę, a jego wieża była wyższa. Młodszy nie mógł pogodzić się z porażką. Zazdrość i gniew doprowadziły do tragedii: według legendy jeden z braci zabił drugiego, a później sam nie potrafił żyć z poczuciem winy.</p>
 <p>Opowieść ma różne warianty, ale jej przesłanie jest podobne: nieopanowana ambicja i zazdrość mogą zniszczyć nawet bliskie relacje. Nierówne wieże kościoła Mariackiego przypominają dziś o tej dramatycznej historii. Warto jednak pamiętać, że to legenda, a nie potwierdzone wyjaśnienie architektury świątyni.</p>
 </div>
-
-<h3 style="margin-top:14px">Fiszki – kliknij, aby odwrócić</h3>
+<h3>Fiszki obrazkowe</h3>
 <div class="words">
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">wieża<small>Co to?</small></div><div class="face back">Wysoka część budynku, zwykle wąska i widoczna z daleka.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">rywalizacja<small>Co to?</small></div><div class="face back">Współzawodnictwo; próba bycia lepszym od innych.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">ambicja<small>Jaka cecha?</small></div><div class="face back">Silne pragnienie osiągnięcia celu lub sukcesu.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">zazdrość<small>Jakie uczucie?</small></div><div class="face back">Przykre uczucie, gdy ktoś ma coś, czego sami pragniemy.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">poczucie winy<small>Jakie uczucie?</small></div><div class="face back">Przekonanie, że zrobiliśmy coś złego.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">wariant<small>Co to?</small></div><div class="face back">Jedna z kilku wersji tej samej opowieści lub zjawiska.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🏰</span><strong>wieża</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>wieża</b>Wysoka część budynku, zwykle wąska.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🏁</span><strong>rywalizacja</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>rywalizacja</b>Współzawodnictwo; próba bycia lepszym od innych.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🎯</span><strong>ambicja</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>ambicja</b>Silne pragnienie osiągnięcia celu lub sukcesu.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">💚</span><strong>zazdrość</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>zazdrość</b>Przykre uczucie, gdy ktoś ma coś, czego pragniemy.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">😔</span><strong>poczucie winy</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>poczucie winy</b>Przekonanie, że zrobiliśmy coś złego.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">📖</span><strong>wariant</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>wariant</b>Jedna z kilku wersji tej samej opowieści.</div></div></div>
 </div>
 </div>
-
 <div>
-<h3>Zadania do legendy</h3>
+<h3>Zadania</h3>
 <div class="task">
 <div class="task-title">1. Wybierz poprawną odpowiedź</div>
-<p>Co według legendy wywołało konflikt braci?</p>
+<p>Co wywołało konflikt braci?</p>
 <div class="options">
 <label class="option"><input type="radio" name="wi1" value="a"> Rywalizacja i zazdrość</label>
-<label class="option"><input type="radio" name="wi1" value="b"> Brak materiałów budowlanych</label>
+<label class="option"><input type="radio" name="wi1" value="b"> Brak materiałów</label>
 <label class="option"><input type="radio" name="wi1" value="c"> Spór o dzwony</label>
 </div>
 <p>Co przypomina legenda?</p>
 <div class="options">
-<label class="option"><input type="radio" name="wi2" value="a"> Że każda wieża musi być taka sama.</label>
-<label class="option"><input type="radio" name="wi2" value="b"> Że zazdrość może niszczyć relacje.</label>
-<label class="option"><input type="radio" name="wi2" value="c"> Że budowa kościoła jest łatwa.</label>
+<label class="option"><input type="radio" name="wi2" value="a"> Zazdrość może niszczyć relacje.</label>
+<label class="option"><input type="radio" name="wi2" value="b"> Każda wieża musi być taka sama.</label>
+<label class="option"><input type="radio" name="wi2" value="c"> Budowa kościoła jest łatwa.</label>
 </div>
-<button class="action" onclick="radios(['wi1:a','wi2:b'],'wif1')">Sprawdź</button>
-<div id="wif1" class="feedback"></div>
+<button class="action" onclick="checkRadios(['wi1:a','wi2:a'],'wif')">Sprawdź</button>
+<div id="wif" class="feedback"></div>
 </div>
-
 <div class="task">
 <div class="task-title">2. Prawda czy fałsz?</div>
-<label class="option"><input type="checkbox" id="wiT1"> Kościół Mariacki stoi przy Rynku Głównym.</label>
-<label class="option"><input type="checkbox" id="wiT2"> Obie wieże są tej samej wysokości.</label>
-<label class="option"><input type="checkbox" id="wiT3"> Legenda ma kilka wariantów.</label>
-<button class="action" onclick="truth('wif2',[['wiT1',true],['wiT2',false],['wiT3',true]])">Sprawdź</button>
-<div id="wif2" class="feedback"></div>
+<label class="option"><input type="checkbox" id="wt1"> Kościół Mariacki stoi przy Rynku Głównym.</label>
+<label class="option"><input type="checkbox" id="wt2"> Obie wieże są tej samej wysokości.</label>
+<label class="option"><input type="checkbox" id="wt3"> Legenda ma kilka wariantów.</label>
+<button class="action" onclick="checkTruth('wtf',[['wt1',true],['wt2',false],['wt3',true]])">Sprawdź</button>
+<div id="wtf" class="feedback"></div>
 </div>
-
 <div class="task">
-<div class="task-title">3. Uzupełnij zdanie</div>
-<p>Między braćmi pojawiła się <input id="wifill" type="text" placeholder="współzawodnictwo">, a później zazdrość.</p>
-<button class="action" onclick="fill(['wifill:rywalizacja:współzawodnictwo'],'wif3')">Sprawdź</button>
-<div id="wif3" class="feedback"></div>
-</div>
-
-<div class="task">
-<div class="task-title">4. Pytanie do dyskusji</div>
+<div class="task-title">3. Pytanie otwarte</div>
 <p>Czy rywalizacja zawsze jest zła? Kiedy może motywować, a kiedy szkodzić?</p>
 <textarea placeholder="Napisz 3–4 zdania..."></textarea>
 </div>
@@ -396,12 +374,12 @@ nav button{white-space:nowrap}
 </div>
 </section>
 
+<!-- LAJKONIK -->
 <section id="lajkonik" class="panel">
 <div class="story-head">
-<div class="art"><img src="https://frce8xp4ye4n.compat.objectstorage.eu-frankfurt-1.oraclecloud.com/blog-assets/thumbnail/0f975e279fb1fa95e31819021fbb72f0/lajkonik-w-krakowie-gdzie-sie-zatrzymuje-pelna-trasa-i-godziny.webp" alt="Lajkonik – fotografia" loading="lazy"></div>
+<img src="https://frce8xp4ye4n.compat.objectstorage.eu-frankfurt-1.oraclecloud.com/blog-assets/thumbnail/0f975e279fb1fa95e31819021fbb72f0/lajkonik-w-krakowie-gdzie-sie-zatrzymuje-pelna-trasa-i-godziny.webp" alt="Lajkonik w Krakowie">
 <div><span class="pill">Legenda 4</span><h2>Lajkonik</h2><p class="lead">Skąd wziął się jeździec na sztucznym koniu?</p></div>
 </div>
-
 <div class="layout">
 <div>
 <h3>Legenda – przeczytaj tekst</h3>
@@ -410,20 +388,18 @@ nav button{white-space:nowrap}
 <p>Legenda wiąże jego początki z najazdem tatarskim. Według opowieści Tatarzy zbliżali się do Krakowa, ale zostali pokonani przez mieszkańców lub flisaków, czyli ludzi pracujących przy spławianiu towarów po Wiśle. Po zwycięstwie jeden z nich przebrał się w zdobyczny strój tatarski i wjechał do miasta na koniu. Mieszkańcy przyjęli go z radością, ponieważ uznali jego pojawienie się za znak ocalenia.</p>
 <p>Z czasem wspomnienie wydarzenia przekształciło się w doroczną zabawę. Współczesny pochód Lajkonika odbywa się w oktawę Bożego Ciała, zwykle w czerwcu. Jego trasa prowadzi z okolic klasztoru norbertanek na Rynek Główny. Legenda nie jest dokładnym zapisem historycznym, ale pomaga wyjaśnić, dlaczego w Krakowie do dziś pielęgnuje się ten niezwykły zwyczaj.</p>
 </div>
-
-<h3 style="margin-top:14px">Fiszki – kliknij, aby odwrócić</h3>
+<h3>Fiszki obrazkowe</h3>
 <div class="words">
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">pochód<small>Co to?</small></div><div class="face back">Zorganizowana grupa ludzi idących razem, często podczas święta.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">strój<small>Co to?</small></div><div class="face back">Ubranie charakterystyczne dla określonej postaci lub okazji.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">buława<small>Co to?</small></div><div class="face back">Ozdobna pałka, symbol władzy lub przedmiot używany w tradycji.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">flisak<small>Kto to?</small></div><div class="face back">Dawniej osoba przewożąca towary rzeką na tratwie lub łodzi.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">pielęgnować tradycję<small>Co robić?</small></div><div class="face back">Dbać o to, aby zwyczaj był przekazywany kolejnym pokoleniom.</div></div></div>
-<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front">ocalenie<small>Co to?</small></div><div class="face back">Uratowanie kogoś lub czegoś przed niebezpieczeństwem.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🎉</span><strong>pochód</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>pochód</b>Zorganizowana grupa ludzi idących razem, często podczas święta.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">👘</span><strong>strój</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>strój</b>Ubranie charakterystyczne dla postaci lub okazji.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🪄</span><strong>buława</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>buława</b>Ozdobna pałka, symbol władzy lub przedmiot używany w tradycji.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🚣</span><strong>flisak</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>flisak</b>Dawniej osoba przewożąca towary rzeką na tratwie lub łodzi.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🌿</span><strong>tradycja</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>tradycja</b>Zwyczaj przekazywany z pokolenia na pokolenie.</div></div></div>
+<div class="flip" onclick="flip(this)"><div class="inner"><div class="face front"><span class="emoji">🛡️</span><strong>ocalenie</strong><small>Kliknij, aby odwrócić</small></div><div class="face back"><b>ocalenie</b>Uratowanie kogoś lub czegoś przed niebezpieczeństwem.</div></div></div>
 </div>
 </div>
-
 <div>
-<h3>Zadania do legendy</h3>
+<h3>Zadania</h3>
 <div class="task">
 <div class="task-title">1. Wybierz poprawną odpowiedź</div>
 <p>Jak wygląda Lajkonik?</p>
@@ -438,28 +414,19 @@ nav button{white-space:nowrap}
 <label class="option"><input type="radio" name="la2" value="b"> W oktawę Bożego Ciała</label>
 <label class="option"><input type="radio" name="la2" value="c"> W pierwszy dzień wiosny</label>
 </div>
-<button class="action" onclick="radios(['la1:a','la2:b'],'laf1')">Sprawdź</button>
-<div id="laf1" class="feedback"></div>
+<button class="action" onclick="checkRadios(['la1:a','la2:b'],'laf')">Sprawdź</button>
+<div id="laf" class="feedback"></div>
 </div>
-
 <div class="task">
 <div class="task-title">2. Prawda czy fałsz?</div>
-<label class="option"><input type="checkbox" id="laT1"> Lajkonik porusza się na sztucznym koniu.</label>
-<label class="option"><input type="checkbox" id="laT2"> Według legendy jego strój wiąże się z Tatarami.</label>
-<label class="option"><input type="checkbox" id="laT3"> Pochód odbywa się codziennie.</label>
-<button class="action" onclick="truth('laf2',[['laT1',true],['laT2',true],['laT3',false]])">Sprawdź</button>
-<div id="laf2" class="feedback"></div>
+<label class="option"><input type="checkbox" id="lt1"> Lajkonik porusza się na sztucznym koniu.</label>
+<label class="option"><input type="checkbox" id="lt2"> Według legendy jego strój wiąże się z Tatarami.</label>
+<label class="option"><input type="checkbox" id="lt3"> Pochód odbywa się codziennie.</label>
+<button class="action" onclick="checkTruth('ltf',[['lt1',true],['lt2',true],['lt3',false]])">Sprawdź</button>
+<div id="ltf" class="feedback"></div>
 </div>
-
 <div class="task">
-<div class="task-title">3. Uzupełnij zdanie</div>
-<p>Lajkonik trzyma w ręku <input id="lafill" type="text" placeholder="ozdobną pałkę">, zwaną buławą.</p>
-<button class="action" onclick="fill(['lafill:buławę:pałkę'],'laf3')">Sprawdź</button>
-<div id="laf3" class="feedback"></div>
-</div>
-
-<div class="task">
-<div class="task-title">4. Pytanie otwarte</div>
+<div class="task-title">3. Pytanie otwarte</div>
 <p>Dlaczego warto pielęgnować lokalne tradycje? Czy w Twoim kraju odbywają się podobne pochody?</p>
 <textarea placeholder="Napisz 3–4 zdania..."></textarea>
 </div>
@@ -467,64 +434,53 @@ nav button{white-space:nowrap}
 </div>
 </section>
 
+<!-- QUIZ -->
 <section id="koniec" class="panel">
 <h2>Quiz końcowy – Kraków i jego legendy</h2>
-<p>Wybierz jedną odpowiedź w każdym pytaniu, a następnie sprawdź wynik.</p>
+<p>Wybierz jedną odpowiedź w każdym pytaniu.</p>
 <div class="progress-wrap"><div class="progress" id="bar"></div></div>
 
-<div class="task">
-<b>1. Kto pokonał Smoka Wawelskiego?</b>
+<div class="task"><b>1. Kto pokonał Smoka Wawelskiego?</b>
 <div class="options">
 <label class="option"><input type="radio" name="q1" value="a"> Król Krak</label>
 <label class="option"><input type="radio" name="q1" value="b"> Szewczyk Skuba</label>
 <label class="option"><input type="radio" name="q1" value="c"> Lajkonik</label>
-</div>
-</div>
+</div></div>
 
-<div class="task">
-<b>2. Dlaczego hejnał mariacki urywa się według legendy?</b>
+<div class="task"><b>2. Dlaczego hejnał urywa się według legendy?</b>
 <div class="options">
 <label class="option"><input type="radio" name="q2" value="a"> Trębacz został trafiony strzałą.</label>
 <label class="option"><input type="radio" name="q2" value="b"> Zabrakło mu powietrza.</label>
-<label class="option"><input type="radio" name="q2" value="c"> Zegar wybił południe.</label>
-</div>
-</div>
+<label class="option"><input type="radio" name="q2" value="c"> Zgubił instrument.</label>
+</div></div>
 
-<div class="task">
-<b>3. Co wyjaśnia legenda o wieżach Mariackich?</b>
+<div class="task"><b>3. Co wyjaśnia legenda o wieżach Mariackich?</b>
 <div class="options">
 <label class="option"><input type="radio" name="q3" value="a"> Dlaczego są różnej wysokości.</label>
 <label class="option"><input type="radio" name="q3" value="b"> Kto zbudował Rynek.</label>
 <label class="option"><input type="radio" name="q3" value="c"> Skąd wzięła się nazwa Wisły.</label>
-</div>
-</div>
+</div></div>
 
-<div class="task">
-<b>4. Z czym wiąże się legenda o Lajkoniku?</b>
+<div class="task"><b>4. Z czym wiąże się legenda o Lajkoniku?</b>
 <div class="options">
 <label class="option"><input type="radio" name="q4" value="a"> Z obroną Krakowa przed Tatarami.</label>
 <label class="option"><input type="radio" name="q4" value="b"> Z budową zamku.</label>
-<label class="option"><input type="radio" name="q4" value="c"> Z poszukiwaniem smoczego skarbu.</label>
-</div>
-</div>
+<label class="option"><input type="radio" name="q4" value="c"> Z poszukiwaniem skarbu.</label>
+</div></div>
 
-<div class="task">
-<b>5. Nad jaką rzeką leży Kraków?</b>
+<div class="task"><b>5. Nad jaką rzeką leży Kraków?</b>
 <div class="options">
 <label class="option"><input type="radio" name="q5" value="a"> Odrą</label>
 <label class="option"><input type="radio" name="q5" value="b"> Wisłą</label>
 <label class="option"><input type="radio" name="q5" value="c"> Bugiem</label>
-</div>
-</div>
+</div></div>
 
-<div class="task">
-<b>6. Które zdanie najlepiej opisuje legendy?</b>
+<div class="task"><b>6. Które zdanie najlepiej opisuje legendy?</b>
 <div class="options">
-<label class="option"><input type="radio" name="q6" value="a"> Zawsze są dokładnymi dokumentami historycznymi.</label>
-<label class="option"><input type="radio" name="q6" value="b"> Łączą elementy tradycji, wyobraźni i pamięci o miejscu.</label>
+<label class="option"><input type="radio" name="q6" value="a"> Są zawsze dokumentami historycznymi.</label>
+<label class="option"><input type="radio" name="q6" value="b"> Łączą tradycję, wyobraźnię i pamięć o miejscu.</label>
 <label class="option"><input type="radio" name="q6" value="c"> Opowiadają wyłącznie o współczesności.</label>
-</div>
-</div>
+</div></div>
 
 <button class="action" onclick="finalQuiz()">Sprawdź wynik</button>
 <button class="action light" onclick="resetQuiz()">Spróbuj ponownie</button>
@@ -538,82 +494,67 @@ nav button{white-space:nowrap}
 </section>
 
 <footer>
-Krakowskie legendy • język polski jako obcy • poziom B1<br>
-<small>Fotografie: Wikimedia Commons (Smok Wawelski – CC BY-SA 3.0; wieże kościoła Mariackiego – Wikimedia Commons), fotografia hejnalisty – Gazeta.pl, fotografia Lajkonika – Naszbus.pl. Kliknij źródła w opisach zdjęć, aby sprawdzić autorstwo i warunki wykorzystania.</small>
+Krakowskie legendy • język polski jako obcy • poziom B1
 </footer>
+
 </main>
 
 <script>
 function go(id,btn){
-document.getElementById(id).scrollIntoView({behavior:'smooth'});
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-if(btn)btn.classList.add('active');
+ document.getElementById(id).scrollIntoView({behavior:'smooth'});
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
 }
-
 function flip(el){el.classList.toggle('on')}
 
-function radios(items,id){
-let n=0,missing=0;
-items.forEach(x=>{
-let [name,val]=x.split(':');
-let c=document.querySelector('input[name="'+name+'"]:checked');
-if(!c)missing++;
-else if(c.value===val)n++;
-});
-let e=document.getElementById(id);
-e.className='feedback '+(n===items.length?'good':'bad');
-e.textContent=missing?'Zaznacz odpowiedź w każdym pytaniu.':`Wynik: ${n}/${items.length}. `+(n===items.length?'Świetnie!':'Spróbuj ponownie.');
+function checkRadios(items,id){
+ let score=0,missing=0;
+ items.forEach(item=>{
+  let [name,value]=item.split(':');
+  let chosen=document.querySelector('input[name="'+name+'"]:checked');
+  if(!chosen)missing++;
+  else if(chosen.value===value)score++;
+ });
+ let el=document.getElementById(id);
+ el.className='feedback '+(score===items.length?'good':'bad');
+ el.textContent=missing?'Odpowiedz na wszystkie pytania.':
+ `Wynik: ${score}/${items.length}. `+(score===items.length?'Świetnie!':'Spróbuj ponownie.');
 }
 
-function truth(id,items){
-let n=0;
-items.forEach(([k,v])=>{
-if(document.getElementById(k).checked===v)n++;
-});
-let e=document.getElementById(id);
-e.className='feedback '+(n===items.length?'good':'bad');
-e.textContent=`Poprawne zaznaczenia: ${n}/${items.length}. `+(n===items.length?'Doskonale!':'Przeczytaj tekst i popraw odpowiedzi.');
-}
-
-function norm(s){
-return s.toLowerCase().trim().replace(/[.,!?;:]/g,'')
-.replace(/ą/g,'a').replace(/ć/g,'c').replace(/ę/g,'e')
-.replace(/ł/g,'l').replace(/ń/g,'n').replace(/ó/g,'o')
-.replace(/ś/g,'s').replace(/ź/g,'z').replace(/ż/g,'z');
-}
-
-function fill(items,id){
-let n=0;
-items.forEach(x=>{
-let [k,...a]=x.split(':');
-if(a.some(v=>norm(v)===norm(document.getElementById(k).value)))n++;
-});
-let e=document.getElementById(id);
-e.className='feedback '+(n===items.length?'good':'bad');
-e.textContent=`Poprawne odpowiedzi: ${n}/${items.length}. `+(n===items.length?'Bardzo dobrze!':'Sprawdź formę i spróbuj jeszcze raz.');
+function checkTruth(id,items){
+ let score=0;
+ items.forEach(([name,correct])=>{
+  if(document.getElementById(name).checked===correct)score++;
+ });
+ let el=document.getElementById(id);
+ el.className='feedback '+(score===items.length?'good':'bad');
+ el.textContent=`Poprawne odpowiedzi: ${score}/${items.length}. `+
+ (score===items.length?'Doskonale!':'Przeczytaj tekst i spróbuj ponownie.');
 }
 
 function finalQuiz(){
-let a={q1:'b',q2:'a',q3:'a',q4:'a',q5:'b',q6:'b'},n=0,d=0;
-Object.keys(a).forEach(k=>{
-let c=document.querySelector('input[name="'+k+'"]:checked');
-if(c){d++;if(c.value===a[k])n++}
-});
-let e=document.getElementById('result');
-if(d<6){
-e.className='feedback bad';
-e.textContent=`Odpowiedz na wszystkie pytania. Zaznaczono: ${d}/6.`;
-return;
-}
-e.className='feedback good';
-e.textContent=`Twój wynik: ${n}/6 punktów. `+(n===6?'Rewelacyjnie!':n>=4?'Bardzo dobrze!':'Warto powtórzyć legendy i spróbować ponownie.');
-document.getElementById('bar').style.width=(n/6*100)+'%';
+ const answers={q1:'b',q2:'a',q3:'a',q4:'a',q5:'b',q6:'b'};
+ let score=0,done=0;
+ Object.keys(answers).forEach(name=>{
+  let selected=document.querySelector('input[name="'+name+'"]:checked');
+  if(selected){done++;if(selected.value===answers[name])score++}
+ });
+ const result=document.getElementById('result');
+ if(done<6){
+  result.className='feedback bad';
+  result.textContent=`Odpowiedz na wszystkie pytania. Zaznaczono: ${done}/6.`;
+  return;
+ }
+ result.className='feedback good';
+ result.textContent=`Twój wynik: ${score}/6. `+
+ (score===6?'Rewelacyjnie!':score>=4?'Bardzo dobrze!':'Warto powtórzyć legendy i spróbować ponownie.');
+ document.getElementById('bar').style.width=(score/6*100)+'%';
 }
 
 function resetQuiz(){
-document.querySelectorAll('#koniec input[type=radio]').forEach(x=>x.checked=false);
-document.getElementById('result').textContent='';
-document.getElementById('bar').style.width='0%';
+ document.querySelectorAll('#koniec input[type=radio]').forEach(x=>x.checked=false);
+ document.getElementById('result').textContent='';
+ document.getElementById('bar').style.width='0%';
 }
 </script>
 

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misja: Trening Superzmysłów — klasa 6</title>
+<style>
+:root{--bg:#f2f7fb;--ink:#172638;--paper:#fff;--accent:#075985;--line:#9bb0c2;--zoom:1}
+*{box-sizing:border-box}html{font-size:calc(18px * var(--zoom));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.55 Arial,sans-serif}
+body.hc{--bg:#000;--ink:#fff;--paper:#080808;--accent:#ffeb00;--line:#fff}
+header{background:#0c3554;color:white;text-align:center;padding:1.5rem 1rem;border-bottom:8px solid #f0a51b}
+header h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.2rem}
+main{max-width:1050px;margin:auto;padding:1rem}
+section,.task,.toolbar,.stats,nav{background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:1rem;margin:1rem 0}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+button{font:inherit;font-weight:bold;border:2px solid var(--accent);background:var(--accent);color:white;border-radius:11px;padding:.6rem .9rem;cursor:pointer}
+button.alt{background:var(--paper);color:var(--ink)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:4px solid #f0a51b;outline-offset:3px}
+nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.6rem}
+nav button{min-height:70px}nav button[aria-current=step]{background:#f0a51b;color:#172638}
+.stats{display:flex;gap:1rem;flex-wrap:wrap;font-weight:bold}.stat{padding:.4rem .7rem;border:1px solid var(--line);border-radius:9px}
+.progress{height:14px;min-width:130px;flex:1;background:var(--bg);border:1px solid var(--line);border-radius:30px;overflow:hidden}.progress span{display:block;height:100%;background:#f0a51b;width:0}
+h2{font-size:1.6rem;margin:.2rem 0}h3{font-size:1.2rem;margin:.2rem 0}.lead{font-size:1.05rem}
+.note{padding:.7rem 1rem;background:var(--bg);border-left:6px solid #f0a51b;border-radius:8px;margin:.8rem 0}
+.task{padding:1rem}.options{display:grid;gap:.5rem;margin:.8rem 0}.option{display:flex;gap:.6rem;padding:.6rem;background:var(--bg);border:1px solid var(--line);border-radius:9px}.option input{width:1.2rem;height:1.2rem;margin-top:.25rem}
+.sequence{font-size:1.5rem;font-weight:bold;letter-spacing:.15em;text-align:center;padding:1rem;border:2px dashed var(--line);border-radius:10px;background:var(--bg)}
+.feedback{padding:.7rem;margin:.7rem 0;border:2px solid var(--line);border-radius:9px}.good{color:#176b42;border-color:#176b42}.bad{color:#b32626;border-color:#b32626}
+textarea{width:100%;max-width:760px;font:inherit;padding:.6rem;border:2px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink)}
+.hidden{display:none!important}.small{font-size:.9rem}
+@media(max-width:600px){main{padding:.5rem}.stats{display:grid;grid-template-columns:1fr 1fr}}
+@media print{button,nav,.toolbar{display:none!important}body{background:white;color:black}}
+</style></head><body>
+<header><div style="font-size:2rem" aria-hidden="true">🧭 👁️ 👂 ✋ 🧠</div><h1>MISJA: TRENING SUPERZmysłów</h1>
+<p>Zajęcia rewalidacyjne z zakresu tyflopedagogiki · klasa 6<br>Odkrywaj, porównuj, zapamiętuj, orientuj się i działaj samodzielnie!</p></header>
+<main>
+<div class="toolbar"><strong>Ustawienia dostępności — dopasuj stronę do siebie:</strong><div>
+<button class="alt" id="minus" aria-label="Zmniejsz tekst">A−</button> <button class="alt" id="plus" aria-label="Powiększ tekst">A+</button>
+<button class="alt" id="contrast">Wysoki kontrast</button> <button class="alt" id="read">🔊 Czytaj instrukcję</button></div></div>
+<section><h2>Witaj w bazie treningowej!</h2><p class="lead">Przed Tobą sześć misji. Poćwiczysz sprawność wzrokową, dotyk, słuch, orientację przestrzenną, pamięć, koncentrację i samodzielność w codziennych sytuacjach.</p>
+<div class="note"><b>Ważne:</b> pracuj we własnym tempie. Możesz powiększyć tekst, poprosić o przeczytanie polecenia albo zrobić przerwę. Nie ma limitu czasu.</div>
+Pamiętaj o wygodnym ustawieniu ekranu i korzystaniu z okularów zgodnie z zaleceniami. Jeśli oczy się męczą, przerwij zadanie i odpocznij. Ćwiczenia nie zastępują zaleceń okulisty.</section>
+<div class="stats" aria-live="polite"><span class="stat">⭐ Punkty: <b id="points">0</b></span><span class="stat">🏅 Odznaki: <b id="badges">0</b>/6</span><div class="progress" id="progress" role="progressbar" aria-label="Postęp misji" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="bar"></span></div></div>
+<nav aria-label="Wybierz misję"><button data-go="0" aria-current="step">1. Sokoli wzrok</button><button data-go="1">2. Dotykowe wyzwanie</button><button data-go="2">3. Uważne ucho</button><button data-go="3">4. Labirynt przestrzeni</button><button data-go="4">5. Pamięć i koncentracja</button><button data-go="5">6. Samodzielny na co dzień</button></nav>
+<section id="mission" aria-live="polite"></section>
+<div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><button class="alt" id="prev">← Poprzednia misja</button><button id="next">Następna misja →</button></div>
+<section id="finish" class="hidden" aria-live="polite"><h2>🏆 Mistrz Superzmysłów!</h2><p>Ukończyłeś wszystkie misje. Zdobyte punkty: <b id="finalpoints"></b>.</p><button id="restart">Zagraj ponownie</button></section>
+</main><footer style="text-align:center;padding:1.5rem">Materiał do pracy z nauczycielem · bez presji czasu</footer>
+<script>
+const M=[
+{title:"Misja 1. Sokoli wzrok",tag:"Spostrzegawczość, analiza i synteza wzrokowa",intro:"Przyjrzyj się znakom. Porównuj ich kształt, kierunek i kolejność. Patrz tak długo, jak potrzebujesz.",t:[
+["Który znak różni się od pozostałych?",'<div class="sequence">○　○　○　◐　○</div>',["Pierwszy","Trzeci","Czwarty","Piąty"],2,"Czwarty znak jest częściowo wypełniony."],
+["Wskaż identyczną parę strzałek.",'<div class="sequence">A: ↑ →　　B: ← ↓　　C: ↑ →</div>',["A i B","A i C","B i C"],1,"A i C mają tę samą kolejność i kierunek."],
+["Który wyraz nie pasuje?",'<div class="sequence">OKO · OKO · UCHO · OKO</div>',["Pierwszy","Drugi","Trzeci","Czwarty"],2,"UCHO różni się od pozostałych wyrazów."]
+]},
+{title:"Misja 2. Dotykowe wyzwanie",tag:"Percepcja dotykowa i opisywanie cech",intro:"Jeśli możesz, przygotuj monetę, klucz, gumkę i klocek. Zbadaj je dotykiem: kształt, fakturę, temperaturę i twardość.",t:[
+["Która cecha najlepiej opisuje monetę?","",["Miękka i puszysta","Twarda, płaska i zwykle okrągła","Lepka i elastyczna"],1,"Moneta jest twarda, płaska i najczęściej okrągła."],
+["Który przedmiot zwykle jest bardziej elastyczny?",'<div class="sequence">KLUCZ　 czy　 GUMKA?</div>',["Klucz","Gumka","Oba tak samo"],1,"Gumka zwykle ugina się bardziej niż metalowy klucz."],
+["Która strategia pomaga rozpoznać przedmiot dotykiem?","",["Dotknąć go w kilku miejscach i sprawdzić kształt","Od razu zgadywać","Potrząsać nim jak najmocniej"],0,"Systematycznie sprawdzaj kształt, fakturę i szczegóły."]
+]},
+{title:"Misja 3. Uważne ucho",tag:"Percepcja słuchowa i pamięć słuchowa",intro:"Przeczytaj zestawy na głos lub poproś nauczyciela o ich odczytanie. Zwróć uwagę na dźwięki i kolejność.",t:[
+["Które dwa wyrazy kończą się taką samą głoską?",'<div class="sequence">MAPA　 LAMPA　 SOK</div>',["MAPA i LAMPA","LAMPA i SOK","MAPA i SOK"],0,"MAPA i LAMPA kończą się głoską A."],
+["Który wyraz ma najwięcej sylab?","",["Dom","Telefon","Kot"],1,"TE-LE-FON ma trzy sylaby."],
+["Zapamiętaj: deszcz – wiatr – słońce. Co było drugie?",'<div class="sequence">🌧️ → 🌬️ → ☀️</div>',["Słońce","Wiatr","Deszcz"],1,"Drugim elementem był wiatr."]
+]},
+{title:"Misja 4. Labirynt przestrzeni",tag:"Orientacja przestrzenna i kierunki",intro:"Wyobraź sobie planszę lub ułóż trzy przedmioty na stole. Wykonuj polecenia i opisuj położenie.",t:[
+["Okno znajduje się po Twojej lewej stronie. Gdzie jest okno?",'<div class="sequence">TY　　OKNO ←</div>',["Po prawej stronie","Po lewej stronie","Za Tobą"],1,"Okno znajduje się po lewej stronie."],
+["Wykonaj ruch: dwa kroki w prawo, jeden do góry. Który zapis pasuje?",'<div class="sequence">→　→　↑</div>',["← ← ↓","→ → ↑","↑ → →"],1,"Najpierw dwa ruchy w prawo, potem jeden do góry."],
+["Kubek stoi między książką a piórnikiem. Co to oznacza?","",["Stoi pomiędzy nimi","Stoi za książką","Leży pod piórnikiem"],0,"Między oznacza, że znajduje się pomiędzy dwoma przedmiotami."]
+]},
+{title:"Misja 5. Pamięć i koncentracja",tag:"Pamięć wzrokowa, sekwencje i uwaga",intro:"Przyjrzyj się sekwencji. Nauczyciel może zasłonić wzór po kilku sekundach. Spróbuj odtworzyć szczegóły z pamięci.",t:[
+["Zapamiętaj sekwencję. Jaki znak był trzeci?",'<div class="sequence">▲　●　■　★</div>',["Koło","Kwadrat","Gwiazda","Trójkąt"],1,"Trzecim znakiem był kwadrat."],
+["Która liczba nie występuje w szeregu 4 – 7 – 2 – 9 – 4?",'<div class="sequence">4　7　2　9　4</div>',["4","7","6","9"],2,"W szeregu nie ma liczby 6."],
+["Zapamiętaj: klucz, mapa, jabłko, zegar. Co było na końcu?",'<div class="sequence">🔑　🗺️　🍎　🕒</div>',["Mapa","Jabłko","Zegar"],2,"Na końcu sekwencji znajdował się zegar."]
+]},
+{title:"Misja 6. Samodzielny na co dzień",tag:"Strategie kompensacyjne i samodzielność",intro:"Wybierz praktyczne i bezpieczne sposoby działania w codziennych sytuacjach. Pomyśl, które strategie sprawdzają się u Ciebie.",t:[
+["Nie możesz znaleźć zeszytu na biurku. Co robisz?", "",["Przesuwasz wszystko chaotycznie","Spokojnie sprawdzasz biurko według stałej kolejności","Rezygnujesz z szukania"],1,"Stały porządek i systematyczne sprawdzanie miejsc pomagają odnajdywać rzeczy."],
+["Tekst na ekranie jest za mały. Co możesz zrobić?","",["Powiększyć tekst lub ekran i ustawić wygodny kontrast","Przybliżyć twarz jak najbardziej do ekranu","Zignorować dyskomfort"],0,"Powiększenie i dobry kontrast mogą poprawić czytelność."],
+["Czujesz zmęczenie oczu podczas pracy. Co robisz?","",["Pracujesz dalej bez przerwy","Robisz przerwę i informujesz nauczyciela","Zwiększasz jasność ekranu do maksimum"],1,"Zrób przerwę i poinformuj nauczyciela; stosuj się do zaleceń specjalisty."]
+]}
+];
+let cur=0,pts=0,done=new Set(),seen=new Set();
+const root=document.getElementById("mission");
+function stats(){document.getElementById("points").textContent=pts;document.getElementById("badges").textContent=done.size;document.getElementById("bar").style.width=(done.size/6*100)+"%";document.getElementById("progress").setAttribute("aria-valuenow",done.size)}
+function render(){let m=M[cur];document.querySelectorAll("[data-go]").forEach((b,i)=>i===cur?b.setAttribute("aria-current","step"):b.removeAttribute("aria-current"));document.getElementById("prev").disabled=cur===0;document.getElementById("next").textContent=cur===5?"Zobacz podsumowanie →":"Następna misja →";
+let s=`<p><b>${m.tag}</b></p><h2>${m.title}</h2><p>${m.intro}</p><div class="note">Za każdą poprawną odpowiedź otrzymasz punkt. Ukończ wszystkie zadania, aby zdobyć odznakę misji.</div>`;
+m.t.forEach((t,i)=>{let id=`q${cur}_${i}`;s+=`<article class="task"><h3>Zadanie ${i+1}</h3><p>${t[0]}</p>${t[1]||""}<div class="options">${t[2].map((v,j)=>`<label class="option"><input type="radio" name="${id}" value="${j}"><span>${v}</span></label>`).join("")}</div><button onclick="check(${cur},${i},'${id}')">Sprawdź</button><div id="${id}f" class="feedback hidden" aria-live="polite"></div></article>`});root.innerHTML=s;document.getElementById("finish").classList.add("hidden")}
+window.check=(mi,ti,id)=>{let t=M[mi].t[ti],sel=document.querySelector(`input[name="${id}"]:checked`),f=document.getElementById(id+"f");f.classList.remove("hidden","good","bad");if(!sel){f.textContent="Zaznacz odpowiedź.";f.classList.add("bad");return}if(+sel.value===t[3]){f.textContent="✓ Brawo! "+t[4];f.classList.add("good");if(!seen.has(id)){pts++;seen.add(id);stats()}}else{f.textContent="Spróbuj jeszcze raz. Wskazówka: "+t[4];f.classList.add("bad")}if(M[mi].t.every((x,i)=>seen.has(`q${mi}_${i}`))&&!done.has(mi)){done.add(mi);stats();let p=document.createElement("p");p.className="feedback good";p.textContent="🏅 Misja ukończona! Zdobywasz odznakę.";root.appendChild(p)}};
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{cur=+b.dataset.go;render()});
+document.getElementById("prev").onclick=()=>{if(cur>0){cur--;render()}};
+document.getElementById("next").onclick=()=>{if(cur<5){cur++;render()}else{document.getElementById("finalpoints").textContent=pts;document.getElementById("finish").classList.remove("hidden");document.getElementById("finish").scrollIntoView({behavior:"smooth"})}};
+document.getElementById("restart").onclick=()=>{cur=0;pts=0;done.clear();seen.clear();stats();render();scrollTo({top:0,behavior:"smooth"})};
+let z=1;document.getElementById("plus").onclick=()=>{z=Math.min(1.5,z+.1);document.documentElement.style.setProperty("--zoom",z)};document.getElementById("minus").onclick=()=>{z=Math.max(.85,z-.1);document.documentElement.style.setProperty("--zoom",z)};
+document.getElementById("contrast").onclick=()=>document.body.classList.toggle("hc");
+document.getElementById("read").onclick=()=>{if(!("speechSynthesis"in window)){alert("Ta przeglądarka nie obsługuje czytania na głos.");return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(M[cur].title+". "+M[cur].intro);u.lang="pl-PL";speechSynthesis.speak(u)};
+render();stats();
+</script></body></html>

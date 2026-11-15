@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misja 2: Superzmysły na wyższym poziomie — klasa 6</title>
+<style>
+:root{--bg:#f3f7fb;--ink:#172638;--paper:#fff;--accent:#075985;--line:#8fa8bc;--zoom:1}
+*{box-sizing:border-box}html{font-size:calc(18px * var(--zoom));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.55 Arial,sans-serif}
+body.hc{--bg:#000;--ink:#fff;--paper:#050505;--accent:#ffeb00;--line:#fff}
+header{background:#102f50;color:#fff;text-align:center;padding:1.5rem 1rem;border-bottom:8px solid #f0a51b}
+header h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:.25rem}
+main{max-width:1050px;margin:auto;padding:1rem}
+section,.task,.toolbar,.stats,nav{background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:1rem;margin:1rem 0}
+.toolbar{display:flex;gap:.6rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+button{font:inherit;font-weight:bold;padding:.65rem .9rem;border:2px solid var(--accent);border-radius:11px;background:var(--accent);color:#fff;cursor:pointer}
+button.alt{background:var(--paper);color:var(--ink)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:4px solid #f0a51b;outline-offset:3px}
+button:disabled{opacity:.5;cursor:not-allowed}
+nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.6rem}
+nav button{min-height:72px}nav button[aria-current=step]{background:#f0a51b;color:#172638}
+.stats{display:flex;gap:1rem;flex-wrap:wrap;font-weight:bold}.stat{padding:.4rem .7rem;border:1px solid var(--line);border-radius:9px}
+.progress{height:14px;min-width:130px;flex:1;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:var(--bg)}.progress span{display:block;height:100%;width:0;background:#f0a51b}
+h2{font-size:1.6rem;margin:.2rem 0}h3{font-size:1.2rem;margin:.2rem 0}.lead{font-size:1.05rem}
+.note{padding:.7rem 1rem;background:var(--bg);border-left:6px solid #f0a51b;border-radius:8px;margin:.8rem 0}
+.task{padding:1rem}.options{display:grid;gap:.5rem;margin:.8rem 0}.option{display:flex;gap:.6rem;padding:.65rem;border:1px solid var(--line);border-radius:9px;background:var(--bg)}.option input{width:1.2rem;height:1.2rem;margin-top:.25rem}
+.visual{font-size:1.35rem;font-weight:bold;letter-spacing:.12em;text-align:center;padding:1rem;background:var(--bg);border:2px dashed var(--line);border-radius:10px;overflow-wrap:anywhere}
+textarea{width:100%;max-width:760px;font:inherit;padding:.6rem;border:2px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink)}
+.feedback{padding:.7rem;margin:.7rem 0;border:2px solid var(--line);border-radius:9px}.good{color:#176b42;border-color:#176b42}.bad{color:#b32626;border-color:#b32626}
+.hidden{display:none!important}.small{font-size:.9rem}
+@media(max-width:600px){main{padding:.5rem}.stats{display:grid;grid-template-columns:1fr 1fr}}
+@media print{button,nav,.toolbar{display:none!important}body{background:white;color:black}}
+</style></head>
+<body>
+<header><div aria-hidden="true" style="font-size:2rem">🧩 🧭 🔎 🧠</div>
+<h1>MISJA 2: SUPERZMYSŁY NA WYŻSZYM POZIOMIE</h1>
+<p>Zaawansowany trening tyflopedagogiczny · klasa 6<br>Więcej szczegółów, trudniejsze sekwencje i sprytne strategie!</p></header>
+<main>
+<div class="toolbar"><strong>Dostosuj widok do swoich potrzeb:</strong><div>
+<button class="alt" id="minus" aria-label="Zmniejsz tekst">A−</button>
+<button class="alt" id="plus" aria-label="Powiększ tekst">A+</button>
+<button class="alt" id="contrast">Wysoki kontrast</button>
+<button class="alt" id="read">🔊 Czytaj instrukcję</button></div></div>
+<section><h2>Nowy poziom — podejmujesz wyzwanie?</h2>
+<p class="lead">W tej części będziesz dokładniej analizować informacje, zapamiętywać położenie elementów, wykrywać reguły, planować działania i wybierać strategie ułatwiające codzienne funkcjonowanie.</p>
+<div class="note"><b>Twoje tempo, Twoje zasady:</b> nie ma limitu czasu. Możesz powiększać tekst, poprosić o odczytanie polecenia, korzystać z kartki i ołówka lub ułożyć własne przedmioty na stole. Jeśli odczuwasz zmęczenie oczu, zrób przerwę.</div></section>
+<div class="stats" aria-live="polite"><span class="stat">⭐ Punkty: <b id="points">0</b></span><span class="stat">🏅 Odznaki: <b id="badges">0</b>/6</span><div class="progress" id="progress" role="progressbar" aria-label="Postęp misji" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="bar"></span></div></div>
+<nav aria-label="Wybierz misję">
+<button data-go="0" aria-current="step">1. Detektyw szczegółów</button>
+<button data-go="1">2. Wzrokowy skaner</button>
+<button data-go="2">3. Mapa w głowie</button>
+<button data-go="3">4. Słuchowy szyfr</button>
+<button data-go="4">5. Strateg i planista</button>
+<button data-go="5">6. Trasa do celu</button>
+</nav>
+<section id="mission" aria-live="polite"></section>
+<div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap"><button class="alt" id="prev">← Poprzednia misja</button><button id="next">Następna misja →</button></div>
+<section id="finish" class="hidden" aria-live="polite"><h2>🏆 Poziom zaawansowany zaliczony!</h2><p>Zdobyte punkty: <b id="finalpoints"></b>. Brawo za wytrwałość, uważność i samodzielne szukanie rozwiązań!</p><button id="restart">Zagraj ponownie</button></section>
+</main><footer style="text-align:center;padding:1.5rem">Materiał do pracy z nauczycielem · bez presji czasu</footer>
+<script>
+const missions=[
+{title:"Misja 1. Detektyw szczegółów",tag:"Analiza wzrokowa, różnicowanie i dostrzeganie reguł",intro:"Przeanalizuj znaki i układy. Zwracaj uwagę na drobne różnice: kierunek, liczbę elementów i kolejność.",tasks:[
+["Który symbol występuje dokładnie dwa razy?",'<div class="visual">◆　●　▲　◆　■　★</div>',["◆","●","▲","★"],0,"Symbol ◆ występuje dwa razy."],
+["W którym szeregu wszystkie strzałki wskazują ten sam kierunek?",'<div class="visual">A: ↑ ↑ ↑　 B: ↑ → ↑　 C: ← ← ↓</div>',["A","B","C"],0,"W szeregu A wszystkie strzałki są skierowane w górę."],
+["Jaka liczba powinna znaleźć się na końcu? 2, 4, 6, 8, ...",'<div class="visual">2 → 4 → 6 → 8 → ?</div>',["9","10","11","12"],1,"Za każdym razem dodajemy 2, więc następna liczba to 10."],
+["Który zestaw zawiera dokładnie trzy trójkąty?",'<div class="visual">A: ▲ ▲ ● ▲　 B: ▲ ● ● ▲　 C: ▲ ▲ ▲ ●</div>',["A i C","Tylko A","Tylko C"],0,"W A i C są po trzy trójkąty."]
+]},
+{title:"Misja 2. Wzrokowy skaner",tag:"Wyszukiwanie informacji, figura–tło i kontrola wzrokowa",intro:"Skanuj zapis od lewej do prawej. Możesz prowadzić palcem lub linijką pod wierszem, aby nie zgubić miejsca.",tasks:[
+["Ile razy pojawia się litera M?",'<div class="visual">M A N M O M A R M</div>',["2","3","4","5"],2,"Litera M występuje cztery razy."],
+["Znajdź parę identycznych kodów.",'<div class="visual">K7P2　 K7PZ　 R4T8　 K7P2</div>',["K7P2 i K7PZ","K7P2 i K7P2","R4T8 i K7PZ"],1,"Pierwszy i ostatni kod są identyczne."],
+["Który wyraz jest ukryty w ciągu liter: DOMKOTLAS?",'<div class="visual">D O M K O T L A S</div>',["MOST","KOT","LASER","TOM"],1,"Litery K-O-T tworzą wyraz KOT."],
+["Wskaż element, który nie pasuje do kategorii.",'<div class="visual">jabłko · gruszka · marchew · śliwka</div>',["Jabłko","Gruszka","Marchew","Śliwka"],2,"Marchew jest warzywem, a pozostałe to owoce."]
+]},
+{title:"Misja 3. Mapa w głowie",tag:"Pamięć przestrzenna, relacje i wyobraźnia przestrzenna",intro:"Przyjrzyj się układowi. Spróbuj zapamiętać położenie elementów, a potem odpowiedz. Możesz też ułożyć taki układ z przedmiotów na stole.",tasks:[
+["Zapamiętaj układ: góra — gwiazda, środek — koło, dół — kwadrat. Co znajduje się w środku?",'<div class="visual">★<br>●<br>■</div>',["Gwiazda","Koło","Kwadrat"],1,"W środku znajduje się koło."],
+["Idziesz od punktu START: 2 kroki na północ, 1 na wschód. W jakim kierunku jest punkt końcowy względem startu?",'<div class="visual">↑ ↑　→</div>',["Północny wschód","Południowy wschód","Północny zachód"],0,"Dwa kroki na północ i jeden na wschód prowadzą na północny wschód."],
+["Książka leży na lewo od kubka, a klucz na prawo od kubka. Co jest między książką a kluczem?",'<div class="visual">KSIĄŻKA　—　?　—　KLUCZ</div>',["Kubek","Zeszyt","Telefon"],0,"Kubek znajduje się pomiędzy książką a kluczem."],
+["Stań przy swoim krześle. Połóż ołówek przed nim, a zeszyt za nim. Co znajduje się bliżej Ciebie, jeśli stoisz przodem do krzesła?", "",["Ołówek","Zeszyt","Nie da się określić"],0,"Ołówek leży przed krzesłem, czyli po stronie, z której do niego podchodzisz."]
+]},
+{title:"Misja 4. Słuchowy szyfr",tag:"Pamięć słuchowa, sekwencje i różnicowanie",intro:"Poproś nauczyciela o odczytanie sekwencji albo przeczytaj ją na głos. Możecie też wystukiwać rytm dłonią o blat.",tasks:[
+["Zapamiętaj: 5 – 2 – 8 – 1. Jaka liczba była druga?",'<div class="visual">5　—　2　—　8　—　1</div>',["5","2","8","1"],1,"Drugą liczbą było 2."],
+["Który rytm ma cztery uderzenia?",'<div class="visual">A: klaśnij – pauza – klaśnij<br>B: klaśnij – klaśnij – klaśnij – klaśnij<br>C: klaśnij – pauza</div>',["A","B","C"],1,"Rytm B składa się z czterech uderzeń."],
+["Usłysz lub przeczytaj: las, most, dom, zegar, rzeka. Co było trzecie?",'<div class="visual">las → most → dom → zegar → rzeka</div>',["Most","Dom","Zegar"],1,"Trzecim słowem był dom."],
+["Która para wyrazów różni się tylko pierwszą głoską?", "",["kasa – kosa","dom – dym","mata – data"],2,"MATA i DATA różnią się pierwszą głoską, pozostała część jest taka sama."]
+]},
+{title:"Misja 5. Strateg i planista",tag:"Planowanie, sekwencjonowanie i elastyczne myślenie",intro:"Wybierz najbardziej rozsądny plan. Zastanów się, co jest najpierw potrzebne, co może poczekać i jak sprawdzić, czy cel został osiągnięty.",tasks:[
+["Masz przygotować się do wyjścia do szkoły. Co powinno być pierwszym krokiem?", "",["Sprawdzić plan lekcji i pogodę","Wyjść z domu","Schować buty do szafy"],0,"Najpierw sprawdź, co będzie potrzebne danego dnia."],
+["Chcesz znaleźć konkretny plik w folderze z wieloma dokumentami. Co pomoże najbardziej?", "",["Otwierać losowe pliki","Użyć wyszukiwarki lub uporządkować pliki według nazw","Zamknąć komputer"],1,"Wyszukiwarka i logiczne nazwy plików skracają szukanie."],
+["Masz 20 minut. Zadanie A trwa 5 minut, B trwa 10 minut, C trwa 8 minut. Które dwa zadania zmieszczą się w czasie?", "",["A i B","B i C","A i C"],0,"A i B zajmą łącznie 15 minut."],
+["Plan nie działa tak, jak zakładałeś. Co robisz?", "",["Rezygnujesz od razu","Sprawdzasz, co nie zadziałało, i wybierasz inną strategię","Powtarzasz bez zmian to samo"],1,"Warto przeanalizować trudność i elastycznie zmienić sposób działania."]
+]},
+{title:"Misja 6. Trasa do celu",tag:"Orientacja, bezpieczeństwo i strategie samodzielności",intro:"Pomyśl o praktycznych sytuacjach w szkole i poza nią. Wybieraj rozwiązania bezpieczne, spokojne i dopasowane do własnych potrzeb.",tasks:[
+["Wchodzisz do nowego budynku. Co pomoże Ci zaplanować drogę do sali?", "",["Zapamiętać punkt orientacyjny i sprawdzić oznaczenia","Iść szybko przed siebie","Skręcać losowo"],0,"Punkty orientacyjne i oznaczenia pomagają budować plan trasy."],
+["Na korytarzu zmieniono ustawienie mebli. Co jest najbezpieczniejsze?", "",["Biec dobrze znaną trasą","Zatrzymać się, rozejrzeć, sprawdzić drogę i w razie potrzeby poprosić o pomoc","Przejść z zamkniętymi oczami"],1,"Zmiana otoczenia wymaga zatrzymania się i ponownego sprawdzenia drogi."],
+["Nie widzisz wyraźnie informacji na tablicy. Jak możesz zareagować?", "",["Zgadnąć treść","Podejść na wygodną, bezpieczną odległość, użyć pomocy optycznej lub poprosić o odczytanie","Zignorować informację"],1,"Dobierz sposób odczytu do swoich potrzeb i zaleceń specjalistów."],
+["Chcesz zapamiętać drogę z klasy do biblioteki. Co będzie pomocne?", "",["Podzielić trasę na krótkie odcinki i zapamiętać punkty orientacyjne","Zapamiętać tylko kolor ścian","Nie zwracać uwagi na zakręty"],0,"Krótki plan trasy i punkty orientacyjne ułatwiają orientację."]
+]}
+];
+let cur=0,points=0,done=new Set(),seen=new Set();
+const root=document.getElementById("mission");
+function stats(){document.getElementById("points").textContent=points;document.getElementById("badges").textContent=done.size;document.getElementById("bar").style.width=(done.size/6*100)+"%";document.getElementById("progress").setAttribute("aria-valuenow",done.size)}
+function render(){let m=missions[cur];document.querySelectorAll("[data-go]").forEach((b,i)=>i===cur?b.setAttribute("aria-current","step"):b.removeAttribute("aria-current"));document.getElementById("prev").disabled=cur===0;document.getElementById("next").textContent=cur===5?"Zobacz podsumowanie →":"Następna misja →";
+let s=`<p><b>${m.tag}</b></p><h2>${m.title}</h2><p>${m.intro}</p><div class="note">Za każdą poprawną odpowiedź otrzymasz punkt. Ukończ wszystkie zadania, aby zdobyć odznakę.</div>`;
+m.tasks.forEach((t,i)=>{let id=`q${cur}_${i}`;s+=`<article class="task"><h3>Zadanie ${i+1}</h3><p>${t[0]}</p>${t[1]||""}<div class="options">${t[2].map((v,j)=>`<label class="option"><input type="radio" name="${id}" value="${j}"><span>${v}</span></label>`).join("")}</div><button onclick="check(${cur},${i},'${id}')">Sprawdź</button><div id="${id}f" class="feedback hidden" aria-live="polite"></div></article>`});root.innerHTML=s;document.getElementById("finish").classList.add("hidden")}
+window.check=(mi,ti,id)=>{let t=missions[mi].tasks[ti],sel=document.querySelector(`input[name="${id}"]:checked`),f=document.getElementById(id+"f");f.classList.remove("hidden","good","bad");if(!sel){f.textContent="Zaznacz odpowiedź.";f.classList.add("bad");return}if(+sel.value===t[3]){f.textContent="✓ Dobrze! "+t[4];f.classList.add("good");if(!seen.has(id)){points++;seen.add(id);stats()}}else{f.textContent="Spróbuj ponownie. Wskazówka: "+t[4];f.classList.add("bad")}if(missions[mi].tasks.every((x,i)=>seen.has(`q${mi}_${i}`))&&!done.has(mi)){done.add(mi);stats();let p=document.createElement("p");p.className="feedback good";p.textContent="🏅 Misja ukończona! Zdobywasz odznakę.";root.appendChild(p)}};
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{cur=+b.dataset.go;render()});
+document.getElementById("prev").onclick=()=>{if(cur>0){cur--;render()}};
+document.getElementById("next").onclick=()=>{if(cur<5){cur++;render()}else{document.getElementById("finalpoints").textContent=points;document.getElementById("finish").classList.remove("hidden");document.getElementById("finish").scrollIntoView({behavior:"smooth"})}};
+document.getElementById("restart").onclick=()=>{cur=0;points=0;done.clear();seen.clear();stats();render();scrollTo({top:0,behavior:"smooth"})};
+let z=1;document.getElementById("plus").onclick=()=>{z=Math.min(1.5,z+.1);document.documentElement.style.setProperty("--zoom",z)};document.getElementById("minus").onclick=()=>{z=Math.max(.85,z-.1);document.documentElement.style.setProperty("--zoom",z)};
+document.getElementById("contrast").onclick=()=>document.body.classList.toggle("hc");
+document.getElementById("read").onclick=()=>{if(!("speechSynthesis"in window)){alert("Ta przeglądarka nie obsługuje czytania na głos.");return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(missions[cur].title+". "+missions[cur].intro);u.lang="pl-PL";speechSynthesis.speak(u)};
+render();stats();
+</script></body></html>

@@ -113,8 +113,9 @@ a:focus-visible{outline:3px solid orange}
 <section>
 <h2>Rewalidacja</h2>
 <div class="grid">
-<article><span>Tyflopedagogika · klasa 6</span><h3>Misja: trening superzmysłów</h3><a href="misja-trening-superzmyslow-tyflopedagogika-klasa6.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
-<article><span>Tyflopedagogika · klasa 6</span><h3>Misja 2: superzmysły na wyższym poziomie</h3><a href="misja-2-superzmysly-zaawansowana-klasa6.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
+<article><span>Tyflopedagogika · klasa 6</span><h3>Misja: trening superzmysłów</h3><a href="misja-tyflopedagogika-kl6-trening-superzmyslow.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
+<article><span>Tyflopedagogika · klasa 6</span><h3>Misja 2: superzmysły na wyższym poziomie</h3><a href="misja-tyflopedagogika-kl6-superzmysly-poziom-zaawansowany.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
+<article><span>Tyflopedagogika · klasa 8</span><h3>Minecraft: Atlas Świata – misja geograficzna</h3><a href="misja-tyflopedagogika-kl8-minecraft-atlas-swiata.html" target="_blank" rel="noopener">Otwórz lekcję ↗</a></article>
 </div>
 </section>
 
@@ -135,6 +136,7 @@ const OMIT=new Set([
 
 /* Nazwy znanych lekcji – dzięki temu wyświetlają się dokładnie tak, jak chcemy */
 const KNOWN={
+ 'misja-tyflopedagogika-kl8-minecraft-atlas-swiata.html':['Rewalidacja','Tyflopedagogika · klasa 8','Minecraft: Atlas Świata – misja geograficzna'],
  'index.html':['Język francuski','Klasa 7','La nourriture et les boissons – jedzenie i picie'],
  'francuski-kl7-ubrania.html':['Język francuski','Klasa 7','Les vêtements – ubrania'],
 
@@ -152,8 +154,9 @@ const KNOWN={
 
  'wychowawcza-kl4-zdrowie.html':['Lekcja wychowawcza','Klasa 4','Misja: zdrowie'],
 
- 'misja-trening-superzmyslow-tyflopedagogika-klasa6.html':['Rewalidacja','Tyflopedagogika · klasa 6','Misja: trening superzmysłów'],
- 'misja-2-superzmysly-zaawansowana-klasa6.html':['Rewalidacja','Tyflopedagogika · klasa 6','Misja 2: superzmysły na wyższym poziomie'],
+ 'misja-tyflopedagogika-kl6-trening-superzmyslow.html':['Rewalidacja','Tyflopedagogika · klasa 6','Misja: trening superzmysłów'],
+ 'misja-tyflopedagogika-kl6-superzmysly-poziom-zaawansowany.html':['Rewalidacja','Tyflopedagogika · klasa 6','Misja 2: superzmysły na wyższym poziomie'],
+ 'misja-tyflopedagogika-kl8-minecraft-atlas-swiata.html':['Rewalidacja','Tyflopedagogika · klasa 8','Minecraft: Atlas Świata – misja geograficzna'],
 
  'ang-kl5-6-thanksgiving-american-culture-lab.html':['Język angielski','Klasa 5–6','Thanksgiving – American Culture Lab'],
  'ang-kl5-6-halloween-english-culture-lab.html':['Język angielski','Klasa 5–6','Halloween – English Culture Lab'],
@@ -340,7 +343,17 @@ async function update(){
    .filter(x=>x.type==='file'&&/\.html?$/i.test(x.name)&&!OMIT.has(x.name))
    .map(x=>x.name);
 
-  if(!names.length)throw new Error('Brak plików HTML');
+  // Rewalidacja pozostaje widoczna nawet wtedy, gdy API GitHuba
+  // chwilowo nie zwróci jeszcze nowych plików. Same lekcje muszą
+  // być również wgrane do głównego katalogu repozytorium.
+  const rewalidacjaFiles=[
+   'misja-tyflopedagogika-kl6-trening-superzmyslow.html',
+   'misja-tyflopedagogika-kl6-superzmysly-poziom-zaawansowany.html',
+   'misja-tyflopedagogika-kl8-minecraft-atlas-swiata.html'
+  ];
+  for(const file of rewalidacjaFiles){
+   if(!names.includes(file))names.push(file);
+  }
 
   render(names);
 

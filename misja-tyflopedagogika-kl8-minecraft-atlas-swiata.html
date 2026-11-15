@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minecraft: Atlas Świata — misja geograficzna klasy 8</title>
+<style>
+:root{--bg:#101923;--panel:#1b2938;--panel2:#23364a;--text:#eef5fb;--muted:#b8c9d8;--accent:#71d6a0;--gold:#ffd166;--bad:#ff8f8f;--line:#3b5369}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0d1721,#182b36);color:var(--text);font:17px/1.55 system-ui,Arial,sans-serif}
+header{padding:32px max(5vw,20px);background:linear-gradient(110deg,#254b3d,#263e63);border-bottom:4px solid #71d6a0}
+header h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:0 0 12px}header p{max-width:850px;margin:0;color:#e1f1e9}
+main{max-width:1050px;margin:auto;padding:22px 16px 60px}.intro,.mission,.result{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 8px 28px #0003}
+h2{color:var(--accent);margin:0 0 10px;font-size:1.55rem}h3{margin:18px 0 8px;color:#d8e9f7}.tag{display:inline-block;background:#315746;color:#caffdf;border-radius:99px;padding:4px 11px;font-size:.82rem;margin:3px 5px 3px 0}
+.small{color:var(--muted);font-size:.94rem}.task{background:var(--panel2);border:1px solid #46617a;border-radius:13px;padding:16px;margin:14px 0}
+label{display:block;margin:8px 0}input[type=text],input[type=number],textarea,select{width:100%;background:#101c28;color:var(--text);border:1px solid #668098;border-radius:9px;padding:11px;font:inherit;margin-top:5px}
+textarea{min-height:90px;resize:vertical}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.choice{background:#142331;padding:10px;border-radius:10px;border:1px solid #526c82}
+button{background:#71d6a0;color:#10251b;border:0;border-radius:10px;padding:11px 17px;font-weight:750;font-size:1rem;cursor:pointer;margin:8px 6px 4px 0}button.secondary{background:#324b60;color:white;border:1px solid #6c879c}button:hover{filter:brightness(1.08)}
+.feedback{font-weight:650;margin-top:8px;min-height:1.4em}.good{color:var(--accent)}.bad{color:var(--bad)}.gold{color:var(--gold)}
+.gridmap{display:grid;grid-template-columns:repeat(6,minmax(38px,1fr));gap:5px;max-width:540px;margin:12px auto}
+.cell{aspect-ratio:1;background:#344c5a;border:1px solid #7793a3;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:750;text-align:center;font-size:.88rem}
+.cell.water{background:#1d5276}.cell.mountain{background:#6a6254}.cell.forest{background:#285b43}.cell.city{background:#7a6338}.cell.goal{background:#5a4677}
+table{width:100%;border-collapse:collapse;margin:10px 0}td,th{border:1px solid #587087;padding:8px;text-align:left}th{background:#2b455a}
+progress{width:100%;height:16px;accent-color:#71d6a0}footer{text-align:center;color:var(--muted);padding:20px}
+@media(max-width:600px){body{font-size:16px}.intro,.mission{padding:16px}.gridmap{gap:3px}.cell{font-size:.73rem}}
+</style>
+</head>
+<body>
+<header>
+ <span class="tag">TYFLOPEDAGOGIKA · KLASA 8</span><span class="tag">POZIOM EKSPERCKI</span>
+ <h1>MINECRAFT: ATLAS ŚWIATA</h1>
+ <p>Wyprawa kartografa-stratega. Nie wystarczy znać nazwy biomów. Trzeba analizować mapy, współrzędne, skalę, klimat, zasoby, ryzyko i zależności między środowiskiem a działalnością człowieka.</p>
+</header>
+<main>
+<section class="intro">
+<h2>Briefing misji</h2>
+<p>Jesteś głównym kartografem ekspedycji, która ma założyć bezpieczną, samowystarczalną osadę w nowym świecie. Otrzymujesz dane przestrzenne, ale część informacji jest niepełna albo celowo myląca. Twoim zadaniem jest wyciągać wnioski, uzasadniać decyzje i sprawdzać, czy plan działa.</p>
+<div><span class="tag">analiza mapy</span><span class="tag">koordynaty</span><span class="tag">skala i odległość</span><span class="tag">klimat i biomy</span><span class="tag">łańcuchy dostaw</span><span class="tag">pamięć robocza</span><span class="tag">wnioskowanie</span></div>
+<p class="small">Zasady: bez limitu czasu. Zapisuj tok rozumowania. W zadaniach otwartych liczy się argumentacja, nie samo hasło. Jeśli oczy się męczą, zrób przerwę; możesz powiększyć stronę skrótem Ctrl + plus.</p>
+<div><strong>Wynik:</strong> <span id="score">0</span> pkt · <strong>ukończone misje:</strong> <span id="done">0/6</span></div>
+<progress id="bar" value="0" max="6"></progress>
+</section>
+
+<section class="mission" id="m1">
+<h2>01. Kartograf: odczytaj świat</h2><p class="small">Umiejętność: analiza wzrokowa, orientacja na siatce, kodowanie położenia.</p>
+<p>Mapa przedstawia fragment świata. Kolumny oznaczono literami A–F, wiersze cyframi 1–6. Każde pole to 500 m × 500 m.</p>
+<div class="gridmap" aria-label="Mapa świata sześć na sześć">
+<div class="cell water">A</div><div class="cell water">B</div><div class="cell forest">C</div><div class="cell forest">D</div><div class="cell mountain">E</div><div class="cell mountain">F</div>
+<div class="cell water">1</div><div class="cell water">~</div><div class="cell forest">Las</div><div class="cell forest">Las</div><div class="cell mountain">Góra</div><div class="cell mountain">Góra</div>
+<div class="cell water">~</div><div class="cell city">Osada</div><div class="cell forest">Las</div><div class="cell forest">Rzeka</div><div class="cell mountain">Góra</div><div class="cell mountain">Śnieg</div>
+<div class="cell water">~</div><div class="cell city">Most</div><div class="cell forest">Rzeka</div><div class="cell forest">Rzeka</div><div class="cell mountain">Przeł.</div><div class="cell mountain">Śnieg</div>
+<div class="cell water">~</div><div class="cell forest">Łąka</div><div class="cell forest">Las</div><div class="cell city">Ruiny</div><div class="cell mountain">Góra</div><div class="cell mountain">Śnieg</div>
+<div class="cell water">~</div><div class="cell forest">Łąka</div><div class="cell forest">Las</div><div class="cell forest">Las</div><div class="cell mountain">Góra</div><div class="cell goal">Portal</div>
+</div>
+<div class="task">
+<p><b>Wyzwanie A.</b> Osada leży w B2, a portal w F6. Ile pól siatki dzieli je w linii prostej (odległość euklidesowa), a jaka jest odległość w metrach? Przyjmij, że środek pola B2 do środka F6 to różnica 4 kolumn i 4 wierszy.</p>
+<label>Odległość w metrach <input id="q1" type="text" placeholder="np. 2800 m"></label>
+<button onclick="checkText('q1',['2828','2828 m','2,828 km','2.828 km'],'f1')">Sprawdź</button><div id="f1" class="feedback"></div>
+<p><b>Wyzwanie B.</b> Podaj współrzędne pola z ruinami i wyjaśnij, dlaczego trasa przez przełęcz może być lepsza niż marsz na przełaj przez góry.</p>
+<textarea id="q1b" placeholder="Wpisz współrzędne i uzasadnienie..."></textarea>
+<button onclick="markOpen('q1b','f1b')">Zapisz odpowiedź</button><div id="f1b" class="feedback"></div>
+</div>
+</section>
+
+<section class="mission" id="m2">
+<h2>02. Geograf klimatu: wybierz biom pod osadę</h2><p class="small">Umiejętność: synteza danych, wnioskowanie przyczynowo-skutkowe, ocena ryzyka.</p>
+<p>Trzy potencjalne lokalizacje mają następujące parametry:</p>
+<table><tr><th>Lokalizacja</th><th>Warunki</th><th>Zasoby</th><th>Ryzyko</th></tr>
+<tr><td>Delta Rzeki</td><td>łagodny klimat, częste powodzie</td><td>woda, żyzne gleby, ryby</td><td>wysokie ryzyko zalania</td></tr>
+<tr><td>Wyżyna</td><td>umiarkowany klimat, chłodne noce</td><td>kamień, ruda, źródła</td><td>trudniejszy transport</td></tr>
+<tr><td>Skraj tajgi</td><td>długie zimy, krótki okres wegetacji</td><td>drewno, zwierzyna</td><td>koszt ogrzewania i żywności</td></tr></table>
+<div class="task">
+<p><b>Wyzwanie A.</b> Które miejsce wybierzesz na główną osadę, jeśli priorytetami są stabilność, różnorodność zasobów i możliwość rozwoju przez cały rok?</p>
+<div class="choices">
+<label class="choice"><input type="radio" name="q2" value="delta"> Delta Rzeki</label>
+<label class="choice"><input type="radio" name="q2" value="wyzyna"> Wyżyna</label>
+<label class="choice"><input type="radio" name="q2" value="tajga"> Skraj tajgi</label>
+</div>
+<button onclick="checkRadio('q2','wyzyna','f2','Wyżyna daje zróżnicowane zasoby i mniejsze ryzyko katastrofalne niż delta; wymaga jednak zaplanowania transportu.')">Sprawdź</button><div id="f2" class="feedback"></div>
+<p><b>Wyzwanie B – poziom ekspercki.</b> Zaproponuj dwustrefowy system osadnictwa: główna baza i wyspecjalizowana placówka. Uzasadnij lokalizacje i wskaż, jak ograniczysz ryzyko środowiskowe.</p>
+<textarea id="q2b" placeholder="Strategia, argumenty, ryzyka i zabezpieczenia..."></textarea>
+<button onclick="markOpen('q2b','f2b')">Zapisz odpowiedź</button><div id="f2b" class="feedback"></div>
+</div>
+</section>
+
+<section class="mission" id="m3">
+<h2>03. Inżynier mapy: skala, azymut i logistyka</h2><p class="small">Umiejętność: przeliczanie, planowanie, pamięć robocza.</p>
+<div class="task">
+<p>Mapa strategiczna ma skalę 1 : 25 000. Odległość między bazą a kopalnią na mapie wynosi 7,2 cm.</p>
+<label><b>A.</b> Jaka jest rzeczywista odległość w kilometrach? <input id="q3" type="text" placeholder="Wpisz wynik"></label>
+<button onclick="checkText('q3',['1,8','1.8','1,8 km','1.8 km'],'f3')">Sprawdź</button><div id="f3" class="feedback"></div>
+<p><b>B.</b> Ekipa porusza się z prędkością średnią 4,5 km/h i ma do pokonania tę trasę w obie strony. Ile czasu zajmie sam marsz, bez postojów?</p>
+<label>Odpowiedź <input id="q3b" type="text" placeholder="np. 48 min"></label>
+<button onclick="checkText('q3b',['48','48 min','0,8 h'],'f3b')">Sprawdź</button><div id="f3b" class="feedback"></div>
+<p><b>C.</b> Azymut z bazy do kopalni wynosi 135°. W jakim ogólnym kierunku świata należy iść?</p>
+<div class="choices">
+<label class="choice"><input type="radio" name="q3c" value="nw"> północny zachód</label>
+<label class="choice"><input type="radio" name="q3c" value="se"> południowy wschód</label>
+<label class="choice"><input type="radio" name="q3c" value="sw"> południowy zachód</label>
+<label class="choice"><input type="radio" name="q3c" value="ne"> północny wschód</label>
+</div>
+<button onclick="checkRadio('q3c','se','f3c','Azymut 135° liczony zgodnie z ruchem wskazówek zegara od północy wskazuje południowy wschód.')">Sprawdź</button><div id="f3c" class="feedback"></div>
+</div>
+</section>
+
+<section class="mission" id="m4">
+<h2>04. Zaszyfrowany biom: dedukcja z danych</h2><p class="small">Umiejętność: rozumowanie wieloetapowe, selekcja danych, dostrzeganie sprzeczności.</p>
+<div class="task">
+<p>Nieznany biom ma cztery cechy:</p><ol><li>średnia temperatura jest niska przez większość roku,</li><li>opady są niewielkie, ale woda występuje w postaci zamarzniętej,</li><li>roślinność jest niska i rzadka,</li><li>gleba przez dużą część roku pozostaje zamarznięta.</li></ol>
+<p><b>A.</b> Wskaż najbardziej prawdopodobny typ środowiska.</p>
+<div class="choices">
+<label class="choice"><input type="radio" name="q4" value="sawanna"> sawanna</label>
+<label class="choice"><input type="radio" name="q4" value="tundra"> tundra</label>
+<label class="choice"><input type="radio" name="q4" value="lasrownik"> wilgotny las równikowy</label>
+<label class="choice"><input type="radio" name="q4" value="step"> step</label>
+</div>
+<button onclick="checkRadio('q4','tundra','f4','Wskazówki pasują do tundry: niska temperatura, skąpa roślinność i wieloletnia zmarzlina.')">Sprawdź</button><div id="f4" class="feedback"></div>
+<p><b>B.</b> W grze ktoś twierdzi: „Skoro opady są niewielkie, to nie może być tam dużo lodu”. Wyjaśnij błąd w tym rozumowaniu.</p>
+<textarea id="q4b" placeholder="Wyjaśnij różnicę między opadami, temperaturą i stanem skupienia wody..."></textarea>
+<button onclick="markOpen('q4b','f4b')">Zapisz odpowiedź</button><div id="f4b" class="feedback"></div>
+</div>
+</section>
+
+<section class="mission" id="m5">
+<h2>05. Kryzys łańcucha dostaw</h2><p class="small">Umiejętność: planowanie strategiczne, analiza zależności, elastyczność poznawcza.</p>
+<div class="task">
+<p>Osada potrzebuje tygodniowo: 12 jednostek żywności, 8 drewna i 6 kamienia. Produkcja lokalna: 7 żywności, 10 drewna, 2 kamienia. Handel dostarcza brakujące zasoby, ale po ulewie most na wschodzie został zniszczony. Zachodni szlak jest o 30% dłuższy, lecz przejezdny. Magazyn ma zapas: 10 żywności, 0 drewna, 8 kamienia.</p>
+<p><b>A.</b> Których zasobów brakuje w tygodniowej produkcji i ile jednostek każdego?</p>
+<label>Żywność <input id="q5a" type="number"></label>
+<label>Drewno <input id="q5b" type="number"></label>
+<label>Kamień <input id="q5c" type="number"></label>
+<button onclick="checkSupply()">Sprawdź</button><div id="f5" class="feedback"></div>
+<p><b>B.</b> Zaproponuj kolejność działań na najbliższe 48 godzin. Uwzględnij zapasy, naprawę infrastruktury i priorytety transportowe.</p>
+<textarea id="q5d" placeholder="Plan w punktach, z uzasadnieniem..."></textarea>
+<button onclick="markOpen('q5d','f5d')">Zapisz odpowiedź</button><div id="f5d" class="feedback"></div>
+</div>
+</section>
+
+<section class="mission" id="m6">
+<h2>06. Finał: zaprojektuj świat odporny na błędy</h2><p class="small">Umiejętność: synteza, argumentacja, planowanie przestrzenne i metapoznanie.</p>
+<div class="task">
+<p>Masz zaprojektować nową mapę świata Minecraft, na której gracze będą mogli przetrwać 100 dni. Mapa ma zawierać trzy biomy, główną osadę, punkt wydobycia surowców, źródło wody, szlak handlowy i obszar chroniony.</p>
+<p>W projekcie muszą znaleźć się:</p><ul><li>opis układu przestrzennego i kierunków,</li><li>uzasadnienie wyboru lokalizacji osady z użyciem co najmniej trzech kryteriów geograficznych,</li><li>plan transportu i wymiany zasobów,</li><li>dwa zagrożenia naturalne oraz konkretne zabezpieczenia,</li><li>jedna sytuacja awaryjna i alternatywny plan działania.</li></ul>
+<textarea id="q6" style="min-height:190px" placeholder="Opisz projekt jak profesjonalny plan kartografa. Możesz użyć współrzędnych, skali, azymutów i legendy mapy."></textarea>
+<button onclick="markOpen('q6','f6')">Zapisz projekt finałowy</button><div id="f6" class="feedback"></div>
+</div>
+</section>
+
+<section class="result">
+<h2>Raport ekspedycji</h2>
+<p id="report">Ukończ misje, aby zbudować raport swojej pracy.</p>
+<button onclick="makeReport()">Generuj raport</button>
+<button class="secondary" onclick="window.print()">Drukuj / zapisz jako PDF</button>
+<p class="small">Ważne: odpowiedzi otwarte są zapisywane jako wykonane, ale wymagają omówienia z nauczycielem. Punkty automatyczne dotyczą zadań z jednoznaczną odpowiedzią.</p>
+</section>
+<footer>MINECRAFT: ATLAS ŚWIATA · Trening zaawansowanych funkcji wzrokowych i poznawczych · Klasa 8</footer>
+</main>
+<script>
+let score=0,done=new Set();
+function update(){document.getElementById('score').textContent=score;document.getElementById('done').textContent=done.size+'/6';document.getElementById('bar').value=done.size}
+function award(id,pts=1){if(!done.has(id)){done.add(id);score+=pts;update()}}
+function norm(s){return s.toLowerCase().replace(/\s/g,'').replace(/,/g,'.')}
+function checkText(id,answers,feed){let v=norm(document.getElementById(id).value);let ok=answers.some(a=>norm(a)===v);let el=document.getElementById(feed);el.textContent=ok?'Poprawnie. Dobra analiza danych!':'Sprawdź obliczenia i spróbuj ponownie.';el.className='feedback '+(ok?'good':'bad');if(ok)award(feed.startsWith('f1')?'1':feed.startsWith('f3')?'3':'x'+feed)}
+function checkRadio(name,correct,feed,explain){let v=document.querySelector('input[name="'+name+'"]:checked');let el=document.getElementById(feed);if(!v){el.textContent='Najpierw wybierz odpowiedź.';return}let ok=v.value===correct;el.textContent=ok?'Poprawnie. '+explain:'Nie tym razem. Przeanalizuj ponownie dane.';el.className='feedback '+(ok?'good':'bad');if(ok)award(feed.startsWith('f2')?'2':feed.startsWith('f3')?'3':'4')}
+function markOpen(id,feed){let v=document.getElementById(id).value.trim();let el=document.getElementById(feed);if(v.length<25){el.textContent='Rozwiń odpowiedź — dodaj uzasadnienie i szczegóły.';el.className='feedback bad';return}el.textContent='Odpowiedź zapisana. Omów argumentację z nauczycielem.';el.className='feedback good';let m=id.startsWith('q1')?'1':id.startsWith('q2')?'2':id.startsWith('q3')?'3':id.startsWith('q4')?'4':id.startsWith('q5')?'5':'6';award(m,2)}
+function checkSupply(){let vals=['q5a','q5b','q5c'].map(id=>Number(document.getElementById(id).value));let ok=vals[0]===5&&vals[1]===0&&vals[2]===4;let el=document.getElementById('f5');el.textContent=ok?'Poprawnie: 5 żywności, 0 drewna, 4 kamienia. Drewno jest już pokryte produkcją lokalną.':'Policz różnicę między zapotrzebowaniem a produkcją lokalną. Zapas magazynowy rozważ osobno w planie działań.';el.className='feedback '+(ok?'good':'bad');if(ok)award('5')}
+function makeReport(){document.getElementById('report').textContent='Wynik: '+score+' pkt. Ukończone misje: '+done.size+'/6. Najmocniej rozwijane obszary: analiza mapy, rozumowanie przestrzenne, synteza danych, planowanie i elastyczność poznawcza. Odpowiedzi otwarte oceń pod kątem precyzji, argumentów i wykonalności planu.'}
+update();
+</script>
+</body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misja Rewalidacja – Atlas rzeczy niezwykłych</title>
+<style>
+:root{--ink:#17243b;--muted:#5b6880;--paper:#f4f7fb;--card:#fff;--blue:#2456a6;--teal:#087e78;--gold:#f1b84b;--line:#dce4ef}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(125deg,#14294d,#2456a6 60%,#087e78);color:white;padding:30px 18px}
+.wrap{max-width:960px;margin:auto;padding:0 16px}h1{font-size:clamp(27px,5vw,43px);line-height:1.08;margin:0 0 12px}header p{max-width:760px;margin:0;color:#e8f1ff}
+main{padding:22px 0 60px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.pill{background:#e5edf9;border-radius:99px;padding:6px 12px;font-size:14px;font-weight:700}
+.progress{height:10px;background:#dce4ef;border-radius:20px;overflow:hidden;margin:12px 0 22px}.bar{height:100%;width:0;background:var(--teal);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 5px 20px #17243b0a}
+h2{font-size:23px;margin:0 0 8px}h3{font-size:18px;margin:14px 0 5px}.tag{color:var(--teal);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.fact{border-left:4px solid var(--gold);padding:10px 14px;background:#fff9eb;border-radius:0 10px 10px 0;margin:12px 0}
+.options{display:grid;gap:9px;margin:12px 0}.opt{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:white}.opt:hover{border-color:var(--blue)}.opt input{margin-top:5px;transform:scale(1.15)}
+button{border:0;border-radius:11px;background:var(--blue);color:white;padding:10px 15px;font-weight:750;font-size:15px;cursor:pointer;margin:4px 5px 4px 0}button.secondary{background:#e7eef8;color:var(--ink)}button:focus-visible,.opt:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+input[type=text],textarea{width:100%;border:1px solid #bdc9da;border-radius:10px;padding:12px;font:inherit}textarea{min-height:95px}
+.feedback{font-weight:700;margin-top:9px;min-height:26px}.good{color:#087e52}.bad{color:#b34332}.small{font-size:14px;color:var(--muted)}
+details{background:#f5f8fc;border-radius:10px;padding:10px 13px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+.listen{background:#eef5ff;border:1px solid #cbdcf5;padding:15px;border-radius:13px;margin:12px 0}.transcript{display:none;background:white;padding:12px;border-radius:10px;margin-top:10px}
+footer{color:var(--muted);font-size:13px;margin-top:24px}
+@media(min-width:700px){.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+</style></head>
+<body>
+<header><div class="wrap"><div style="font-weight:800;letter-spacing:.12em;font-size:13px;color:#bfe8e4">MISJA REWALIDACJA • TYFLOPEDAGOGIKA</div>
+<h1>Atlas rzeczy niezwykłych</h1><p>Wyprawa przez pięć zakątków świata. Zbieraj fakty, oddzielaj dowody od domysłów i słuchaj uważnie — niektóre szczegóły są ukryte w nagraniach.</p></div></header>
+<main class="wrap">
+<div class="stats"><span class="pill">Poziom: ekspert</span><span class="pill">15 zadań zamkniętych + raport</span><span class="pill">Słuchanie • logika • geografia</span><span class="pill" id="score">Punkty: 0</span></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="card"><div class="tag">Instrukcja ekspedycji</div><p>Pracuj bez pośpiechu. Możesz powiększyć tekst, odsłuchać polecenie, a w zadaniach słuchowych odtworzyć tekst kilka razy. Transkrypcja jest dostępna dopiero po pierwszym odsłuchaniu. W pytaniach jednokrotnego wyboru tylko jedna odpowiedź jest poprawna.</p><button class="secondary" onclick="document.body.style.fontSize=(parseInt(getComputedStyle(document.body).fontSize)+1)+'px'">Powiększ tekst</button><button class="secondary" onclick="document.body.style.fontSize='17px'">Przywróć rozmiar</button></div>
+
+<section class="card"><div class="tag">Przystanek 1 • Boliwia</div><h2>Morze, które zostało solą</h2>
+<div class="fact">Salar de Uyuni w Boliwii to największe solnisko świata. Leży na wysoko położonym płaskowyżu Altiplano. W porze deszczowej cienka warstwa wody może zamienić jego powierzchnię w ogromne zwierciadło. Nie oznacza to jednak, że cała powierzchnia zawsze odbija obraz jednakowo — zależy to m.in. od warunków na wodzie.</div>
+<p>W przeszłości w tym regionie istniały jeziora. Gdy woda wyparowała, pozostały rozległe pokłady soli. Powierzchnia solniska jest niezwykle płaska, dlatego przy odpowiedniej ilości spokojnej wody niebo może odbijać się niemal jak w lustrze.</p>
+<div class="small">Ciekawostka oparta na materiałach NASA, JAXA i badaniu opublikowanym w 2025 r.</div>
+</section>
+<div class="card quiz" data-answer="c" data-points="1"><div class="tag">Wyzwanie 1 • wnioskowanie</div><h2>Co wynika z opisu?</h2><p>Dlaczego Salar de Uyuni może przypominać lustro?</p><div class="options">
+<label class="opt"><input type="radio" name="q1" value="a">A. Ponieważ pod solą znajduje się tafla szkła.</label>
+<label class="opt"><input type="radio" name="q1" value="b">B. Ponieważ przez cały rok jest pokryte głębokim jeziorem.</label>
+<label class="opt"><input type="radio" name="q1" value="c">C. Ponieważ cienka, odpowiednio spokojna warstwa wody odbija niebo.</label>
+<label class="opt"><input type="radio" name="q1" value="d">D. Ponieważ sól świeci własnym światłem.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+<div class="card quiz" data-answer="b" data-points="1"><div class="tag">Wyzwanie 2 • precyzja informacji</div><h2>Pułapka absolutów</h2><p>Które zdanie jest najwierniejsze tekstowi?</p><div class="options">
+<label class="opt"><input type="radio" name="q2" value="a">A. Każdy fragment solniska zawsze odbija obraz idealnie.</label>
+<label class="opt"><input type="radio" name="q2" value="b">B. Efekt lustra zależy od warunków, m.in. od stanu powierzchni wody.</label>
+<label class="opt"><input type="radio" name="q2" value="c">C. Solnisko jest lustrem wyłącznie nocą.</label>
+<label class="opt"><input type="radio" name="q2" value="d">D. Solnisko powstało z zastygłej lawy.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+
+<section class="card"><div class="tag">Przystanek 2 • Namibia</div><h2>Pustynia, która pije mgłę</h2>
+<div class="fact">Namib Sand Sea to niezwykły obszar pustynnych wydm na wybrzeżu Namibii. UNESCO podkreśla, że jest to jedyna pustynia nadmorska z rozległymi polami wydm, na które silnie oddziałuje mgła. Mgła stanowi ważne źródło wody dla organizmów przystosowanych do suchych warunków.</div>
+<p>Niektóre chrząszcze z pustyni Namib potrafią wykorzystywać wilgoć z mgły. Jeden z opisywanych gatunków ustawia ciało tak, by krople mogły się na nim skraplać i spływać w kierunku aparatu gębowego. W świecie pustyni nawet mgła może być dostawą wody.</p>
+</section>
+<div class="card quiz" data-answer="a" data-points="1"><div class="tag">Wyzwanie 3 • rozumowanie przyczynowe</div><h2>Łańcuch przetrwania</h2><p>Jaki wniosek najlepiej łączy oba akapity?</p><div class="options">
+<label class="opt"><input type="radio" name="q3" value="a">A. W środowisku ubogim w deszcz organizmy mogą wykorzystywać inne źródła wilgoci, np. mgłę.</label>
+<label class="opt"><input type="radio" name="q3" value="b">B. Mgła zamienia każdą pustynię w las tropikalny.</label>
+<label class="opt"><input type="radio" name="q3" value="c">C. Wszystkie pustynne owady piją wyłącznie krople deszczu.</label>
+<label class="opt"><input type="radio" name="q3" value="d">D. Wydmy powstają dzięki chrząszczom.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+<div class="card quiz" data-answer="d" data-points="1"><div class="tag">Wyzwanie 4 • selekcja informacji</div><h2>Co jest faktem z tekstu UNESCO?</h2><div class="options">
+<label class="opt"><input type="radio" name="q4" value="a">A. Namib Sand Sea leży w Europie.</label>
+<label class="opt"><input type="radio" name="q4" value="b">B. Mgła występuje tam tylko raz w roku.</label>
+<label class="opt"><input type="radio" name="q4" value="c">C. UNESCO uznaje wszystkie pustynie za identyczne.</label>
+<label class="opt"><input type="radio" name="q4" value="d">D. Mgła wpływa na rozległe pola wydm i lokalny ekosystem.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+
+<section class="card"><div class="tag">Przystanek 3 • Niderlandy</div><h2>Kraj, który negocjuje z wodą</h2>
+<div class="fact">Niderlandy mają długą historię gospodarowania wodą. Znaczna część kraju jest nisko położona, a część terenów leży poniżej poziomu morza. Wały, wydmy, śluzy, pompy i systemy odwadniające pomagają chronić ludzi oraz pola przed zalaniem. Rower jest tam bardzo popularnym środkiem transportu; liczba rowerów przewyższa liczbę mieszkańców.</div>
+<p>To przykład, jak geografia może wpływać na codzienne życie, inżynierię i kulturę przemieszczania się. Nie każdy mieszkaniec jeździ rowerem, ale infrastruktura rowerowa jest ważnym elementem przestrzeni publicznej.</p>
+</section>
+<div class="card quiz" data-answer="c" data-points="1"><div class="tag">Wyzwanie 5 • analogia</div><h2>Znajdź wspólny mianownik</h2><p>Co łączy system ochrony przeciwpowodziowej i popularność rowerów w Niderlandach?</p><div class="options">
+<label class="opt"><input type="radio" name="q5" value="a">A. Oba zjawiska wynikają wyłącznie z mody.</label>
+<label class="opt"><input type="radio" name="q5" value="b">B. Oba są sposobem na zwiększenie wysokości kraju.</label>
+<label class="opt"><input type="radio" name="q5" value="c">C. Pokazują, jak warunki przestrzenne wpływają na rozwiązania organizacyjne i techniczne.</label>
+<label class="opt"><input type="radio" name="q5" value="d">D. Oba sprawiają, że w kraju nie ma samochodów.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+
+<div class="card"><div class="tag">Przystanek 4 • słuchowisko z Japonii</div><h2>Raport z dworca</h2><p>Odtwórz nagranie uważnie. Usłyszysz kilka szczegółów, które łatwo pomylić.</p>
+<div class="listen"><button onclick="listen('listen1',this)">▶ Odtwórz nagranie</button><button class="secondary" onclick="showTranscript('t1')">Pokaż transkrypcję</button><div class="transcript" id="t1">W notatniku reporterki zapisano: pociąg odjechał o 8:42, a nie o 8:24. Podróż trwała 36 minut. Na peronie numer trzy znaleziono niebieski parasol, ale właściciel zgłosił się dopiero po południu. Reporterka nie twierdzi, że parasol należał do pasażera z pociągu — tego nie udało się ustalić.</div></div>
+<div class="quiz" data-answer="b" data-points="1"><h3>Wyzwanie 6 • słuchanie szczegółowe</h3><p>O której godzinie odjechał pociąg?</p><div class="options"><label class="opt"><input type="radio" name="q6" value="a">8:24</label><label class="opt"><input type="radio" name="q6" value="b">8:42</label><label class="opt"><input type="radio" name="q6" value="c">8:36</label><label class="opt"><input type="radio" name="q6" value="d">8:48</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="d" data-points="1"><h3>Wyzwanie 7 • słuchanie i wnioskowanie</h3><p>Co wiadomo o właścicielu parasola?</p><div class="options"><label class="opt"><input type="radio" name="q7" value="a">Na pewno jechał tym pociągiem.</label><label class="opt"><input type="radio" name="q7" value="b">Był reporterem.</label><label class="opt"><input type="radio" name="q7" value="c">Zgłosił się przed odjazdem.</label><label class="opt"><input type="radio" name="q7" value="d">Zgłosił się po południu, ale nie ustalono, czy był pasażerem.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div></div>
+
+<div class="card"><div class="tag">Przystanek 5 • wyprawa przez oceany</div><h2>Trzy wiadomości, jedna pułapka</h2><p>Wysłuchaj komunikatu z pokładu ekspedycyjnego statku.</p>
+<div class="listen"><button onclick="listen('listen2',this)">▶ Odtwórz komunikat</button><button class="secondary" onclick="showTranscript('t2')">Pokaż transkrypcję</button><div class="transcript" id="t2">Dziennik wyprawy: we wtorek zespół badał próbki wody. W środę pogoda uniemożliwiła zejście na ląd, więc wykonano pomiary z pokładu. W czwartek naukowcy znaleźli ślady obecności ptaków na wyspie. Nie zaobserwowali jednak samych ptaków. Kierownik podkreślił, że ślady są dowodem pośrednim, a nie bezpośrednią obserwacją zwierząt.</div></div>
+<div class="quiz" data-answer="c" data-points="1"><h3>Wyzwanie 8 • rozróżnianie dowodu</h3><p>Co zaobserwowano bezpośrednio?</p><div class="options"><label class="opt"><input type="radio" name="q8" value="a">Ptaki w locie.</label><label class="opt"><input type="radio" name="q8" value="b">Ptaki na brzegu.</label><label class="opt"><input type="radio" name="q8" value="c">Ślady obecności ptaków.</label><label class="opt"><input type="radio" name="q8" value="d">Gniazdo z pisklętami.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-points="1"><h3>Wyzwanie 9 • chronologia</h3><p>Dlaczego w środę nie wykonano zejścia na ląd?</p><div class="options"><label class="opt"><input type="radio" name="q9" value="a">Z powodu pogody.</label><label class="opt"><input type="radio" name="q9" value="b">Z powodu awarii silnika.</label><label class="opt"><input type="radio" name="q9" value="c">Zespół nie miał próbek.</label><label class="opt"><input type="radio" name="q9" value="d">Ponieważ badania zakończono we wtorek.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div></div>
+
+<div class="card"><div class="tag">Pracownia kartografa</div><h2>Współrzędne bez mapy</h2><p>Badacz rusza z punktu (2, 3). Idzie: 4 pola na zachód, 2 na północ, 1 na wschód i 3 na południe. Gdzie kończy trasę?</p>
+<div class="quiz" data-answer="b" data-points="2"><div class="options"><label class="opt"><input type="radio" name="q10" value="a">(−1, 3)</label><label class="opt"><input type="radio" name="q10" value="b">(−1, 2)</label><label class="opt"><input type="radio" name="q10" value="c">(−3, 5)</label><label class="opt"><input type="radio" name="q10" value="d">(−1, 8)</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div><p class="small">Uwaga: zapisuj zmianę współrzędnych, nie kieruj się samym kierunkiem na ekranie.</p></div></div>
+
+<div class="card"><div class="tag">Archiwum ekspedycji</div><h2>Odczytaj szyfr podróżnika</h2><p>Każda litera została przesunięta o jedną pozycję do przodu w alfabecie łacińskim (A→B, B→C itd.). Odszyfruj angielską nazwę kraju: <b>KBQBO</b>.</p>
+<div class="quiz" data-answer="japan" data-points="2"><input type="text" placeholder="Wpisz nazwę kraju" aria-label="Odszyfrowana nazwa kraju"><button onclick="checkText(this)">Sprawdź</button><div class="feedback"></div><p class="small">Wpisz JAPAN.</p></div></div>
+
+<div class="card"><div class="tag">Słuchowisko • kontrola faktów</div><h2>Co powiedział przewodnik?</h2><div class="listen"><button onclick="listen('listen3',this)">▶ Odtwórz nagranie</button><button class="secondary" onclick="showTranscript('t3')">Pokaż transkrypcję</button><div class="transcript" id="t3">Przewodnik mówi: „Nasza trasa ma trzy etapy. Najpierw odwiedzimy punkt widokowy, potem muzeum soli, a na końcu targ rzemiosła. Przerwa na posiłek potrwa dwadzieścia minut. Jeśli spóźnimy się na targ, nie skrócimy wizyty w muzeum — skrócimy czas wolny przy punkcie widokowym”.</div></div>
+<div class="quiz" data-answer="c" data-points="1"><h3>Wyzwanie 12 • pamięć słuchowa</h3><p>Co grupa odwiedzi jako drugie?</p><div class="options"><label class="opt"><input type="radio" name="q12" value="a">Targ rzemiosła</label><label class="opt"><input type="radio" name="q12" value="b">Punkt widokowy</label><label class="opt"><input type="radio" name="q12" value="c">Muzeum soli</label><label class="opt"><input type="radio" name="q12" value="d">Restaurację</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-points="1"><h3>Wyzwanie 13 • rozumienie warunku</h3><p>Co zostanie skrócone, jeśli grupa spóźni się na targ?</p><div class="options"><label class="opt"><input type="radio" name="q13" value="a">Czas wolny przy punkcie widokowym.</label><label class="opt"><input type="radio" name="q13" value="b">Wizyta w muzeum soli.</label><label class="opt"><input type="radio" name="q13" value="c">Przerwa na posiłek.</label><label class="opt"><input type="radio" name="q13" value="d">Cała trasa.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div></div>
+
+<div class="card quiz" data-answer="d" data-points="2"><div class="tag">Wyzwanie 14 • logika formalna</div><h2>Nie dopowiadaj historii</h2><p>Wszystkie ekspedycje, które dotarły na wyspę A, zabrały próbki piasku. Ekspedycja „Kompas” zabrała próbki piasku. Co można stwierdzić?</p><div class="options">
+<label class="opt"><input type="radio" name="q14" value="a">Na pewno dotarła na wyspę A.</label><label class="opt"><input type="radio" name="q14" value="b">Na pewno nie dotarła na wyspę A.</label><label class="opt"><input type="radio" name="q14" value="c">Dotarła na każdą wyspę.</label><label class="opt"><input type="radio" name="q14" value="d">Nie da się ustalić, czy dotarła na wyspę A.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+
+<div class="card quiz" data-answer="b" data-points="1"><div class="tag">Wyzwanie 15 • rozumienie pojęć</div><h2>Fakt czy interpretacja?</h2><p>Zdanie: „Ślady na piasku dowodzą, że ptaki były na wyspie” — w kontekście nagrania jest:</p><div class="options"><label class="opt"><input type="radio" name="q15" value="a">Bezpośrednią obserwacją ptaków.</label><label class="opt"><input type="radio" name="q15" value="b">Wnioskiem opartym na dowodzie pośrednim.</label><label class="opt"><input type="radio" name="q15" value="c">Informacją sprzeczną z nagraniem.</label><label class="opt"><input type="radio" name="q15" value="d">Opisem pogody.</label></div><button onclick="check(this)">Sprawdź</button><div class="feedback"></div></div>
+
+<div class="card"><div class="tag">Finał • własna hipoteza</div><h2>Raport dla kolejnej wyprawy</h2><p>Wybierz jeden z poznanych krajów lub regionów. Napisz krótką notatkę (4–6 zdań): przedstaw ciekawostkę, wyjaśnij mechanizm zjawiska, a następnie dodaj jedno pytanie, na które trzeba zdobyć dodatkowe dane. Nie przedstawiaj przypuszczenia jako faktu.</p><textarea id="openAnswer" placeholder="Mój raport badacza…"></textarea><button onclick="saveOpen()">Zapisz raport</button><div class="feedback" id="openFeedback"></div><details><summary>Podpowiedź do dobrego raportu</summary>Użyj konstrukcji: „Wiadomo, że…”, „Może to oznaczać…”, „Nie wiemy jeszcze…”. Oddziel fakt od hipotezy i zaproponuj, jak można ją sprawdzić.</details></div>
+
+<div class="card"><h2>Podsumowanie ekspedycji</h2><p id="finalScore">Rozwiąż zadania, aby zobaczyć wynik.</p><button onclick="window.print()" class="secondary">Drukuj raport / zapisz jako PDF</button><button onclick="location.reload()">Rozpocznij ponownie</button><footer>Materiał edukacyjny. Nagrania są odczytywane przez funkcję syntezy mowy przeglądarki; dostępność głosu zależy od urządzenia. Fakty geograficzne: NASA Earth Observatory, JAXA, UNESCO oraz materiały informacyjne rządu Niderlandów.</footer></div>
+</main>
+<script>
+let points=0,done=new Set(),listened=new Set();
+function update(){document.getElementById('score').textContent='Punkty: '+points;let total=document.querySelectorAll('.quiz').length;document.getElementById('bar').style.width=(done.size/total*100)+'%';if(done.size===total)document.getElementById('finalScore').textContent='Ukończono wszystkie zadania! Wynik: '+points+' punktów. Sprawdź też swój raport badacza.';}
+function check(btn){let q=btn.closest('.quiz');if(q.dataset.done)return;let s=q.querySelector('input[type=radio]:checked');let f=q.querySelector('.feedback');if(!s){f.textContent='Najpierw wybierz odpowiedź.';f.className='feedback bad';return;}let ok=s.value===q.dataset.answer;if(ok){points+=Number(q.dataset.points||1);f.textContent='Dobrze! Odpowiedź zgodna z danymi.';f.className='feedback good';}else{f.textContent='Nie tym razem. Wróć do informacji i sprawdź, co rzeczywiście z nich wynika.';f.className='feedback bad';}q.dataset.done='1';q.querySelectorAll('input').forEach(x=>x.disabled=true);btn.disabled=true;done.add(q);update();}
+function checkText(btn){let q=btn.closest('.quiz'),v=q.querySelector('input[type=text]').value.trim().toLowerCase();let f=q.querySelector('.feedback');if(v!=='japan'){f.textContent='Sprawdź przesunięcie każdej litery o jedną pozycję wstecz.';f.className='feedback bad';return;}points+=2;f.textContent='Brawo — JAPAN.';f.className='feedback good';q.dataset.done='1';done.add(q);q.querySelector('input').disabled=true;btn.disabled=true;update();}
+function listen(id,btn){let texts={listen1:document.getElementById('t1').innerText,listen2:document.getElementById('t2').innerText,listen3:document.getElementById('t3').innerText};if(!('speechSynthesis'in window)){alert('Ta przeglądarka nie obsługuje odczytu. Otwórz transkrypcję.');return;}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(texts[id]);u.lang='pl-PL';u.rate=.88;u.onstart=()=>{listened.add(id);};speechSynthesis.speak(u);}
+function showTranscript(id){document.getElementById(id).style.display='block';}
+function saveOpen(){let t=document.getElementById('openAnswer').value.trim(),f=document.getElementById('openFeedback');if(t.length<80){f.textContent='Rozwiń raport — napisz przynajmniej 4 sensowne zdania.';f.className='feedback bad';}else{f.textContent='Raport zapisany w tej sesji. Sprawdź: fakt, wyjaśnienie, hipoteza i pytanie badawcze.';f.className='feedback good';}}
+</script></body></html>
